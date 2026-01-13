@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "bin": {
     "mcp-toolbox": "./dist/bin.js"
   },
@@ -14,8 +17,10 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsup src/bin.ts src/index.ts --format esm --target node18 --platform node --dts",
-    "typecheck": "tsc -p tsconfig.json --noEmit"
+    "build": "tsup src/bin.ts src/index.ts --format esm --target node20 --platform node --dts",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test:e2e": "vitest run tests/e2e",
+    "test:e2e:watch": "vitest watch tests/e2e"
   },
   "dependencies": {
     "@clack/prompts": "^0.11.0",
@@ -26,8 +31,10 @@
   },
   "devDependencies": {
     "@types/node": "^25.0.8",
+    "@vitest/ui": "^2.1.8",
     "tsup": "^8.5.1",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "vitest": "^2.1.8"
   }
 }
 

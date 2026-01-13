@@ -4,18 +4,22 @@
   "workspaces": [
     "packages/*"
   ],
-  "packageManager": "pnpm@10.28.0",
   "scripts": {
     "build": "turbo run build",
     "typecheck": "turbo run typecheck",
     "lint": "turbo run lint",
     "format": "turbo run format",
-    "dev": "turbo run dev"
+    "dev": "turbo run dev",
+    "test:e2e": "turbo run test:e2e"
   },
   "devDependencies": {
     "oxfmt": "^0.24.0",
     "oxlint": "^1.39.0",
     "turbo": "^2.7.4"
-  }
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=10.0.0"
+  },
+  "packageManager": "pnpm@10.28.0"
 }
-

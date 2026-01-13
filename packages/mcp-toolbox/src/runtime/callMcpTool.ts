@@ -31,7 +31,7 @@ export async function callMcpTool<T = unknown>(args: CallArgs): Promise<T> {
 }
 
 async function loadConfigForRuntime(): Promise<ToolboxConfig> {
-  const explicit = process.env.MCP_TOOLBOX_CONFIG;
+  const explicit = process.env["MCP_TOOLBOX_CONFIG"];
   const configPath = explicit ? explicit : defaultConfigPath();
   if (!(await fileExists(configPath))) {
     throw new Error(

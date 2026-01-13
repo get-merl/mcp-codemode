@@ -23,7 +23,7 @@ export class RegistryClient {
   private readonly userAgent?: string;
 
   constructor(opts: RegistryClientOptions = {}) {
-    this.baseUrl = (opts.baseUrl ?? process.env.MCP_REGISTRY_BASE_URL ?? "https://registry.modelcontextprotocol.io").replace(
+    this.baseUrl = (opts.baseUrl ?? process.env["MCP_REGISTRY_BASE_URL"] ?? "https://registry.modelcontextprotocol.io").replace(
       /\/+$/,
       ""
     );

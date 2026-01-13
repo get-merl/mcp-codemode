@@ -3,7 +3,7 @@ import {
   defaultConfigPath,
   fileExists,
   loadToolboxConfig
-} from "./chunk-E6C7227K.js";
+} from "./chunk-3LIBGVFP.js";
 
 // src/runtime/callMcpTool.ts
 import { Client } from "@modelcontextprotocol/sdk/client";
@@ -27,7 +27,7 @@ async function callMcpTool(args) {
   return res;
 }
 async function loadConfigForRuntime() {
-  const explicit = process.env.MCP_TOOLBOX_CONFIG;
+  const explicit = process.env["MCP_TOOLBOX_CONFIG"];
   const configPath = explicit ? explicit : defaultConfigPath();
   if (!await fileExists(configPath)) {
     throw new Error(

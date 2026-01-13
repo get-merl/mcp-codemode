@@ -2,6 +2,7 @@ export function toCamelCase(name: string) {
   const parts = name.split(/[^a-zA-Z0-9]+/g).filter(Boolean);
   if (parts.length === 0) return "tool";
   const [first, ...rest] = parts;
+  if (!first) return "tool";
   return (
     first.toLowerCase() +
     rest.map((p) => p.slice(0, 1).toUpperCase() + p.slice(1).toLowerCase()).join("")
