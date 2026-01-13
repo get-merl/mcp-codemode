@@ -1,0 +1,45 @@
+name: mcp-toolbox-sync
+
+on:
+  schedule:
+    - cron: "17 3 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install
+        run: npm install --no-audit --no-fund
+
+      - name: Build CLI
+        run: npm run build
+
+      - name: Run sync
+        env:
+          MCP_TOOLBOX_CONFIG: mcp-toolbox.config.ts
+        run: node packages/mcp-toolbox/dist/bin.js sync --yes --no-format
+
+      - name: Create PR if changes
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "chore(toolbox): sync generated MCP wrappers"
+          title: "chore(toolbox): sync generated MCP wrappers"
+          body: |
+            Automated update: refreshed MCP snapshots and regenerated wrappers.
+            - Ran: `mcp-toolbox sync --yes`
+          branch: "chore/mcp-toolbox-sync"
+          delete-branch: true
+

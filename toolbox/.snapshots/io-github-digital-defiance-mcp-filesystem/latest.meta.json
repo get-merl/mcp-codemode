@@ -1,0 +1,10 @@
+{
+  "retrievedAt": "2026-01-13T23:10:43.830Z",
+  "registryId": "io.github.Digital-Defiance/mcp-filesystem",
+  "channel": "latest",
+  "transport": {
+    "kind": "stdio"
+  },
+  "serverReportedVersion": "0.1.9",
+  "schemaFingerprint": "a3b203a6d885f2d93fed7921626082b6ce4bb2f6b6e056c62fa3b4e33dd269d2"
+}

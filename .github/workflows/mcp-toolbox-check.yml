@@ -1,0 +1,30 @@
+name: mcp-toolbox-check
+
+on:
+  pull_request:
+  push:
+    branches: ["main"]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install
+        run: npm install --no-audit --no-fund
+
+      - name: Build CLI
+        run: npm run build
+
+      - name: Verify toolbox is in sync
+        env:
+          MCP_TOOLBOX_CONFIG: mcp-toolbox.config.ts
+        run: node packages/mcp-toolbox/dist/bin.js sync --check --json
+

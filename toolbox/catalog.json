@@ -1,0 +1,60 @@
+{
+  "generatedAt": "2026-01-13T23:10:43.840Z",
+  "servers": [
+    {
+      "serverSlug": "io-github-digital-defiance-mcp-filesystem",
+      "registryId": "io.github.Digital-Defiance/mcp-filesystem",
+      "version": "0.1.9",
+      "tools": [
+        {
+          "name": "fs_batch_operations",
+          "description": "Execute multiple filesystem operations atomically"
+        },
+        {
+          "name": "fs_watch_directory",
+          "description": "Watch directory for filesystem changes"
+        },
+        {
+          "name": "fs_get_watch_events",
+          "description": "Get accumulated watch events"
+        },
+        {
+          "name": "fs_stop_watch",
+          "description": "Stop watching a directory"
+        },
+        {
+          "name": "fs_search_files",
+          "description": "Search for files by name, content, or metadata"
+        },
+        {
+          "name": "fs_build_index",
+          "description": "Build file index for fast searching"
+        },
+        {
+          "name": "fs_create_symlink",
+          "description": "Create symbolic links"
+        },
+        {
+          "name": "fs_compute_checksum",
+          "description": "Compute file checksums"
+        },
+        {
+          "name": "fs_verify_checksum",
+          "description": "Verify file checksums"
+        },
+        {
+          "name": "fs_analyze_disk_usage",
+          "description": "Analyze disk usage"
+        },
+        {
+          "name": "fs_copy_directory",
+          "description": "Copy directories recursively"
+        },
+        {
+          "name": "fs_sync_directory",
+          "description": "Sync directories (copy only newer or missing files)"
+        }
+      ]
+    }
+  ]
+}

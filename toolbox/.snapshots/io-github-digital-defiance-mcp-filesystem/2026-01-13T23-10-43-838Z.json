@@ -1,0 +1,232 @@
+{
+  "serverName": "io.github.Digital-Defiance/mcp-filesystem",
+  "version": "0.1.9",
+  "retrievedAt": "2026-01-13T23:10:43.830Z",
+  "transport": {
+    "kind": "stdio"
+  },
+  "tools": [
+    {
+      "name": "fs_batch_operations",
+      "description": "Execute multiple filesystem operations atomically",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "operations": {
+            "type": "string"
+          },
+          "atomic": {
+            "type": "string"
+          }
+        },
+        "required": ["operations"]
+      }
+    },
+    {
+      "name": "fs_watch_directory",
+      "description": "Watch directory for filesystem changes",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "recursive": {
+            "type": "string"
+          },
+          "filters": {
+            "type": "string"
+          }
+        },
+        "required": ["path"]
+      }
+    },
+    {
+      "name": "fs_get_watch_events",
+      "description": "Get accumulated watch events",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "sessionId": {
+            "type": "string"
+          },
+          "clear": {
+            "type": "string"
+          }
+        },
+        "required": ["sessionId"]
+      }
+    },
+    {
+      "name": "fs_stop_watch",
+      "description": "Stop watching a directory",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "sessionId": {
+            "type": "string"
+          }
+        },
+        "required": ["sessionId"]
+      }
+    },
+    {
+      "name": "fs_search_files",
+      "description": "Search for files by name, content, or metadata",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string"
+          },
+          "searchType": {
+            "type": "string"
+          },
+          "fileTypes": {
+            "type": "string"
+          },
+          "minSize": {
+            "type": "string"
+          },
+          "maxSize": {
+            "type": "string"
+          },
+          "modifiedAfter": {
+            "type": "string"
+          },
+          "useIndex": {
+            "type": "string"
+          }
+        },
+        "required": ["query"]
+      }
+    },
+    {
+      "name": "fs_build_index",
+      "description": "Build file index for fast searching",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "includeContent": {
+            "type": "string"
+          }
+        },
+        "required": ["path"]
+      }
+    },
+    {
+      "name": "fs_create_symlink",
+      "description": "Create symbolic links",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "linkPath": {
+            "type": "string"
+          },
+          "targetPath": {
+            "type": "string"
+          }
+        },
+        "required": ["linkPath", "targetPath"]
+      }
+    },
+    {
+      "name": "fs_compute_checksum",
+      "description": "Compute file checksums",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "algorithm": {
+            "type": "string"
+          }
+        },
+        "required": ["path"]
+      }
+    },
+    {
+      "name": "fs_verify_checksum",
+      "description": "Verify file checksums",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "checksum": {
+            "type": "string"
+          },
+          "algorithm": {
+            "type": "string"
+          }
+        },
+        "required": ["path", "checksum"]
+      }
+    },
+    {
+      "name": "fs_analyze_disk_usage",
+      "description": "Analyze disk usage",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "depth": {
+            "type": "string"
+          },
+          "groupByType": {
+            "type": "string"
+          }
+        },
+        "required": ["path"]
+      }
+    },
+    {
+      "name": "fs_copy_directory",
+      "description": "Copy directories recursively",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string"
+          },
+          "destination": {
+            "type": "string"
+          },
+          "preserveMetadata": {
+            "type": "string"
+          },
+          "exclusions": {
+            "type": "string"
+          }
+        },
+        "required": ["source", "destination"]
+      }
+    },
+    {
+      "name": "fs_sync_directory",
+      "description": "Sync directories (copy only newer or missing files)",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string"
+          },
+          "destination": {
+            "type": "string"
+          },
+          "exclusions": {
+            "type": "string"
+          }
+        },
+        "required": ["source", "destination"]
+      }
+    }
+  ]
+}
