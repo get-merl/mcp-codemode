@@ -1,5 +1,5 @@
 import { Command } from "commander";
-import { defaultConfigPath } from "../lib/paths.js";
+import { defaultConfigPath } from "mcp-toolbox-runtime";
 
 export function removeCommand() {
   const cmd = new Command("remove")

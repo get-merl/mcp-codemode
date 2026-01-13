@@ -4,8 +4,7 @@ import { spawn } from "node:child_process";
 import { Command } from "commander";
 import { confirm, isCancel, spinner } from "@clack/prompts";
 
-import { defaultConfigPath } from "../lib/paths.js";
-import { loadToolboxConfig, fileExists } from "../lib/loadConfig.js";
+import { defaultConfigPath, loadToolboxConfig, fileExists } from "mcp-toolbox-runtime";
 import { slugifyServerName } from "../lib/slug.js";
 
 import { introspectServer } from "../introspect/introspectServer.js";

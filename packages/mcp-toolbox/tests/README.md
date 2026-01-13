@@ -4,21 +4,21 @@ This directory contains end-to-end tests that validate ideal business behaviors 
 
 ## Structure
 
-- `e2e/` - End-to-end test files organized by feature
+- `*.test.ts` - Test files organized by feature
 - `fixtures/` - Mock MCP servers and test data
 - `helpers/` - Test utilities and helper functions
 
 ## Running Tests
 
 ```bash
-# Run all e2e tests
-pnpm test:e2e
+# Run all tests
+pnpm test
 
 # Run tests in watch mode
-pnpm test:e2e:watch
+pnpm test:watch
 
 # Run specific test file
-pnpm test:e2e tests/e2e/init.test.ts
+pnpm test tests/init.test.ts
 ```
 
 ## Test Philosophy
@@ -31,20 +31,21 @@ These tests validate **ideal behaviors**, not just current implementation. Tests
 
 ## Test Coverage
 
-### Critical Flows
-- ✅ Initialization (`init` command)
-- ✅ Server management (`add`/`remove` commands)
-- ✅ Sync flow (core functionality)
-- ✅ Code generation
-- ✅ Diff and reporting
-- ✅ Check flow (`sync --check`)
-- ✅ Registry interaction
-- ✅ Transport selection
-- ✅ Introspection
-- ✅ Runtime execution
-- ✅ Error handling
-- ✅ Data integrity
-- ✅ End-to-end happy path
+Tests are organized by feature/command:
+
+- ✅ `init.test.ts` - Initialization command
+- ✅ `server-management.test.ts` - Add/remove server commands
+- ✅ `sync.test.ts` - Core sync functionality
+- ✅ `codegen.test.ts` - TypeScript code generation
+- ✅ `diff.test.ts` - Diff and reporting
+- ✅ `check.test.ts` - `sync --check` command
+- ✅ `registry.test.ts` - Registry interaction
+- ✅ `transport.test.ts` - Transport selection
+- ✅ `introspect.test.ts` - Server introspection
+- ✅ `runtime.test.ts` - Generated wrapper execution
+- ✅ `error-handling.test.ts` - Error handling and recovery
+- ✅ `integrity.test.ts` - Data integrity and atomicity
+- ✅ `full-flow.test.ts` - End-to-end happy path
 
 ## Test Helpers
 

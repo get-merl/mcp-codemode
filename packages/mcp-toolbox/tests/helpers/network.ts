@@ -1,4 +1,4 @@
-import type { RegistryServerListResponse, RegistryServerResponse } from "../../src/registry/types.js";
+import type { RegistryServerListResponse, RegistryServerResponse } from "mcp-toolbox-runtime";
 
 export class MockRegistryServer {
   private servers: Map<string, RegistryServerResponse> = new Map();

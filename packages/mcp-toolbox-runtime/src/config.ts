@@ -28,4 +28,3 @@ export type ToolboxConfig = {
     interactive?: boolean;
   };
 };
-

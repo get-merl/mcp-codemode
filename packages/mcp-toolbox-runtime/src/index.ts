@@ -2,10 +2,10 @@ import { Client } from "@modelcontextprotocol/sdk/client";
 import { StdioClientTransport } from "@modelcontextprotocol/sdk/client/stdio.js";
 import { StreamableHTTPClientTransport } from "@modelcontextprotocol/sdk/client/streamableHttp.js";
 import type { Transport } from "@modelcontextprotocol/sdk/shared/transport.js";
-import type { ToolboxConfig } from "../lib/config.js";
-import { defaultConfigPath } from "../lib/paths.js";
-import { loadToolboxConfig, fileExists } from "../lib/loadConfig.js";
-import { RegistryClient } from "../registry/client.js";
+import type { ToolboxConfig } from "./config.js";
+import { defaultConfigPath } from "./paths.js";
+import { loadToolboxConfig, fileExists } from "./loadConfig.js";
+import { RegistryClient } from "./registry/client.js";
 
 type CallArgs = { registryId: string; toolName: string; input: unknown };
 
@@ -20,7 +20,7 @@ export async function callMcpTool<T = unknown>(args: CallArgs): Promise<T> {
   let cached = clientCache.get(cacheKey);
   if (!cached) {
     const transport = await chooseTransportRuntime(config, serverCfg);
-    const client = new Client({ name: "mcp-toolbox-runtime", version: "0.0.1" });
+    const client = new Client({ name: "mcp-toolbox-runtime", version: "0.1.0" });
     await client.connect(transport);
     cached = { client, transport };
     clientCache.set(cacheKey, cached);
@@ -122,3 +122,16 @@ async function chooseTransportRuntime(config: ToolboxConfig, serverCfg: ToolboxC
   );
 }
 
+// Export types for users
+export type { ToolboxConfig, ToolboxServerConfig } from "./config.js";
+
+// Export shared utilities used by CLI
+export { defaultConfigPath, defaultOutDir, resolveFromCwd } from "./paths.js";
+export { loadToolboxConfig, fileExists } from "./loadConfig.js";
+export { RegistryClient } from "./registry/client.js";
+export type {
+  RegistryServerListResponse,
+  RegistryServerResponse,
+  RegistryMetadata,
+  RegistryServerJson,
+} from "./registry/types.js";

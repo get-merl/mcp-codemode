@@ -1,6 +1,6 @@
 import fs from "node:fs/promises";
 import path from "node:path";
-import type { ToolboxConfig } from "./config.js";
+import type { ToolboxConfig } from "mcp-toolbox-runtime";
 
 export async function ensureDir(dirPath: string) {
   await fs.mkdir(dirPath, { recursive: true });

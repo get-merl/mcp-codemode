@@ -1,7 +1,6 @@
 import { Command } from "commander";
 import { spinner } from "@clack/prompts";
-import { defaultConfigPath, defaultOutDir } from "../lib/paths.js";
-import { loadToolboxConfig } from "../lib/loadConfig.js";
+import { defaultConfigPath, defaultOutDir, loadToolboxConfig } from "mcp-toolbox-runtime";
 import { slugifyServerName } from "../lib/slug.js";
 import { introspectServer } from "../introspect/introspectServer.js";
 import { writeLatestSnapshot } from "../snapshot/writeSnapshot.js";

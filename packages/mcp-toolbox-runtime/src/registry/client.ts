@@ -77,4 +77,3 @@ export class RegistryClient {
     return (await res.json()) as T;
   }
 }
-

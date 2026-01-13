@@ -1,6 +1,6 @@
 import { Command } from "commander";
 import { spinner } from "@clack/prompts";
-import { RegistryClient } from "../registry/client.js";
+import { RegistryClient } from "mcp-toolbox-runtime";
 
 export function registryCommand() {
   const cmd = new Command("registry").description("Query the MCP registry");

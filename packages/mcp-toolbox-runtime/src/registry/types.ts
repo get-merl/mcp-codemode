@@ -25,4 +25,3 @@ export type RegistryServerListResponse = {
   metadata: RegistryMetadata;
   servers: RegistryServerResponse[] | null;
 };
-

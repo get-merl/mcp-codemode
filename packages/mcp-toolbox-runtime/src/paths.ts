@@ -11,4 +11,3 @@ export function defaultConfigPath() {
 export function defaultOutDir() {
   return resolveFromCwd("toolbox");
 }
-

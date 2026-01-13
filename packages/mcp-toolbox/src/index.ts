@@ -1,3 +1,2 @@
-export type { ToolboxConfig, ToolboxServerConfig } from "./lib/config.js";
-export { callMcpTool } from "./runtime/callMcpTool.js";
+export type { ToolboxConfig, ToolboxServerConfig } from "mcp-toolbox-runtime";
 

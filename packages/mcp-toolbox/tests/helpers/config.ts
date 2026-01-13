@@ -1,6 +1,6 @@
 import fs from "node:fs/promises";
 import path from "node:path";
-import type { ToolboxConfig } from "../../src/lib/config.js";
+import type { ToolboxConfig } from "mcp-toolbox-runtime";
 import { writeFileAtomic } from "./fs.js";
 
 export async function createTestConfig(

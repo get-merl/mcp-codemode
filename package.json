@@ -10,7 +10,7 @@
     "lint": "turbo run lint",
     "format": "turbo run format",
     "dev": "turbo run dev",
-    "test:e2e": "turbo run test:e2e"
+    "test": "turbo run test"
   },
   "devDependencies": {
     "oxfmt": "^0.24.0",

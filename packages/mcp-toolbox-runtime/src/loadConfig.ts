@@ -19,4 +19,3 @@ export async function loadToolboxConfig(configPath: string): Promise<ToolboxConf
   return config as ToolboxConfig;
 }
 
-

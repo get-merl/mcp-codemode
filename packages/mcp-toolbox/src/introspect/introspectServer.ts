@@ -2,8 +2,8 @@ import { Client } from "@modelcontextprotocol/sdk/client";
 import { StdioClientTransport } from "@modelcontextprotocol/sdk/client/stdio.js";
 import { StreamableHTTPClientTransport } from "@modelcontextprotocol/sdk/client/streamableHttp.js";
 import type { Transport } from "@modelcontextprotocol/sdk/shared/transport.js";
-import type { ToolboxServerConfig } from "../lib/config.js";
-import { RegistryClient } from "../registry/client.js";
+import type { ToolboxServerConfig } from "mcp-toolbox-runtime";
+import { RegistryClient } from "mcp-toolbox-runtime";
 import type { IntrospectedServer, McpToolDefinition } from "./types.js";
 
 export async function introspectServer(args: {
