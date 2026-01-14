@@ -23,19 +23,23 @@ import { generateServerTs } from "../codegen/ts/generateServer.js";
 import { writeCatalog } from "../codegen/catalog.js";
 import { writeToolboxReadme } from "../codegen/readme.js";
 
-const DEBUG_LOG_PATH = "/Users/shubhankarsharan/Desktop/mcp-toolbox/.cursor/debug.log";
-async function debugLog(payload: any) {
-  try {
-    await fs.appendFile(DEBUG_LOG_PATH, JSON.stringify(payload) + "\n", "utf-8");
-  } catch {}
-}
-
 export function syncCommand() {
+  // Defensive handling of defaultConfigPath to ensure it always returns a string
+  let defaultConfigPathValue: string;
+  try {
+    defaultConfigPathValue = defaultConfigPath();
+    if (!defaultConfigPathValue || typeof defaultConfigPathValue !== "string") {
+      defaultConfigPathValue = "mcp-toolbox.config.ts";
+    }
+  } catch (err) {
+    defaultConfigPathValue = "mcp-toolbox.config.ts";
+  }
+
   const cmd = new Command("sync")
     .description(
       "Introspect servers, snapshot schemas, and regenerate wrappers"
     )
-    .option("--config <path>", "Path to config file", defaultConfigPath())
+    .option("--config <path>", "Path to config file", defaultConfigPathValue)
     .option("--yes", "Run non-interactively (accept breaking changes)", false)
     .option(
       "--check",
@@ -44,9 +48,8 @@ export function syncCommand() {
     )
     .option("--no-format", "Skip formatting generated output with oxfmt")
     .action(async (opts) => {
-      // #region agent log
-      await debugLog({location: "sync.ts:39", message: "sync action entry", data: { configPath: opts.config }, timestamp: Date.now(), sessionId: "debug-session", runId: "run1", hypothesisId: "A"});
-      // #endregion
+      let p: ReturnType<typeof progress> | undefined;
+      let progressStarted = false;
       try {
         const configPath: string = opts.config;
         const nonInteractive: boolean = Boolean(opts.yes);
@@ -55,37 +58,19 @@ export function syncCommand() {
 
         if (!(await fileExists(configPath))) {
           const errorMsg = `Config file not found at ${configPath}. Run 'mcp-toolbox init' first.`;
-          console.error(errorMsg);
+          log.error(errorMsg);
           process.exitCode = 1;
           return;
         }
 
         const config = await loadToolboxConfig(configPath);
-        // #region agent log
-        fetch(
-          "http://127.0.0.1:7243/ingest/606b7f00-1f79-4b8d-bf62-9515bf8b961d",
-          {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              location: "sync.ts:53",
-              message: "config loaded",
-              data: {
-                serversCount: config.servers?.length,
-                servers: config.servers?.map((s: any) => ({
-                  name: s?.name,
-                  hasName: !!s?.name,
-                })),
-              },
-              timestamp: Date.now(),
-              sessionId: "debug-session",
-              runId: "run1",
-              hypothesisId: "A,E",
-            }),
-          }
-        ).catch(() => {});
-        // #endregion
-        const outDir = config.generation.outDir || "toolbox";
+        // Resolve outDir relative to config file location, not cwd
+        const resolvedConfigPath = path.resolve(configPath);
+        const configDir = path.dirname(resolvedConfigPath);
+        const outDir = path.resolve(
+          configDir,
+          config.generation.outDir || "toolbox"
+        );
 
         const entriesForCatalog: Array<{
           serverSlug: string;
@@ -108,147 +93,44 @@ export function syncCommand() {
         const failedServers: Array<{ serverName: string; error: string }> = [];
 
         const totalServers = config.servers.length;
-        const p = progress({ max: totalServers });
+        p = progress({ max: totalServers });
+        let completedCount = 0;
 
         if (totalServers > 0) {
           p.start("Syncing servers...");
+          progressStarted = true;
 
           for (let i = 0; i < config.servers.length; i++) {
             const serverCfg = config.servers[i];
-            // #region agent log
-            fetch(
-              "http://127.0.0.1:7243/ingest/606b7f00-1f79-4b8d-bf62-9515bf8b961d",
-              {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                  location: "sync.ts:82",
-                  message: "server loop entry",
-                  data: {
-                    index: i,
-                    serverCfg: serverCfg
-                      ? {
-                          name: serverCfg.name,
-                          hasName: !!serverCfg.name,
-                          transportType: serverCfg.transport?.type,
-                        }
-                      : null,
-                  },
-                  timestamp: Date.now(),
-                  sessionId: "debug-session",
-                  runId: "run1",
-                  hypothesisId: "A,E",
-                }),
-              }
-            ).catch(() => {});
-            // #endregion
             if (!serverCfg) continue;
 
             const current = i + 1;
-            // #region agent log
-            fetch(
-              "http://127.0.0.1:7243/ingest/606b7f00-1f79-4b8d-bf62-9515bf8b961d",
-              {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                  location: "sync.ts:87",
-                  message: "before slugifyServerName",
-                  data: {
-                    serverName: serverCfg.name,
-                    serverNameType: typeof serverCfg.name,
-                    isUndefined: serverCfg.name === undefined,
-                    isNull: serverCfg.name === null,
-                  },
-                  timestamp: Date.now(),
-                  sessionId: "debug-session",
-                  runId: "run1",
-                  hypothesisId: "A",
-                }),
-              }
-            ).catch(() => {});
-            // #endregion
+            // Validate server name before using it
+            if (!serverCfg.name || typeof serverCfg.name !== "string") {
+              throw new Error(
+                `Server at index ${i} has invalid or missing name: ${serverCfg.name}`
+              );
+            }
             const serverSlug = slugifyServerName(serverCfg.name);
-            // #region agent log
-            fetch(
-              "http://127.0.0.1:7243/ingest/606b7f00-1f79-4b8d-bf62-9515bf8b961d",
-              {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                  location: "sync.ts:87",
-                  message: "after slugifyServerName",
-                  data: { serverSlug },
-                  timestamp: Date.now(),
-                  sessionId: "debug-session",
-                  runId: "run1",
-                  hypothesisId: "A",
-                }),
-              }
-            ).catch(() => {});
-            // #endregion
             const baseDir = path.join(outDir, ".snapshots", serverSlug);
             const latestJsonPath = path.join(baseDir, "latest.json");
             const latestMetaPath = path.join(baseDir, "latest.meta.json");
 
             try {
-              p.message(
-                `Processing ${serverCfg.name} (${current}/${totalServers})...`
-              );
-
               const oldSnap = await readJsonIfExists<any>(latestJsonPath);
               const oldMeta = await readJsonIfExists<SnapshotMeta>(
                 latestMetaPath
               );
 
-              p.message(`Introspecting ${serverCfg.name}...`);
-              // #region agent log
-              fetch(
-                "http://127.0.0.1:7243/ingest/606b7f00-1f79-4b8d-bf62-9515bf8b961d",
-                {
-                  method: "POST",
-                  headers: { "Content-Type": "application/json" },
-                  body: JSON.stringify({
-                    location: "sync.ts:102",
-                    message: "before introspectServer",
-                    data: {
-                      serverName: serverCfg.name,
-                      allowStdioExec: config.security.allowStdioExec,
-                    },
-                    timestamp: Date.now(),
-                    sessionId: "debug-session",
-                    runId: "run1",
-                    hypothesisId: "B",
-                  }),
-                }
-              ).catch(() => {});
-              // #endregion
-              const newSnap = await introspectServer({
-                serverConfig: serverCfg,
-                allowStdioExec: config.security.allowStdioExec,
-              });
-              // #region agent log
-              fetch(
-                "http://127.0.0.1:7243/ingest/606b7f00-1f79-4b8d-bf62-9515bf8b961d",
-                {
-                  method: "POST",
-                  headers: { "Content-Type": "application/json" },
-                  body: JSON.stringify({
-                    location: "sync.ts:106",
-                    message: "after introspectServer",
-                    data: {
-                      serverName: newSnap?.serverName,
-                      toolsCount: newSnap?.tools?.length,
-                      transport: newSnap?.transport,
-                    },
-                    timestamp: Date.now(),
-                    sessionId: "debug-session",
-                    runId: "run1",
-                    hypothesisId: "B,C",
-                  }),
-                }
-              ).catch(() => {});
-              // #endregion
+              let newSnap;
+              try {
+                newSnap = await introspectServer({
+                  serverConfig: serverCfg,
+                  allowStdioExec: config.security.allowStdioExec,
+                });
+              } catch (introspectError) {
+                throw introspectError;
+              }
 
               const newFingerprintCandidate = fingerprintFromTools(newSnap);
               const oldFingerprint = oldMeta?.schemaFingerprint;
@@ -267,9 +149,7 @@ export function syncCommand() {
                 continue;
               }
 
-              p.message(
-                `Processing ${serverCfg.name} (${newSnap.tools.length} tools)...`
-              );
+              // Continue processing (code generation is fast, no status needed)
 
               // Diff/report only (we never patch generated output; we always regenerate).
               if (oldSnap) {
@@ -284,49 +164,9 @@ export function syncCommand() {
 
                   const reportsDir = path.join(outDir, ".reports", serverSlug);
                   await fs.mkdir(reportsDir, { recursive: true });
-                  // #region agent log
-                  const dateObj = new Date();
-                  const isoString = dateObj.toISOString();
-                  fetch(
-                    "http://127.0.0.1:7243/ingest/606b7f00-1f79-4b8d-bf62-9515bf8b961d",
-                    {
-                      method: "POST",
-                      headers: { "Content-Type": "application/json" },
-                      body: JSON.stringify({
-                        location: "sync.ts:142",
-                        message: "before report filename replace",
-                        data: {
-                          isoString,
-                          isoStringType: typeof isoString,
-                          isUndefined: isoString === undefined,
-                        },
-                        timestamp: Date.now(),
-                        sessionId: "debug-session",
-                        runId: "run1",
-                        hypothesisId: "D",
-                      }),
-                    }
-                  ).catch(() => {});
-                  // #endregion
-                  const reportName = `${isoString.replace(/[:.]/g, "-")}.md`;
-                  // #region agent log
-                  fetch(
-                    "http://127.0.0.1:7243/ingest/606b7f00-1f79-4b8d-bf62-9515bf8b961d",
-                    {
-                      method: "POST",
-                      headers: { "Content-Type": "application/json" },
-                      body: JSON.stringify({
-                        location: "sync.ts:144",
-                        message: "after report filename replace",
-                        data: { reportName },
-                        timestamp: Date.now(),
-                        sessionId: "debug-session",
-                        runId: "run1",
-                        hypothesisId: "D",
-                      }),
-                    }
-                  ).catch(() => {});
-                  // #endregion
+                  const reportName = `${new Date()
+                    .toISOString()
+                    .replace(/[:.]/g, "-")}.md`;
                   await fs.writeFile(
                     path.join(reportsDir, reportName),
                     report,
@@ -344,7 +184,7 @@ export function syncCommand() {
                 }
               }
 
-              p.message(`Generating code for ${serverCfg.name}...`);
+              // Generate code
               await writeLatestSnapshot({
                 outDir,
                 serverSlug,
@@ -368,69 +208,59 @@ export function syncCommand() {
                 serverName: serverCfg.name,
                 toolsCount: newSnap.tools.length,
               });
+              completedCount++;
               p.advance(
                 1,
-                `${serverCfg.name}: Done (${newSnap.tools.length} tools)`
+                `✓ ${serverCfg.name} (${newSnap.tools.length} tools)`
               );
             } catch (error: unknown) {
-              // #region agent log
-              fetch(
-                "http://127.0.0.1:7243/ingest/606b7f00-1f79-4b8d-bf62-9515bf8b961d",
-                {
-                  method: "POST",
-                  headers: { "Content-Type": "application/json" },
-                  body: JSON.stringify({
-                    location: "sync.ts:190",
-                    message: "error caught in server loop",
-                    data: {
-                      serverName: serverCfg.name,
-                      errorMessage:
-                        error instanceof Error ? error.message : String(error),
-                      errorStack:
-                        error instanceof Error ? error.stack : undefined,
-                      errorType: error?.constructor?.name,
-                    },
-                    timestamp: Date.now(),
-                    sessionId: "debug-session",
-                    runId: "run1",
-                    hypothesisId: "A,B,C,D",
-                  }),
-                }
-              ).catch(() => {});
-              // #endregion
               const errorMsg =
                 error instanceof Error ? error.message : String(error);
               failedServers.push({
                 serverName: serverCfg.name,
                 error: errorMsg,
               });
-              p.advance(1, `${serverCfg.name}: Failed`);
+              completedCount++;
+              p.advance(1, `✗ ${serverCfg.name}: Failed`);
             }
           }
 
-          p.stop("Sync complete");
+          // Stop progress bar with summary message (replaces redundant "Complete" step)
+          if (progressStarted) {
+            if (!checkOnly) {
+              if (failedServers.length > 0) {
+                p.stop(
+                  `✗ ${failedServers.length} server${
+                    failedServers.length === 1 ? "" : "s"
+                  } failed`
+                );
+              } else if (successfulServers.length > 0) {
+                const toolsCount = successfulServers.reduce(
+                  (sum, s) => sum + s.toolsCount,
+                  0
+                );
+                p.stop(
+                  `Synced ${successfulServers.length} server${
+                    successfulServers.length === 1 ? "" : "s"
+                  } (${toolsCount} tool${toolsCount === 1 ? "" : "s"} total)`
+                );
+              } else {
+                p.stop();
+              }
+            } else {
+              // Check-only mode: show sync status
+              if (anyOutOfSync) {
+                p.stop("Out of sync");
+              } else {
+                p.stop("Up to date");
+              }
+            }
+            progressStarted = false;
+          }
         }
 
-        // Display summary
+        // Display detailed summary (only for errors in non-check mode)
         if (!checkOnly) {
-          const totalProcessed =
-            successfulServers.length + failedServers.length;
-          if (totalProcessed > 0) {
-            log.info(
-              `Processed ${totalProcessed} server${
-                totalProcessed === 1 ? "" : "s"
-              }`
-            );
-          }
-
-          if (successfulServers.length > 0) {
-            log.success(
-              `${successfulServers.length} server${
-                successfulServers.length === 1 ? "" : "s"
-              } synced successfully`
-            );
-          }
-
           if (failedServers.length > 0) {
             log.error(
               `${failedServers.length} server${
@@ -483,8 +313,12 @@ export function syncCommand() {
           await tryFormatWithOxfmt(outDir);
         }
       } catch (error: unknown) {
+        // Stop progress bar if it was started
+        if (p && progressStarted) {
+          p.stop("Sync failed");
+        }
         const errorMsg = error instanceof Error ? error.message : String(error);
-        console.error(errorMsg);
+        log.error(errorMsg);
         process.exitCode = 1;
       }
     });

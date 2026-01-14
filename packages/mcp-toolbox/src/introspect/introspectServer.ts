@@ -5,53 +5,96 @@ import type { Transport } from "@modelcontextprotocol/sdk/shared/transport.js";
 import type { ToolboxServerConfig } from "mcp-toolbox-runtime";
 import type { IntrospectedServer, McpToolDefinition } from "./types.js";
 
+type IntrospectionState =
+  | { stage: "initializing" }
+  | { stage: "creating-transport" }
+  | { stage: "connecting"; transport: Transport }
+  | { stage: "connected"; transport: Transport; client: Client }
+  | { stage: "listing-tools"; transport: Transport; client: Client }
+  | { stage: "completed"; tools: McpToolDefinition[] }
+  | { stage: "error"; error: Error };
+
 export async function introspectServer(args: {
   serverConfig: ToolboxServerConfig;
   allowStdioExec: boolean;
 }): Promise<IntrospectedServer> {
-  // #region agent log
-  fetch('http://127.0.0.1:7243/ingest/606b7f00-1f79-4b8d-bf62-9515bf8b961d',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'introspectServer.ts:8',message:'introspectServer entry',data:{serverName:args.serverConfig.name,transportType:args.serverConfig.transport?.type},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'B'})}).catch(()=>{});
-  // #endregion
   const serverName = args.serverConfig.name;
-
-  const transport = await chooseTransport({
-    serverConfig: args.serverConfig,
-    allowStdioExec: args.allowStdioExec,
-  });
-  // #region agent log
-  fetch('http://127.0.0.1:7243/ingest/606b7f00-1f79-4b8d-bf62-9515bf8b961d',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'introspectServer.ts:17',message:'after chooseTransport',data:{transportConstructor:transport?.constructor?.name},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'B'})}).catch(()=>{});
-  // #endregion
-
-  const client = new Client({ name: "mcp-toolbox", version: "0.0.1" });
+  let state: IntrospectionState = { stage: "initializing" };
+  let transport: Transport | null = null;
+  let client: Client | null = null;
 
   try {
-    // #region agent log
-    fetch('http://127.0.0.1:7243/ingest/606b7f00-1f79-4b8d-bf62-9515bf8b961d',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'introspectServer.ts:22',message:'before client.connect',data:{},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'B'})}).catch(()=>{});
-    // #endregion
-    await client.connect(transport);
-    // #region agent log
-    fetch('http://127.0.0.1:7243/ingest/606b7f00-1f79-4b8d-bf62-9515bf8b961d',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'introspectServer.ts:22',message:'after client.connect',data:{},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'B'})}).catch(()=>{});
-    // #endregion
-    // #region agent log
-    fetch('http://127.0.0.1:7243/ingest/606b7f00-1f79-4b8d-bf62-9515bf8b961d',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'introspectServer.ts:23',message:'before client.listTools',data:{},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'B'})}).catch(()=>{});
-    // #endregion
-    const toolsResult = await client.listTools();
-    // #region agent log
-    fetch('http://127.0.0.1:7243/ingest/606b7f00-1f79-4b8d-bf62-9515bf8b961d',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'introspectServer.ts:23',message:'after client.listTools',data:{toolsCount:toolsResult?.tools?.length},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'B'})}).catch(()=>{});
-    // #endregion
-    const tools: McpToolDefinition[] = (toolsResult.tools ?? []).map((t: any) => ({
-      name: t.name,
-      description: t.description,
-      inputSchema: t.inputSchema,
-    }));
+    // Step 1: Create transport
+    state = { stage: "creating-transport" };
+    transport = await chooseTransport({
+      serverConfig: args.serverConfig,
+      allowStdioExec: args.allowStdioExec,
+    });
 
-    // #region agent log
-    fetch('http://127.0.0.1:7243/ingest/606b7f00-1f79-4b8d-bf62-9515bf8b961d',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'introspectServer.ts:30',message:'before describeTransport',data:{transportConstructor:transport?.constructor?.name},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'C'})}).catch(()=>{});
-    // #endregion
+    // Step 2: Create and connect client
+    client = new Client({ name: "mcp-toolbox", version: "0.0.1" });
+    state = { stage: "connecting", transport };
+
+    try {
+      await client.connect(transport);
+      state = { stage: "connected", transport, client };
+    } catch (connectError) {
+      const error = new Error(
+        `Failed to connect to server '${serverName}': ${
+          connectError instanceof Error
+            ? connectError.message
+            : String(connectError)
+        }`
+      );
+      state = { stage: "error", error };
+      throw error;
+    }
+
+    // Step 3: Call listTools with state tracking
+    state = { stage: "listing-tools", transport, client };
+    let toolsResult;
+    try {
+      toolsResult = await client.listTools();
+    } catch (listToolsError) {
+      // Analyze the error to provide better context
+      const errorMessage =
+        listToolsError instanceof Error
+          ? listToolsError.message
+          : String(listToolsError);
+
+      // Check for connection-related errors
+      if (
+        errorMessage.includes("not connected") ||
+        errorMessage.includes("connection") ||
+        errorMessage.includes("closed") ||
+        errorMessage.includes("disconnect")
+      ) {
+        const error = new Error(
+          `Connection lost while listing tools for server '${serverName}': ${errorMessage}`
+        );
+        state = { stage: "error", error };
+        throw error;
+      }
+
+      // Generic listTools error
+      const error = new Error(
+        `Failed to list tools from server '${serverName}': ${errorMessage}`
+      );
+      state = { stage: "error", error };
+      throw error;
+    }
+
+    // Step 4: Process results
+    const tools: McpToolDefinition[] = (toolsResult.tools ?? []).map(
+      (t: any) => ({
+        name: t.name,
+        description: t.description,
+        inputSchema: t.inputSchema,
+      })
+    );
+
+    state = { stage: "completed", tools };
     const transportDesc = describeTransport(transport);
-    // #region agent log
-    fetch('http://127.0.0.1:7243/ingest/606b7f00-1f79-4b8d-bf62-9515bf8b961d',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'introspectServer.ts:34',message:'after describeTransport',data:{transportDesc},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'C'})}).catch(()=>{});
-    // #endregion
     return {
       serverName,
       version: "latest",
@@ -60,12 +103,21 @@ export async function introspectServer(args: {
       tools,
     };
   } catch (error: unknown) {
-    // #region agent log
-    fetch('http://127.0.0.1:7243/ingest/606b7f00-1f79-4b8d-bf62-9515bf8b961d',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'introspectServer.ts:40',message:'error in introspectServer',data:{errorMessage:error instanceof Error ? error.message : String(error),errorStack:error instanceof Error ? error.stack : undefined},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'B'})}).catch(()=>{});
-    // #endregion
-    throw error;
+    // Re-throw with context based on current state
+    if (error instanceof Error) {
+      throw error;
+    }
+    const stage = "stage" in state ? state.stage : "unknown";
+    throw new Error(
+      `Unexpected error introspecting server '${serverName}' at stage '${stage}': ${String(
+        error
+      )}`
+    );
   } finally {
-    await safeCloseTransport(transport);
+    // Cleanup based on state
+    if (transport) {
+      await safeCloseTransport(transport);
+    }
   }
 }
 
@@ -79,36 +131,20 @@ async function safeCloseTransport(transport: Transport) {
   }
 }
 
-function describeTransport(transport: Transport): IntrospectedServer["transport"] {
-  // #region agent log
-  fetch('http://127.0.0.1:7243/ingest/606b7f00-1f79-4b8d-bf62-9515bf8b961d',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'introspectServer.ts:52',message:'describeTransport entry',data:{transportConstructor:transport?.constructor?.name,hasTransport:!!transport},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'C'})}).catch(()=>{});
-  // #endregion
+function describeTransport(
+  transport: Transport
+): IntrospectedServer["transport"] {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const t: any = transport;
   const ctorName = transport?.constructor?.name ?? "";
-  // #region agent log
-  fetch('http://127.0.0.1:7243/ingest/606b7f00-1f79-4b8d-bf62-9515bf8b961d',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'introspectServer.ts:56',message:'describeTransport before checks',data:{ctorName,tUrl:t?.url,tCommand:t?.command,tArgs:t?.args,urlType:typeof t?.url,commandType:typeof t?.command},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'C'})}).catch(()=>{});
-  // #endregion
 
   if (ctorName.includes("StreamableHTTP")) {
-    const url = String(t?.url ?? "");
-    // #region agent log
-    fetch('http://127.0.0.1:7243/ingest/606b7f00-1f79-4b8d-bf62-9515bf8b961d',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'introspectServer.ts:58',message:'describeTransport StreamableHTTP branch',data:{url},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'C'})}).catch(()=>{});
-    // #endregion
-    return { kind: "streamable-http", url };
+    return { kind: "streamable-http", url: String(t?.url ?? "") };
   }
   if (ctorName.includes("SSE")) {
-    const url = String(t?.url ?? "");
-    // #region agent log
-    fetch('http://127.0.0.1:7243/ingest/606b7f00-1f79-4b8d-bf62-9515bf8b961d',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'introspectServer.ts:61',message:'describeTransport SSE branch',data:{url},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'C'})}).catch(()=>{});
-    // #endregion
-    return { kind: "sse", url };
+    return { kind: "sse", url: String(t?.url ?? "") };
   }
-  const result = { kind: "stdio" as const, command: t?.command, args: t?.args };
-  // #region agent log
-  fetch('http://127.0.0.1:7243/ingest/606b7f00-1f79-4b8d-bf62-9515bf8b961d',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'introspectServer.ts:63',message:'describeTransport stdio branch',data:{result},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'C'})}).catch(()=>{});
-  // #endregion
-  return result;
+  return { kind: "stdio", command: t?.command, args: t?.args };
 }
 
 async function chooseTransport(args: {
@@ -129,13 +165,30 @@ async function chooseTransport(args: {
         `Refusing to run stdio server '${args.serverConfig.name}' because security.allowStdioExec=false. Set security.allowStdioExec=true to enable stdio execution.`
       );
     }
+    // Suppress child process output to keep UI clean
+    const env = {
+      ...process.env,
+      ...args.serverConfig.transport.env,
+      // Suppress mcp-remote verbose logging
+      DEBUG: "",
+      NODE_ENV: process.env["NODE_ENV"] || "production",
+      // Suppress npm warnings from npx
+      npm_config_loglevel: "error",
+      NPM_CONFIG_LOGLEVEL: "error",
+      // Suppress pnpm warnings
+      PNPM_LOG_LEVEL: "error",
+    };
+
     return new StdioClientTransport({
       command: args.serverConfig.transport.command,
       args: args.serverConfig.transport.args ?? [],
-      env: args.serverConfig.transport.env,
+      env,
+      // Suppress stderr from child process to keep UI clean
+      stderr: "ignore",
     });
   }
 
-  throw new Error(`Unknown transport type for server '${args.serverConfig.name}'`);
+  throw new Error(
+    `Unknown transport type for server '${args.serverConfig.name}'`
+  );
 }
-

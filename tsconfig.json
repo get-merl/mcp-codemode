@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "mcp-toolbox-runtime": ["./packages/mcp-toolbox-runtime/src/index.ts"]
+    }
+  },
+  "include": ["toolbox/**/*.ts", "mcp-toolbox.config.ts"]
+}

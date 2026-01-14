@@ -59,6 +59,8 @@ async function chooseTransportRuntime(config: ToolboxConfig, serverCfg: ToolboxC
       command: serverCfg.transport.command,
       args: serverCfg.transport.args ?? [],
       env: serverCfg.transport.env,
+      // Suppress stderr from child process to keep UI clean
+      stderr: "ignore",
     });
   }
 

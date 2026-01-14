@@ -1,58 +1,50 @@
 {
-  "generatedAt": "2026-01-13T23:15:08.857Z",
+  "generatedAt": "2026-01-14T09:06:09.965Z",
   "servers": [
     {
-      "serverSlug": "io-github-digital-defiance-mcp-filesystem",
-      "registryId": "io.github.Digital-Defiance/mcp-filesystem",
-      "version": "0.1.9",
+      "serverSlug": "cloudflare-observability",
+      "serverName": "cloudflare-observability",
+      "version": "latest",
       "tools": [
         {
-          "name": "fs_batch_operations",
-          "description": "Execute multiple filesystem operations atomically"
+          "name": "accounts_list",
+          "description": "List all accounts in your Cloudflare account"
         },
         {
-          "name": "fs_watch_directory",
-          "description": "Watch directory for filesystem changes"
+          "name": "set_active_account",
+          "description": "Set active account to be used for tool calls that require accountId"
         },
         {
-          "name": "fs_get_watch_events",
-          "description": "Get accumulated watch events"
+          "name": "workers_list",
+          "description": "List all Workers in your Cloudflare account.\n\nIf you only need details of a single Worker, use workers_get_worker."
         },
         {
-          "name": "fs_stop_watch",
-          "description": "Stop watching a directory"
+          "name": "workers_get_worker",
+          "description": "Get the details of the Cloudflare Worker."
         },
         {
-          "name": "fs_search_files",
-          "description": "Search for files by name, content, or metadata"
+          "name": "workers_get_worker_code",
+          "description": "Get the source code of a Cloudflare Worker. Note: This may be a bundled version of the worker."
         },
         {
-          "name": "fs_build_index",
-          "description": "Build file index for fast searching"
+          "name": "query_worker_observability",
+          "description": "Query the Workers Observability API to analyze logs and metrics from your Cloudflare Workers.\n\n\t* A query typical query looks like this:\n\t\t\t\t{\"view\":\"events\",\"queryId\":\"workers-logs-events\",\"limit\":5,\"dry\":true,\"parameters\":{\"datasets\":[\"cloudflare-workers\"],\"filters\":[{\"id\":\"520\",\"key\":\"message\",\"operation\":\"eq\",\"type\":\"string\",\"value\":\"Clickhouse Statistics\"},{\"id\":\"2088\",\"key\":\"statistics.elapsed\",\"operation\":\"gt\",\"type\":\"number\",\"value\":\"0.269481519\"}],\"calculations\":[],\"groupBys\":[],\"havings\":[]},\"timeframe\":{\"to\":\"2025-04-30T20:53:15Z\",\"from\":\" \"\"2025-04-30T19:53:15Z\"}}\n## Core Capabilities\nThis tool provides three primary views of your Worker data:\n1. **List Events** - Browse individual request logs and errors\n2. **Calculate Metrics** - Compute statistics across requests (avg, p99, etc.)\n3. **Find Specific Invocations** - Locate individual requests matching criteria\n\n## Filtering Best Practices\n- Before applying filters, use the observability_keys and observability_values tools to confirm available filter fields and the correct filter value to add unless you have the data in a response from a previous query.\n- Common filter fields:  $metadata.service, $metadata.trigger, $metadata.message, $metadata.level, $metadata.requestId,\n\n## Calculation Best Practices\n- Before applying calculations, use the observability_keys tools to confirm key that should be used for the calculation\n\n## Troubleshooting\n- If no results are returned, suggest broadening the time range or relaxing filters\n- For errors about invalid fields, recommend using observability_keys to see available options\n"
         },
         {
-          "name": "fs_create_symlink",
-          "description": "Create symbolic links"
+          "name": "observability_keys",
+          "description": "Find keys in the Workers Observability Data\n\n## Best Practices\n- Set a high limit (1000+) to ensure you see all available keys\n- Add the $metadata.service filter to narrow results to a specific Worker\n\n## Troubleshooting\n- If expected fields are missing, verify the Worker is actively logging\n- For empty results, try broadening your time range\n"
         },
         {
-          "name": "fs_compute_checksum",
-          "description": "Compute file checksums"
+          "name": "observability_values",
+          "description": "Find values in the Workers Observability Data.\n\n## Troubleshooting\n- For no results, verify the field exists using observability_keys first\n- If expected values are missing, try broadening your time range"
         },
         {
-          "name": "fs_verify_checksum",
-          "description": "Verify file checksums"
+          "name": "search_cloudflare_documentation",
+          "description": "Search the Cloudflare documentation.\n\n\t\tThis tool should be used to answer any question about Cloudflare products or features, including:\n\t\t- Workers, Pages, R2, Images, Stream, D1, Durable Objects, KV, Workflows, Hyperdrive, Queues\n\t\t- AI Search, Workers AI, Vectorize, AI Gateway, Browser Rendering\n\t\t- Zero Trust, Access, Tunnel, Gateway, Browser Isolation, WARP, DDOS, Magic Transit, Magic WAN\n\t\t- CDN, Cache, DNS, Zaraz, Argo, Rulesets, Terraform, Account and Billing\n\n\t\tResults are returned as semantically similar chunks to the query.\n\t\t"
         },
         {
-          "name": "fs_analyze_disk_usage",
-          "description": "Analyze disk usage"
-        },
-        {
-          "name": "fs_copy_directory",
-          "description": "Copy directories recursively"
-        },
-        {
-          "name": "fs_sync_directory",
-          "description": "Sync directories (copy only newer or missing files)"
+          "name": "migrate_pages_to_workers_guide",
+          "description": "ALWAYS read this guide before migrating Pages projects to Workers."
         }
       ]
     }

@@ -10,7 +10,11 @@
     "lint": "turbo run lint",
     "format": "turbo run format",
     "dev": "turbo run dev",
-    "test": "turbo run test"
+    "test": "turbo run test",
+    "mcp-toolbox": "pnpm --filter mcp-toolbox exec mcp-toolbox"
+  },
+  "dependencies": {
+    "mcp-toolbox-runtime": "workspace:*"
   },
   "devDependencies": {
     "oxfmt": "^0.24.0",

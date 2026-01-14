@@ -7,6 +7,17 @@ import { introspectCommand } from "./commands/introspect.js";
 import { syncCommand } from "./commands/sync.js";
 
 export async function runCli(argv: string[]) {
+  // Suppress npm/pnpm warnings globally
+  if (!process.env["npm_config_loglevel"]) {
+    process.env["npm_config_loglevel"] = "error";
+  }
+  if (!process.env["NPM_CONFIG_LOGLEVEL"]) {
+    process.env["NPM_CONFIG_LOGLEVEL"] = "error";
+  }
+  if (!process.env["PNPM_LOG_LEVEL"]) {
+    process.env["PNPM_LOG_LEVEL"] = "error";
+  }
+
   const program = new Command()
     .name("mcp-toolbox")
     .description(
@@ -34,14 +45,21 @@ export async function runCli(argv: string[]) {
   try {
     await program.parseAsync(argv);
   } catch (error: unknown) {
+    // Ensure error message is a string before any operations
+    let errorMessage: string;
     if (error instanceof Error) {
-      // Output user-friendly error message without stack trace
-      process.stderr.write(error.message + "\n");
-      process.exitCode = 1;
+      errorMessage = error.message || String(error) || "Unknown error";
     } else {
-      process.stderr.write(String(error) + "\n");
-      process.exitCode = 1;
+      errorMessage = String(error) || "Unknown error";
     }
+    // Output user-friendly error message without stack trace
+    try {
+      process.stderr.write(errorMessage + "\n");
+    } catch (writeError) {
+      // Fallback if stderr write fails
+      console.error(errorMessage);
+    }
+    process.exitCode = 1;
   }
 }
 

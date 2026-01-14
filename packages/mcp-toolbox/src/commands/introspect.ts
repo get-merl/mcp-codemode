@@ -1,5 +1,6 @@
 import { Command } from "commander";
 import { spinner } from "@clack/prompts";
+import path from "node:path";
 import { defaultConfigPath, defaultOutDir, loadToolboxConfig } from "mcp-toolbox-runtime";
 import { slugifyServerName } from "../lib/slug.js";
 import { introspectServer } from "../introspect/introspectServer.js";
@@ -13,7 +14,13 @@ export function introspectCommand() {
     .option("--server <name>", "Only introspect a single server (name)")
     .action(async (opts) => {
       const config = await loadToolboxConfig(opts.config);
-      const outDir = opts.outDir ?? config.generation?.outDir ?? defaultOutDir();
+      // Resolve outDir relative to config file location if using config's outDir
+      const configDir = path.dirname(path.resolve(opts.config));
+      const outDir = opts.outDir 
+        ? path.resolve(process.cwd(), opts.outDir)
+        : config.generation?.outDir 
+          ? path.resolve(configDir, config.generation.outDir)
+          : defaultOutDir();
       const target = opts.server as string | undefined;
 
       const servers = config.servers.filter((s) => (target ? s.name === target : true));
