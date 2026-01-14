@@ -1,7 +1,8 @@
 import { Command } from "commander";
 import { confirm, isCancel, outro, text } from "@clack/prompts";
+import path from "node:path";
 import { defaultConfigPath, defaultOutDir, fileExists } from "mcp-toolbox-runtime";
-import { writeToolboxConfigTs } from "../lib/writeConfig";
+import { writeToolboxConfigTs } from "../lib/writeConfig.js";
 
 export function initCommand() {
   const cmd = new Command("init")
@@ -47,9 +48,23 @@ export function initCommand() {
 async function maybeWriteConfig(configPath: string, outDir: string) {
   if (await fileExists(configPath)) return;
 
+  // Convert absolute path to relative path if it's under process.cwd()
+  let relativeOutDir = outDir;
+  const cwd = process.cwd();
+  if (path.isAbsolute(outDir) && outDir.startsWith(cwd)) {
+    relativeOutDir = path.relative(cwd, outDir);
+    // If it's the same directory, use "."
+    if (relativeOutDir === "") {
+      relativeOutDir = ".";
+    }
+  } else if (path.isAbsolute(outDir)) {
+    // If it's absolute but not under cwd, keep it as-is
+    relativeOutDir = outDir;
+  }
+
   await writeToolboxConfigTs(configPath, {
     servers: [],
-    generation: { outDir, language: "ts" },
+    generation: { outDir: relativeOutDir, language: "ts" },
     security: { allowStdioExec: false, envAllowlist: [] },
     cli: { interactive: true },
   });

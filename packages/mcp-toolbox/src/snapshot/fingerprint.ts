@@ -1,5 +1,5 @@
 import crypto from "node:crypto";
-import { stableStringify } from "./normalize";
+import { stableStringify } from "./normalize.js";
 
 export function fingerprint(value: unknown): string {
   const normalized = stableStringify(value);

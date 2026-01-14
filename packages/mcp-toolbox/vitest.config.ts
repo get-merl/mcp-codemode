@@ -17,6 +17,10 @@ export default defineConfig({
     teardownTimeout: 10000,
     globals: true,
     environment: "node",
+    reporters: ["verbose"],
+    outputFile: {
+      verbose: "stdout",
+    },
     typecheck: {
       tsconfig: "./tsconfig.test.json",
     },

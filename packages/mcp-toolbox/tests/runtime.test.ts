@@ -17,7 +17,7 @@ describe("runtime - generated wrapper execution", () => {
     await cleanupTestDir(testDir);
   });
 
-  it("should import and call generated wrapper function", async () => {
+  it.todo("should import and call generated wrapper function", async () => {
     // Ideal: generated wrappers should be importable and callable
     // This would require:
     // 1. Sync to generate wrappers
@@ -28,18 +28,18 @@ describe("runtime - generated wrapper execution", () => {
     // This is an ideal behavior test
   });
 
-  it("should validate input types before calling MCP server", async () => {
+  it.todo("should validate input types before calling MCP server", async () => {
     // Ideal: runtime should validate inputs match TypeScript types
     // Should fail fast with clear errors for invalid inputs
   });
 
-  it("should handle connection failures and reconnect automatically", async () => {
+  it.todo("should handle connection failures and reconnect automatically", async () => {
     // Ideal: runtime should detect connection failures
     // Should attempt reconnection with exponential backoff
     // Should propagate errors clearly after retries exhausted
   });
 
-  it("should include context in error messages", async () => {
+  it.todo("should include context in error messages", async () => {
     // Ideal: errors should include:
     // - Tool name
     // - Server ID
@@ -47,17 +47,17 @@ describe("runtime - generated wrapper execution", () => {
     // - Recovery suggestions
   });
 
-  it("should reuse connections for multiple calls to same server", async () => {
+  it.todo("should reuse connections for multiple calls to same server", async () => {
     // Ideal: connection pooling should work
     // Multiple calls to same server should share connection
   });
 
-  it("should timeout tool calls after reasonable duration", async () => {
+  it.todo("should timeout tool calls after reasonable duration", async () => {
     // Ideal: tool calls should timeout (e.g., 5 minutes)
     // Should not hang indefinitely
   });
 
-  it("should catch invalid server/tool names early", async () => {
+  it.todo("should catch invalid server/tool names early", async () => {
     // Ideal: should validate server and tool exist before attempting call
     // Should provide clear error messages
   });

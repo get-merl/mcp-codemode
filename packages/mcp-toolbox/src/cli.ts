@@ -1,11 +1,10 @@
 import { Command } from "commander";
 import { intro, outro } from "@clack/prompts";
-import { initCommand } from "./commands/init";
-import { registryCommand } from "./commands/registry";
-import { addCommand } from "./commands/add";
-import { removeCommand } from "./commands/remove";
-import { introspectCommand } from "./commands/introspect";
-import { syncCommand } from "./commands/sync";
+import { initCommand } from "./commands/init.js";
+import { addCommand } from "./commands/add.js";
+import { removeCommand } from "./commands/remove.js";
+import { introspectCommand } from "./commands/introspect.js";
+import { syncCommand } from "./commands/sync.js";
 
 export async function runCli(argv: string[]) {
   const program = new Command()
@@ -17,8 +16,6 @@ export async function runCli(argv: string[]) {
 
   program
     .hook("preAction", async () => {
-      // Only show clack intro for interactive CLI runs. For now, always show;
-      // we'll refine to check TTY and flags as we flesh out commands.
       intro("mcp-toolbox");
     })
     .hook("postAction", async () => {
@@ -26,12 +23,25 @@ export async function runCli(argv: string[]) {
     });
 
   program.addCommand(initCommand());
-  program.addCommand(registryCommand());
   program.addCommand(addCommand());
   program.addCommand(removeCommand());
   program.addCommand(introspectCommand());
   program.addCommand(syncCommand());
 
-  await program.parseAsync(argv);
+  // Override Commander's default error handling to avoid stack traces
+  program.exitOverride();
+
+  try {
+    await program.parseAsync(argv);
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      // Output user-friendly error message without stack trace
+      process.stderr.write(error.message + "\n");
+      process.exitCode = 1;
+    } else {
+      process.stderr.write(String(error) + "\n");
+      process.exitCode = 1;
+    }
+  }
 }
 

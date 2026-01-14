@@ -1,12 +1,11 @@
 import fs from "node:fs/promises";
 import path from "node:path";
-import type { IntrospectedServer } from "../introspect/types";
-import { fingerprint } from "./fingerprint";
+import type { IntrospectedServer } from "../introspect/types.js";
+import { fingerprint } from "./fingerprint.js";
 
 export type SnapshotMeta = {
   retrievedAt: string;
-  registryId: string;
-  channel: "latest";
+  serverName: string;
   transport: IntrospectedServer["transport"];
   serverReportedVersion: string;
   schemaFingerprint: string;
@@ -15,8 +14,7 @@ export type SnapshotMeta = {
 export async function writeLatestSnapshot(args: {
   outDir: string;
   serverSlug: string;
-  registryId: string;
-  channel: "latest";
+  serverName: string;
   introspected: IntrospectedServer;
 }) {
   const baseDir = path.join(args.outDir, ".snapshots", args.serverSlug);
@@ -30,8 +28,7 @@ export async function writeLatestSnapshot(args: {
 
   const meta: SnapshotMeta = {
     retrievedAt: args.introspected.retrievedAt,
-    registryId: args.registryId,
-    channel: args.channel,
+    serverName: args.serverName,
     transport: args.introspected.transport,
     serverReportedVersion: args.introspected.version,
     schemaFingerprint,

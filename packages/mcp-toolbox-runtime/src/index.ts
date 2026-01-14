@@ -5,18 +5,17 @@ import type { Transport } from "@modelcontextprotocol/sdk/shared/transport.js";
 import type { ToolboxConfig } from "./config.js";
 import { defaultConfigPath } from "./paths.js";
 import { loadToolboxConfig, fileExists } from "./loadConfig.js";
-import { RegistryClient } from "./registry/client.js";
 
-type CallArgs = { registryId: string; toolName: string; input: unknown };
+type CallArgs = { serverName: string; toolName: string; input: unknown };
 
 const clientCache = new Map<string, { client: Client; transport: Transport }>();
 
 export async function callMcpTool<T = unknown>(args: CallArgs): Promise<T> {
   const config = await loadConfigForRuntime();
-  const serverCfg = config.servers.find((s) => s.registryId === args.registryId);
-  if (!serverCfg) throw new Error(`mcp-toolbox: server not configured: ${args.registryId}`);
+  const serverCfg = config.servers.find((s) => s.name === args.serverName);
+  if (!serverCfg) throw new Error(`mcp-toolbox: server not configured: ${args.serverName}`);
 
-  const cacheKey = args.registryId;
+  const cacheKey = args.serverName;
   let cached = clientCache.get(cacheKey);
   if (!cached) {
     const transport = await chooseTransportRuntime(config, serverCfg);
@@ -42,84 +41,28 @@ async function loadConfigForRuntime(): Promise<ToolboxConfig> {
 }
 
 async function chooseTransportRuntime(config: ToolboxConfig, serverCfg: ToolboxConfig["servers"][number]) {
-  const overrideHttp = serverCfg.overrides?.http?.url;
-  if (overrideHttp) return new StreamableHTTPClientTransport(new URL(overrideHttp), {});
+  if (serverCfg.transport.type === "http") {
+    // Note: StreamableHTTPClientTransport doesn't support headers in options
+    // Headers would need to be handled via authProvider or other mechanisms
+    return new StreamableHTTPClientTransport(
+      new URL(serverCfg.transport.url)
+    );
+  }
 
-  const overrideRun = serverCfg.overrides?.run;
-  if (overrideRun) {
+  if (serverCfg.transport.type === "stdio") {
     if (!config.security.allowStdioExec) {
       throw new Error(
-        `mcp-toolbox: stdio disabled (security.allowStdioExec=false) for ${serverCfg.registryId}`
+        `mcp-toolbox: stdio disabled (security.allowStdioExec=false) for ${serverCfg.name}`
       );
     }
     return new StdioClientTransport({
-      command: overrideRun.command,
-      args: overrideRun.args ?? [],
-      env: overrideRun.env,
+      command: serverCfg.transport.command,
+      args: serverCfg.transport.args ?? [],
+      env: serverCfg.transport.env,
     });
   }
 
-  const registry = new RegistryClient();
-  const server = await registry.getServerVersion({ serverName: serverCfg.registryId, version: "latest" });
-  const remotes: Array<{ type: string; url?: string; variables?: unknown }> = (server.server as any).remotes ?? [];
-  const streamable = remotes.find((r) => r.type === "streamable-http" && r.url);
-  if (streamable?.url) {
-    if (streamable.variables && Object.keys(streamable.variables).length > 0) {
-      throw new Error(
-        `mcp-toolbox: remote transport for ${serverCfg.registryId} requires variables; set overrides.http.url`
-      );
-    }
-    return new StreamableHTTPClientTransport(new URL(streamable.url), {});
-  }
-
-  const packages: Array<{
-    registryType?: string;
-    identifier?: string;
-    version?: string;
-    transport?: { type?: string };
-    environmentVariables?: Array<{ name?: string; isRequired?: boolean }>;
-  }> = (server.server as any).packages ?? [];
-
-  const npmStdio = packages.find(
-    (p) => p.registryType === "npm" && p.transport?.type === "stdio" && p.identifier
-  );
-
-  if (npmStdio?.identifier) {
-    if (!config.security.allowStdioExec) {
-      throw new Error(
-        `mcp-toolbox: stdio disabled (security.allowStdioExec=false) for ${serverCfg.registryId}`
-      );
-    }
-
-    const pkgVersion =
-      npmStdio.version && npmStdio.version !== "latest"
-        ? `${npmStdio.identifier}@${npmStdio.version}`
-        : npmStdio.identifier;
-
-    const env: Record<string, string> = Object.fromEntries(
-      Object.entries(process.env).filter(([, v]) => typeof v === "string")
-    ) as Record<string, string>;
-    const requiredVars = (npmStdio.environmentVariables ?? []).filter((v) => v.isRequired && v.name);
-    for (const v of requiredVars) {
-      const name = String(v.name);
-      if (env[name]) continue;
-      if (name === "WORKSPACE_ROOT") {
-        env[name] = process.cwd();
-        continue;
-      }
-      throw new Error(`mcp-toolbox: missing required env var ${name} for ${serverCfg.registryId}`);
-    }
-
-    return new StdioClientTransport({
-      command: "npx",
-      args: ["-y", pkgVersion],
-      env,
-    });
-  }
-
-  throw new Error(
-    `mcp-toolbox: no runtime transport found for ${serverCfg.registryId}. Set overrides.http.url or overrides.run`
-  );
+  throw new Error(`mcp-toolbox: unknown transport type for ${serverCfg.name}`);
 }
 
 // Export types for users
@@ -128,10 +71,3 @@ export type { ToolboxConfig, ToolboxServerConfig } from "./config.js";
 // Export shared utilities used by CLI
 export { defaultConfigPath, defaultOutDir, resolveFromCwd } from "./paths.js";
 export { loadToolboxConfig, fileExists } from "./loadConfig.js";
-export { RegistryClient } from "./registry/client.js";
-export type {
-  RegistryServerListResponse,
-  RegistryServerResponse,
-  RegistryMetadata,
-  RegistryServerJson,
-} from "./registry/types.js";

@@ -2,6 +2,7 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "outDir": "dist",
+    "rootDir": "src",
     "types": ["node", "vitest/globals"],
     "baseUrl": ".",
     "paths": {
@@ -9,7 +10,9 @@
     },
     "composite": true,
     "declaration": true,
-    "declarationMap": true
+    "declarationMap": true,
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext"
   },
   "include": ["src/**/*.ts"]
 }

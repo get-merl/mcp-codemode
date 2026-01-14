@@ -1,12 +1,15 @@
 import fs from "node:fs/promises";
 import path from "node:path";
-import type { IntrospectedServer } from "../introspect/types";
+import type {
+  IntrospectedServer,
+  McpToolDefinition,
+} from "../introspect/types.js";
 
 export type Catalog = {
   generatedAt: string;
   servers: Array<{
     serverSlug: string;
-    registryId: string;
+    serverName: string;
     version: string;
     tools: Array<{ name: string; description?: string }>;
   }>;
@@ -14,18 +17,28 @@ export type Catalog = {
 
 export async function writeCatalog(args: {
   outDir: string;
-  entries: Array<{ serverSlug: string; registryId: string; snapshot: IntrospectedServer }>;
+  entries: Array<{
+    serverSlug: string;
+    serverName: string;
+    snapshot: IntrospectedServer;
+  }>;
 }) {
   const catalog: Catalog = {
     generatedAt: new Date().toISOString(),
     servers: args.entries.map((e) => ({
       serverSlug: e.serverSlug,
-      registryId: e.registryId,
+      serverName: e.serverName,
       version: e.snapshot.version,
-      tools: e.snapshot.tools.map((t) => ({ name: t.name, description: t.description })),
+      tools: e.snapshot.tools.map((t: McpToolDefinition) => ({
+        name: t.name,
+        description: t.description,
+      })),
     })),
   };
   await fs.mkdir(args.outDir, { recursive: true });
-  await fs.writeFile(path.join(args.outDir, "catalog.json"), JSON.stringify(catalog, null, 2) + "\n", "utf-8");
+  await fs.writeFile(
+    path.join(args.outDir, "catalog.json"),
+    JSON.stringify(catalog, null, 2) + "\n",
+    "utf-8"
+  );
 }
-

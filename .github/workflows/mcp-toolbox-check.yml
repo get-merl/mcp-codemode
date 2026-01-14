@@ -31,5 +31,5 @@ jobs:
       - name: Verify toolbox is in sync
         env:
           MCP_TOOLBOX_CONFIG: mcp-toolbox.config.ts
-        run: node packages/mcp-toolbox/dist/bin.js sync --check --json
+        run: node packages/mcp-toolbox/dist/bin.js sync --check
 

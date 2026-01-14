@@ -3,8 +3,12 @@ import type { ToolboxConfig } from "mcp-toolbox";
 const config: ToolboxConfig = {
   servers: [
     {
-      registryId: "io.github.Digital-Defiance/mcp-filesystem",
-      channel: "latest",
+      name: "cloudflare-observability",
+      transport: {
+        type: "stdio",
+        command: "npx",
+        args: ["mcp-remote", "https://observability.mcp.cloudflare.com/mcp"],
+      },
     },
   ],
   generation: {

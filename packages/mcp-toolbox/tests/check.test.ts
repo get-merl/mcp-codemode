@@ -67,23 +67,6 @@ describe("sync --check command", () => {
     // This tests ideal behavior
   });
 
-  it("should output structured JSON when --json flag is used", async () => {
-    await runCli(["sync", "--config", configPath, "--yes"], { cwd: testDir });
-
-    const result = await runCli(
-      ["sync", "--config", configPath, "--check", "--json"],
-      { cwd: testDir }
-    );
-
-    // Output should be valid JSON
-    if (result.stdout) {
-      expect(() => JSON.parse(result.stdout)).not.toThrow();
-      const json = JSON.parse(result.stdout);
-      expect(json).toHaveProperty("results");
-      expect(Array.isArray(json.results)).toBe(true);
-    }
-  });
-
   it("should not modify any files", async () => {
     // Check mode should be read-only
     await runCli(["sync", "--config", configPath, "--yes"], { cwd: testDir });

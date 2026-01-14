@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach, afterEach } from "vitest";
-import { generateServerTs } from "@/codegen/ts/generateServer";
-import type { IntrospectedServer } from "@/introspect/types";
+import { generateServerTs } from "../src/codegen/ts/generateServer.js";
+import type { IntrospectedServer } from "../src/introspect/types.js";
 import { createTestDir, cleanupTestDir, fileExists } from "./helpers/fs";
 import path from "node:path";
 import fs from "node:fs/promises";
@@ -42,7 +42,7 @@ describe("code generation", () => {
     await generateServerTs({
       outDir: testDir,
       serverSlug: "test-server-mock",
-      registryId: "test.server/mock",
+      serverName: "test-server-mock",
       snapshot,
     });
 
@@ -100,7 +100,7 @@ describe("code generation", () => {
     await generateServerTs({
       outDir: testDir,
       serverSlug: "test-server-complex",
-      registryId: "test.server/complex",
+      serverName: "test-server-complex",
       snapshot,
     });
 
@@ -134,7 +134,7 @@ describe("code generation", () => {
     await generateServerTs({
       outDir: testDir,
       serverSlug: "test-server-collision",
-      registryId: "test.server/collision",
+      serverName: "test-server-collision",
       snapshot,
     });
 
@@ -168,7 +168,7 @@ describe("code generation", () => {
     await generateServerTs({
       outDir: testDir,
       serverSlug: "test-server-docs",
-      registryId: "test.server/docs",
+      serverName: "test-server-docs",
       snapshot,
     });
 
@@ -184,7 +184,7 @@ describe("code generation", () => {
     // JSDoc should include:
     expect(content).toContain("/**");
     expect(content).toContain("This is a well-documented tool");
-    expect(content).toContain("test.server/docs"); // Server ID
+    expect(content).toContain("test-server-docs"); // Server name
     expect(content).toContain("documented_tool"); // Tool ID
     expect(content).toContain("@param");
     expect(content).toContain("@returns");
@@ -205,7 +205,7 @@ describe("code generation", () => {
     await generateServerTs({
       outDir: testDir,
       serverSlug: "test-server-barrel",
-      registryId: "test.server/barrel",
+      serverName: "test-server-barrel",
       snapshot,
     });
 
@@ -250,7 +250,7 @@ describe("code generation", () => {
     await generateServerTs({
       outDir: testDir,
       serverSlug: "test-server-compile",
-      registryId: "test.server/compile",
+      serverName: "test-server-compile",
       snapshot,
     });
 

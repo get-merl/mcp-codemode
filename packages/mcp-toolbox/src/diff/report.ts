@@ -1,7 +1,7 @@
-import type { DiffSummary } from "./types";
+import type { DiffSummary } from "./types.js";
 
 export function renderDiffReport(args: {
-  registryId: string;
+  serverName: string;
   oldVersion?: string;
   newVersion?: string;
   diff: DiffSummary;
@@ -9,7 +9,7 @@ export function renderDiffReport(args: {
   const lines: string[] = [];
   lines.push(`# MCP Toolbox Diff Report`);
   lines.push("");
-  lines.push(`- server: \`${args.registryId}\``);
+  lines.push(`- server: \`${args.serverName}\``);
   if (args.oldVersion) lines.push(`- from: \`${args.oldVersion}\``);
   if (args.newVersion) lines.push(`- to: \`${args.newVersion}\``);
   lines.push(`- breaking: **${args.diff.breaking ? "yes" : "no"}**`);

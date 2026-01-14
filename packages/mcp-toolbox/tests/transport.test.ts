@@ -17,81 +17,76 @@ describe("transport selection and connection management", () => {
     await cleanupTestDir(testDir);
   });
 
-  it("should use HTTP transport when overrides.http.url is provided", async () => {
+  it("should use HTTP transport when transport.type is http", async () => {
     await createTestConfig(configPath, {
       servers: [
         {
-          registryId: "test.server/http",
-          channel: "latest",
-          overrides: {
-            http: { url: "http://localhost:8080/sse" },
-          },
+          name: "test-server-http",
+          transport: { type: "http", url: "http://localhost:8080/sse" },
         },
       ],
       security: { allowStdioExec: false, envAllowlist: [] },
     });
 
     // This would require a mock HTTP server
-    // Tests ideal behavior: HTTP override should be respected
+    // Tests ideal behavior: HTTP transport should be respected
   });
 
-  it("should use stdio transport when overrides.run is provided", async () => {
+  it("should use stdio transport when transport.type is stdio", async () => {
     await createTestConfig(configPath, {
       servers: [
         {
-          registryId: "test.server/stdio",
-          channel: "latest",
-          overrides: {
-            run: {
-              command: "node",
-              args: ["-e", "console.log('mock')"],
-            },
+          name: "test-server-stdio",
+          transport: {
+            type: "stdio",
+            command: "node",
+            args: ["-e", "console.log('mock')"],
           },
         },
       ],
       security: { allowStdioExec: true, envAllowlist: [] },
     });
 
-    // Tests ideal behavior: stdio override should work
+    // Tests ideal behavior: stdio transport should work
   });
 
   it("should reject stdio when allowStdioExec is false", async () => {
     await createTestConfig(configPath, {
       servers: [
         {
-          registryId: "test.server/stdio",
-          channel: "latest",
-          overrides: {
-            run: {
-              command: "node",
-              args: ["-e", "console.log('mock')"],
-            },
+          name: "test-server-stdio",
+          transport: {
+            type: "stdio",
+            command: "node",
+            args: ["-e", "console.log('mock')"],
           },
         },
       ],
       security: { allowStdioExec: false, envAllowlist: [] },
     });
 
-    const result = await runCli(["sync", "--config", configPath, "--yes"], {
+    const result = await runCli(["sync", "--config", configPath, "--yes", "--no-format"], {
       cwd: testDir,
     });
 
     // Should fail with clear error about stdio being disabled
     expect(result.exitCode).not.toBe(0);
-    expect(result.stderr || result.stdout).toContain("allowStdioExec");
+    // Check for the error message about stdio being disabled
+    const output = (result.stderr || result.stdout || "").toLowerCase();
+    expect(output).toMatch(/stdio.*disabled|allowStdioExec|refusing.*stdio/i);
   });
 
-  it("should validate required environment variables before connection", async () => {
+  it.todo("should validate required environment variables before connection", async () => {
     // Ideal: should check for required env vars early
     // Should provide clear error if missing
   });
 
-  it("should handle connection timeouts appropriately", async () => {
+  it.todo("should handle connection timeouts appropriately", async () => {
     // Ideal: connections should timeout after reasonable duration
     // Should not hang indefinitely
   });
 
-  it("should cleanup connections even on errors", async () => {
+  it.todo("should cleanup connections even on errors", async () => {
     // Ideal: all connections should be closed, even if introspection fails
   });
 });

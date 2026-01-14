@@ -1,15 +1,15 @@
 import { Command } from "commander";
-import { isCancel, select, spinner, text } from "@clack/prompts";
-import { defaultConfigPath, loadToolboxConfig, fileExists, RegistryClient } from "mcp-toolbox-runtime";
-import { writeToolboxConfigTs } from "../lib/writeConfig";
+import { isCancel, select, text, confirm } from "@clack/prompts";
+import { defaultConfigPath, loadToolboxConfig, fileExists } from "mcp-toolbox-runtime";
+import { writeToolboxConfigTs } from "../lib/writeConfig.js";
+import type { ToolboxServerConfig } from "mcp-toolbox-runtime";
 
 export function addCommand() {
   const cmd = new Command("add")
-    .description("Add a registry server to mcp-toolbox.config.ts")
-    .argument("[registryId]", "Registry server ID")
+    .description("Add an MCP server to mcp-toolbox.config.ts")
     .option("--config <path>", "Path to config file", defaultConfigPath())
     .option("--yes", "Run non-interactively", false)
-    .action(async (registryId: string | undefined, opts) => {
+    .action(async (opts) => {
       const configPath: string = opts.config;
       const nonInteractive: boolean = Boolean(opts.yes);
 
@@ -20,46 +20,145 @@ export function addCommand() {
       }
 
       const config = await loadToolboxConfig(configPath);
-      const client = new RegistryClient();
 
-      let chosenId = registryId;
-      if (!chosenId && !nonInteractive) {
-        const query = await text({ message: "Search for a server (name substring):" });
-        if (isCancel(query)) return;
+      let serverName: string | undefined;
+      let transportType: "stdio" | "http" | undefined;
+      let command: string | undefined;
+      let args: string[] | undefined;
+      let env: Record<string, string> | undefined;
+      let url: string | undefined;
+      let headers: Record<string, string> | undefined;
 
-        const s = spinner();
-        s.start("Searching registry…");
-        const res = await client.listServers({ search: String(query), version: "latest", limit: 30 });
-        s.stop(`Found ${res.servers?.length ?? 0}`);
+      if (nonInteractive) {
+        throw new Error("Non-interactive mode not yet supported. Please run without --yes flag.");
+      }
 
-        const options =
-          (res.servers ?? []).map((x) => ({
-            value: x.server.name,
-            label: `${x.server.name}@${x.server.version}`,
-            hint: x.server.title ?? x.server.description,
-          })) ?? [];
+      // Prompt for server name
+      const nameInput = await text({
+        message: "Server name (unique identifier):",
+        placeholder: "my-server",
+      });
+      if (isCancel(nameInput)) return;
+      serverName = String(nameInput).trim();
+      if (!serverName) {
+        throw new Error("Server name is required");
+      }
 
-        if (options.length === 0) {
-          throw new Error("No matching servers found.");
+      // Check if server already exists
+      if (config.servers.some((s) => s.name === serverName)) {
+        const overwrite = await confirm({
+          message: `Server '${serverName}' already exists. Overwrite?`,
+          initialValue: false,
+        });
+        if (isCancel(overwrite) || !overwrite) return;
+        // Remove existing server
+        config.servers = config.servers.filter((s) => s.name !== serverName);
+      }
+
+      // Prompt for transport type
+      const transportInput = await select({
+        message: "Transport type:",
+        options: [
+          { value: "stdio", label: "stdio - Run a command (e.g., npx mcp-remote)" },
+          { value: "http", label: "http - Connect to HTTP endpoint" },
+        ],
+      });
+      if (isCancel(transportInput)) return;
+      transportType = transportInput as "stdio" | "http";
+
+      if (transportType === "stdio") {
+        // Prompt for command
+        const commandInput = await text({
+          message: "Command:",
+          placeholder: "npx",
+        });
+        if (isCancel(commandInput)) return;
+        command = String(commandInput).trim();
+        if (!command) {
+          throw new Error("Command is required for stdio transport");
         }
 
-        const picked = await select({
-          message: "Select a server to add:",
-          options,
+        // Prompt for args
+        const argsInput = await text({
+          message: "Arguments (space-separated, optional):",
+          placeholder: "mcp-remote https://example.com/mcp",
         });
-        if (isCancel(picked)) return;
-        chosenId = String(picked);
+        if (!isCancel(argsInput) && argsInput) {
+          args = String(argsInput)
+            .trim()
+            .split(/\s+/)
+            .filter((a) => a.length > 0);
+        }
+
+        // Prompt for env vars (optional)
+        const envInput = await text({
+          message: "Environment variables (key=value, space-separated, optional):",
+          placeholder: "API_KEY=secret WORKSPACE_ROOT=/path",
+        });
+        if (!isCancel(envInput) && envInput) {
+          const envPairs = String(envInput)
+            .trim()
+            .split(/\s+/)
+            .filter((e) => e.length > 0);
+          env = {};
+          for (const pair of envPairs) {
+            const [key, ...valueParts] = pair.split("=");
+            if (key && valueParts.length > 0) {
+              env[key] = valueParts.join("=");
+            }
+          }
+        }
+      } else {
+        // Prompt for URL
+        const urlInput = await text({
+          message: "HTTP URL:",
+          placeholder: "https://api.example.com/mcp",
+        });
+        if (isCancel(urlInput)) return;
+        url = String(urlInput).trim();
+        if (!url) {
+          throw new Error("URL is required for http transport");
+        }
+
+        // Prompt for headers (optional)
+        const headersInput = await text({
+          message: "Headers (key=value, space-separated, optional):",
+          placeholder: "Authorization=Bearer token",
+        });
+        if (!isCancel(headersInput) && headersInput) {
+          const headerPairs = String(headersInput)
+            .trim()
+            .split(/\s+/)
+            .filter((h) => h.length > 0);
+          headers = {};
+          for (const pair of headerPairs) {
+            const [key, ...valueParts] = pair.split("=");
+            if (key && valueParts.length > 0) {
+              headers[key] = valueParts.join("=");
+            }
+          }
+        }
       }
 
-      if (!chosenId) {
-        throw new Error("registryId is required (or run without --yes for interactive selection).");
-      }
+      // Create server config
+      const serverConfig: ToolboxServerConfig = {
+        name: serverName!,
+        transport:
+          transportType === "stdio"
+            ? {
+                type: "stdio",
+                command: command!,
+                ...(args && args.length > 0 ? { args } : {}),
+                ...(env && Object.keys(env).length > 0 ? { env } : {}),
+              }
+            : {
+                type: "http",
+                url: url!,
+                ...(headers && Object.keys(headers).length > 0 ? { headers } : {}),
+              },
+      };
 
-      // Validate it exists (best effort)
-      await client.getServerVersion({ serverName: chosenId, version: "latest" });
-
-      if (config.servers.some((s) => s.registryId === chosenId)) return;
-      config.servers.push({ registryId: chosenId, channel: "latest" });
+      config.servers.push(serverConfig);
       await writeToolboxConfigTs(configPath, config);
     });
 

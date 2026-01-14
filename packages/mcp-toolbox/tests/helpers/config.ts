@@ -45,20 +45,21 @@ export async function readConfig(configPath: string): Promise<ToolboxConfig> {
 
 export async function addServerToConfig(
   configPath: string,
-  registryId: string
+  name: string,
+  transport: { type: "stdio"; command: string; args?: string[] } | { type: "http"; url: string }
 ): Promise<void> {
   const config = await readConfig(configPath);
-  if (!config.servers.some((s) => s.registryId === registryId)) {
-    config.servers.push({ registryId, channel: "latest" });
+  if (!config.servers.some((s) => s.name === name)) {
+    config.servers.push({ name, transport });
     await createTestConfig(configPath, config);
   }
 }
 
 export async function removeServerFromConfig(
   configPath: string,
-  registryId: string
+  name: string
 ): Promise<void> {
   const config = await readConfig(configPath);
-  config.servers = config.servers.filter((s) => s.registryId !== registryId);
+  config.servers = config.servers.filter((s) => s.name !== name);
   await createTestConfig(configPath, config);
 }

@@ -15,7 +15,7 @@ Instead of loading thousands of tool definitions into an LLM context window, `mc
 
 1) Install + initialize (once per repo).
 
-2) Add one or more MCP servers from the official registry.
+2) Add one or more MCP servers by configuring their transport (stdio command/args or HTTP URL).
 
 3) Run sync to:
 - connect to each server
@@ -56,15 +56,13 @@ The `toolbox/` directory is treated as **fully generated** output. We do not pat
 ## Config explained (`mcp-toolbox.config.ts`)
 
 Key fields:
-- `servers[]`: list of registry IDs to include (tracked at `latest` in this MVP).
+- `servers[]`: list of MCP server configurations, each with:
+  - `name`: unique identifier for the server
+  - `transport`: either `{ type: "stdio", command: string, args?: string[], env?: Record<string, string> }` or `{ type: "http", url: string, headers?: Record<string, string> }`
 - `generation.outDir`: where generated output is written (defaults to `./toolbox`).
 - `security.allowStdioExec`:
   - `false` by default (safer).
-  - If `true`, `sync` may run stdio servers distributed as npm packages via `npx -y <pkg>@<ver>`.
-
-If a server needs custom runtime parameters (URLs, env vars, etc.), use:
-- `servers[].overrides.http.url` (remote servers)
-- `servers[].overrides.run.{command,args,env}` (stdio servers)
+  - If `true`, `sync` may run stdio servers via the configured command.
 
 ## Getting Started
 
@@ -88,16 +86,23 @@ npx mcp-toolbox init
 
 ### Add an MCP server
 
-Interactive:
+Interactive (prompts for name, transport type, and connection details):
 
 ```bash
 npx mcp-toolbox add
 ```
 
-Or by ID:
+Or manually edit `mcp-toolbox.config.ts`:
 
-```bash
-npx mcp-toolbox add <registryId>
+```typescript
+{
+  name: "my-server",
+  transport: {
+    type: "stdio",
+    command: "npx",
+    args: ["mcp-remote", "https://example.com/mcp"]
+  }
+}
 ```
 
 ### Generate / refresh wrappers
