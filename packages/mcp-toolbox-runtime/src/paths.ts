@@ -9,7 +9,7 @@ export function defaultConfigPath() {
   // Walk up the directory tree to find mcp-toolbox.config.ts
   let currentDir = process.cwd();
   const root = path.parse(currentDir).root;
-  
+
   while (currentDir !== root) {
     const configPath = path.join(currentDir, "mcp-toolbox.config.ts");
     if (fs.existsSync(configPath)) {
@@ -21,11 +21,14 @@ export function defaultConfigPath() {
     }
     currentDir = parentDir;
   }
-  
+
   // Fallback to cwd if not found
   return resolveFromCwd("mcp-toolbox.config.ts");
 }
 
 export function defaultOutDir() {
-  return resolveFromCwd("toolbox");
+  // Find project root (where config file is or would be)
+  const configPath = defaultConfigPath();
+  const projectRoot = path.dirname(configPath);
+  return path.join(projectRoot, "toolbox");
 }

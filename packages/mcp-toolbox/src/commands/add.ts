@@ -44,12 +44,14 @@ export function addCommand() {
       const nameInput = await text({
         message: "Server name (unique identifier):",
         placeholder: "my-server",
+        validate(value) {
+          if (!value || value.trim().length === 0) {
+            return "Server name is required";
+          }
+        },
       });
       if (isCancel(nameInput)) return;
       serverName = String(nameInput).trim();
-      if (!serverName) {
-        throw new Error("Server name is required");
-      }
 
       // Check if server already exists
       if (config.servers.some((s) => s.name === serverName)) {
@@ -81,12 +83,14 @@ export function addCommand() {
         const commandInput = await text({
           message: "Command:",
           placeholder: "npx",
+          validate(value) {
+            if (!value || value.trim().length === 0) {
+              return "Command is required for stdio transport";
+            }
+          },
         });
         if (isCancel(commandInput)) return;
         command = String(commandInput).trim();
-        if (!command) {
-          throw new Error("Command is required for stdio transport");
-        }
 
         // Prompt for args
         const argsInput = await text({
@@ -105,6 +109,23 @@ export function addCommand() {
           message:
             "Environment variables (key=value, space-separated, optional):",
           placeholder: "API_KEY=secret WORKSPACE_ROOT=/path",
+          validate(value) {
+            if (value && value.trim().length > 0) {
+              const envPairs = value
+                .trim()
+                .split(/\s+/)
+                .filter((e) => e.length > 0);
+              for (const pair of envPairs) {
+                if (!pair.includes("=")) {
+                  return `Invalid format: "${pair}". Expected key=value format`;
+                }
+                const [key] = pair.split("=");
+                if (!key || key.trim().length === 0) {
+                  return `Invalid format: "${pair}". Key cannot be empty`;
+                }
+              }
+            }
+          },
         });
         if (!isCancel(envInput) && envInput) {
           const envPairs = String(envInput)
@@ -124,17 +145,41 @@ export function addCommand() {
         const urlInput = await text({
           message: "HTTP URL:",
           placeholder: "https://api.example.com/mcp",
+          validate(value) {
+            if (!value || value.trim().length === 0) {
+              return "URL is required for http transport";
+            }
+            try {
+              new URL(value.trim());
+            } catch {
+              return "Invalid URL format";
+            }
+          },
         });
         if (isCancel(urlInput)) return;
         url = String(urlInput).trim();
-        if (!url) {
-          throw new Error("URL is required for http transport");
-        }
 
         // Prompt for headers (optional)
         const headersInput = await text({
           message: "Headers (key=value, space-separated, optional):",
           placeholder: "Authorization=Bearer token",
+          validate(value) {
+            if (value && value.trim().length > 0) {
+              const headerPairs = value
+                .trim()
+                .split(/\s+/)
+                .filter((h) => h.length > 0);
+              for (const pair of headerPairs) {
+                if (!pair.includes("=")) {
+                  return `Invalid format: "${pair}". Expected key=value format`;
+                }
+                const [key] = pair.split("=");
+                if (!key || key.trim().length === 0) {
+                  return `Invalid format: "${pair}". Key cannot be empty`;
+                }
+              }
+            }
+          },
         });
         if (!isCancel(headersInput) && headersInput) {
           const headerPairs = String(headersInput)
