@@ -13,19 +13,26 @@ const clientCache = new Map<string, { client: Client; transport: Transport }>();
 export async function callMcpTool<T = unknown>(args: CallArgs): Promise<T> {
   const config = await loadConfigForRuntime();
   const serverCfg = config.servers.find((s) => s.name === args.serverName);
-  if (!serverCfg) throw new Error(`mcp-toolbox: server not configured: ${args.serverName}`);
+  if (!serverCfg)
+    throw new Error(`mcp-toolbox: server not configured: ${args.serverName}`);
 
   const cacheKey = args.serverName;
   let cached = clientCache.get(cacheKey);
   if (!cached) {
     const transport = await chooseTransportRuntime(config, serverCfg);
-    const client = new Client({ name: "mcp-toolbox-runtime", version: "0.1.0" });
+    const client = new Client({
+      name: config.client?.name || "mcp-toolbox-runtime",
+      version: config.client?.version || "0.1.0",
+    });
     await client.connect(transport);
     cached = { client, transport };
     clientCache.set(cacheKey, cached);
   }
 
-  const res = await cached.client.callTool({ name: args.toolName, arguments: args.input as any } as any);
+  const res = await cached.client.callTool({
+    name: args.toolName,
+    arguments: args.input as any,
+  } as any);
   return res as unknown as T;
 }
 
@@ -40,13 +47,14 @@ async function loadConfigForRuntime(): Promise<ToolboxConfig> {
   return await loadToolboxConfig(configPath);
 }
 
-async function chooseTransportRuntime(config: ToolboxConfig, serverCfg: ToolboxConfig["servers"][number]) {
+async function chooseTransportRuntime(
+  config: ToolboxConfig,
+  serverCfg: ToolboxConfig["servers"][number]
+) {
   if (serverCfg.transport.type === "http") {
     // Note: StreamableHTTPClientTransport doesn't support headers in options
     // Headers would need to be handled via authProvider or other mechanisms
-    return new StreamableHTTPClientTransport(
-      new URL(serverCfg.transport.url)
-    );
+    return new StreamableHTTPClientTransport(new URL(serverCfg.transport.url));
   }
 
   if (serverCfg.transport.type === "stdio") {

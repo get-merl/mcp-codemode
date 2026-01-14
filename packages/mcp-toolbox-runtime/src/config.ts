@@ -27,4 +27,8 @@ export type ToolboxConfig = {
   cli?: {
     interactive?: boolean;
   };
+  client?: {
+    name?: string;
+    version?: string;
+  };
 };

@@ -10,6 +10,18 @@ const config: ToolboxConfig = {
         args: ["mcp-remote", "https://observability.mcp.cloudflare.com/mcp"],
       },
     },
+    {
+      name: "supabase",
+      transport: {
+        type: "stdio",
+        command: "npx",
+        args: [
+          "-y",
+          "mcp-remote",
+          "https://mcp.supabase.com/mcp?project_ref=grbydozdxbgurgdpkqvv&read_only=true",
+        ],
+      },
+    },
   ],
   generation: {
     outDir: "toolbox",

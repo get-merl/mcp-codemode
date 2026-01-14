@@ -1,6 +1,11 @@
 import { Command } from "commander";
-import { isCancel, select, text, confirm } from "@clack/prompts";
-import { defaultConfigPath, loadToolboxConfig, fileExists } from "mcp-toolbox-runtime";
+import path from "node:path";
+import { isCancel, select, text, confirm, outro } from "@clack/prompts";
+import {
+  defaultConfigPath,
+  loadToolboxConfig,
+  fileExists,
+} from "mcp-toolbox-runtime";
 import { writeToolboxConfigTs } from "../lib/writeConfig.js";
 import type { ToolboxServerConfig } from "mcp-toolbox-runtime";
 
@@ -30,7 +35,9 @@ export function addCommand() {
       let headers: Record<string, string> | undefined;
 
       if (nonInteractive) {
-        throw new Error("Non-interactive mode not yet supported. Please run without --yes flag.");
+        throw new Error(
+          "Non-interactive mode not yet supported. Please run without --yes flag."
+        );
       }
 
       // Prompt for server name
@@ -59,7 +66,10 @@ export function addCommand() {
       const transportInput = await select({
         message: "Transport type:",
         options: [
-          { value: "stdio", label: "stdio - Run a command (e.g., npx mcp-remote)" },
+          {
+            value: "stdio",
+            label: "stdio - Run a command (e.g., npx mcp-remote)",
+          },
           { value: "http", label: "http - Connect to HTTP endpoint" },
         ],
       });
@@ -92,7 +102,8 @@ export function addCommand() {
 
         // Prompt for env vars (optional)
         const envInput = await text({
-          message: "Environment variables (key=value, space-separated, optional):",
+          message:
+            "Environment variables (key=value, space-separated, optional):",
           placeholder: "API_KEY=secret WORKSPACE_ROOT=/path",
         });
         if (!isCancel(envInput) && envInput) {
@@ -154,14 +165,17 @@ export function addCommand() {
             : {
                 type: "http",
                 url: url!,
-                ...(headers && Object.keys(headers).length > 0 ? { headers } : {}),
+                ...(headers && Object.keys(headers).length > 0
+                  ? { headers }
+                  : {}),
               },
       };
 
       config.servers.push(serverConfig);
       await writeToolboxConfigTs(configPath, config);
+      const resolvedPath = path.resolve(configPath);
+      outro(`Added server '${serverName}' to ${resolvedPath}`);
     });
 
   return cmd;
 }
-

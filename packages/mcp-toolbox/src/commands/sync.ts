@@ -2,7 +2,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { spawn } from "node:child_process";
 import { Command } from "commander";
-import { confirm, isCancel, log, progress } from "@clack/prompts";
+import { confirm, isCancel, log, progress, outro } from "@clack/prompts";
 
 import {
   defaultConfigPath,
@@ -124,9 +124,18 @@ export function syncCommand() {
 
               let newSnap;
               try {
+                // Update progress bar message during introspection
                 newSnap = await introspectServer({
                   serverConfig: serverCfg,
                   allowStdioExec: config.security.allowStdioExec,
+                  clientName: config.client?.name,
+                  clientVersion: config.client?.version,
+                  onStatusUpdate: (status) => {
+                    // Update progress bar message to show current status
+                    if (p && progressStarted) {
+                      p.advance(0, `${serverCfg.name}: ${status}`);
+                    }
+                  },
                 });
               } catch (introspectError) {
                 throw introspectError;
@@ -229,8 +238,13 @@ export function syncCommand() {
           if (progressStarted) {
             if (!checkOnly) {
               if (failedServers.length > 0) {
+                // Show both success and failure counts when there are failures
+                const successMsg =
+                  successfulServers.length > 0
+                    ? `${successfulServers.length} succeeded, `
+                    : "";
                 p.stop(
-                  `✗ ${failedServers.length} server${
+                  `${successMsg}${failedServers.length} server${
                     failedServers.length === 1 ? "" : "s"
                   } failed`
                 );
@@ -259,16 +273,11 @@ export function syncCommand() {
           }
         }
 
-        // Display detailed summary (only for errors in non-check mode)
+        // Display detailed error messages (only for errors in non-check mode)
         if (!checkOnly) {
           if (failedServers.length > 0) {
-            log.error(
-              `${failedServers.length} server${
-                failedServers.length === 1 ? "" : "s"
-              } failed:`
-            );
             for (const failed of failedServers) {
-              log.error(`  - ${failed.serverName}: ${failed.error}`);
+              log.error(`${failed.serverName}: ${failed.error}`);
             }
           }
 
@@ -288,8 +297,9 @@ export function syncCommand() {
             }
           }
 
-          // Set exit code based on failures
-          if (failedServers.length > 0) {
+          // Only set exit code to 1 if all servers failed (complete failure)
+          // Partial success (some succeeded, some failed) exits gracefully with code 0
+          if (failedServers.length > 0 && successfulServers.length === 0) {
             process.exitCode = 1;
           }
         } else {
@@ -312,6 +322,8 @@ export function syncCommand() {
         if (shouldFormat) {
           await tryFormatWithOxfmt(outDir);
         }
+
+        outro(`Finished: MCP Toolbox generated at ${outDir}`);
       } catch (error: unknown) {
         // Stop progress bar if it was started
         if (p && progressStarted) {

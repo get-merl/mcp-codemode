@@ -17,6 +17,9 @@ type IntrospectionState =
 export async function introspectServer(args: {
   serverConfig: ToolboxServerConfig;
   allowStdioExec: boolean;
+  clientName?: string;
+  clientVersion?: string;
+  onStatusUpdate?: (status: string) => void;
 }): Promise<IntrospectedServer> {
   const serverName = args.serverConfig.name;
   let state: IntrospectionState = { stage: "initializing" };
@@ -29,15 +32,21 @@ export async function introspectServer(args: {
     transport = await chooseTransport({
       serverConfig: args.serverConfig,
       allowStdioExec: args.allowStdioExec,
+      onStatusUpdate: args.onStatusUpdate,
     });
 
     // Step 2: Create and connect client
-    client = new Client({ name: "mcp-toolbox", version: "0.0.1" });
+    client = new Client({
+      name: args.clientName || "mcp-toolbox",
+      version: args.clientVersion || "0.0.1",
+    });
     state = { stage: "connecting", transport };
+    args.onStatusUpdate?.("Connecting...");
 
     try {
       await client.connect(transport);
       state = { stage: "connected", transport, client };
+      args.onStatusUpdate?.("Connected");
     } catch (connectError) {
       const error = new Error(
         `Failed to connect to server '${serverName}': ${
@@ -52,6 +61,7 @@ export async function introspectServer(args: {
 
     // Step 3: Call listTools with state tracking
     state = { stage: "listing-tools", transport, client };
+    args.onStatusUpdate?.("Listing tools...");
     let toolsResult;
     try {
       toolsResult = await client.listTools();
@@ -150,6 +160,7 @@ function describeTransport(
 async function chooseTransport(args: {
   serverConfig: ToolboxServerConfig;
   allowStdioExec: boolean;
+  onStatusUpdate?: (status: string) => void;
 }): Promise<Transport> {
   if (args.serverConfig.transport.type === "http") {
     // Note: StreamableHTTPClientTransport doesn't support headers in options

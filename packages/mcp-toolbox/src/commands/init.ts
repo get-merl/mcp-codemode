@@ -1,7 +1,11 @@
 import { Command } from "commander";
 import { confirm, isCancel, outro, text } from "@clack/prompts";
 import path from "node:path";
-import { defaultConfigPath, defaultOutDir, fileExists } from "mcp-toolbox-runtime";
+import {
+  defaultConfigPath,
+  defaultOutDir,
+  fileExists,
+} from "mcp-toolbox-runtime";
 import { writeToolboxConfigTs } from "../lib/writeConfig.js";
 
 export function initCommand() {
@@ -35,18 +39,29 @@ export function initCommand() {
         return;
       }
 
-      await maybeWriteConfig(configPath, outDirStr);
+      const written = await maybeWriteConfig(configPath, outDirStr);
+      if (written) {
+        const resolvedPath = path.resolve(configPath);
+        outro(`Initialized config at ${resolvedPath}`);
+      }
       return;
     }
 
-    await maybeWriteConfig(configPath, outDir);
+    const written = await maybeWriteConfig(configPath, outDir);
+    if (written) {
+      const resolvedPath = path.resolve(configPath);
+      outro(`Initialized config at ${resolvedPath}`);
+    }
   });
 
   return cmd;
 }
 
-async function maybeWriteConfig(configPath: string, outDir: string) {
-  if (await fileExists(configPath)) return;
+async function maybeWriteConfig(
+  configPath: string,
+  outDir: string
+): Promise<boolean> {
+  if (await fileExists(configPath)) return false;
 
   // Convert absolute path to relative path if it's under process.cwd()
   let relativeOutDir = outDir;
@@ -68,5 +83,5 @@ async function maybeWriteConfig(configPath: string, outDir: string) {
     security: { allowStdioExec: false, envAllowlist: [] },
     cli: { interactive: true },
   });
+  return true;
 }
-

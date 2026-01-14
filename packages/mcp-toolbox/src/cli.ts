@@ -1,5 +1,5 @@
 import { Command } from "commander";
-import { intro, outro } from "@clack/prompts";
+import { intro } from "@clack/prompts";
 import { initCommand } from "./commands/init.js";
 import { addCommand } from "./commands/add.js";
 import { removeCommand } from "./commands/remove.js";
@@ -25,13 +25,9 @@ export async function runCli(argv: string[]) {
     )
     .version("0.0.1");
 
-  program
-    .hook("preAction", async () => {
-      intro("mcp-toolbox");
-    })
-    .hook("postAction", async () => {
-      outro("Done.");
-    });
+  program.hook("preAction", async () => {
+    intro("mcp-toolbox");
+  });
 
   program.addCommand(initCommand());
   program.addCommand(addCommand());
@@ -62,4 +58,3 @@ export async function runCli(argv: string[]) {
     process.exitCode = 1;
   }
 }
-
