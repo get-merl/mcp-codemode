@@ -102,3 +102,91 @@ Validate that `success_rate` is stable between baseline and toolbox.
 - Each run is marked `success=true` only if the model’s tool call JSON matches `expected_tool_call` exactly.
 - If success rates diverge, inspect `response_text` for prompt or tool-definition drift.
 - Use multiple runs per task (N>=3) to account for nondeterminism.
+
+---
+
+## Advanced Test Types
+
+### 1. Scaling Tests
+
+Test how context usage grows with tool count (30, 50, 100, 150+ tools).
+
+**Config**: `scripts/context-metrics/config-scaling.json`
+
+**Run**:
+
+```bash
+node scripts/context-metrics-runner.mjs --config scripts/context-metrics/config-scaling.json
+node scripts/context-metrics-aggregate-advanced.mjs --input context-metrics-runs-scaling --type scaling
+```
+
+**Key metrics**:
+
+- `tool_definitions_bytes` vs tool count
+- `total_tokens` vs tool count
+- Linear growth expected in baseline; constant in toolbox
+
+### 2. Execution Tests (Large Result Filtering)
+
+Test context savings from filtering large tool results before returning to model.
+
+**Config**: `scripts/context-metrics/config-exec.json`
+
+**Tasks**: `scripts/context-metrics/exec-tasks.json`
+
+**Run**:
+
+```bash
+node scripts/context-metrics-runner-exec.mjs --config scripts/context-metrics/config-exec.json --mode baseline
+node scripts/context-metrics-runner-exec.mjs --config scripts/context-metrics/config-exec.json --mode toolbox
+node scripts/context-metrics-aggregate-advanced.mjs --input context-metrics-runs-exec --type exec
+```
+
+**Key metrics**:
+
+- `result_bytes_raw` - size of unfiltered tool result
+- `result_bytes_filtered` - size after filtering (toolbox only)
+- `total_tokens` - includes result in context
+
+**Filter types**:
+
+- `truncate` - limit result to N characters
+- `summarize_array` - return count + sample
+- `extract_fields` - return only specified fields
+
+### 3. Workflow Tests (Multi-Turn Context Growth)
+
+Test cumulative context growth across multi-step agent workflows.
+
+**Config**: `scripts/context-metrics/config-workflow.json`
+
+**Workflows**: `scripts/context-metrics/workflows.json`
+
+**Run**:
+
+```bash
+node scripts/context-metrics-runner-workflow.mjs --config scripts/context-metrics/config-workflow.json --mode baseline
+node scripts/context-metrics-runner-workflow.mjs --config scripts/context-metrics/config-workflow.json --mode toolbox
+node scripts/context-metrics-aggregate-advanced.mjs --input context-metrics-runs-workflow --type workflow
+```
+
+**Key metrics**:
+
+- `context_tokens_per_turn` - array of token counts at each step
+- `cumulative_result_bytes` - total result bytes through workflow
+- `context_growth_factor` - ratio of final to initial context size
+
+**Expected outcomes**:
+
+- Baseline: context grows significantly each turn as full results accumulate
+- Toolbox: context grows slowly as filtered results are smaller
+
+---
+
+## Synthetic Tools
+
+For scaling tests, synthetic tool definitions are generated in `scripts/context-metrics/synthetic-tools.json`.
+
+These include mock tools for: CRM, Analytics, Storage, Email, Payments, Notifications, and Search.
+
+Total: 70 synthetic tools + 30 real tools = 100+ tools for scaling tests.

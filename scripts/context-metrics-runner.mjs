@@ -241,7 +241,22 @@ async function listSnapshotServers(snapshotsDir) {
   return entries.filter((e) => e.isDirectory()).map((e) => e.name);
 }
 
-async function buildToolSet({ mode, task, snapshotsDir }) {
+async function loadSyntheticTools(syntheticToolsPath) {
+  const exists = await fileExists(syntheticToolsPath);
+  if (!exists) {
+    throw new Error(`Missing synthetic tools file: ${syntheticToolsPath}`);
+  }
+  const data = await readJson(syntheticToolsPath);
+  const all = [];
+  for (const server of data.servers || []) {
+    for (const tool of server.tools || []) {
+      all.push({ ...tool, __serverSlug: server.serverSlug });
+    }
+  }
+  return all;
+}
+
+async function buildToolSet({ mode, task, snapshotsDir, syntheticToolsPath }) {
   if (mode.toolDefinitionScope === "taskToolsOnly") {
     const tools = await loadSnapshotTools({
       snapshotsDir,
@@ -267,6 +282,24 @@ async function buildToolSet({ mode, task, snapshotsDir }) {
     return all;
   }
 
+  if (mode.toolDefinitionScope === "scaled") {
+    const targetCount = mode.toolCount || 100;
+    const realTools = await loadSnapshotTools({
+      snapshotsDir,
+      serverSlug: task.serverSlug,
+    });
+    const taskTools = realTools.filter((tool) => task.toolNames.includes(tool.name));
+    const otherRealTools = realTools.filter((tool) => !task.toolNames.includes(tool.name));
+    const syntheticTools = syntheticToolsPath ? await loadSyntheticTools(syntheticToolsPath) : [];
+    const paddingPool = [...otherRealTools, ...syntheticTools];
+    const paddingNeeded = Math.max(0, targetCount - taskTools.length);
+    const padding = [];
+    for (let i = 0; i < paddingNeeded && paddingPool.length > 0; i++) {
+      padding.push(paddingPool[i % paddingPool.length]);
+    }
+    return [...taskTools, ...padding];
+  }
+
   throw new Error(`Unknown toolDefinitionScope: ${mode.toolDefinitionScope}`);
 }
 
@@ -285,6 +318,9 @@ async function run() {
   const tasks = await readJson(tasksPath);
   const snapshotsDir = path.resolve(config.snapshotsDir);
   const outputRoot = path.resolve(config.outputDir);
+  const syntheticToolsPath = config.syntheticToolsFile
+    ? path.resolve(config.syntheticToolsFile)
+    : null;
   const runStamp = nowIsoSlug();
   const runId = randomUUID();
 
@@ -303,7 +339,7 @@ async function run() {
   for (const mode of modes) {
     for (const task of tasks) {
       for (let i = 0; i < config.runsPerTask; i += 1) {
-        const tools = await buildToolSet({ mode, task, snapshotsDir });
+        const tools = await buildToolSet({ mode, task, snapshotsDir, syntheticToolsPath });
         const toolText = tools
           .map((tool) =>
             buildToolDefinitionsText({
