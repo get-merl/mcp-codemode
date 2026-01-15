@@ -50,6 +50,9 @@ Thumbs.db
 .env.*.local
 .envrc
 
+# Act secrets (for local GitHub Actions testing)
+.github/workflows/.secrets
+
 # Testing
 coverage/
 *.lcov

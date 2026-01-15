@@ -1,0 +1,8 @@
+# Act configuration for local GitHub Actions testing
+# See: https://github.com/nektos/act
+
+# Use medium-sized runner image (includes more tools than micro)
+-P ubuntu-latest=catthehacker/ubuntu:act-latest
+
+# Verbose output for debugging
+-v

@@ -23,8 +23,6 @@ jobs:
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
-        with:
-          version: 10
 
       - name: Install
         run: pnpm install --frozen-lockfile=false
@@ -47,4 +45,3 @@ jobs:
             - Ran: `mcp-toolbox sync --yes`
           branch: "chore/mcp-toolbox-sync"
           delete-branch: true
-

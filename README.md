@@ -415,6 +415,61 @@ git commit -m "Add MCP Toolbox CI check"
 git push
 ```
 
+#### Testing Workflows Locally
+
+You can test GitHub Actions workflows locally using [`act`](https://github.com/nektos/act) before pushing changes.
+
+**Installation:**
+
+```bash
+# macOS
+brew install act
+
+# Other platforms: see https://github.com/nektos/act#installation
+```
+
+**Quick Start:**
+
+```bash
+# List all workflows
+act -l
+
+# Test a specific workflow
+./scripts/test-workflow.sh mcp-toolbox-check push
+
+# Or directly with act
+act push -W .github/workflows/mcp-toolbox-check.yml
+```
+
+**Set up secrets (optional):**
+
+```bash
+# Copy the example secrets file
+cp .github/workflows/.secrets.example .github/workflows/.secrets
+
+# Edit with your tokens
+# Then test with secrets
+act push --secret-file .github/workflows/.secrets -W .github/workflows/mcp-toolbox-check.yml
+```
+
+**Common commands:**
+
+```bash
+# Test check workflow
+./scripts/test-workflow.sh mcp-toolbox-check push
+
+# Test sync workflow
+./scripts/test-workflow.sh mcp-toolbox-sync workflow_dispatch
+
+# Dry run (simulate without executing)
+act push -n -W .github/workflows/mcp-toolbox-check.yml
+
+# Run specific job
+act -j check -W .github/workflows/mcp-toolbox-check.yml
+```
+
+For detailed documentation, see [`.github/workflows/TESTING.md`](.github/workflows/TESTING.md).
+
 ## Troubleshooting
 
 ### Sync Fails with "allowStdioExec is false"
