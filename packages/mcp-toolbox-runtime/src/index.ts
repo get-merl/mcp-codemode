@@ -4,6 +4,7 @@ import { StreamableHTTPClientTransport } from "@modelcontextprotocol/sdk/client/
 import type { ToolboxConfig } from "./config.js";
 import { loadToolboxConfig } from "./loadConfig.js";
 import { buildStdioEnv } from "./env.js";
+import { resolveAuth } from "./auth/resolver.js";
 import { getOrCreatePool, closeAllPools, closePool, getPoolStats } from "./connectionPool.js";
 
 type CallArgs = { serverName: string; toolName: string; input: unknown };
@@ -47,9 +48,16 @@ async function chooseTransportRuntime(
   serverCfg: ToolboxConfig["servers"][number]
 ) {
   if (serverCfg.transport.type === "http") {
-    // Note: StreamableHTTPClientTransport doesn't support headers in options
-    // Headers would need to be handled via authProvider or other mechanisms
-    return new StreamableHTTPClientTransport(new URL(serverCfg.transport.url));
+    const authResult = resolveAuth(serverCfg.transport.auth);
+    const headers: Record<string, string> = {};
+
+    if (authResult.status === "resolved") {
+      headers["Authorization"] = `Bearer ${authResult.token}`;
+    }
+
+    return new StreamableHTTPClientTransport(new URL(serverCfg.transport.url), {
+      requestInit: { headers },
+    });
   }
 
   if (serverCfg.transport.type === "stdio") {
@@ -59,10 +67,23 @@ async function chooseTransportRuntime(
       );
     }
     const stdioTransport = serverCfg.transport;
+
+    // Resolve auth token and pass via env vars
+    const authResult = resolveAuth(serverCfg.transport.auth);
+    const authEnv: Record<string, string> = {};
+
+    if (
+      authResult.status === "resolved" &&
+      serverCfg.transport.auth?.type === "bearer"
+    ) {
+      // Pass token via the same env var name the server expects
+      authEnv[serverCfg.transport.auth.tokenEnv] = authResult.token;
+    }
+
     const env = buildStdioEnv({
       allowlist: config.security.envAllowlist,
       baseEnv: process.env,
-      transportEnv: stdioTransport.env,
+      transportEnv: { ...stdioTransport.env, ...authEnv },
     });
     return new StdioClientTransport({
       command: serverCfg.transport.command,
@@ -102,6 +123,10 @@ export type { ToolboxConfig, ToolboxServerConfig } from "./config.js";
 export { defaultConfigPath, defaultOutDir, resolveFromCwd } from "./paths.js";
 export { loadToolboxConfig, loadToolboxConfigWithPath, fileExists, clearConfigCache } from "./loadConfig.js";
 export { buildStdioEnv } from "./env.js";
+
+// Export auth utilities
+export { resolveAuth, isAuthError, loadEnvFiles } from "./auth/index.js";
+export type { AuthConfig, AuthResult } from "./auth/index.js";
 
 // Export connection pool control methods
 export { closePool as closeConnection, closeAllPools as closeAllConnections, getPoolStats } from "./connectionPool.js";

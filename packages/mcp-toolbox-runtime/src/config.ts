@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { authConfigSchema } from "./auth/schema.js";
 
 const stdioTransportSchema = z
   .object({
@@ -6,6 +7,7 @@ const stdioTransportSchema = z
     command: z.string().min(1),
     args: z.array(z.string()).optional(),
     env: z.record(z.string(), z.string()).optional(),
+    auth: authConfigSchema,
   })
   .strict();
 
@@ -13,6 +15,7 @@ const httpTransportSchema = z
   .object({
     type: z.literal("http"),
     url: z.string().url(),
+    auth: authConfigSchema,
   })
   .strict();
 

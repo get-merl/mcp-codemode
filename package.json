@@ -12,7 +12,8 @@
     "format": "turbo run format",
     "dev": "turbo run dev",
     "test": "turbo run test",
-    "mcp-toolbox": "pnpm --filter mcp-toolbox exec mcp-toolbox"
+    "mcp-toolbox": "pnpm --filter mcp-toolbox exec mcp-toolbox",
+    "mcp-toolbox-benchmark": "pnpm --filter @merl-ai/mcp-toolbox-benchmark benchmark"
   },
   "dependencies": {
     "@merl-ai/mcp-toolbox-runtime": "workspace:*"

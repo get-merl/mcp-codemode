@@ -1,0 +1,41 @@
+{
+  "name": "@merl-ai/mcp-toolbox-benchmark",
+  "version": "0.1.0",
+  "description": "Context metrics benchmarking for MCP tool definitions",
+  "bin": {
+    "mcp-benchmark": "./dist/bin.js"
+  },
+  "files": [
+    "config",
+    "dist"
+  ],
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest watch",
+    "benchmark": "node ./dist/bin.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.71.2",
+    "@clack/prompts": "1.0.0-alpha.9",
+    "@merl-ai/mcp-toolbox-runtime": "workspace:*",
+    "commander": "^14.0.2",
+    "dotenv": "^17.2.3",
+    "openai": "^6.16.0",
+    "zod": "^4.3.5"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.8",
+    "typescript": "^5.9.3",
+    "vite-tsconfig-paths": "^6.0.4",
+    "vitest": "^2.1.8"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

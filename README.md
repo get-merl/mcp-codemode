@@ -306,8 +306,16 @@ Array of MCP server configurations:
     - `command` (string): Command to execute (e.g., `"npx"`)
     - `args` (string[]): Command arguments
     - `env` (object): Environment variables (optional)
+    - `auth` (object, optional): Authentication configuration
+      - `type: "bearer"`: Bearer token authentication
+        - `tokenEnv` (string): Name of environment variable containing the token
+      - `type: "none"`: No authentication (default if omitted)
   - **`type: "http"`**: Connect via HTTP
     - `url` (string): Server URL
+    - `auth` (object, optional): Authentication configuration
+      - `type: "bearer"`: Bearer token authentication
+        - `tokenEnv` (string): Name of environment variable containing the token
+      - `type: "none"`: No authentication (default if omitted)
 
 #### `generation`
 
@@ -322,6 +330,73 @@ Security settings:
 
 - **`allowStdioExec`** (boolean, default: `false`): Allow executing stdio commands. Set to `true` to enable stdio transports.
 - **`envAllowlist`** (string[]): Environment variables to pass through to stdio transports. Only allowlisted variables are copied (explicit `transport.env` entries are always included).
+
+### Authentication
+
+MCP Toolbox supports bearer token authentication for both HTTP and stdio transports. Tokens are resolved from environment variables at runtime.
+
+#### Environment Variable Loading
+
+Before config validation, MCP Toolbox automatically loads environment variables from:
+1. `.env` (lower priority)
+2. `.env.local` (higher priority, overrides `.env`)
+
+This ensures that `tokenEnv` values resolve properly during config validation.
+
+#### Example Configuration with Auth
+
+```json
+{
+  "servers": [
+    {
+      "name": "supabase",
+      "transport": {
+        "type": "http",
+        "url": "https://mcp.supabase.com/mcp",
+        "auth": {
+          "type": "bearer",
+          "tokenEnv": "SUPABASE_MCP_TOKEN"
+        }
+      }
+    },
+    {
+      "name": "custom-server",
+      "transport": {
+        "type": "stdio",
+        "command": "npx",
+        "args": ["mcp-server"],
+        "auth": {
+          "type": "bearer",
+          "tokenEnv": "CUSTOM_SERVER_TOKEN"
+        }
+      }
+    }
+  ]
+}
+```
+
+Create a `.env.local` file (or `.env`) with your tokens:
+
+```bash
+SUPABASE_MCP_TOKEN=your_token_here
+CUSTOM_SERVER_TOKEN=your_other_token_here
+```
+
+**Note**: Add `.env.local` to `.gitignore` to keep tokens out of version control.
+
+#### CI Behavior
+
+When running in CI environments (detected via `CI`, `GITHUB_ACTIONS`, or `ACT` environment variables), or when using the `--skip-missing-auth` flag:
+
+- **Missing tokens**: Servers with missing auth tokens are skipped with a warning, rather than causing the sync to fail
+- **Invalid tokens**: If a token is present but authentication fails (401/403), that server is marked as failed but the sync continues with other servers
+- **Exit code**: The process exits with code 0 if at least one server succeeds, even if some servers fail due to auth issues
+
+This allows CI pipelines to run successfully even when some servers don't have auth tokens configured.
+
+#### Per-Server Auth Failure Handling
+
+If authentication fails for a specific server (e.g., invalid token, expired credentials), only that server is marked as failed. The sync process continues with remaining servers and completes successfully if at least one server succeeds. This prevents a single auth failure from stopping the entire sync operation.
 
 ## Common Commands
 

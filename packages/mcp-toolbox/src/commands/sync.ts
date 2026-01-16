@@ -4,7 +4,12 @@ import { spawn } from "node:child_process";
 import { Command } from "commander";
 import { confirm, isCancel, log, progress, outro } from "@clack/prompts";
 
-import { loadToolboxConfigWithPath, fileExists } from "@merl-ai/mcp-toolbox-runtime";
+import {
+  loadToolboxConfigWithPath,
+  fileExists,
+  resolveAuth,
+  isAuthError,
+} from "@merl-ai/mcp-toolbox-runtime";
 import type { ToolboxServerConfig } from "@merl-ai/mcp-toolbox-runtime";
 import { slugifyServerName } from "../lib/slug.js";
 import { resolveOutDir } from "../lib/resolveOutDir.js";
@@ -28,6 +33,7 @@ import type { IntrospectedServer } from "../introspect/types.js";
 
 type SuccessfulServer = { serverName: string; toolsCount: number };
 type FailedServer = { serverName: string; error: string };
+type SkippedServer = { serverName: string; reason: string };
 type BreakingChange = {
   serverName: string;
   oldVersion: string;
@@ -42,6 +48,7 @@ type CatalogEntry = {
 interface SyncResults {
   successful: SuccessfulServer[];
   failed: FailedServer[];
+  skipped: SkippedServer[];
   breakingChanges: BreakingChange[];
   catalogEntries: CatalogEntry[];
   anyOutOfSync: boolean;
@@ -51,6 +58,7 @@ function createSyncResults(): SyncResults {
   return {
     successful: [],
     failed: [],
+    skipped: [],
     breakingChanges: [],
     catalogEntries: [],
     anyOutOfSync: false,
@@ -66,15 +74,7 @@ function formatSyncSummary(results: SyncResults, checkOnly: boolean): string {
     return results.anyOutOfSync ? "Out of sync" : "Up to date";
   }
 
-  if (results.failed.length > 0) {
-    const successMsg =
-      results.successful.length > 0
-        ? `${results.successful.length} succeeded, `
-        : "";
-    const plural = results.failed.length === 1 ? "" : "s";
-    return `${successMsg}${results.failed.length} server${plural} failed`;
-  }
-
+  const parts: string[] = [];
   if (results.successful.length > 0) {
     const toolsCount = results.successful.reduce(
       (sum, s) => sum + s.toolsCount,
@@ -82,10 +82,20 @@ function formatSyncSummary(results: SyncResults, checkOnly: boolean): string {
     );
     const serverPlural = results.successful.length === 1 ? "" : "s";
     const toolPlural = toolsCount === 1 ? "" : "s";
-    return `Synced ${results.successful.length} server${serverPlural} (${toolsCount} tool${toolPlural} total)`;
+    parts.push(
+      `Synced ${results.successful.length} server${serverPlural} (${toolsCount} tool${toolPlural} total)`
+    );
+  }
+  if (results.skipped.length > 0) {
+    const plural = results.skipped.length === 1 ? "" : "s";
+    parts.push(`${results.skipped.length} server${plural} skipped`);
+  }
+  if (results.failed.length > 0) {
+    const plural = results.failed.length === 1 ? "" : "s";
+    parts.push(`${results.failed.length} server${plural} failed`);
   }
 
-  return "";
+  return parts.join(", ") || "";
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -119,6 +129,11 @@ export function syncCommand() {
     )
     .option("--no-format", "Skip formatting generated output with oxfmt")
     .option("--server <name>", "Sync only the specified server")
+    .option(
+      "--skip-missing-auth",
+      "Skip servers with missing auth tokens instead of failing",
+      false
+    )
     .action(async (opts) => {
       let p: ReturnType<typeof progress> | undefined;
       let progressStarted = false;
@@ -128,12 +143,26 @@ export function syncCommand() {
         const checkOnly: boolean = Boolean(opts.check);
         const shouldFormat: boolean = Boolean(opts.format);
         const serverFilter: string | undefined = opts.server;
+        const skipMissingAuth: boolean = Boolean(opts.skipMissingAuth);
 
         const { config, filepath: configPath } = await loadToolboxConfigWithPath(configPathOpt);
         const outDir = resolveOutDir({
           configPath,
           configOutDir: config.generation.outDir,
         });
+
+        // In CI environment, skip server connections in check mode
+        // Just verify generated code exists and is valid
+        const isCI = Boolean(
+          process.env["CI"] || process.env["GITHUB_ACTIONS"] || process.env["ACT"]
+        );
+        const shouldSkipMissingAuth = skipMissingAuth || isCI;
+
+        if (isCI && checkOnly) {
+          // CI check mode: verify generated code without connecting to servers
+          await verifyGeneratedCode(outDir, config.servers);
+          return;
+        }
 
         const results = createSyncResults();
 
@@ -158,6 +187,17 @@ export function syncCommand() {
           for (let i = 0; i < serversToSync.length; i++) {
             const serverCfg = serversToSync[i];
             if (!serverCfg) continue;
+
+            // Check for missing auth tokens before processing
+            const authResult = resolveAuth(serverCfg.transport.auth);
+            if (authResult.status === "missing" && shouldSkipMissingAuth) {
+              results.skipped.push({
+                serverName: serverCfg.name,
+                reason: `Missing auth token: ${authResult.envVar}`,
+              });
+              p.advance(1, `⊘ ${serverCfg.name}: Skipped (missing auth)`);
+              continue;
+            }
 
             try {
               const result = await processServer({
@@ -204,6 +244,19 @@ export function syncCommand() {
                 `✓ ${result.serverName} (${result.toolsCount} tools)`
               );
             } catch (error: unknown) {
+              // Handle auth errors (401/403) as per-server failures that don't stop the process
+              if (isAuthError(error)) {
+                const errorMsg =
+                  error instanceof Error ? error.message : String(error);
+                results.failed.push({
+                  serverName: serverCfg.name,
+                  error: `Authentication failed: ${errorMsg}`,
+                });
+                p.advance(1, `✗ ${serverCfg.name}: Auth failed`);
+                continue; // Continue to next server
+              }
+
+              // Other errors
               const errorMsg =
                 error instanceof Error ? error.message : String(error);
               results.failed.push({
@@ -224,6 +277,9 @@ export function syncCommand() {
 
         // Display detailed error messages (only for errors in non-check mode)
         if (!checkOnly) {
+          for (const skipped of results.skipped) {
+            log.warn(`${skipped.serverName}: ${skipped.reason}`);
+          }
           for (const failed of results.failed) {
             log.error(`${failed.serverName}: ${failed.error}`);
           }
@@ -394,6 +450,77 @@ async function processServer(args: {
     snapshot: newSnap,
     breakingChange,
   };
+}
+
+async function verifyGeneratedCode(
+  outDir: string,
+  servers: ToolboxServerConfig[]
+): Promise<void> {
+  const catalogPath = path.join(outDir, "catalog.json");
+  const readmePath = path.join(outDir, "README.md");
+  const serversDir = path.join(outDir, "servers");
+
+  // Check that catalog.json exists and is valid
+  if (!(await fileExists(catalogPath))) {
+    throw new Error(
+      `Generated code verification failed: catalog.json not found at ${catalogPath}`
+    );
+  }
+
+  try {
+    const catalogContent = await fs.readFile(catalogPath, "utf-8");
+    JSON.parse(catalogContent);
+  } catch (error) {
+    throw new Error(
+      `Generated code verification failed: catalog.json is invalid: ${
+        error instanceof Error ? error.message : String(error)
+      }`
+    );
+  }
+
+  // Check that README.md exists
+  if (!(await fileExists(readmePath))) {
+    throw new Error(
+      `Generated code verification failed: README.md not found at ${readmePath}`
+    );
+  }
+
+  // Check that servers directory exists
+  if (!(await fileExists(serversDir))) {
+    throw new Error(
+      `Generated code verification failed: servers directory not found at ${serversDir}`
+    );
+  }
+
+  // Verify each configured server has generated code
+  for (const server of servers) {
+    const serverSlug = slugifyServerName(server.name);
+    const serverDir = path.join(serversDir, serverSlug);
+    const indexPath = path.join(serverDir, "index.ts");
+
+    if (!(await fileExists(serverDir))) {
+      throw new Error(
+        `Generated code verification failed: server directory not found for '${server.name}' at ${serverDir}`
+      );
+    }
+
+    if (!(await fileExists(indexPath))) {
+      throw new Error(
+        `Generated code verification failed: index.ts not found for server '${server.name}' at ${indexPath}`
+      );
+    }
+
+    // Verify snapshot exists
+    const snapshotDir = path.join(outDir, ".snapshots", serverSlug);
+    const latestSnapshotPath = path.join(snapshotDir, "latest.json");
+    if (!(await fileExists(latestSnapshotPath))) {
+      throw new Error(
+        `Generated code verification failed: snapshot not found for server '${server.name}' at ${latestSnapshotPath}`
+      );
+    }
+  }
+
+  log.success("Generated code verification passed");
 }
 
 async function readJsonIfExists<T>(filePath: string): Promise<T | null> {

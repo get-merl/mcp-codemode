@@ -2,7 +2,7 @@ import { Client } from "@modelcontextprotocol/sdk/client";
 import { StdioClientTransport } from "@modelcontextprotocol/sdk/client/stdio.js";
 import { StreamableHTTPClientTransport } from "@modelcontextprotocol/sdk/client/streamableHttp.js";
 import type { Transport } from "@modelcontextprotocol/sdk/shared/transport.js";
-import { buildStdioEnv } from "@merl-ai/mcp-toolbox-runtime";
+import { buildStdioEnv, resolveAuth } from "@merl-ai/mcp-toolbox-runtime";
 import type { ToolboxServerConfig } from "@merl-ai/mcp-toolbox-runtime";
 import type { IntrospectedServer, McpToolDefinition } from "./types.js";
 
@@ -168,8 +168,16 @@ async function chooseTransport(args: {
   onStatusUpdate?: (status: string) => void;
 }): Promise<Transport> {
   if (args.serverConfig.transport.type === "http") {
+    const authResult = resolveAuth(args.serverConfig.transport.auth);
+    const headers: Record<string, string> = {};
+
+    if (authResult.status === "resolved") {
+      headers["Authorization"] = `Bearer ${authResult.token}`;
+    }
+
     return new StreamableHTTPClientTransport(
-      new URL(args.serverConfig.transport.url)
+      new URL(args.serverConfig.transport.url),
+      { requestInit: { headers } }
     );
   }
 
@@ -180,11 +188,23 @@ async function chooseTransport(args: {
       );
     }
 
+    // Resolve auth token and pass via env vars
+    const authResult = resolveAuth(args.serverConfig.transport.auth);
+    const authEnv: Record<string, string> = {};
+
+    if (
+      authResult.status === "resolved" &&
+      args.serverConfig.transport.auth?.type === "bearer"
+    ) {
+      // Pass token via the same env var name the server expects
+      authEnv[args.serverConfig.transport.auth.tokenEnv] = authResult.token;
+    }
+
     // Build environment variables
     const env = buildStdioEnv({
       allowlist: args.envAllowlist,
       baseEnv: process.env,
-      transportEnv: args.serverConfig.transport.env,
+      transportEnv: { ...args.serverConfig.transport.env, ...authEnv },
       overrides: {
         // Suppress mcp-remote verbose logging
         DEBUG: "",

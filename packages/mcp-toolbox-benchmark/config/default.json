@@ -1,0 +1,50 @@
+{
+  "provider": {
+    "kind": "openai",
+    "model": "gpt-5.2",
+    "apiKeyEnv": "OPENAI_API_KEY"
+  },
+  "pricing": {
+    "input_per_1m": 3.0,
+    "output_per_1m": 15.0
+  },
+  "snapshotsDir": "toolbox/.snapshots",
+  "prompt": {
+    "system": "You are a tool-using assistant. Available tools are listed below. When you respond, output only a JSON object with keys tool_name and arguments. Do not include any extra text.",
+    "userSuffix": "Choose the best tool for the task and provide arguments."
+  },
+  "tests": {
+    "selection": {
+      "runsPerTask": 3,
+      "tasksFile": "tasks.json",
+      "modes": [
+        {
+          "name": "baseline",
+          "toolDefinitionScope": "serverOnly"
+        },
+        {
+          "name": "toolbox",
+          "toolDefinitionScope": "taskToolsOnly"
+        }
+      ]
+    },
+    "scaling": {
+      "runsPerTask": 2,
+      "toolCounts": [30, 50, 100, 150, 200, 500, 1000, 2000, 5000, 10000, 20000],
+      "tasksFile": "tasks.json"
+    },
+    "filtering": {
+      "runsPerTask": 3,
+      "tasksFile": "exec-tasks.json"
+    },
+    "e2e": {
+      "runsPerTask": 3,
+      "baselines": [30, 50, 100, 200, 500],
+      "tasksFile": "combined-tasks.json"
+    },
+    "workflow": {
+      "runsPerTask": 1,
+      "workflowsFile": "workflows.json"
+    }
+  }
+}

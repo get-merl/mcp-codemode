@@ -1,8 +1,10 @@
 import fs from "node:fs/promises";
+import path from "node:path";
 import { cosmiconfig } from "cosmiconfig";
 import { TypeScriptLoader } from "cosmiconfig-typescript-loader";
 import type { ToolboxConfig } from "./config.js";
 import { toolboxConfigSchema } from "./config.js";
+import { loadEnvFiles } from "./auth/envLoader.js";
 
 export async function fileExists(filePath: string): Promise<boolean> {
   try {
@@ -33,12 +35,64 @@ const explorer = cosmiconfig(MODULE_NAME, {
   },
 });
 
+/**
+ * Find the workspace root by looking for monorepo indicators.
+ * Returns the directory containing pnpm-workspace.yaml, lerna.json, or similar,
+ * or null if not in a monorepo.
+ */
+async function findWorkspaceRoot(startDir: string): Promise<string | null> {
+  let currentDir = path.resolve(startDir);
+  const root = path.parse(currentDir).root;
+
+  while (currentDir !== root) {
+    // Check for common monorepo indicators
+    const pnpmWorkspace = path.join(currentDir, "pnpm-workspace.yaml");
+    const lernaJson = path.join(currentDir, "lerna.json");
+    const nxJson = path.join(currentDir, "nx.json");
+    const turboJson = path.join(currentDir, "turbo.json");
+    const rushJson = path.join(currentDir, "rush.json");
+
+    const indicators = [
+      pnpmWorkspace,
+      lernaJson,
+      nxJson,
+      turboJson,
+      rushJson,
+    ];
+
+    for (const indicator of indicators) {
+      if (await fileExists(indicator)) {
+        return currentDir;
+      }
+    }
+
+    const parentDir = path.dirname(currentDir);
+    if (parentDir === currentDir) {
+      break; // Reached filesystem root
+    }
+    currentDir = parentDir;
+  }
+
+  return null;
+}
+
 export async function loadToolboxConfig(
   configPath?: string
 ): Promise<ToolboxConfig> {
-  const result = configPath
-    ? await explorer.load(configPath)
-    : await explorer.search();
+  // Load .env files before config validation so tokenEnv values resolve
+  loadEnvFiles();
+  
+  let result;
+  if (configPath) {
+    result = await explorer.load(configPath);
+  } else {
+    // Try to find workspace root first, then search from there
+    // This ensures we find config files in monorepo roots even when
+    // the command is run from a package subdirectory
+    const workspaceRoot = await findWorkspaceRoot(process.cwd());
+    const searchDir = workspaceRoot || process.cwd();
+    result = await explorer.search(searchDir);
+  }
 
   if (!result || result.isEmpty) {
     throw new Error(
@@ -67,9 +121,20 @@ export async function loadToolboxConfig(
 export async function loadToolboxConfigWithPath(
   configPath?: string
 ): Promise<{ config: ToolboxConfig; filepath: string }> {
-  const result = configPath
-    ? await explorer.load(configPath)
-    : await explorer.search();
+  // Load .env files before config validation so tokenEnv values resolve
+  loadEnvFiles();
+  
+  let result;
+  if (configPath) {
+    result = await explorer.load(configPath);
+  } else {
+    // Try to find workspace root first, then search from there
+    // This ensures we find config files in monorepo roots even when
+    // the command is run from a package subdirectory
+    const workspaceRoot = await findWorkspaceRoot(process.cwd());
+    const searchDir = workspaceRoot || process.cwd();
+    result = await explorer.search(searchDir);
+  }
 
   if (!result || result.isEmpty) {
     throw new Error(

@@ -1,16 +1,13 @@
 {
   "name": "@merl-ai/mcp-toolbox-runtime",
   "version": "0.1.0",
-  "type": "module",
-  "engines": {
-    "node": ">=20.0.0"
-  },
-  "exports": {
-    ".": "./dist/index.js"
-  },
   "files": [
     "dist"
   ],
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.js"
+  },
   "scripts": {
     "build": "tsup src/index.ts --format esm --target node20 --platform node --dts",
     "typecheck": "tsc -p tsconfig.json --noEmit",
@@ -19,9 +16,9 @@
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.25.2",
-    "@types/generic-pool": "^3.8.3",
     "cosmiconfig": "^9.0.0",
     "cosmiconfig-typescript-loader": "^6.2.0",
+    "dotenv": "^16.4.5",
     "generic-pool": "^3.9.0",
     "zod": "^4.3.5"
   },
@@ -30,5 +27,8 @@
     "tsup": "^8.5.1",
     "typescript": "^5.9.3",
     "vitest": "^2.1.9"
+  },
+  "engines": {
+    "node": ">=20.0.0"
   }
 }

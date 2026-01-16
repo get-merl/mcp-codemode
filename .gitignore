@@ -70,3 +70,7 @@ coverage/
 
 # Turborepo
 .turbo/
+
+# Benchmark results
+test-results/
+!test-results/.gitkeep
