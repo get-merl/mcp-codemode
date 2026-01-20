@@ -35,7 +35,7 @@ jobs:
 
       - name: Run sync
         env:
-          MCP_TOOLBOX_CONFIG: mcp-codemode.config.json
+          MCP_TOOLBOX_CONFIG: codemode.config.json
           # Auth tokens are specified per-server in config via transport.auth.tokenEnv
           # These secrets must be configured in GitHub repository settings
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}

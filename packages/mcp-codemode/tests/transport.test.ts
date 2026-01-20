@@ -10,7 +10,7 @@ describe("transport selection and connection management", () => {
 
   beforeEach(async () => {
     testDir = await createTestDir();
-    configPath = path.join(testDir, "mcp-codemode.config.json");
+    configPath = path.join(testDir, "codemode.config.json");
   });
 
   afterEach(async () => {

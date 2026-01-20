@@ -6,7 +6,7 @@ import { writeCodemodeConfigJson } from "../lib/writeConfig.js";
 
 export function removeCommand() {
   const cmd = new Command("remove")
-    .description("Remove an MCP server from mcp-codemode.config.json")
+    .description("Remove an MCP server from codemode.config.json")
     .argument("[name]", "Server name")
     .option("--config <path>", "Path to config file (auto-detected if not specified)")
     .action(async (name: string | undefined, opts) => {

@@ -76,7 +76,7 @@ The Quick Start above covers the essentials. This section provides detailed expl
 
 ### Step 1: Initialize Configuration
 
-Create a new `mcp-codemode.config.json` file in your project root:
+Create a new `codemode.config.json` file in your project root:
 
 ```bash
 npx @merl-ai/mcp-codemode init
@@ -85,7 +85,7 @@ npx @merl-ai/mcp-codemode init
 This creates a basic configuration file. Verify it was created:
 
 ```bash
-cat mcp-codemode.config.json
+cat codemode.config.json
 ```
 
 ### Step 2: Add MCP Servers
@@ -119,13 +119,13 @@ npx @merl-ai/mcp-codemode add \
 
 #### Manual Configuration
 
-Edit `mcp-codemode.config.json` directly:
+Edit `codemode.config.json` directly:
 
 ```bash
 # Open the config file in your editor
-code mcp-codemode.config.json
+code codemode.config.json
 # or
-vim mcp-codemode.config.json
+vim codemode.config.json
 ```
 
 Add a server entry:
@@ -250,7 +250,7 @@ Scripts are testable, versionable, and can be committed to source control. See `
 
 ```
 your-project/
-├── mcp-codemode.config.json    # Configuration file
+├── codemode.config.json    # Configuration file
 ├── codemode/                    # Generated output (commit this!)
 │   ├── README.md              # LLM-friendly usage guide
 │   ├── catalog.json           # Tool index for discovery
@@ -290,7 +290,7 @@ your-project/
 
 MCP Codemode uses [cosmiconfig](https://github.com/cosmiconfig/cosmiconfig) and supports multiple file formats:
 
-- `mcp-codemode.config.json` (recommended)
+- `codemode.config.json` (recommended)
 - `mcp-codemode.config.js` / `.cjs` / `.mjs`
 - `mcp-codemode.config.ts`
 - `.mcp-codemoderc` / `.mcp-codemoderc.json` / `.mcp-codemoderc.yaml`
@@ -303,7 +303,7 @@ The config file is automatically discovered by searching up the directory tree.
 View your current configuration:
 
 ```bash
-cat mcp-codemode.config.json
+cat codemode.config.json
 ```
 
 Example configuration:
@@ -534,7 +534,7 @@ npx @merl-ai/mcp-codemode --help
 Check which servers are configured:
 
 ```bash
-cat mcp-codemode.config.json | grep -A 5 '"name"'
+cat codemode.config.json | grep -A 5 '"name"'
 ```
 
 ### Regenerate All Wrappers
@@ -571,11 +571,11 @@ This creates snapshots in `codemode/.snapshots/` but does not generate TypeScrip
 
 ### Remove a Server
 
-Edit `mcp-codemode.config.json` and remove the server entry, then sync:
+Edit `codemode.config.json` and remove the server entry, then sync:
 
 ```bash
 # Edit the file
-vim mcp-codemode.config.json
+vim codemode.config.json
 
 # Regenerate (removes orphaned files)
 npx @merl-ai/mcp-codemode sync
@@ -608,7 +608,7 @@ If you see an error about `allowStdioExec`, enable it in your config:
 
 ```bash
 # Edit the config
-vim mcp-codemode.config.json
+vim codemode.config.json
 
 # Add or update the security section:
 # "security": {
@@ -651,7 +651,7 @@ Verify your server configuration:
 
 ```bash
 # Check the config
-cat mcp-codemode.config.json
+cat codemode.config.json
 
 # Test the connection manually (for stdio)
 npx mcp-remote https://mcp.supabase.com/mcp?project_ref=YOUR_REF

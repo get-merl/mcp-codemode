@@ -15,7 +15,7 @@ export async function fileExists(filePath: string): Promise<boolean> {
   }
 }
 
-const MODULE_NAME = "mcp-codemode";
+const MODULE_NAME = "codemode";
 
 const explorer = cosmiconfig(MODULE_NAME, {
   searchPlaces: [
@@ -90,7 +90,7 @@ export async function loadCodemodeConfig(
 
   if (!result || result.isEmpty) {
     throw new Error(
-      `mcp-codemode: no config found. Create mcp-codemode.config.json or run 'mcp-codemode init'`
+      `mcp-codemode: no config found. Create codemode.config.json or run 'mcp-codemode init'`
     );
   }
 
@@ -134,7 +134,7 @@ export async function loadCodemodeConfigWithPath(
 
   if (!result || result.isEmpty) {
     throw new Error(
-      `mcp-codemode: no config found. Create mcp-codemode.config.json or run 'mcp-codemode init'`
+      `mcp-codemode: no config found. Create codemode.config.json or run 'mcp-codemode init'`
     );
   }
 

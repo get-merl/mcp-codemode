@@ -17,8 +17,8 @@
     "act:sync": "act workflow_dispatch -W .github/workflows/mcp-codemode-sync.yml",
     "act:release": "act push -W .github/workflows/release.yml",
     "act:clean": "docker ps -a --filter 'name=act' --format '{{.ID}}' | xargs -r docker rm -f 2>/dev/null || true",
-    "mcp-codemode": "pnpm --filter @merl-ai/mcp-codemode exec mcp-codemode",
-    "mcp-codemode-benchmark": "pnpm --filter @merl-ai/mcp-codemode-benchmark benchmark"
+    "codemode": "pnpm --filter @merl-ai/mcp-codemode exec mcp-codemode",
+    "codemode-benchmark": "pnpm --filter @merl-ai/mcp-codemode-benchmark benchmark"
   },
   "dependencies": {
     "@merl-ai/mcp-codemode-runtime": "workspace:*"

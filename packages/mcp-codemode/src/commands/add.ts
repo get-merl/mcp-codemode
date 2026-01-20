@@ -7,7 +7,7 @@ import type { CodemodeServerConfig } from "@merl-ai/mcp-codemode-runtime";
 
 export function addCommand() {
   const cmd = new Command("add")
-    .description("Add an MCP server to mcp-codemode.config.json")
+    .description("Add an MCP server to codemode.config.json")
     .option("--config <path>", "Path to config file (auto-detected if not specified)")
     .option("--name <name>", "Server name (required in non-interactive mode)")
     .option("--transport <type>", "Transport type: stdio or http")
