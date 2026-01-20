@@ -192,7 +192,7 @@ This is their most compelling feature. Context bloat from tool outputs is a real
 
 **Option A: Native compaction in runtime**
 ```typescript
-import { callMcpTool, compact } from "@merl-ai/mcp-toolbox-runtime";
+import { callMcpTool, compact } from "@merl-ai/mcp-codemode-runtime";
 
 // Compact large results automatically
 const result = await callMcpTool({ 
@@ -204,7 +204,7 @@ const result = await callMcpTool({
 
 **Option B: Middleware for AI SDK integration**
 ```typescript
-import { createCompactionMiddleware } from "@merl-ai/mcp-toolbox-runtime";
+import { createCompactionMiddleware } from "@merl-ai/mcp-codemode-runtime";
 
 const compactor = createCompactionMiddleware({
   storage: "./toolbox/.cache",
@@ -220,8 +220,8 @@ prepareStep: compactor.wrap(async ({ messages }) => { ... })
 ctx-zip is purpose-built for the AI SDK ecosystem. We should consider:
 
 ```typescript
-// Potential: @merl-ai/mcp-toolbox-ai-sdk package
-import { createToolboxTools } from "@merl-ai/mcp-toolbox-ai-sdk";
+// Potential: @merl-ai/mcp-codemode-ai-sdk package
+import { createToolboxTools } from "@merl-ai/mcp-codemode-ai-sdk";
 
 const tools = await createToolboxTools({
   servers: ["supabase", "cloudflare"],
@@ -269,7 +269,7 @@ We could offer both static and dynamic modes:
 import { listTables } from "./toolbox/servers/supabase";
 
 // Dynamic mode (future) - AI SDK agents
-import { createDynamicTools } from "@merl-ai/mcp-toolbox-runtime";
+import { createDynamicTools } from "@merl-ai/mcp-codemode-runtime";
 const tools = await createDynamicTools({ servers: ["supabase"] });
 ```
 

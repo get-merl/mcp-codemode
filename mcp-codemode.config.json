@@ -1,0 +1,43 @@
+{
+  "servers": [
+    {
+      "name": "cloudflare-observability",
+      "transport": {
+        "type": "stdio",
+        "command": "npx",
+        "args": ["mcp-remote", "https://observability.mcp.cloudflare.com/mcp"],
+        "auth": {
+          "type": "bearer",
+          "tokenEnv": "CLOUDFLARE_API_TOKEN"
+        }
+      }
+    },
+    {
+      "name": "supabase",
+      "transport": {
+        "type": "stdio",
+        "command": "npx",
+        "args": [
+          "-y",
+          "mcp-remote",
+          "https://mcp.supabase.com/mcp?project_ref=grbydozdxbgurgdpkqvv&read_only=true"
+        ],
+        "auth": {
+          "type": "bearer",
+          "tokenEnv": "SUPABASE_ACCESS_TOKEN"
+        }
+      }
+    }
+  ],
+  "generation": {
+    "outDir": "codemode",
+    "language": "ts"
+  },
+  "security": {
+    "allowStdioExec": true,
+    "envAllowlist": ["PATH"]
+  },
+  "cli": {
+    "interactive": true
+  }
+}

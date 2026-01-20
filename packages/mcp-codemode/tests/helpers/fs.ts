@@ -2,7 +2,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { tmpdir } from "node:os";
 
-export async function createTestDir(prefix = "mcp-toolbox-test"): Promise<string> {
+export async function createTestDir(prefix = "mcp-codemode-test"): Promise<string> {
   const dir = await fs.mkdtemp(path.join(tmpdir(), prefix));
   return dir;
 }

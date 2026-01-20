@@ -15,7 +15,7 @@ describe("init command", () => {
   });
 
   it("should create valid config file with defaults", async () => {
-    const configPath = path.join(testDir, "mcp-toolbox.config.json");
+    const configPath = path.join(testDir, "mcp-codemode.config.json");
 
     const result = await runCli(["init", "--config", configPath, "--yes"], {
       cwd: testDir,
@@ -29,13 +29,13 @@ describe("init command", () => {
     expect(() => JSON.parse(content!)).not.toThrow();
     const config = JSON.parse(content!);
     expect(config.servers).toEqual([]);
-    expect(config.generation.outDir).toBe("toolbox");
+    expect(config.generation.outDir).toBe("codemode");
     expect(config.security.allowStdioExec).toBe(false);
     expect(config.security.envAllowlist).toContain("PATH");
   });
 
   it("should be idempotent - running multiple times produces identical results", async () => {
-    const configPath = path.join(testDir, "mcp-toolbox.config.json");
+    const configPath = path.join(testDir, "mcp-codemode.config.json");
 
     // Run init twice
     await runCli(["init", "--config", configPath, "--yes"], { cwd: testDir });
@@ -48,7 +48,7 @@ describe("init command", () => {
   });
 
   it("should create parent directories if they don't exist", async () => {
-    const configPath = path.join(testDir, "nested", "deep", "mcp-toolbox.config.json");
+    const configPath = path.join(testDir, "nested", "deep", "mcp-codemode.config.json");
 
     const result = await runCli(["init", "--config", configPath, "--yes"], {
       cwd: testDir,
@@ -59,7 +59,7 @@ describe("init command", () => {
   });
 
   it("should respect custom output directory", async () => {
-    const configPath = path.join(testDir, "mcp-toolbox.config.json");
+    const configPath = path.join(testDir, "mcp-codemode.config.json");
     const customOutDir = "custom-output";
 
     const result = await runCli(
@@ -73,7 +73,7 @@ describe("init command", () => {
   });
 
   it("should provide clear error message when config already exists", async () => {
-    const configPath = path.join(testDir, "mcp-toolbox.config.json");
+    const configPath = path.join(testDir, "mcp-codemode.config.json");
 
     await runCli(["init", "--config", configPath, "--yes"], { cwd: testDir });
 
@@ -86,7 +86,7 @@ describe("init command", () => {
   });
 
   it("should work in non-interactive mode with --yes flag", async () => {
-    const configPath = path.join(testDir, "mcp-toolbox.config.json");
+    const configPath = path.join(testDir, "mcp-codemode.config.json");
 
     const result = await runCli(["init", "--config", configPath, "--yes"], {
       cwd: testDir,

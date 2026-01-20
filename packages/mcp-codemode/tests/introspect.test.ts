@@ -10,7 +10,7 @@ describe("introspect command", () => {
 
   beforeEach(async () => {
     testDir = await createTestDir();
-    configPath = path.join(testDir, "mcp-toolbox.config.json");
+    configPath = path.join(testDir, "mcp-codemode.config.json");
     await createTestConfig(configPath);
   });
 
@@ -19,7 +19,7 @@ describe("introspect command", () => {
   });
 
   it.todo("should introspect server and create snapshot", async () => {
-    const outDir = path.join(testDir, "toolbox");
+    const outDir = path.join(testDir, "codemode");
 
     const result = await runCli(["introspect", "--config", configPath], {
       cwd: testDir,
@@ -52,7 +52,7 @@ describe("introspect command", () => {
   });
 
   it.todo("should include accurate metadata in snapshot", async () => {
-    const outDir = path.join(testDir, "toolbox");
+    const outDir = path.join(testDir, "codemode");
 
     await runCli(["introspect", "--config", configPath], { cwd: testDir });
 

@@ -1,6 +1,6 @@
 import { Command } from "commander";
 import { spinner, outro } from "@clack/prompts";
-import { defaultConfigPath, loadToolboxConfig } from "@merl-ai/mcp-toolbox-runtime";
+import { defaultConfigPath, loadCodemodeConfig } from "@merl-ai/mcp-codemode-runtime";
 import { slugifyServerName } from "../lib/slug.js";
 import { introspectServer } from "../introspect/introspectServer.js";
 import { writeLatestSnapshot } from "../snapshot/writeSnapshot.js";
@@ -13,7 +13,7 @@ export function introspectCommand() {
     .option("--outDir <path>", "Output directory (default: toolbox)")
     .option("--server <name>", "Only introspect a single server (name)")
     .action(async (opts) => {
-      const config = await loadToolboxConfig(opts.config);
+      const config = await loadCodemodeConfig(opts.config);
       const outDir = resolveOutDir({
         configPath: opts.config,
         outDirOverride: opts.outDir,

@@ -2,8 +2,8 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { cosmiconfig } from "cosmiconfig";
 import { TypeScriptLoader } from "cosmiconfig-typescript-loader";
-import type { ToolboxConfig } from "./config.js";
-import { toolboxConfigSchema } from "./config.js";
+import type { CodemodeConfig } from "./config.js";
+import { codemodeConfigSchema } from "./config.js";
 import { loadEnvFiles } from "./auth/envLoader.js";
 
 export async function fileExists(filePath: string): Promise<boolean> {
@@ -15,7 +15,7 @@ export async function fileExists(filePath: string): Promise<boolean> {
   }
 }
 
-const MODULE_NAME = "mcp-toolbox";
+const MODULE_NAME = "mcp-codemode";
 
 const explorer = cosmiconfig(MODULE_NAME, {
   searchPlaces: [
@@ -70,9 +70,9 @@ async function findWorkspaceRoot(startDir: string): Promise<string | null> {
   return null;
 }
 
-export async function loadToolboxConfig(
+export async function loadCodemodeConfig(
   configPath?: string
-): Promise<ToolboxConfig> {
+): Promise<CodemodeConfig> {
   // Load .env files before config validation so tokenEnv values resolve
   loadEnvFiles();
 
@@ -90,18 +90,18 @@ export async function loadToolboxConfig(
 
   if (!result || result.isEmpty) {
     throw new Error(
-      `mcp-toolbox: no config found. Create mcp-toolbox.config.json or run 'mcp-toolbox init'`
+      `mcp-codemode: no config found. Create mcp-codemode.config.json or run 'mcp-codemode init'`
     );
   }
 
-  const parsed = toolboxConfigSchema.safeParse(result.config);
+  const parsed = codemodeConfigSchema.safeParse(result.config);
   if (!parsed.success) {
     const issueLines = parsed.error.issues.map((issue) => {
       const pathLabel = issue.path.length > 0 ? issue.path.join(".") : "config";
       return `- ${pathLabel}: ${issue.message}`;
     });
     throw new Error(
-      `mcp-toolbox: invalid config at ${result.filepath}:\n${issueLines.join(
+      `mcp-codemode: invalid config at ${result.filepath}:\n${issueLines.join(
         "\n"
       )}`
     );
@@ -114,9 +114,9 @@ export async function loadToolboxConfig(
  * Load config and return both the config and the filepath it was loaded from.
  * Useful for commands that need to write back to the config file.
  */
-export async function loadToolboxConfigWithPath(
+export async function loadCodemodeConfigWithPath(
   configPath?: string
-): Promise<{ config: ToolboxConfig; filepath: string }> {
+): Promise<{ config: CodemodeConfig; filepath: string }> {
   // Load .env files before config validation so tokenEnv values resolve
   loadEnvFiles();
 
@@ -134,18 +134,18 @@ export async function loadToolboxConfigWithPath(
 
   if (!result || result.isEmpty) {
     throw new Error(
-      `mcp-toolbox: no config found. Create mcp-toolbox.config.json or run 'mcp-toolbox init'`
+      `mcp-codemode: no config found. Create mcp-codemode.config.json or run 'mcp-codemode init'`
     );
   }
 
-  const parsed = toolboxConfigSchema.safeParse(result.config);
+  const parsed = codemodeConfigSchema.safeParse(result.config);
   if (!parsed.success) {
     const issueLines = parsed.error.issues.map((issue) => {
       const pathLabel = issue.path.length > 0 ? issue.path.join(".") : "config";
       return `- ${pathLabel}: ${issue.message}`;
     });
     throw new Error(
-      `mcp-toolbox: invalid config at ${result.filepath}:\n${issueLines.join(
+      `mcp-codemode: invalid config at ${result.filepath}:\n${issueLines.join(
         "\n"
       )}`
     );

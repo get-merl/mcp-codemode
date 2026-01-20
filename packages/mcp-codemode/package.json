@@ -1,8 +1,8 @@
 {
-  "name": "@merl-ai/mcp-toolbox",
+  "name": "@merl-ai/mcp-codemode",
   "version": "0.1.0",
   "bin": {
-    "mcp-toolbox": "./dist/bin.js"
+    "mcp-codemode": "./dist/bin.js"
   },
   "files": [
     "dist"
@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "@clack/prompts": "1.0.0-alpha.9",
-    "@merl-ai/mcp-toolbox-runtime": "workspace:*",
+    "@merl-ai/mcp-codemode-runtime": "workspace:*",
     "@modelcontextprotocol/sdk": "^1.25.2",
     "commander": "^14.0.2",
     "json-schema-to-typescript": "^15.0.4",

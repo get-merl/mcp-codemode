@@ -1,6 +1,6 @@
-# Contributing to MCP Toolbox
+# Contributing to MCP Codemode
 
-Thank you for your interest in contributing to MCP Toolbox!
+Thank you for your interest in contributing to MCP Codemode!
 
 ## Development Setup
 
@@ -14,8 +14,8 @@ Thank you for your interest in contributing to MCP Toolbox!
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/merl-ai/mcp-toolbox.git
-cd mcp-toolbox
+git clone https://github.com/merl-ai/mcp-codemode.git
+cd mcp-codemode
 ```
 
 2. Install dependencies:
@@ -40,7 +40,7 @@ pnpm test
 
 ```
 packages/
-├── mcp-toolbox/          # CLI implementation
+├── mcp-codemode/          # CLI implementation
 │   ├── src/
 │   │   ├── commands/     # CLI commands (init, add, remove, sync, introspect)
 │   │   ├── codegen/      # Code generation for TypeScript wrappers
@@ -50,7 +50,7 @@ packages/
 │   │   ├── snapshot/     # Snapshot management
 │   │   └── index.ts      # Main CLI exports
 │   └── tests/            # Test files
-└── mcp-toolbox-runtime/  # Runtime library for generated code
+└── mcp-codemode-runtime/  # Runtime library for generated code
     └── src/
         ├── auth/         # Authentication utilities (token resolution, env loading)
         ├── registry/     # Server registry utilities
@@ -71,8 +71,8 @@ packages/
 pnpm build
 
 # Run CLI commands
-pnpm mcp-toolbox init
-pnpm mcp-toolbox sync
+pnpm mcp-codemode init
+pnpm mcp-codemode sync
 ```
 
 ### Running Tests
@@ -82,7 +82,7 @@ pnpm mcp-toolbox sync
 pnpm test
 
 # Run tests in watch mode
-pnpm --filter mcp-toolbox test:watch
+pnpm --filter mcp-codemode test:watch
 ```
 
 ### Code Style

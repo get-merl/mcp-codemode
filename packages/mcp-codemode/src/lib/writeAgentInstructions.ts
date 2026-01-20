@@ -1,6 +1,6 @@
 import fs from "node:fs/promises";
 import path from "node:path";
-import { fileExists } from "@merl-ai/mcp-toolbox-runtime";
+import { fileExists } from "@merl-ai/mcp-codemode-runtime";
 
 export async function writeAgentInstructions(
   projectRoot: string,
@@ -28,7 +28,7 @@ export async function writeAgentInstructions(
 }
 
 function generateAgentInstructions(toolboxDir: string): string {
-  return `## MCP Toolbox
+  return `## MCP Codemode
 
 Type-safe wrappers for MCP server tools.
 

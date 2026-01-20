@@ -28,7 +28,7 @@ pnpm run act:ci
 
 ---
 
-## 2. MCP Toolbox Sync (`mcp-toolbox-sync.yml`)
+## 2. MCP Toolbox Sync (`mcp-codemode-sync.yml`)
 
 **Triggers**: Daily at 3:17 AM UTC, manual via workflow_dispatch  
 **Purpose**: Keep generated MCP wrappers in sync with upstream servers

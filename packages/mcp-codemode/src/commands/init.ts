@@ -6,14 +6,14 @@ import {
   defaultConfigPath,
   defaultOutDir,
   fileExists,
-} from "@merl-ai/mcp-toolbox-runtime";
-import { writeToolboxConfigJson } from "../lib/writeConfig.js";
+} from "@merl-ai/mcp-codemode-runtime";
+import { writeCodemodeConfigJson } from "../lib/writeConfig.js";
 import { writeAgentInstructions } from "../lib/writeAgentInstructions.js";
 import { writeScriptsFolder } from "../lib/writeScriptsFolder.js";
 
 export function initCommand() {
   const cmd = new Command("init")
-    .description("Initialize mcp-toolbox in the current repo")
+    .description("Initialize mcp-codemode in the current repo")
     .option("--config <path>", "Path to config file", defaultConfigPath())
     .option("--outDir <path>", "Generated output directory", defaultOutDir())
     .option("--yes", "Run non-interactively with defaults", false);
@@ -176,7 +176,7 @@ async function maybeWriteConfig(
     relativeOutDir = outDir;
   }
 
-  await writeToolboxConfigJson(configPath, {
+  await writeCodemodeConfigJson(configPath, {
     servers: [],
     generation: { outDir: relativeOutDir, language: "ts" },
     security: { allowStdioExec: false, envAllowlist: ["PATH"] },

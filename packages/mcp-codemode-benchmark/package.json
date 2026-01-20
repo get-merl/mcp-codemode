@@ -1,5 +1,5 @@
 {
-  "name": "@merl-ai/mcp-toolbox-benchmark",
+  "name": "@merl-ai/mcp-codemode-benchmark",
   "version": "0.1.0",
   "private": true,
   "description": "Context metrics benchmarking for MCP tool definitions",
@@ -24,7 +24,7 @@
   "dependencies": {
     "@anthropic-ai/sdk": "^0.71.2",
     "@clack/prompts": "1.0.0-alpha.9",
-    "@merl-ai/mcp-toolbox-runtime": "workspace:*",
+    "@merl-ai/mcp-codemode-runtime": "workspace:*",
     "commander": "^14.0.2",
     "dotenv": "^17.2.3",
     "openai": "^6.16.0",

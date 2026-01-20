@@ -10,7 +10,7 @@ describe("server management (add/remove)", () => {
 
   beforeEach(async () => {
     testDir = await createTestDir();
-    configPath = path.join(testDir, "mcp-toolbox.config.json");
+    configPath = path.join(testDir, "mcp-codemode.config.json");
     await createTestConfig(configPath);
   });
 

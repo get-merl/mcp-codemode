@@ -1,6 +1,6 @@
 import fs from "node:fs/promises";
 import path from "node:path";
-import { fileExists } from "@merl-ai/mcp-toolbox-runtime";
+import { fileExists } from "@merl-ai/mcp-codemode-runtime";
 
 /**
  * Creates the scripts folder with a README explaining its purpose.

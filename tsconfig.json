@@ -18,8 +18,8 @@
     "noPropertyAccessFromIndexSignature": true,
     "baseUrl": ".",
     "paths": {
-      "mcp-toolbox-runtime": ["./packages/mcp-toolbox-runtime/src/index.ts"]
+      "mcp-codemode-runtime": ["./packages/mcp-codemode-runtime/src/index.ts"]
     }
   },
-  "include": ["toolbox/**/*.ts", "mcp-toolbox.config.json"]
+  "include": ["codemode/**/*.ts", "mcp-codemode.config.json"]
 }

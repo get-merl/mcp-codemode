@@ -8,9 +8,9 @@ importers:
 
   .:
     dependencies:
-      '@merl-ai/mcp-toolbox-runtime':
+      '@merl-ai/mcp-codemode-runtime':
         specifier: workspace:*
-        version: link:packages/mcp-toolbox-runtime
+        version: link:packages/mcp-codemode-runtime
     devDependencies:
       '@changesets/cli':
         specifier: ^2.29.8
@@ -25,14 +25,14 @@ importers:
         specifier: ^2.7.4
         version: 2.7.4
 
-  packages/mcp-toolbox:
+  packages/mcp-codemode:
     dependencies:
       '@clack/prompts':
         specifier: 1.0.0-alpha.9
         version: 1.0.0-alpha.9
-      '@merl-ai/mcp-toolbox-runtime':
+      '@merl-ai/mcp-codemode-runtime':
         specifier: workspace:*
-        version: link:../mcp-toolbox-runtime
+        version: link:../mcp-codemode-runtime
       '@modelcontextprotocol/sdk':
         specifier: ^1.25.2
         version: 1.25.2(hono@4.11.4)(zod@4.3.5)
@@ -62,7 +62,7 @@ importers:
         specifier: ^2.1.8
         version: 2.1.9(@types/node@25.0.8)(@vitest/ui@2.1.9)
 
-  packages/mcp-toolbox-benchmark:
+  packages/mcp-codemode-benchmark:
     dependencies:
       '@anthropic-ai/sdk':
         specifier: ^0.71.2
@@ -70,9 +70,9 @@ importers:
       '@clack/prompts':
         specifier: 1.0.0-alpha.9
         version: 1.0.0-alpha.9
-      '@merl-ai/mcp-toolbox-runtime':
+      '@merl-ai/mcp-codemode-runtime':
         specifier: workspace:*
-        version: link:../mcp-toolbox-runtime
+        version: link:../mcp-codemode-runtime
       commander:
         specifier: ^14.0.2
         version: 14.0.2
@@ -99,7 +99,7 @@ importers:
         specifier: ^2.1.8
         version: 2.1.9(@types/node@25.0.8)(@vitest/ui@2.1.9)
 
-  packages/mcp-toolbox-runtime:
+  packages/mcp-codemode-runtime:
     dependencies:
       '@modelcontextprotocol/sdk':
         specifier: ^1.25.2

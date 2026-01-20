@@ -5,12 +5,12 @@ import { Command } from "commander";
 import { confirm, isCancel, log, progress, outro } from "@clack/prompts";
 
 import {
-  loadToolboxConfigWithPath,
+  loadCodemodeConfigWithPath,
   fileExists,
   resolveAuth,
   isAuthError,
-} from "@merl-ai/mcp-toolbox-runtime";
-import type { ToolboxServerConfig } from "@merl-ai/mcp-toolbox-runtime";
+} from "@merl-ai/mcp-codemode-runtime";
+import type { CodemodeServerConfig } from "@merl-ai/mcp-codemode-runtime";
 import { slugifyServerName } from "../lib/slug.js";
 import { resolveOutDir } from "../lib/resolveOutDir.js";
 
@@ -147,7 +147,7 @@ export function syncCommand() {
         const serverFilter: string | undefined = opts.server;
         const skipMissingAuth: boolean = Boolean(opts.skipMissingAuth);
 
-        const { config, filepath: configPath } = await loadToolboxConfigWithPath(configPathOpt);
+        const { config, filepath: configPath } = await loadCodemodeConfigWithPath(configPathOpt);
         const outDir = resolveOutDir({
           configPath,
           configOutDir: config.generation.outDir,
@@ -326,7 +326,7 @@ export function syncCommand() {
           shouldFormat,
         });
 
-        outro(`Finished: MCP Toolbox generated at ${outDir}`);
+        outro(`Finished: MCP Codemode generated at ${outDir}`);
       } catch (error: unknown) {
         // Stop progress bar if it was started
         if (p && progressStarted) {
@@ -357,7 +357,7 @@ type ServerResult =
     };
 
 async function processServer(args: {
-  serverCfg: ToolboxServerConfig;
+  serverCfg: CodemodeServerConfig;
   outDir: string;
   allowStdioExec: boolean;
   envAllowlist: string[];
@@ -456,7 +456,7 @@ async function processServer(args: {
 
 async function verifyGeneratedCode(
   outDir: string,
-  servers: ToolboxServerConfig[]
+  servers: CodemodeServerConfig[]
 ): Promise<void> {
   // If no servers are configured, there's nothing to verify
   // This is considered a valid state (exit code 0)

@@ -2,8 +2,8 @@ import { Client } from "@modelcontextprotocol/sdk/client";
 import { StdioClientTransport } from "@modelcontextprotocol/sdk/client/stdio.js";
 import { StreamableHTTPClientTransport } from "@modelcontextprotocol/sdk/client/streamableHttp.js";
 import type { Transport } from "@modelcontextprotocol/sdk/shared/transport.js";
-import { buildStdioEnv, resolveAuth } from "@merl-ai/mcp-toolbox-runtime";
-import type { ToolboxServerConfig } from "@merl-ai/mcp-toolbox-runtime";
+import { buildStdioEnv, resolveAuth } from "@merl-ai/mcp-codemode-runtime";
+import type { CodemodeServerConfig } from "@merl-ai/mcp-codemode-runtime";
 import type { IntrospectedServer, McpToolDefinition } from "./types.js";
 
 type IntrospectionState =
@@ -16,7 +16,7 @@ type IntrospectionState =
   | { stage: "error"; error: Error };
 
 export async function introspectServer(args: {
-  serverConfig: ToolboxServerConfig;
+  serverConfig: CodemodeServerConfig;
   allowStdioExec: boolean;
   envAllowlist: string[];
   clientName?: string;
@@ -40,7 +40,7 @@ export async function introspectServer(args: {
 
     // Step 2: Create and connect client
     client = new Client({
-      name: args.clientName || "mcp-toolbox",
+      name: args.clientName || "mcp-codemode",
       version: args.clientVersion || "0.0.1",
     });
     state = { stage: "connecting", transport };
@@ -162,7 +162,7 @@ function describeTransport(
 }
 
 async function chooseTransport(args: {
-  serverConfig: ToolboxServerConfig;
+  serverConfig: CodemodeServerConfig;
   allowStdioExec: boolean;
   envAllowlist: string[];
   onStatusUpdate?: (status: string) => void;

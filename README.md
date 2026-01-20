@@ -1,8 +1,8 @@
-# MCP Toolbox
+# MCP Codemode
 
 A CLI for turning MCP (Model Context Protocol) servers into TypeScript functions.
 
-Instead of loading thousands of tool definitions into an LLM context window, `mcp-toolbox` generates a small SDK tree that IDE agents can discover by reading code on demand.
+Instead of loading thousands of tool definitions into an LLM context window, `mcp-codemode` generates a small SDK tree that IDE agents can discover by reading code on demand.
 
 ## Prerequisites
 
@@ -15,16 +15,16 @@ Get up and running in 3 steps:
 
 ```bash
 # 1. Initialize the project configuration
-npx @merl-ai/mcp-toolbox init
+npx @merl-ai/mcp-codemode init
 
 # 2. Add an MCP server (interactive prompt)
-npx @merl-ai/mcp-toolbox add
+npx @merl-ai/mcp-codemode add
 
 # 3. Generate TypeScript wrappers
-npx @merl-ai/mcp-toolbox sync
+npx @merl-ai/mcp-codemode sync
 ```
 
-That's it! Your generated tools are now available in the `toolbox/` directory.
+That's it! Your generated tools are now available in the `codemode/` directory.
 
 ## Installation
 
@@ -35,9 +35,9 @@ Choose one of the following installation methods:
 No installation needed. Use `npx` to run commands directly:
 
 ```bash
-npx @merl-ai/mcp-toolbox init
-npx @merl-ai/mcp-toolbox add
-npx @merl-ai/mcp-toolbox sync
+npx @merl-ai/mcp-codemode init
+npx @merl-ai/mcp-codemode add
+npx @merl-ai/mcp-codemode sync
 ```
 
 ### Option 2: Global CLI Installation
@@ -45,15 +45,15 @@ npx @merl-ai/mcp-toolbox sync
 Install globally for system-wide access:
 
 ```bash
-npm install -g @merl-ai/mcp-toolbox
+npm install -g @merl-ai/mcp-codemode
 ```
 
-Then use the `mcp-toolbox` command directly:
+Then use the `mcp-codemode` command directly:
 
 ```bash
-mcp-toolbox init
-mcp-toolbox add
-mcp-toolbox sync
+mcp-codemode init
+mcp-codemode add
+mcp-codemode sync
 ```
 
 ### Option 3: Project Installation
@@ -61,13 +61,13 @@ mcp-toolbox sync
 Install as a project dependency:
 
 ```bash
-npm install @merl-ai/mcp-toolbox @merl-ai/mcp-toolbox-runtime
+npm install @merl-ai/mcp-codemode @merl-ai/mcp-codemode-runtime
 ```
 
 Then use via npm scripts or npx:
 
 ```bash
-npx mcp-toolbox sync
+npx mcp-codemode sync
 ```
 
 ## Getting Started Guide
@@ -76,16 +76,16 @@ The Quick Start above covers the essentials. This section provides detailed expl
 
 ### Step 1: Initialize Configuration
 
-Create a new `mcp-toolbox.config.json` file in your project root:
+Create a new `mcp-codemode.config.json` file in your project root:
 
 ```bash
-npx @merl-ai/mcp-toolbox init
+npx @merl-ai/mcp-codemode init
 ```
 
 This creates a basic configuration file. Verify it was created:
 
 ```bash
-cat mcp-toolbox.config.json
+cat mcp-codemode.config.json
 ```
 
 ### Step 2: Add MCP Servers
@@ -95,7 +95,7 @@ cat mcp-toolbox.config.json
 Add a server with an interactive prompt:
 
 ```bash
-npx @merl-ai/mcp-toolbox add
+npx @merl-ai/mcp-codemode add
 ```
 
 The prompt will ask for:
@@ -109,7 +109,7 @@ The prompt will ask for:
 Add a server directly via command line:
 
 ```bash
-npx @merl-ai/mcp-toolbox add \
+npx @merl-ai/mcp-codemode add \
   --yes \
   --name supabase \
   --transport stdio \
@@ -119,13 +119,13 @@ npx @merl-ai/mcp-toolbox add \
 
 #### Manual Configuration
 
-Edit `mcp-toolbox.config.json` directly:
+Edit `mcp-codemode.config.json` directly:
 
 ```bash
 # Open the config file in your editor
-code mcp-toolbox.config.json
+code mcp-codemode.config.json
 # or
-vim mcp-toolbox.config.json
+vim mcp-codemode.config.json
 ```
 
 Add a server entry:
@@ -150,19 +150,19 @@ Add a server entry:
 Generate wrappers for all configured servers:
 
 ```bash
-npx @merl-ai/mcp-toolbox sync
+npx @merl-ai/mcp-codemode sync
 ```
 
 Generate wrappers for a specific server:
 
 ```bash
-npx @merl-ai/mcp-toolbox sync --server supabase
+npx @merl-ai/mcp-codemode sync --server supabase
 ```
 
 Check if sync is needed (without generating):
 
 ```bash
-npx @merl-ai/mcp-toolbox sync --check
+npx @merl-ai/mcp-codemode sync --check
 ```
 
 ### Step 4: Use Generated Tools
@@ -173,7 +173,7 @@ Import and use the generated wrappers:
 
 ```typescript
 // Import all tools from a server
-import * as supabase from "./toolbox/servers/supabase/index.js";
+import * as supabase from "./codemode/servers/supabase/index.js";
 
 // Call a tool
 const url = await supabase.getProjectUrl({});
@@ -183,7 +183,7 @@ const tables = await supabase.listTables({ schemas: ["public"] });
 Or import specific tools:
 
 ```typescript
-import { getProjectUrl, listTables } from "./toolbox/servers/supabase/index.js";
+import { getProjectUrl, listTables } from "./codemode/servers/supabase/index.js";
 
 const url = await getProjectUrl({});
 const tables = await listTables({ schemas: ["public"] });
@@ -195,10 +195,10 @@ Each tool file can be executed directly with JSON input:
 
 ```bash
 # Tool with no input (empty object)
-echo '{}' | npx tsx ./toolbox/servers/supabase/tools/getProjectUrl.ts
+echo '{}' | npx tsx ./codemode/servers/supabase/tools/getProjectUrl.ts
 
 # Tool with input parameters
-echo '{"schemas": ["public"]}' | npx tsx ./toolbox/servers/supabase/tools/listTables.ts
+echo '{"schemas": ["public"]}' | npx tsx ./codemode/servers/supabase/tools/listTables.ts
 ```
 
 **Note**: Ensure `tsx` is available. Install globally if needed:
@@ -211,7 +211,7 @@ Or use `npx tsx` (no installation required).
 
 ### Step 5: Create Custom Scripts (Optional)
 
-The `toolbox/scripts/` folder is for creating custom workflows that combine MCP tools with your own logic. This is especially useful for:
+The `codemode/scripts/` folder is for creating custom workflows that combine MCP tools with your own logic. This is especially useful for:
 
 - **Orchestrating multiple tools** — Chain tool calls together
 - **Adding business logic** — Conditional execution, error handling, retries
@@ -221,7 +221,7 @@ The `toolbox/scripts/` folder is for creating custom workflows that combine MCP 
 Example script:
 
 ```typescript
-// toolbox/scripts/my-workflow.ts
+// codemode/scripts/my-workflow.ts
 import { listTables, executeSql } from "../servers/supabase/index.js";
 
 async function main() {
@@ -241,17 +241,17 @@ main().catch(console.error);
 Run scripts with:
 
 ```bash
-npx tsx toolbox/scripts/my-workflow.ts
+npx tsx codemode/scripts/my-workflow.ts
 ```
 
-Scripts are testable, versionable, and can be committed to source control. See `toolbox/scripts/README.md` for more examples.
+Scripts are testable, versionable, and can be committed to source control. See `codemode/scripts/README.md` for more examples.
 
 ## Project Structure
 
 ```
 your-project/
-├── mcp-toolbox.config.json    # Configuration file
-├── toolbox/                    # Generated output (commit this!)
+├── mcp-codemode.config.json    # Configuration file
+├── codemode/                    # Generated output (commit this!)
 │   ├── README.md              # LLM-friendly usage guide
 │   ├── catalog.json           # Tool index for discovery
 │   ├── servers/               # Generated server wrappers
@@ -270,31 +270,31 @@ your-project/
 │       └── <server-name>/
 │           └── *.md
 └── .github/workflows/         # Optional automation
-    ├── mcp-toolbox-sync.yml   # Auto-sync workflow
+    ├── mcp-codemode-sync.yml   # Auto-sync workflow
     ├── ci.yml                 # CI workflow
     └── release.yml            # Release workflow
 ```
 
 ### Key Directories
 
-- **`toolbox/`** — Generated TypeScript wrappers (commit to version control)
-- **`toolbox/servers/<serverSlug>/`** — Server-specific wrappers
-- **`toolbox/scripts/`** — Custom scripts that combine tools with your logic
-- **`toolbox/catalog.json`** — Searchable index of all tools
-- **`toolbox/.snapshots/`** — Schema snapshots for deterministic builds
-- **`toolbox/.reports/`** — Human-readable diff reports when schemas change
+- **`codemode/`** — Generated TypeScript wrappers (commit to version control)
+- **`codemode/servers/<serverSlug>/`** — Server-specific wrappers
+- **`codemode/scripts/`** — Custom scripts that combine tools with your logic
+- **`codemode/catalog.json`** — Searchable index of all tools
+- **`codemode/.snapshots/`** — Schema snapshots for deterministic builds
+- **`codemode/.reports/`** — Human-readable diff reports when schemas change
 
 ## Configuration
 
 ### Configuration File
 
-MCP Toolbox uses [cosmiconfig](https://github.com/cosmiconfig/cosmiconfig) and supports multiple file formats:
+MCP Codemode uses [cosmiconfig](https://github.com/cosmiconfig/cosmiconfig) and supports multiple file formats:
 
-- `mcp-toolbox.config.json` (recommended)
-- `mcp-toolbox.config.js` / `.cjs` / `.mjs`
-- `mcp-toolbox.config.ts`
-- `.mcp-toolboxrc` / `.mcp-toolboxrc.json` / `.mcp-toolboxrc.yaml`
-- `package.json` (`"mcp-toolbox"` field)
+- `mcp-codemode.config.json` (recommended)
+- `mcp-codemode.config.js` / `.cjs` / `.mjs`
+- `mcp-codemode.config.ts`
+- `.mcp-codemoderc` / `.mcp-codemoderc.json` / `.mcp-codemoderc.yaml`
+- `package.json` (`"mcp-codemode"` field)
 
 The config file is automatically discovered by searching up the directory tree.
 
@@ -303,7 +303,7 @@ The config file is automatically discovered by searching up the directory tree.
 View your current configuration:
 
 ```bash
-cat mcp-toolbox.config.json
+cat mcp-codemode.config.json
 ```
 
 Example configuration:
@@ -331,7 +331,7 @@ Example configuration:
     }
   ],
   "generation": {
-    "outDir": "toolbox",
+    "outDir": "codemode",
     "language": "ts"
   },
   "security": {
@@ -388,16 +388,78 @@ CLI behavior settings (optional):
 
 MCP client metadata (optional):
 
-- **`name`** (string, optional): Client name sent to MCP servers during handshake. Defaults to `"mcp-toolbox-runtime"` if omitted.
+- **`name`** (string, optional): Client name sent to MCP servers during handshake. Defaults to `"mcp-codemode-runtime"` if omitted.
 - **`version`** (string, optional): Client version sent to MCP servers during handshake. Defaults to `"0.1.0"` if omitted.
+
+#### `compaction`
+
+Output compaction settings (optional): Automatically reduces large tool outputs to prevent context bloat.
+
+- **`enabled`** (boolean, required): Enable/disable output compaction
+- **`strategy`** (enum, required): Compaction strategy to use:
+  - `"truncate"`: Keep first N characters, discard the rest
+  - `"summarize"`: Extract beginning and end, omit middle
+  - `"persist-to-file"`: Save full output to disk, return file reference
+- **`thresholds`** (object, required): When to trigger compaction
+  - `bytes` (number, optional): Byte size threshold (e.g., `50000` for 50KB)
+  - `tokens` (number, optional): Estimated token threshold (e.g., `12000` for ~12k tokens)
+  - At least one threshold must be specified; compaction triggers if either is exceeded
+- **`truncateLength`** (number, optional): Max characters to keep when using `"truncate"` strategy (default: `5000`)
+- **`summaryMaxLength`** (number, optional): Total characters to keep when using `"summarize"` strategy (default: `3000`)
+- **`persistDir`** (string, optional): Directory for saved outputs when using `"persist-to-file"` strategy (default: `"codemode/.cache/compacted"`)
+
+**Example with truncate strategy:**
+
+```json
+{
+  "compaction": {
+    "enabled": true,
+    "strategy": "truncate",
+    "thresholds": {
+      "bytes": 50000
+    },
+    "truncateLength": 5000
+  }
+}
+```
+
+**Example with summarize strategy:**
+
+```json
+{
+  "compaction": {
+    "enabled": true,
+    "strategy": "summarize",
+    "thresholds": {
+      "tokens": 12000
+    },
+    "summaryMaxLength": 3000
+  }
+}
+```
+
+**Example with persist-to-file strategy:**
+
+```json
+{
+  "compaction": {
+    "enabled": true,
+    "strategy": "persist-to-file",
+    "thresholds": {
+      "bytes": 100000
+    },
+    "persistDir": "codemode/.cache/compacted"
+  }
+}
+```
 
 ### Authentication
 
-MCP Toolbox supports bearer token authentication for both HTTP and stdio transports. Tokens are resolved from environment variables at runtime.
+MCP Codemode supports bearer token authentication for both HTTP and stdio transports. Tokens are resolved from environment variables at runtime.
 
 #### Environment Variable Loading
 
-Before config validation, MCP Toolbox automatically loads environment variables from:
+Before config validation, MCP Codemode automatically loads environment variables from:
 
 1. `.env` (lower priority)
 2. `.env.local` (higher priority, overrides `.env`)
@@ -464,7 +526,7 @@ If authentication fails for a specific server (e.g., invalid token, expired cred
 ### List Available Commands
 
 ```bash
-npx @merl-ai/mcp-toolbox --help
+npx @merl-ai/mcp-codemode --help
 ```
 
 ### View Server Status
@@ -472,25 +534,25 @@ npx @merl-ai/mcp-toolbox --help
 Check which servers are configured:
 
 ```bash
-cat mcp-toolbox.config.json | grep -A 5 '"name"'
+cat mcp-codemode.config.json | grep -A 5 '"name"'
 ```
 
 ### Regenerate All Wrappers
 
 ```bash
-npx @merl-ai/mcp-toolbox sync
+npx @merl-ai/mcp-codemode sync
 ```
 
 ### Regenerate Single Server
 
 ```bash
-npx @merl-ai/mcp-toolbox sync --server supabase
+npx @merl-ai/mcp-codemode sync --server supabase
 ```
 
 ### Check if Sync is Needed
 
 ```bash
-npx @merl-ai/mcp-toolbox sync --check
+npx @merl-ai/mcp-codemode sync --check
 ```
 
 ### Introspect a Server
@@ -499,24 +561,24 @@ Connect to a server and snapshot its tools/resources without regenerating code:
 
 ```bash
 # Introspect all servers
-npx @merl-ai/mcp-toolbox introspect
+npx @merl-ai/mcp-codemode introspect
 
 # Introspect a specific server
-npx @merl-ai/mcp-toolbox introspect --server supabase
+npx @merl-ai/mcp-codemode introspect --server supabase
 ```
 
-This creates snapshots in `toolbox/.snapshots/` but does not generate TypeScript wrappers. Useful for debugging server connections or inspecting schema changes.
+This creates snapshots in `codemode/.snapshots/` but does not generate TypeScript wrappers. Useful for debugging server connections or inspecting schema changes.
 
 ### Remove a Server
 
-Edit `mcp-toolbox.config.json` and remove the server entry, then sync:
+Edit `mcp-codemode.config.json` and remove the server entry, then sync:
 
 ```bash
 # Edit the file
-vim mcp-toolbox.config.json
+vim mcp-codemode.config.json
 
 # Regenerate (removes orphaned files)
-npx @merl-ai/mcp-toolbox sync
+npx @merl-ai/mcp-codemode sync
 ```
 
 ## CI/CD & Automation
@@ -524,7 +586,7 @@ npx @merl-ai/mcp-toolbox sync
 This repository uses GitHub Actions for continuous integration and automated maintenance. Three workflows are configured:
 
 - **CI** (`ci.yml`) - Runs on every PR and push to `main` (builds, tests, lints)
-- **MCP Toolbox Sync** (`mcp-toolbox-sync.yml`) - Automatically regenerates MCP wrappers when upstream schemas change
+- **MCP Codemode Sync** (`mcp-codemode-sync.yml`) - Automatically regenerates MCP wrappers when upstream schemas change
 - **Release** (`release.yml`) - Publishes packages to npm using Changesets
 
 All workflows support local testing with [`act`](https://github.com/nektos/act):
@@ -546,7 +608,7 @@ If you see an error about `allowStdioExec`, enable it in your config:
 
 ```bash
 # Edit the config
-vim mcp-toolbox.config.json
+vim mcp-codemode.config.json
 
 # Add or update the security section:
 # "security": {
@@ -566,7 +628,7 @@ which tsx
 npm install -g tsx
 
 # Or use npx
-npx tsx ./toolbox/servers/supabase/tools/getProjectUrl.ts
+npx tsx ./codemode/servers/supabase/tools/getProjectUrl.ts
 ```
 
 ### Generated Files Are Out of Date
@@ -574,13 +636,13 @@ npx tsx ./toolbox/servers/supabase/tools/getProjectUrl.ts
 Regenerate all wrappers:
 
 ```bash
-npx @merl-ai/mcp-toolbox sync
+npx @merl-ai/mcp-codemode sync
 ```
 
 Check what changed:
 
 ```bash
-git diff toolbox/
+git diff codemode/
 ```
 
 ### Server Connection Fails
@@ -589,7 +651,7 @@ Verify your server configuration:
 
 ```bash
 # Check the config
-cat mcp-toolbox.config.json
+cat mcp-codemode.config.json
 
 # Test the connection manually (for stdio)
 npx mcp-remote https://mcp.supabase.com/mcp?project_ref=YOUR_REF
@@ -597,7 +659,7 @@ npx mcp-remote https://mcp.supabase.com/mcp?project_ref=YOUR_REF
 
 ## Development
 
-For contributors working on MCP Toolbox itself:
+For contributors working on MCP Codemode itself:
 
 ```bash
 # Install dependencies
@@ -619,7 +681,7 @@ pnpm lint
 pnpm format
 
 # Run the CLI locally
-pnpm mcp-toolbox sync
+pnpm mcp-codemode sync
 ```
 
 ## Contributing

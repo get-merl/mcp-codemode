@@ -6,12 +6,12 @@ export function resolveFromCwd(...parts: string[]) {
 }
 
 export function defaultConfigPath() {
-  // Walk up the directory tree to find mcp-toolbox.config.json
+  // Walk up the directory tree to find mcp-codemode.config.json
   let currentDir = process.cwd();
   const root = path.parse(currentDir).root;
 
   while (currentDir !== root) {
-    const configPath = path.join(currentDir, "mcp-toolbox.config.json");
+    const configPath = path.join(currentDir, "mcp-codemode.config.json");
     if (fs.existsSync(configPath)) {
       return configPath;
     }
@@ -23,12 +23,12 @@ export function defaultConfigPath() {
   }
 
   // Fallback to cwd if not found
-  return resolveFromCwd("mcp-toolbox.config.json");
+  return resolveFromCwd("mcp-codemode.config.json");
 }
 
 export function defaultOutDir() {
   // Find project root (where config file is or would be)
   const configPath = defaultConfigPath();
   const projectRoot = path.dirname(configPath);
-  return path.join(projectRoot, "toolbox");
+  return path.join(projectRoot, "codemode");
 }

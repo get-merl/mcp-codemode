@@ -1,13 +1,13 @@
 import { Command } from "commander";
 import path from "node:path";
 import { isCancel, select, text, confirm, outro } from "@clack/prompts";
-import { loadToolboxConfigWithPath } from "@merl-ai/mcp-toolbox-runtime";
-import { writeToolboxConfigJson } from "../lib/writeConfig.js";
-import type { ToolboxServerConfig } from "@merl-ai/mcp-toolbox-runtime";
+import { loadCodemodeConfigWithPath } from "@merl-ai/mcp-codemode-runtime";
+import { writeCodemodeConfigJson } from "../lib/writeConfig.js";
+import type { CodemodeServerConfig } from "@merl-ai/mcp-codemode-runtime";
 
 export function addCommand() {
   const cmd = new Command("add")
-    .description("Add an MCP server to mcp-toolbox.config.json")
+    .description("Add an MCP server to mcp-codemode.config.json")
     .option("--config <path>", "Path to config file (auto-detected if not specified)")
     .option("--name <name>", "Server name (required in non-interactive mode)")
     .option("--transport <type>", "Transport type: stdio or http")
@@ -19,7 +19,7 @@ export function addCommand() {
       const configPathOpt: string | undefined = opts.config;
       const nonInteractive: boolean = Boolean(opts.yes);
 
-      const { config, filepath: configPath } = await loadToolboxConfigWithPath(configPathOpt);
+      const { config, filepath: configPath } = await loadCodemodeConfigWithPath(configPathOpt);
 
       let serverName: string | undefined;
       let transportType: "stdio" | "http" | undefined;
@@ -56,7 +56,7 @@ export function addCommand() {
         }
 
         // Create server config directly
-        const serverConfig: ToolboxServerConfig = {
+        const serverConfig: CodemodeServerConfig = {
           name: serverName,
           transport:
             transportType === "stdio"
@@ -79,7 +79,7 @@ export function addCommand() {
           config.servers.push(serverConfig);
         }
 
-        await writeToolboxConfigJson(configPath, config);
+        await writeCodemodeConfigJson(configPath, config);
         outro(`Added server '${serverName}' to ${path.resolve(configPath)}`);
         return;
       }
@@ -205,7 +205,7 @@ export function addCommand() {
       }
 
       // Create server config
-      const serverConfig: ToolboxServerConfig = {
+      const serverConfig: CodemodeServerConfig = {
         name: serverName!,
         transport:
           transportType === "stdio"
@@ -222,7 +222,7 @@ export function addCommand() {
       };
 
       config.servers.push(serverConfig);
-      await writeToolboxConfigJson(configPath, config);
+      await writeCodemodeConfigJson(configPath, config);
       const resolvedPath = path.resolve(configPath);
       outro(`Added server '${serverName}' to ${resolvedPath}`);
     });

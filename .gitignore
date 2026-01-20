@@ -8,7 +8,8 @@ dist/
 *.tsbuildinfo
 
 # Generated files
-toolbox/.snapshots/
+codemode/.snapshots/
+codemode/.cache/
 **/.snapshots/
 
 # Logs

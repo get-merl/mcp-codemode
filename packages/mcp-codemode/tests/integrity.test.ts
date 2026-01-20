@@ -11,7 +11,7 @@ describe("data integrity and atomicity", () => {
 
   beforeEach(async () => {
     testDir = await createTestDir();
-    configPath = path.join(testDir, "mcp-toolbox.config.json");
+    configPath = path.join(testDir, "mcp-codemode.config.json");
     await createTestConfig(configPath);
   });
 
@@ -32,13 +32,13 @@ describe("data integrity and atomicity", () => {
       // Should be parseable
       expect(() => {
         // Simple check - should contain valid structure
-        content.includes("ToolboxConfig");
+        content.includes("CodemodeConfig");
       }).not.toThrow();
     }
   });
 
   it("should write snapshot files atomically", async () => {
-    const outDir = path.join(testDir, "toolbox");
+    const outDir = path.join(testDir, "codemode");
 
     await runCli(["sync", "--config", configPath, "--yes"], { cwd: testDir });
 
@@ -61,7 +61,7 @@ describe("data integrity and atomicity", () => {
 
   it("should maintain catalog consistency", async () => {
     // Ideal: catalog.json should match actual generated files
-    const outDir = path.join(testDir, "toolbox");
+    const outDir = path.join(testDir, "codemode");
 
     await runCli(["sync", "--config", configPath, "--yes"], { cwd: testDir });
 
@@ -92,7 +92,7 @@ describe("data integrity and atomicity", () => {
 
   it("should be idempotent - retrying produces same result", async () => {
     // Ideal: all operations should be safe to retry
-    const outDir = path.join(testDir, "toolbox");
+    const outDir = path.join(testDir, "codemode");
 
     // First attempt
     await runCli(["sync", "--config", configPath, "--yes"], { cwd: testDir });

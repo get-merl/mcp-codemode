@@ -19,7 +19,7 @@ const httpTransportSchema = z
   })
   .strict();
 
-export const toolboxServerConfigSchema = z
+export const codemodeServerConfigSchema = z
   .object({
     name: z.string().min(1), // Required: unique identifier for this server
     transport: z.union([stdioTransportSchema, httpTransportSchema]),
@@ -53,15 +53,35 @@ const clientSchema = z
   })
   .strict();
 
-export const toolboxConfigSchema = z
+export const compactionConfigSchema = z
   .object({
-    servers: z.array(toolboxServerConfigSchema),
+    enabled: z.boolean(),
+    strategy: z.enum(["summarize", "truncate", "persist-to-file"]),
+    thresholds: z
+      .object({
+        bytes: z.number().positive().optional(),
+        tokens: z.number().positive().optional(),
+      })
+      .refine(
+        (data) => data.bytes !== undefined || data.tokens !== undefined,
+        { message: "At least one threshold (bytes or tokens) required" }
+      ),
+    persistDir: z.string().min(1).optional(),
+    truncateLength: z.number().positive().optional(),
+    summaryMaxLength: z.number().positive().optional(),
+  })
+  .strict();
+
+export const codemodeConfigSchema = z
+  .object({
+    servers: z.array(codemodeServerConfigSchema),
     generation: generationSchema,
     security: securitySchema,
     cli: cliSchema.optional(),
     client: clientSchema.optional(),
+    compaction: compactionConfigSchema.optional(),
   })
   .strict();
 
-export type ToolboxServerConfig = z.infer<typeof toolboxServerConfigSchema>;
-export type ToolboxConfig = z.infer<typeof toolboxConfigSchema>;
+export type CodemodeServerConfig = z.infer<typeof codemodeServerConfigSchema>;
+export type CodemodeConfig = z.infer<typeof codemodeConfigSchema>;

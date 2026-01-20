@@ -1,5 +1,5 @@
 {
-  "name": "@merl-ai/mcp-toolbox-runtime",
+  "name": "@merl-ai/mcp-codemode-runtime",
   "version": "0.1.0",
   "files": [
     "dist"

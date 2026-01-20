@@ -1,14 +1,14 @@
 import fs from "node:fs/promises";
 import path from "node:path";
-import type { ToolboxConfig } from "@merl-ai/mcp-toolbox-runtime";
+import type { CodemodeConfig } from "@merl-ai/mcp-codemode-runtime";
 
 export async function ensureDir(dirPath: string) {
   await fs.mkdir(dirPath, { recursive: true });
 }
 
-export async function writeToolboxConfigJson(
+export async function writeCodemodeConfigJson(
   configPath: string,
-  config: ToolboxConfig
+  config: CodemodeConfig
 ) {
   await ensureDir(path.dirname(configPath));
   const contents = JSON.stringify(config, null, 2) + "\n";

@@ -59,7 +59,7 @@ See \`scripts/README.md\` for more details and examples.
 ## Regenerating
 
 \`\`\`bash
-npx mcp-toolbox sync
+npx mcp-codemode sync
 \`\`\`
 `;
   await fs.mkdir(outDir, { recursive: true });

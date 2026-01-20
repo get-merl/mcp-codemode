@@ -1,15 +1,15 @@
 import fs from "node:fs/promises";
-import type { ToolboxConfig } from "@merl-ai/mcp-toolbox-runtime";
+import type { CodemodeConfig } from "@merl-ai/mcp-codemode-runtime";
 import { writeFileAtomic } from "./fs";
 
 export async function createTestConfig(
   configPath: string,
-  config: Partial<ToolboxConfig> = {}
+  config: Partial<CodemodeConfig> = {}
 ): Promise<void> {
-  const defaultConfig: ToolboxConfig = {
+  const defaultConfig: CodemodeConfig = {
     servers: [],
     generation: {
-      outDir: "toolbox",
+      outDir: "codemode",
       language: "ts",
     },
     security: {
@@ -26,9 +26,9 @@ export async function createTestConfig(
   await writeFileAtomic(configPath, content);
 }
 
-export async function readConfig(configPath: string): Promise<ToolboxConfig> {
+export async function readConfig(configPath: string): Promise<CodemodeConfig> {
   const content = await fs.readFile(configPath, "utf-8");
-  return JSON.parse(content) as ToolboxConfig;
+  return JSON.parse(content) as CodemodeConfig;
 }
 
 export async function addServerToConfig(

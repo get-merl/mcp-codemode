@@ -6,6 +6,6 @@ export function resolveOutDir(args: {
   configOutDir?: string;
 }) {
   const configDir = path.dirname(path.resolve(args.configPath));
-  const outDir = args.outDirOverride ?? args.configOutDir ?? "toolbox";
+  const outDir = args.outDirOverride ?? args.configOutDir ?? "codemode";
   return path.isAbsolute(outDir) ? outDir : path.resolve(configDir, outDir);
 }

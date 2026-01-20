@@ -1,6 +1,6 @@
 import { Command } from "commander";
 import { intro } from "@clack/prompts";
-import { loadEnvFiles } from "@merl-ai/mcp-toolbox-runtime";
+import { loadEnvFiles } from "@merl-ai/mcp-codemode-runtime";
 import { initCommand } from "./commands/init.js";
 import { addCommand } from "./commands/add.js";
 import { removeCommand } from "./commands/remove.js";
@@ -23,14 +23,14 @@ export async function runCli(argv: string[]) {
   }
 
   const program = new Command()
-    .name("mcp-toolbox")
+    .name("mcp-codemode")
     .description(
       "Generate repo-committed code wrappers for MCP servers to enable token-efficient tool use."
     )
     .version("0.0.1");
 
   program.hook("preAction", async () => {
-    intro("mcp-toolbox");
+    intro("mcp-codemode");
   });
 
   program.addCommand(initCommand());
