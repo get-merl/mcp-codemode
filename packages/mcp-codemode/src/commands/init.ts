@@ -1,5 +1,5 @@
 import { Command } from "commander";
-import { confirm, isCancel, log, outro, text } from "@clack/prompts";
+import { confirm, isCancel, log, multiselect, outro, text } from "@clack/prompts";
 import fs from "node:fs/promises";
 import path from "node:path";
 import {
@@ -8,7 +8,11 @@ import {
   fileExists,
 } from "@merl-ai/mcp-codemode-runtime";
 import { writeCodemodeConfigJson } from "../lib/writeConfig.js";
-import { writeAgentInstructions } from "../lib/writeAgentInstructions.js";
+import {
+  syncLlmInstructions,
+  getExistingLlmTargets,
+  LLM_TARGETS,
+} from "../lib/writeAgentInstructions.js";
 import { writeScriptsFolder } from "../lib/writeScriptsFolder.js";
 
 export function initCommand() {
@@ -71,31 +75,39 @@ export function initCommand() {
         shouldOverwriteConfig
       );
 
-      // Ask about creating agent instructions
       const projectRoot = path.dirname(path.resolve(configPath));
-      const agentsMdPath = path.join(projectRoot, "AGENTS.md");
-      const agentsMdExists = await fileExists(agentsMdPath);
-      const createInstructions = await confirm({
-        message: agentsMdExists
-          ? "Add agent instructions to AGENTS.md?"
-          : "Create agent instructions file (AGENTS.md)?",
-        initialValue: true,
+
+      // Ask which LLM instruction files to generate (combined step)
+      const existingTargets = await getExistingLlmTargets(projectRoot);
+      const selectedTargets = await multiselect({
+        message: "Which LLM instruction files do you want to generate?",
+        options: LLM_TARGETS.map((t) => ({
+          value: t.id,
+          label: t.label,
+          hint: existingTargets.includes(t.id) ? `${t.hint} - update` : t.hint,
+        })),
+        initialValues: existingTargets.length > 0 ? existingTargets : ["claude"],
+        required: false,
       });
-      if (isCancel(createInstructions)) {
+
+      if (isCancel(selectedTargets)) {
         outro("Init cancelled.");
         return;
       }
 
-      if (createInstructions) {
+      if (selectedTargets.length > 0) {
         const resolvedOutDir = path.isAbsolute(outDirStr)
           ? outDirStr
           : path.resolve(projectRoot, outDirStr);
-        await writeAgentInstructions(projectRoot, resolvedOutDir);
-        log.info(
-          agentsMdExists
-            ? "Added agent instructions to AGENTS.md"
-            : "Created AGENTS.md"
-        );
+        const result = await syncLlmInstructions(projectRoot, resolvedOutDir, selectedTargets);
+
+        if (result.appended.length > 0) {
+          log.info(`Appended to: ${result.appended.join(", ")}`);
+        }
+        const newFiles = result.synced.filter(f => !result.appended.includes(f));
+        if (newFiles.length > 0) {
+          log.info(`Created: ${newFiles.join(", ")}`);
+        }
       }
 
       // Create scripts folder in the toolbox output directory

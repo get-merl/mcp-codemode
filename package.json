@@ -21,13 +21,14 @@
     "codemode-benchmark": "pnpm --filter @merl-ai/mcp-codemode-benchmark benchmark"
   },
   "dependencies": {
+    "@merl-ai/mcp-codemode": "workspace:*",
     "@merl-ai/mcp-codemode-runtime": "workspace:*"
   },
   "devDependencies": {
     "@changesets/cli": "^2.29.8",
     "oxfmt": "^0.24.0",
     "oxlint": "^1.39.0",
-    "turbo": "^2.7.4"
+    "turbo": "^2.7.5"
   },
   "engines": {
     "node": ">=20.0.0",

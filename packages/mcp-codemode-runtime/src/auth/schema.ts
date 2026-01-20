@@ -2,7 +2,10 @@ import { z } from "zod";
 
 export const bearerAuthSchema = z.object({
   type: z.literal("bearer"),
-  tokenEnv: z.string().min(1),
+  // Token value - can be process.env.VAR_NAME (in TS) or "${VAR_NAME}" (in JSON, resolved)
+  token: z.string().min(1),
+  // Env var name for stdio transports - required when passing token to child process
+  tokenName: z.string().min(1).optional(),
 });
 
 export const authConfigSchema = z

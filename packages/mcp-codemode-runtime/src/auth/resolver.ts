@@ -17,11 +17,12 @@ export function resolveAuth(auth: AuthConfig | undefined): AuthResult {
   }
 
   if (auth.type === "bearer") {
-    const token = process.env[auth.tokenEnv];
-    if (!token || token.trim() === "") {
-      return { status: "missing", envVar: auth.tokenEnv };
+    // Token can be a direct value (from process.env in TS configs) or needs resolution
+    // For JSON configs with "${VAR_NAME}" syntax, it's already resolved during config loading
+    if (!auth.token || auth.token.trim() === "") {
+      return { status: "missing", envVar: "token" };
     }
-    return { status: "resolved", token };
+    return { status: "resolved", token: auth.token };
   }
 
   // Future auth types would be handled here

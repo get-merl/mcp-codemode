@@ -51,7 +51,7 @@ describe("code generation", () => {
       "servers",
       "test-server-mock",
       "tools",
-      "testTool.ts"
+      "test_tool.ts"
     );
     expect(await fileExists(toolFile)).toBe(true);
 
@@ -109,7 +109,7 @@ describe("code generation", () => {
       "servers",
       "test-server-complex",
       "tools",
-      "complexTool.ts"
+      "complex_tool.ts"
     );
     expect(await fileExists(toolFile)).toBe(true);
 
@@ -177,7 +177,7 @@ describe("code generation", () => {
       "servers",
       "test-server-docs",
       "tools",
-      "documentedTool.ts"
+      "documented_tool.ts"
     );
     const content = await fs.readFile(toolFile, "utf-8");
 
@@ -260,7 +260,7 @@ describe("code generation", () => {
       "servers",
       "test-server-compile",
       "tools",
-      "compileTest.ts"
+      "compile_test.ts"
     );
     const content = await fs.readFile(toolFile, "utf-8");
 

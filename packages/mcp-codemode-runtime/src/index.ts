@@ -116,8 +116,11 @@ async function chooseTransportRuntime(
       authResult.status === "resolved" &&
       serverCfg.transport.auth?.type === "bearer"
     ) {
-      // Pass token via the same env var name the server expects
-      authEnv[serverCfg.transport.auth.tokenEnv] = authResult.token;
+      // Pass token via tokenName (required for stdio transports)
+      const tokenName = serverCfg.transport.auth.tokenName;
+      if (tokenName) {
+        authEnv[tokenName] = authResult.token;
+      }
     }
 
     const env = buildStdioEnv({
@@ -166,6 +169,7 @@ export {
   loadCodemodeConfigWithPath,
   fileExists,
   clearConfigCache,
+  findWorkspaceRoot,
 } from "./loadConfig.js";
 export { buildStdioEnv } from "./env.js";
 

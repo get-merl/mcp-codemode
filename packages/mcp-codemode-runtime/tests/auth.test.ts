@@ -44,49 +44,40 @@ describe("auth/resolver", () => {
       expect(result.status).toBe("none");
     });
 
-    it("should return 'resolved' status when bearer token env var exists", () => {
-      process.env["TEST_TOKEN"] = "my-secret-token";
-      const auth: AuthConfig = { type: "bearer", tokenEnv: "TEST_TOKEN" };
+    it("should return 'resolved' status when bearer token is provided", () => {
+      const auth: AuthConfig = { type: "bearer", token: "my-secret-token" };
       const result = resolveAuth(auth);
       expect(result.status).toBe("resolved");
       expect(result).toEqual({ status: "resolved", token: "my-secret-token" });
     });
 
-    it("should return 'missing' status when bearer token env var is not set", () => {
-      delete process.env["TEST_TOKEN"];
-      const auth: AuthConfig = { type: "bearer", tokenEnv: "TEST_TOKEN" };
+    it("should return 'missing' status when bearer token is empty string", () => {
+      const auth: AuthConfig = { type: "bearer", token: "" };
       const result = resolveAuth(auth);
       expect(result.status).toBe("missing");
-      expect(result).toEqual({ status: "missing", envVar: "TEST_TOKEN" });
+      expect(result).toEqual({ status: "missing", envVar: "token" });
     });
 
-    it("should return 'missing' status when bearer token env var is empty string", () => {
-      process.env["TEST_TOKEN"] = "";
-      const auth: AuthConfig = { type: "bearer", tokenEnv: "TEST_TOKEN" };
+    it("should return 'missing' status when bearer token is whitespace only", () => {
+      const auth: AuthConfig = { type: "bearer", token: "   " };
       const result = resolveAuth(auth);
       expect(result.status).toBe("missing");
-      expect(result).toEqual({ status: "missing", envVar: "TEST_TOKEN" });
+      expect(result).toEqual({ status: "missing", envVar: "token" });
     });
 
-    it("should return 'missing' status when bearer token env var is whitespace only", () => {
-      process.env["TEST_TOKEN"] = "   ";
-      const auth: AuthConfig = { type: "bearer", tokenEnv: "TEST_TOKEN" };
-      const result = resolveAuth(auth);
-      expect(result.status).toBe("missing");
-      expect(result).toEqual({ status: "missing", envVar: "TEST_TOKEN" });
-    });
-
-    it("should handle CLOUDFLARE_API_TOKEN env var", () => {
-      process.env["CLOUDFLARE_API_TOKEN"] = "cf-token-123";
-      const auth: AuthConfig = { type: "bearer", tokenEnv: "CLOUDFLARE_API_TOKEN" };
+    it("should handle direct token values", () => {
+      const auth: AuthConfig = { type: "bearer", token: "cf-token-123" };
       const result = resolveAuth(auth);
       expect(result.status).toBe("resolved");
       expect(result).toEqual({ status: "resolved", token: "cf-token-123" });
     });
 
-    it("should handle SUPABASE_ACCESS_TOKEN env var", () => {
+    it("should handle token from process.env (for TS configs)", () => {
       process.env["SUPABASE_ACCESS_TOKEN"] = "sb-token-456";
-      const auth: AuthConfig = { type: "bearer", tokenEnv: "SUPABASE_ACCESS_TOKEN" };
+      const auth: AuthConfig = { 
+        type: "bearer", 
+        token: process.env.SUPABASE_ACCESS_TOKEN || "" 
+      };
       const result = resolveAuth(auth);
       expect(result.status).toBe("resolved");
       expect(result).toEqual({ status: "resolved", token: "sb-token-456" });
@@ -156,25 +147,23 @@ describe("auth integration", () => {
     }
   });
 
-  it("should work with typical server auth configuration", () => {
-    // Simulate a server config with bearer auth
+  it("should work with stdio server auth configuration", () => {
+    // Simulate a server config with bearer auth (stdio requires tokenName)
+    process.env["INTEGRATION_TEST_TOKEN"] = "test-token-value";
     const serverConfig = {
       name: "test-server",
       transport: {
         type: "stdio" as const,
         command: "npx",
         args: ["mcp-remote", "https://example.com/mcp"],
-        auth: { type: "bearer" as const, tokenEnv: "INTEGRATION_TEST_TOKEN" },
+        auth: { 
+          type: "bearer" as const, 
+          token: process.env.INTEGRATION_TEST_TOKEN || "",
+          tokenName: "INTEGRATION_TEST_TOKEN"
+        },
       },
     };
 
-    // Without token set
-    delete process.env["INTEGRATION_TEST_TOKEN"];
-    const missingResult = resolveAuth(serverConfig.transport.auth);
-    expect(missingResult.status).toBe("missing");
-
-    // With token set
-    process.env["INTEGRATION_TEST_TOKEN"] = "test-token-value";
     const resolvedResult = resolveAuth(serverConfig.transport.auth);
     expect(resolvedResult.status).toBe("resolved");
     if (resolvedResult.status === "resolved") {
@@ -183,16 +172,20 @@ describe("auth integration", () => {
   });
 
   it("should work with http transport auth configuration", () => {
+    // HTTP servers only need token, no tokenName required
+    process.env["INTEGRATION_TEST_TOKEN"] = "http-bearer-token";
     const serverConfig = {
       name: "http-server",
       transport: {
         type: "http" as const,
         url: "https://api.example.com/mcp",
-        auth: { type: "bearer" as const, tokenEnv: "INTEGRATION_TEST_TOKEN" },
+        auth: { 
+          type: "bearer" as const, 
+          token: process.env.INTEGRATION_TEST_TOKEN || ""
+        },
       },
     };
 
-    process.env["INTEGRATION_TEST_TOKEN"] = "http-bearer-token";
     const result = resolveAuth(serverConfig.transport.auth);
     expect(result.status).toBe("resolved");
     if (result.status === "resolved") {

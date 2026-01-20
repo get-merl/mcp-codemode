@@ -18,15 +18,19 @@ export async function generateServerTs(args: {
   const exports: string[] = [];
 
   for (const tool of args.snapshot.tools) {
+    // Use snake_case for file names to match tool names
+    const baseFileName = tool.name;
+    const n = usedNames.get(baseFileName) ?? 0;
+    usedNames.set(baseFileName, n + 1);
+    const fileName = n === 0 ? `${baseFileName}.ts` : `${baseFileName}__${n + 1}.ts`;
+    const filePath = path.join(toolsDir, fileName);
+
+    // Use camelCase for function names (TypeScript convention)
     const baseFn = toCamelCase(tool.name);
-    const n = usedNames.get(baseFn) ?? 0;
-    usedNames.set(baseFn, n + 1);
     const fnName = n === 0 ? baseFn : `${baseFn}__${n + 1}`;
 
     const inputTypeName = `${toPascalCase(fnName)}Input`;
     const outputTypeName = `${toPascalCase(fnName)}Output`;
-    const fileName = `${fnName}.ts`;
-    const filePath = path.join(toolsDir, fileName);
 
     const jsdocLines: string[] = [];
     jsdocLines.push("/**");
@@ -104,7 +108,9 @@ export async function generateServerTs(args: {
 
     await fs.writeFile(filePath, ts, "utf-8");
     await fs.chmod(filePath, 0o755);
-    exports.push(`export * from "./tools/${fnName}";`);
+    // Export using the file name (snake_case) without extension
+    const exportName = fileName.replace(/\.ts$/, "");
+    exports.push(`export * from "./tools/${exportName}";`);
   }
 
   const indexTs = [

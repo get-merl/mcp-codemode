@@ -1,6 +1,6 @@
 import { Command } from "commander";
 import { intro } from "@clack/prompts";
-import { loadEnvFiles } from "@merl-ai/mcp-codemode-runtime";
+import { loadEnvFiles, findWorkspaceRoot } from "@merl-ai/mcp-codemode-runtime";
 import { initCommand } from "./commands/init.js";
 import { addCommand } from "./commands/add.js";
 import { removeCommand } from "./commands/remove.js";
@@ -8,8 +8,11 @@ import { introspectCommand } from "./commands/introspect.js";
 import { syncCommand } from "./commands/sync.js";
 
 export async function runCli(argv: string[]) {
-  // Load env files FIRST, before any config loading
-  loadEnvFiles();
+  // Find workspace root and load env files from there
+  // This ensures .env.local in the repo root is found even when running from subdirectories
+  const workspaceRoot = await findWorkspaceRoot(process.cwd());
+  const envDir = workspaceRoot || process.cwd();
+  loadEnvFiles(envDir);
 
   // Suppress npm/pnpm warnings globally
   if (!process.env["npm_config_loglevel"]) {

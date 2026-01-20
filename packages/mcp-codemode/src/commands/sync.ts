@@ -326,7 +326,7 @@ export function syncCommand() {
           shouldFormat,
         });
 
-        outro(`Finished: MCP Codemode generated at ${outDir}`);
+        outro(`Woohoo! Codemode generated at ${outDir}!`);
       } catch (error: unknown) {
         // Stop progress bar if it was started
         if (p && progressStarted) {

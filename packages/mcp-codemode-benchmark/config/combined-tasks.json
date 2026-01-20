@@ -3,9 +3,9 @@
     "id": "supabase-list-tables-large",
     "serverSlug": "supabase",
     "prompt": "List all tables in the public schema and show their details. Return only the JSON tool call.",
-    "toolNames": ["list_tables"],
+    "toolNames": ["listTables"],
     "expectedToolCall": {
-      "tool_name": "supabase.list_tables",
+      "tool_name": "supabase.listTables",
       "arguments": {
         "schemas": ["public"]
       }
@@ -19,9 +19,9 @@
     "id": "supabase-execute-sql-query",
     "serverSlug": "supabase",
     "prompt": "Query all rows from a table to analyze its structure. Return only the JSON tool call.",
-    "toolNames": ["execute_sql"],
+    "toolNames": ["executeSql"],
     "expectedToolCall": {
-      "tool_name": "supabase.execute_sql",
+      "tool_name": "supabase.executeSql",
       "arguments": {
         "query": "SELECT * FROM information_schema.tables WHERE table_schema = 'public' LIMIT 100"
       }
@@ -35,9 +35,9 @@
     "id": "cloudflare-workers-list-large",
     "serverSlug": "cloudflare-observability",
     "prompt": "List all Cloudflare Workers in the account. Return only the JSON tool call.",
-    "toolNames": ["workers_list"],
+    "toolNames": ["workersList"],
     "expectedToolCall": {
-      "tool_name": "cloudflare-observability.workers_list",
+      "tool_name": "cloudflare-observability.workersList",
       "arguments": {}
     },
     "filterConfig": {

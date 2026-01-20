@@ -40,7 +40,7 @@ const explorer = cosmiconfig(MODULE_NAME, {
  * Returns the directory containing pnpm-workspace.yaml, lerna.json, or similar,
  * or null if not in a monorepo.
  */
-async function findWorkspaceRoot(startDir: string): Promise<string | null> {
+export async function findWorkspaceRoot(startDir: string): Promise<string | null> {
   let currentDir = path.resolve(startDir);
   const root = path.parse(currentDir).root;
 
@@ -70,11 +70,39 @@ async function findWorkspaceRoot(startDir: string): Promise<string | null> {
   return null;
 }
 
+/**
+ * Resolve environment variable references in token strings.
+ * Supports ${VAR_NAME} syntax for JSON configs.
+ */
+function resolveTokenEnvVars(config: CodemodeConfig): CodemodeConfig {
+  for (const server of config.servers) {
+    if (server.transport.auth?.type === "bearer") {
+      const token = server.transport.auth.token;
+      // Resolve ${VAR_NAME} syntax
+      const resolved = token.replace(/\$\{([^}]+)\}/g, (_, varName) => {
+        const value = process.env[varName.trim()];
+        if (value === undefined) {
+          throw new Error(
+            `Environment variable ${varName.trim()} is not set (referenced in token for server ${server.name})`
+          );
+        }
+        return value;
+      });
+      server.transport.auth.token = resolved;
+    }
+  }
+  return config;
+}
+
 export async function loadCodemodeConfig(
   configPath?: string
 ): Promise<CodemodeConfig> {
-  // Load .env files before config validation so tokenEnv values resolve
-  loadEnvFiles();
+  // Find workspace root to load .env files from the correct location
+  const workspaceRoot = await findWorkspaceRoot(process.cwd());
+  const envDir = workspaceRoot || process.cwd();
+  
+  // Load .env files before config validation so token values can resolve env vars
+  loadEnvFiles(envDir);
 
   let result;
   if (configPath) {
@@ -107,7 +135,8 @@ export async function loadCodemodeConfig(
     );
   }
 
-  return parsed.data;
+  // Resolve environment variable references in token strings (${VAR_NAME} syntax)
+  return resolveTokenEnvVars(parsed.data);
 }
 
 /**
@@ -117,8 +146,12 @@ export async function loadCodemodeConfig(
 export async function loadCodemodeConfigWithPath(
   configPath?: string
 ): Promise<{ config: CodemodeConfig; filepath: string }> {
-  // Load .env files before config validation so tokenEnv values resolve
-  loadEnvFiles();
+  // Find workspace root to load .env files from the correct location
+  const workspaceRoot = await findWorkspaceRoot(process.cwd());
+  const envDir = workspaceRoot || process.cwd();
+  
+  // Load .env files before config validation so token values can resolve env vars
+  loadEnvFiles(envDir);
 
   let result;
   if (configPath) {
@@ -151,7 +184,9 @@ export async function loadCodemodeConfigWithPath(
     );
   }
 
-  return { config: parsed.data, filepath: result.filepath };
+  // Resolve environment variable references in token strings (${VAR_NAME} syntax)
+  const resolvedConfig = resolveTokenEnvVars(parsed.data);
+  return { config: resolvedConfig, filepath: result.filepath };
 }
 
 /**

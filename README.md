@@ -195,10 +195,10 @@ Each tool file can be executed directly with JSON input:
 
 ```bash
 # Tool with no input (empty object)
-echo '{}' | npx tsx ./codemode/servers/supabase/tools/getProjectUrl.ts
+echo '{}' | npx tsx ./codemode/servers/supabase/tools/get_project_url.ts
 
 # Tool with input parameters
-echo '{"schemas": ["public"]}' | npx tsx ./codemode/servers/supabase/tools/listTables.ts
+echo '{"schemas": ["public"]}' | npx tsx ./codemode/servers/supabase/tools/list_tables.ts
 ```
 
 **Note**: Ensure `tsx` is available. Install globally if needed:
@@ -628,7 +628,7 @@ which tsx
 npm install -g tsx
 
 # Or use npx
-npx tsx ./codemode/servers/supabase/tools/getProjectUrl.ts
+npx tsx ./codemode/servers/supabase/tools/get_project_url.ts
 ```
 
 ### Generated Files Are Out of Date

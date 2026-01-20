@@ -9,7 +9,20 @@ const stdioTransportSchema = z
     env: z.record(z.string(), z.string()).optional(),
     auth: authConfigSchema,
   })
-  .strict();
+  .strict()
+  .refine(
+    (data) => {
+      // If auth is bearer type, tokenName is required for stdio transports
+      if (data.auth?.type === "bearer" && !data.auth.tokenName) {
+        return false;
+      }
+      return true;
+    },
+    {
+      message: "tokenName is required for stdio transports with bearer authentication",
+      path: ["auth", "tokenName"],
+    }
+  );
 
 const httpTransportSchema = z
   .object({

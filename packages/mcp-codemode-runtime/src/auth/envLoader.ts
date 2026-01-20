@@ -3,7 +3,7 @@ import path from "node:path";
 
 /**
  * Load environment variables from .env and .env.local files.
- * This should be called before config validation to ensure tokenEnv values resolve.
+ * This should be called before config validation so token values can resolve env vars.
  * 
  * Loading order (later files override earlier):
  * 1. .env

@@ -3,9 +3,9 @@
     "id": "supabase-list-tables-large",
     "serverSlug": "supabase",
     "prompt": "List all tables in the public schema and show their details.",
-    "toolNames": ["list_tables"],
+    "toolNames": ["listTables"],
     "expectedToolCall": {
-      "tool_name": "supabase.list_tables",
+      "tool_name": "supabase.listTables",
       "arguments": {
         "schemas": ["public"]
       }
@@ -19,9 +19,9 @@
     "id": "supabase-execute-sql-query",
     "serverSlug": "supabase",
     "prompt": "Query all rows from the largest table in the database to analyze its structure.",
-    "toolNames": ["execute_sql"],
+    "toolNames": ["executeSql"],
     "expectedToolCall": {
-      "tool_name": "supabase.execute_sql",
+      "tool_name": "supabase.executeSql",
       "arguments": {
         "query": "SELECT * FROM information_schema.tables LIMIT 100"
       }
@@ -35,9 +35,9 @@
     "id": "supabase-get-logs",
     "serverSlug": "supabase",
     "prompt": "Get the recent logs from the Supabase project to check for errors.",
-    "toolNames": ["get_logs"],
+    "toolNames": ["getLogs"],
     "expectedToolCall": {
-      "tool_name": "supabase.get_logs",
+      "tool_name": "supabase.getLogs",
       "arguments": {
         "service": "api"
       }
@@ -51,9 +51,9 @@
     "id": "supabase-list-migrations",
     "serverSlug": "supabase",
     "prompt": "List all database migrations that have been applied.",
-    "toolNames": ["list_migrations"],
+    "toolNames": ["listMigrations"],
     "expectedToolCall": {
-      "tool_name": "supabase.list_migrations",
+      "tool_name": "supabase.listMigrations",
       "arguments": {}
     },
     "filterConfig": {
@@ -65,9 +65,9 @@
     "id": "cloudflare-workers-list",
     "serverSlug": "cloudflare-observability",
     "prompt": "List all Cloudflare Workers in the account.",
-    "toolNames": ["workers_list"],
+    "toolNames": ["workersList"],
     "expectedToolCall": {
-      "tool_name": "cloudflare-observability.workers_list",
+      "tool_name": "cloudflare-observability.workersList",
       "arguments": {}
     },
     "filterConfig": {
@@ -79,9 +79,9 @@
     "id": "cloudflare-observability-query",
     "serverSlug": "cloudflare-observability",
     "prompt": "Query the last hour of worker observability data to find any errors.",
-    "toolNames": ["query_worker_observability"],
+    "toolNames": ["queryWorkerObservability"],
     "expectedToolCall": {
-      "tool_name": "cloudflare-observability.query_worker_observability",
+      "tool_name": "cloudflare-observability.queryWorkerObservability",
       "arguments": {
         "view": "events",
         "limit": 100

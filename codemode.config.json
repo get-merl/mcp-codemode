@@ -5,32 +5,23 @@
       "transport": {
         "type": "stdio",
         "command": "npx",
-        "args": ["mcp-remote", "https://observability.mcp.cloudflare.com/mcp"],
-        "auth": {
-          "type": "bearer",
-          "tokenEnv": "CLOUDFLARE_API_TOKEN"
-        }
+        "args": ["mcp-remote", "https://observability.mcp.cloudflare.com/mcp"]
       }
     },
     {
       "name": "supabase",
       "transport": {
-        "type": "stdio",
-        "command": "npx",
-        "args": [
-          "-y",
-          "mcp-remote",
-          "https://mcp.supabase.com/mcp?project_ref=grbydozdxbgurgdpkqvv&read_only=true"
-        ],
+        "type": "http",
+        "url": "https://mcp.supabase.com/mcp?project_ref=grbydozdxbgurgdpkqvv&read_only=true",
         "auth": {
           "type": "bearer",
-          "tokenEnv": "SUPABASE_ACCESS_TOKEN"
+          "token": "${SUPABASE_ACCESS_TOKEN}"
         }
       }
     }
   ],
   "generation": {
-    "outDir": "codemode",
+    "outDir": "./codemode",
     "language": "ts"
   },
   "security": {

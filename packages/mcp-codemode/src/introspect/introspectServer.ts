@@ -196,8 +196,11 @@ async function chooseTransport(args: {
       authResult.status === "resolved" &&
       args.serverConfig.transport.auth?.type === "bearer"
     ) {
-      // Pass token via the same env var name the server expects
-      authEnv[args.serverConfig.transport.auth.tokenEnv] = authResult.token;
+      // Pass token via tokenName (required for stdio transports)
+      const tokenName = args.serverConfig.transport.auth.tokenName;
+      if (tokenName) {
+        authEnv[tokenName] = authResult.token;
+      }
     }
 
     // Build environment variables
