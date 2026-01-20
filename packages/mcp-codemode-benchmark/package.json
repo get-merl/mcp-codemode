@@ -19,15 +19,17 @@
     "typecheck": "tsc --noEmit",
     "test": "echo 'No tests yet' && exit 0",
     "test:watch": "vitest watch",
-    "benchmark": "node ./dist/bin.js"
+    "benchmark": "node ./dist/bin.js",
+    "fixtures:generate": "tsx scripts/generate-fixtures.ts"
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.71.2",
+    "@ai-sdk/anthropic": "^1.0.0",
+    "@ai-sdk/openai": "^1.0.0",
     "@clack/prompts": "1.0.0-alpha.9",
     "@merl-ai/mcp-codemode-runtime": "workspace:*",
+    "ai": "^4.0.0",
     "commander": "^14.0.2",
     "dotenv": "^17.2.3",
-    "openai": "^6.16.0",
     "zod": "^4.3.5"
   },
   "devDependencies": {

@@ -1,5 +1,5 @@
 import { Command } from 'commander';
-import { resolve, dirname } from 'node:path';
+import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { intro, outro, log } from '@clack/prompts';
 import { loadConfig } from './lib/config.js';
@@ -334,6 +334,63 @@ export function createCLI(): Command {
       }
 
       outro('All benchmark tests completed');
+    });
+
+  program
+    .command('use-cases')
+    .description('Run use case validation benchmarks')
+    .option('--use-case <id>', 'Run specific use case')
+    .option('--category <name>', 'Run all use cases in category (database, devops, document, code)')
+    .option('-r, --runs <n>', 'Number of runs per use case', '3')
+    .option('--report', 'Generate benchmark report')
+    .option('-c, --config <path>', 'config file path')
+    .action(async (options) => {
+      const config = loadConfig(options.config);
+
+      // Validate API key before starting tests
+      const apiKey = process.env[config.provider.apiKeyEnv];
+      if (!apiKey) {
+        log.error(`Missing API key: ${config.provider.apiKeyEnv}`);
+        log.error(`Please set the ${config.provider.apiKeyEnv} environment variable before running benchmarks.`);
+        outro('Benchmark cancelled');
+        process.exit(1);
+      }
+
+      const { loadUseCases } = await import('./lib/config.js');
+      const { runAllUseCases } = await import('./runners/use-cases.js');
+      const { generateBenchmarkReport } = await import('./reports/benchmark-report.js');
+
+      const allUseCases = loadUseCases();
+      const runsPerUseCase = parseInt(options.runs, 10);
+
+      let useCases = allUseCases;
+      if (options.useCase) {
+        useCases = allUseCases.filter((uc) => uc.id === options.useCase);
+        if (useCases.length === 0) {
+          log.error(`Use case not found: ${options.useCase}`);
+          outro('Benchmark cancelled');
+          process.exit(1);
+        }
+      } else if (options.category) {
+        useCases = allUseCases.filter((uc) => uc.category === options.category);
+        if (useCases.length === 0) {
+          log.error(`No use cases found for category: ${options.category}`);
+          outro('Benchmark cancelled');
+          process.exit(1);
+        }
+      }
+
+      log.info(`Running ${useCases.length} use case(s) with ${runsPerUseCase} run(s) each`);
+
+      const results = await runAllUseCases(config as any, useCases as any, OUTPUT_BASE_DIR, runsPerUseCase);
+
+      if (options.report) {
+        log.info('Generating benchmark report...');
+        const report = await generateBenchmarkReport(results, OUTPUT_BASE_DIR);
+        log.success(`Report generated: ${report.summary.passed}/${report.summary.totalUseCases} passed (${report.summary.passRate.toFixed(1)}%)`);
+      }
+
+      outro('Use case benchmarks completed');
     });
 
   return program;

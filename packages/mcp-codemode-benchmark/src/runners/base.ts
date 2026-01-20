@@ -54,28 +54,24 @@ export abstract class BaseRunner {
 
     // Extract tool call from response
     let toolCall: unknown = null;
-    if (this.config.provider.kind === 'openai') {
-      const msg = result.response as { tool_calls?: Array<{ function: { name: string; arguments: string } }> };
-      if (msg.tool_calls && msg.tool_calls.length > 0) {
-        try {
-          toolCall = {
-            tool_name: msg.tool_calls[0]!.function.name,
-            arguments: JSON.parse(msg.tool_calls[0]!.function.arguments),
-          };
-        } catch {
-          // Fallback to extracting JSON from content
-          const content = (result.response as { content?: string })?.content || '';
-          toolCall = extractJson(content);
-        }
-      } else {
-        const content = (result.response as { content?: string })?.content || '';
+    const msg = result.response as {
+      tool_calls?: Array<{ function: { name: string; arguments: string } }>;
+      content?: string;
+    };
+
+    if (msg.tool_calls && msg.tool_calls.length > 0) {
+      try {
+        toolCall = {
+          tool_name: msg.tool_calls[0]!.function.name,
+          arguments: JSON.parse(msg.tool_calls[0]!.function.arguments),
+        };
+      } catch {
+        const content = msg.content || '';
         toolCall = extractJson(content);
       }
     } else {
-      // Anthropic
-      const content = (result.response as { content?: Array<{ type: string; text?: string }> })?.content || [];
-      const textContent = content.find((c) => c.type === 'text')?.text || '';
-      toolCall = extractJson(textContent);
+      const content = msg.content || '';
+      toolCall = extractJson(content);
     }
 
     // Check correctness

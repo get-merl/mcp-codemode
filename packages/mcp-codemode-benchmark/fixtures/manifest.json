@@ -1,0 +1,49 @@
+{
+  "fixtures": [
+    {
+      "id": "db_sales_30d_small",
+      "type": "database",
+      "generator": "sales",
+      "seed": 42,
+      "params": {
+        "rowCount": 1000
+      },
+      "hash": ""
+    },
+    {
+      "id": "db_sales_30d_large",
+      "type": "database",
+      "generator": "sales",
+      "seed": 42,
+      "params": {
+        "rowCount": 100000
+      },
+      "hash": ""
+    },
+    {
+      "id": "incident_logs_weekly",
+      "type": "incident",
+      "generator": "logs",
+      "seed": 123,
+      "params": {
+        "lineCount": 250000,
+        "errorPatterns": ["timeout", "auth_fail", "rate_limit"]
+      },
+      "hash": ""
+    },
+    {
+      "id": "meeting_transcript_2h",
+      "type": "document",
+      "source": "curated",
+      "path": "document/meeting_transcript_2h.txt",
+      "hash": ""
+    },
+    {
+      "id": "pr_diff_risky",
+      "type": "code",
+      "source": "curated",
+      "path": "code/pr_diff_risky.patch",
+      "hash": ""
+    }
+  ]
+}

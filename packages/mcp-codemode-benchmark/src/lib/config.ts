@@ -89,3 +89,30 @@ export function getConfigPath(relativePath: string): string {
   // Always resolve relative to package config directory
   return join(__dirname, '../../config', relativePath);
 }
+
+export function loadUseCases(): Array<{
+  id: string;
+  name: string;
+  category: string;
+  fixtureId: string;
+  groundTruthId: string;
+  validator: Record<string, unknown>;
+  steps: Array<{ prompt: string; expectedTool?: string | null }>;
+  passCriteria: Record<string, unknown>;
+  expectedOutcome: string;
+}> {
+  const useCasesPath = getConfigPath('use-cases.json');
+  const content = readFileSync(useCasesPath, 'utf-8');
+  const data = JSON.parse(content) as { useCases: Array<unknown> };
+  return data.useCases as Array<{
+    id: string;
+    name: string;
+    category: string;
+    fixtureId: string;
+    groundTruthId: string;
+    validator: Record<string, unknown>;
+    steps: Array<{ prompt: string; expectedTool?: string | null }>;
+    passCriteria: Record<string, unknown>;
+    expectedOutcome: string;
+  }>;
+}

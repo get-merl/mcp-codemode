@@ -1,0 +1,7002 @@
+[
+  {
+    "id": 1,
+    "date": "2024-12-27",
+    "product": "Headphones",
+    "amount": 959.4,
+    "customer_id": 7699
+  },
+  {
+    "id": 2,
+    "date": "2024-12-17",
+    "product": "Webcam HD",
+    "amount": 599.98,
+    "customer_id": 540
+  },
+  {
+    "id": 3,
+    "date": "2024-12-22",
+    "product": "Webcam HD",
+    "amount": 713.16,
+    "customer_id": 3216
+  },
+  {
+    "id": 4,
+    "date": "2024-12-23",
+    "product": "Phone Stand",
+    "amount": 993.37,
+    "customer_id": 8937
+  },
+  {
+    "id": 5,
+    "date": "2024-12-06",
+    "product": "Wireless Mouse",
+    "amount": 658.39,
+    "customer_id": 8321
+  },
+  {
+    "id": 6,
+    "date": "2024-12-05",
+    "product": "Monitor 27\"",
+    "amount": 319.35,
+    "customer_id": 4948
+  },
+  {
+    "id": 7,
+    "date": "2024-12-21",
+    "product": "Laptop Pro",
+    "amount": 550.67,
+    "customer_id": 7583
+  },
+  {
+    "id": 8,
+    "date": "2024-12-13",
+    "product": "Webcam HD",
+    "amount": 130.14,
+    "customer_id": 9065
+  },
+  {
+    "id": 9,
+    "date": "2024-12-15",
+    "product": "Wireless Mouse",
+    "amount": 878.87,
+    "customer_id": 1865
+  },
+  {
+    "id": 10,
+    "date": "2024-12-11",
+    "product": "Webcam HD",
+    "amount": 291.3,
+    "customer_id": 302
+  },
+  {
+    "id": 11,
+    "date": "2024-12-30",
+    "product": "Wireless Mouse",
+    "amount": 665.22,
+    "customer_id": 9439
+  },
+  {
+    "id": 12,
+    "date": "2024-12-10",
+    "product": "Standing Desk",
+    "amount": 81.72,
+    "customer_id": 634
+  },
+  {
+    "id": 13,
+    "date": "2024-12-13",
+    "product": "Webcam HD",
+    "amount": 875.27,
+    "customer_id": 3763
+  },
+  {
+    "id": 14,
+    "date": "2024-12-15",
+    "product": "Wireless Mouse",
+    "amount": 943.63,
+    "customer_id": 6110
+  },
+  {
+    "id": 15,
+    "date": "2024-12-10",
+    "product": "Desk Chair",
+    "amount": 567.91,
+    "customer_id": 7922
+  },
+  {
+    "id": 16,
+    "date": "2024-12-18",
+    "product": "Webcam HD",
+    "amount": 982.57,
+    "customer_id": 4631
+  },
+  {
+    "id": 17,
+    "date": "2024-12-19",
+    "product": "USB-C Hub",
+    "amount": 635.37,
+    "customer_id": 5743
+  },
+  {
+    "id": 18,
+    "date": "2024-12-06",
+    "product": "Monitor 27\"",
+    "amount": 27.44,
+    "customer_id": 394
+  },
+  {
+    "id": 19,
+    "date": "2024-12-14",
+    "product": "USB-C Hub",
+    "amount": 283.2,
+    "customer_id": 9572
+  },
+  {
+    "id": 20,
+    "date": "2024-12-02",
+    "product": "USB-C Hub",
+    "amount": 400.45,
+    "customer_id": 5006
+  },
+  {
+    "id": 21,
+    "date": "2024-12-18",
+    "product": "Wireless Mouse",
+    "amount": 110.29,
+    "customer_id": 4719
+  },
+  {
+    "id": 22,
+    "date": "2024-12-23",
+    "product": "Mechanical Keyboard",
+    "amount": 427.17,
+    "customer_id": 5255
+  },
+  {
+    "id": 23,
+    "date": "2024-12-14",
+    "product": "Headphones",
+    "amount": 898.87,
+    "customer_id": 565
+  },
+  {
+    "id": 24,
+    "date": "2024-12-05",
+    "product": "Mechanical Keyboard",
+    "amount": 486.48,
+    "customer_id": 7562
+  },
+  {
+    "id": 25,
+    "date": "2024-12-05",
+    "product": "Wireless Mouse",
+    "amount": 94.47,
+    "customer_id": 8345
+  },
+  {
+    "id": 26,
+    "date": "2024-12-15",
+    "product": "Desk Chair",
+    "amount": 810.61,
+    "customer_id": 9087
+  },
+  {
+    "id": 27,
+    "date": "2024-12-18",
+    "product": "Monitor 27\"",
+    "amount": 826.01,
+    "customer_id": 5590
+  },
+  {
+    "id": 28,
+    "date": "2024-12-08",
+    "product": "Standing Desk",
+    "amount": 935.11,
+    "customer_id": 5509
+  },
+  {
+    "id": 29,
+    "date": "2024-12-25",
+    "product": "Wireless Mouse",
+    "amount": 795.69,
+    "customer_id": 7239
+  },
+  {
+    "id": 30,
+    "date": "2024-12-16",
+    "product": "USB-C Hub",
+    "amount": 798.86,
+    "customer_id": 5470
+  },
+  {
+    "id": 31,
+    "date": "2024-12-24",
+    "product": "Monitor 27\"",
+    "amount": 639.08,
+    "customer_id": 3414
+  },
+  {
+    "id": 32,
+    "date": "2024-12-04",
+    "product": "Wireless Mouse",
+    "amount": 524.1,
+    "customer_id": 1687
+  },
+  {
+    "id": 33,
+    "date": "2024-12-20",
+    "product": "Webcam HD",
+    "amount": 75.05,
+    "customer_id": 3869
+  },
+  {
+    "id": 34,
+    "date": "2024-12-12",
+    "product": "Mechanical Keyboard",
+    "amount": 856.38,
+    "customer_id": 8726
+  },
+  {
+    "id": 35,
+    "date": "2024-12-01",
+    "product": "Monitor 27\"",
+    "amount": 655.85,
+    "customer_id": 9098
+  },
+  {
+    "id": 36,
+    "date": "2024-12-19",
+    "product": "Wireless Mouse",
+    "amount": 304.58,
+    "customer_id": 7453
+  },
+  {
+    "id": 37,
+    "date": "2024-12-22",
+    "product": "Desk Chair",
+    "amount": 267.01,
+    "customer_id": 8113
+  },
+  {
+    "id": 38,
+    "date": "2024-12-07",
+    "product": "Desk Chair",
+    "amount": 860.93,
+    "customer_id": 6138
+  },
+  {
+    "id": 39,
+    "date": "2024-12-04",
+    "product": "Mechanical Keyboard",
+    "amount": 167.43,
+    "customer_id": 2889
+  },
+  {
+    "id": 40,
+    "date": "2024-12-14",
+    "product": "Mechanical Keyboard",
+    "amount": 520.98,
+    "customer_id": 8240
+  },
+  {
+    "id": 41,
+    "date": "2024-12-13",
+    "product": "Mechanical Keyboard",
+    "amount": 809.34,
+    "customer_id": 9475
+  },
+  {
+    "id": 42,
+    "date": "2024-12-24",
+    "product": "Headphones",
+    "amount": 323.62,
+    "customer_id": 6843
+  },
+  {
+    "id": 43,
+    "date": "2024-12-09",
+    "product": "Phone Stand",
+    "amount": 298.28,
+    "customer_id": 5774
+  },
+  {
+    "id": 44,
+    "date": "2024-12-07",
+    "product": "Laptop Pro",
+    "amount": 171.08,
+    "customer_id": 5775
+  },
+  {
+    "id": 45,
+    "date": "2024-12-10",
+    "product": "Monitor 27\"",
+    "amount": 443.15,
+    "customer_id": 5982
+  },
+  {
+    "id": 46,
+    "date": "2024-12-25",
+    "product": "Mechanical Keyboard",
+    "amount": 258.91,
+    "customer_id": 7383
+  },
+  {
+    "id": 47,
+    "date": "2024-12-10",
+    "product": "Webcam HD",
+    "amount": 596.16,
+    "customer_id": 1705
+  },
+  {
+    "id": 48,
+    "date": "2024-12-12",
+    "product": "Headphones",
+    "amount": 196,
+    "customer_id": 6973
+  },
+  {
+    "id": 49,
+    "date": "2024-12-24",
+    "product": "Webcam HD",
+    "amount": 72.88,
+    "customer_id": 9732
+  },
+  {
+    "id": 50,
+    "date": "2024-12-12",
+    "product": "Headphones",
+    "amount": 764.57,
+    "customer_id": 3931
+  },
+  {
+    "id": 51,
+    "date": "2024-12-19",
+    "product": "Desk Chair",
+    "amount": 242.19,
+    "customer_id": 6483
+  },
+  {
+    "id": 52,
+    "date": "2024-12-26",
+    "product": "USB-C Hub",
+    "amount": 400.18,
+    "customer_id": 9489
+  },
+  {
+    "id": 53,
+    "date": "2024-12-03",
+    "product": "Mechanical Keyboard",
+    "amount": 346.32,
+    "customer_id": 9119
+  },
+  {
+    "id": 54,
+    "date": "2024-12-22",
+    "product": "Monitor 27\"",
+    "amount": 251.72,
+    "customer_id": 1178
+  },
+  {
+    "id": 55,
+    "date": "2024-12-19",
+    "product": "Monitor 27\"",
+    "amount": 910.82,
+    "customer_id": 3319
+  },
+  {
+    "id": 56,
+    "date": "2024-12-03",
+    "product": "Desk Chair",
+    "amount": 991.4,
+    "customer_id": 3938
+  },
+  {
+    "id": 57,
+    "date": "2024-12-10",
+    "product": "Laptop Pro",
+    "amount": 884.57,
+    "customer_id": 7725
+  },
+  {
+    "id": 58,
+    "date": "2024-12-25",
+    "product": "Phone Stand",
+    "amount": 284.78,
+    "customer_id": 7891
+  },
+  {
+    "id": 59,
+    "date": "2024-12-01",
+    "product": "Mechanical Keyboard",
+    "amount": 389.81,
+    "customer_id": 5053
+  },
+  {
+    "id": 60,
+    "date": "2024-12-04",
+    "product": "Laptop Pro",
+    "amount": 820.76,
+    "customer_id": 2790
+  },
+  {
+    "id": 61,
+    "date": "2024-12-02",
+    "product": "USB-C Hub",
+    "amount": 172.08,
+    "customer_id": 9870
+  },
+  {
+    "id": 62,
+    "date": "2024-12-19",
+    "product": "Wireless Mouse",
+    "amount": 191.56,
+    "customer_id": 9130
+  },
+  {
+    "id": 63,
+    "date": "2024-12-23",
+    "product": "Laptop Pro",
+    "amount": 720.29,
+    "customer_id": 3041
+  },
+  {
+    "id": 64,
+    "date": "2024-12-03",
+    "product": "Monitor 27\"",
+    "amount": 242.72,
+    "customer_id": 5923
+  },
+  {
+    "id": 65,
+    "date": "2024-12-15",
+    "product": "Phone Stand",
+    "amount": 66.63,
+    "customer_id": 2838
+  },
+  {
+    "id": 66,
+    "date": "2024-12-28",
+    "product": "Headphones",
+    "amount": 253.14,
+    "customer_id": 5143
+  },
+  {
+    "id": 67,
+    "date": "2024-12-15",
+    "product": "Webcam HD",
+    "amount": 166.69,
+    "customer_id": 2716
+  },
+  {
+    "id": 68,
+    "date": "2024-12-10",
+    "product": "Mechanical Keyboard",
+    "amount": 675.05,
+    "customer_id": 2841
+  },
+  {
+    "id": 69,
+    "date": "2024-12-09",
+    "product": "Laptop Pro",
+    "amount": 79.33,
+    "customer_id": 5764
+  },
+  {
+    "id": 70,
+    "date": "2024-12-29",
+    "product": "Wireless Mouse",
+    "amount": 603.99,
+    "customer_id": 6918
+  },
+  {
+    "id": 71,
+    "date": "2024-12-25",
+    "product": "Webcam HD",
+    "amount": 696.79,
+    "customer_id": 5808
+  },
+  {
+    "id": 72,
+    "date": "2024-12-15",
+    "product": "USB-C Hub",
+    "amount": 858.85,
+    "customer_id": 1570
+  },
+  {
+    "id": 73,
+    "date": "2024-12-06",
+    "product": "Laptop Pro",
+    "amount": 234.62,
+    "customer_id": 5193
+  },
+  {
+    "id": 74,
+    "date": "2024-12-18",
+    "product": "Wireless Mouse",
+    "amount": 791.87,
+    "customer_id": 8404
+  },
+  {
+    "id": 75,
+    "date": "2024-12-06",
+    "product": "Monitor 27\"",
+    "amount": 281.71,
+    "customer_id": 9228
+  },
+  {
+    "id": 76,
+    "date": "2024-12-25",
+    "product": "Mechanical Keyboard",
+    "amount": 708.59,
+    "customer_id": 4209
+  },
+  {
+    "id": 77,
+    "date": "2024-12-10",
+    "product": "Phone Stand",
+    "amount": 630.28,
+    "customer_id": 7296
+  },
+  {
+    "id": 78,
+    "date": "2024-12-03",
+    "product": "Headphones",
+    "amount": 987.9,
+    "customer_id": 5405
+  },
+  {
+    "id": 79,
+    "date": "2024-12-16",
+    "product": "Monitor 27\"",
+    "amount": 705.89,
+    "customer_id": 632
+  },
+  {
+    "id": 80,
+    "date": "2024-12-20",
+    "product": "Laptop Pro",
+    "amount": 872.03,
+    "customer_id": 9152
+  },
+  {
+    "id": 81,
+    "date": "2024-12-26",
+    "product": "USB-C Hub",
+    "amount": 667.42,
+    "customer_id": 6766
+  },
+  {
+    "id": 82,
+    "date": "2024-12-30",
+    "product": "USB-C Hub",
+    "amount": 886.52,
+    "customer_id": 1130
+  },
+  {
+    "id": 83,
+    "date": "2024-12-10",
+    "product": "Headphones",
+    "amount": 197.11,
+    "customer_id": 637
+  },
+  {
+    "id": 84,
+    "date": "2024-12-04",
+    "product": "Standing Desk",
+    "amount": 970.28,
+    "customer_id": 9980
+  },
+  {
+    "id": 85,
+    "date": "2024-12-26",
+    "product": "Monitor 27\"",
+    "amount": 920.49,
+    "customer_id": 2368
+  },
+  {
+    "id": 86,
+    "date": "2024-12-29",
+    "product": "USB-C Hub",
+    "amount": 255.52,
+    "customer_id": 8418
+  },
+  {
+    "id": 87,
+    "date": "2024-12-18",
+    "product": "Mechanical Keyboard",
+    "amount": 576.47,
+    "customer_id": 1712
+  },
+  {
+    "id": 88,
+    "date": "2024-12-23",
+    "product": "Desk Chair",
+    "amount": 477.79,
+    "customer_id": 1013
+  },
+  {
+    "id": 89,
+    "date": "2024-12-06",
+    "product": "Phone Stand",
+    "amount": 717.26,
+    "customer_id": 9163
+  },
+  {
+    "id": 90,
+    "date": "2024-12-28",
+    "product": "Laptop Pro",
+    "amount": 145.99,
+    "customer_id": 8629
+  },
+  {
+    "id": 91,
+    "date": "2024-12-14",
+    "product": "Mechanical Keyboard",
+    "amount": 218.43,
+    "customer_id": 3733
+  },
+  {
+    "id": 92,
+    "date": "2024-12-23",
+    "product": "USB-C Hub",
+    "amount": 262.34,
+    "customer_id": 9537
+  },
+  {
+    "id": 93,
+    "date": "2024-12-22",
+    "product": "Monitor 27\"",
+    "amount": 338.85,
+    "customer_id": 7398
+  },
+  {
+    "id": 94,
+    "date": "2024-12-16",
+    "product": "Mechanical Keyboard",
+    "amount": 802.39,
+    "customer_id": 7193
+  },
+  {
+    "id": 95,
+    "date": "2024-12-08",
+    "product": "USB-C Hub",
+    "amount": 540.75,
+    "customer_id": 6207
+  },
+  {
+    "id": 96,
+    "date": "2024-12-23",
+    "product": "USB-C Hub",
+    "amount": 825.04,
+    "customer_id": 4685
+  },
+  {
+    "id": 97,
+    "date": "2024-12-20",
+    "product": "Mechanical Keyboard",
+    "amount": 909.7,
+    "customer_id": 8061
+  },
+  {
+    "id": 98,
+    "date": "2024-12-12",
+    "product": "Monitor 27\"",
+    "amount": 232.5,
+    "customer_id": 5840
+  },
+  {
+    "id": 99,
+    "date": "2024-12-19",
+    "product": "USB-C Hub",
+    "amount": 284.56,
+    "customer_id": 7158
+  },
+  {
+    "id": 100,
+    "date": "2024-12-17",
+    "product": "Headphones",
+    "amount": 210.33,
+    "customer_id": 3003
+  },
+  {
+    "id": 101,
+    "date": "2024-12-25",
+    "product": "Monitor 27\"",
+    "amount": 987.58,
+    "customer_id": 5103
+  },
+  {
+    "id": 102,
+    "date": "2024-12-01",
+    "product": "Laptop Pro",
+    "amount": 367.42,
+    "customer_id": 1483
+  },
+  {
+    "id": 103,
+    "date": "2024-12-26",
+    "product": "Webcam HD",
+    "amount": 354.3,
+    "customer_id": 8686
+  },
+  {
+    "id": 104,
+    "date": "2024-12-07",
+    "product": "Laptop Pro",
+    "amount": 495.99,
+    "customer_id": 662
+  },
+  {
+    "id": 105,
+    "date": "2024-12-18",
+    "product": "Wireless Mouse",
+    "amount": 743.61,
+    "customer_id": 4326
+  },
+  {
+    "id": 106,
+    "date": "2024-12-07",
+    "product": "Standing Desk",
+    "amount": 21.6,
+    "customer_id": 1776
+  },
+  {
+    "id": 107,
+    "date": "2024-12-08",
+    "product": "Webcam HD",
+    "amount": 407.74,
+    "customer_id": 9184
+  },
+  {
+    "id": 108,
+    "date": "2024-12-30",
+    "product": "USB-C Hub",
+    "amount": 93.13,
+    "customer_id": 2354
+  },
+  {
+    "id": 109,
+    "date": "2024-12-11",
+    "product": "Wireless Mouse",
+    "amount": 862.23,
+    "customer_id": 8940
+  },
+  {
+    "id": 110,
+    "date": "2024-12-18",
+    "product": "Mechanical Keyboard",
+    "amount": 392.81,
+    "customer_id": 7336
+  },
+  {
+    "id": 111,
+    "date": "2024-12-29",
+    "product": "Mechanical Keyboard",
+    "amount": 65.99,
+    "customer_id": 2234
+  },
+  {
+    "id": 112,
+    "date": "2024-12-26",
+    "product": "Phone Stand",
+    "amount": 566.2,
+    "customer_id": 6845
+  },
+  {
+    "id": 113,
+    "date": "2024-12-26",
+    "product": "USB-C Hub",
+    "amount": 121.23,
+    "customer_id": 1784
+  },
+  {
+    "id": 114,
+    "date": "2024-12-02",
+    "product": "Desk Chair",
+    "amount": 332.18,
+    "customer_id": 633
+  },
+  {
+    "id": 115,
+    "date": "2024-12-14",
+    "product": "Webcam HD",
+    "amount": 783.5,
+    "customer_id": 2157
+  },
+  {
+    "id": 116,
+    "date": "2024-12-24",
+    "product": "Standing Desk",
+    "amount": 252.97,
+    "customer_id": 9195
+  },
+  {
+    "id": 117,
+    "date": "2024-12-02",
+    "product": "Phone Stand",
+    "amount": 561.7,
+    "customer_id": 4217
+  },
+  {
+    "id": 118,
+    "date": "2024-12-24",
+    "product": "Wireless Mouse",
+    "amount": 194.14,
+    "customer_id": 1543
+  },
+  {
+    "id": 119,
+    "date": "2024-12-30",
+    "product": "Webcam HD",
+    "amount": 458.05,
+    "customer_id": 6236
+  },
+  {
+    "id": 120,
+    "date": "2024-12-17",
+    "product": "Wireless Mouse",
+    "amount": 424.56,
+    "customer_id": 9653
+  },
+  {
+    "id": 121,
+    "date": "2024-12-17",
+    "product": "Webcam HD",
+    "amount": 448.1,
+    "customer_id": 1670
+  },
+  {
+    "id": 122,
+    "date": "2024-12-06",
+    "product": "USB-C Hub",
+    "amount": 406.46,
+    "customer_id": 9573
+  },
+  {
+    "id": 123,
+    "date": "2024-12-07",
+    "product": "Standing Desk",
+    "amount": 580.75,
+    "customer_id": 3607
+  },
+  {
+    "id": 124,
+    "date": "2024-12-11",
+    "product": "Monitor 27\"",
+    "amount": 225.4,
+    "customer_id": 9205
+  },
+  {
+    "id": 125,
+    "date": "2024-12-30",
+    "product": "Mechanical Keyboard",
+    "amount": 758.21,
+    "customer_id": 5872
+  },
+  {
+    "id": 126,
+    "date": "2024-12-23",
+    "product": "Mechanical Keyboard",
+    "amount": 700.27,
+    "customer_id": 2746
+  },
+  {
+    "id": 127,
+    "date": "2024-12-28",
+    "product": "Webcam HD",
+    "amount": 186.04,
+    "customer_id": 813
+  },
+  {
+    "id": 128,
+    "date": "2024-12-03",
+    "product": "Headphones",
+    "amount": 193.29,
+    "customer_id": 1802
+  },
+  {
+    "id": 129,
+    "date": "2024-12-25",
+    "product": "Standing Desk",
+    "amount": 453.13,
+    "customer_id": 3737
+  },
+  {
+    "id": 130,
+    "date": "2024-12-27",
+    "product": "Mechanical Keyboard",
+    "amount": 990.01,
+    "customer_id": 3162
+  },
+  {
+    "id": 131,
+    "date": "2024-12-05",
+    "product": "Laptop Pro",
+    "amount": 361.7,
+    "customer_id": 4028
+  },
+  {
+    "id": 132,
+    "date": "2024-12-02",
+    "product": "Monitor 27\"",
+    "amount": 499.32,
+    "customer_id": 3247
+  },
+  {
+    "id": 133,
+    "date": "2024-12-28",
+    "product": "Headphones",
+    "amount": 327.31,
+    "customer_id": 2919
+  },
+  {
+    "id": 134,
+    "date": "2024-12-26",
+    "product": "Monitor 27\"",
+    "amount": 933.44,
+    "customer_id": 9217
+  },
+  {
+    "id": 135,
+    "date": "2024-12-05",
+    "product": "Mechanical Keyboard",
+    "amount": 508.84,
+    "customer_id": 7942
+  },
+  {
+    "id": 136,
+    "date": "2024-12-22",
+    "product": "Laptop Pro",
+    "amount": 837.94,
+    "customer_id": 6750
+  },
+  {
+    "id": 137,
+    "date": "2024-12-25",
+    "product": "Standing Desk",
+    "amount": 588.52,
+    "customer_id": 4035
+  },
+  {
+    "id": 138,
+    "date": "2024-12-23",
+    "product": "Headphones",
+    "amount": 151.7,
+    "customer_id": 4489
+  },
+  {
+    "id": 139,
+    "date": "2024-12-27",
+    "product": "Monitor 27\"",
+    "amount": 211.91,
+    "customer_id": 1321
+  },
+  {
+    "id": 140,
+    "date": "2024-12-24",
+    "product": "Monitor 27\"",
+    "amount": 976.93,
+    "customer_id": 5150
+  },
+  {
+    "id": 141,
+    "date": "2024-12-17",
+    "product": "Headphones",
+    "amount": 87.89,
+    "customer_id": 9554
+  },
+  {
+    "id": 142,
+    "date": "2024-12-05",
+    "product": "Headphones",
+    "amount": 99.21,
+    "customer_id": 3300
+  },
+  {
+    "id": 143,
+    "date": "2024-12-11",
+    "product": "USB-C Hub",
+    "amount": 778.68,
+    "customer_id": 9227
+  },
+  {
+    "id": 144,
+    "date": "2024-12-06",
+    "product": "Phone Stand",
+    "amount": 977.41,
+    "customer_id": 9805
+  },
+  {
+    "id": 145,
+    "date": "2024-12-05",
+    "product": "Phone Stand",
+    "amount": 169.84,
+    "customer_id": 9353
+  },
+  {
+    "id": 146,
+    "date": "2024-12-08",
+    "product": "Wireless Mouse",
+    "amount": 653.76,
+    "customer_id": 2935
+  },
+  {
+    "id": 147,
+    "date": "2024-12-11",
+    "product": "Webcam HD",
+    "amount": 510.27,
+    "customer_id": 1907
+  },
+  {
+    "id": 148,
+    "date": "2024-12-18",
+    "product": "Mechanical Keyboard",
+    "amount": 93.81,
+    "customer_id": 6147
+  },
+  {
+    "id": 149,
+    "date": "2024-12-03",
+    "product": "Monitor 27\"",
+    "amount": 272.17,
+    "customer_id": 2938
+  },
+  {
+    "id": 150,
+    "date": "2024-12-21",
+    "product": "Phone Stand",
+    "amount": 336.46,
+    "customer_id": 2528
+  },
+  {
+    "id": 151,
+    "date": "2024-12-02",
+    "product": "Standing Desk",
+    "amount": 531.11,
+    "customer_id": 348
+  },
+  {
+    "id": 152,
+    "date": "2024-12-17",
+    "product": "Phone Stand",
+    "amount": 293.92,
+    "customer_id": 5905
+  },
+  {
+    "id": 153,
+    "date": "2024-12-28",
+    "product": "Mechanical Keyboard",
+    "amount": 125.98,
+    "customer_id": 8334
+  },
+  {
+    "id": 154,
+    "date": "2024-12-09",
+    "product": "Desk Chair",
+    "amount": 161.75,
+    "customer_id": 8623
+  },
+  {
+    "id": 155,
+    "date": "2024-12-10",
+    "product": "Mechanical Keyboard",
+    "amount": 388.99,
+    "customer_id": 8501
+  },
+  {
+    "id": 156,
+    "date": "2024-12-19",
+    "product": "Mechanical Keyboard",
+    "amount": 538.84,
+    "customer_id": 5992
+  },
+  {
+    "id": 157,
+    "date": "2024-12-28",
+    "product": "Webcam HD",
+    "amount": 635.71,
+    "customer_id": 7639
+  },
+  {
+    "id": 158,
+    "date": "2024-12-02",
+    "product": "Wireless Mouse",
+    "amount": 227.41,
+    "customer_id": 7394
+  },
+  {
+    "id": 159,
+    "date": "2024-12-16",
+    "product": "Webcam HD",
+    "amount": 255.03,
+    "customer_id": 2168
+  },
+  {
+    "id": 160,
+    "date": "2024-12-19",
+    "product": "Laptop Pro",
+    "amount": 633.02,
+    "customer_id": 4063
+  },
+  {
+    "id": 161,
+    "date": "2024-12-13",
+    "product": "Wireless Mouse",
+    "amount": 469.15,
+    "customer_id": 9249
+  },
+  {
+    "id": 162,
+    "date": "2024-12-09",
+    "product": "Mechanical Keyboard",
+    "amount": 924.55,
+    "customer_id": 3530
+  },
+  {
+    "id": 163,
+    "date": "2024-12-03",
+    "product": "Headphones",
+    "amount": 813.65,
+    "customer_id": 4560
+  },
+  {
+    "id": 164,
+    "date": "2024-12-03",
+    "product": "Laptop Pro",
+    "amount": 784.23,
+    "customer_id": 734
+  },
+  {
+    "id": 165,
+    "date": "2024-12-17",
+    "product": "Monitor 27\"",
+    "amount": 237.41,
+    "customer_id": 6744
+  },
+  {
+    "id": 166,
+    "date": "2024-12-28",
+    "product": "Phone Stand",
+    "amount": 847.62,
+    "customer_id": 5798
+  },
+  {
+    "id": 167,
+    "date": "2024-12-22",
+    "product": "Monitor 27\"",
+    "amount": 842.64,
+    "customer_id": 8516
+  },
+  {
+    "id": 168,
+    "date": "2024-12-01",
+    "product": "Wireless Mouse",
+    "amount": 833.6,
+    "customer_id": 8476
+  },
+  {
+    "id": 169,
+    "date": "2024-12-26",
+    "product": "Laptop Pro",
+    "amount": 404.92,
+    "customer_id": 4444
+  },
+  {
+    "id": 170,
+    "date": "2024-12-29",
+    "product": "Laptop Pro",
+    "amount": 314.39,
+    "customer_id": 9260
+  },
+  {
+    "id": 171,
+    "date": "2024-12-10",
+    "product": "Headphones",
+    "amount": 403.12,
+    "customer_id": 5393
+  },
+  {
+    "id": 172,
+    "date": "2024-12-16",
+    "product": "Webcam HD",
+    "amount": 145.55,
+    "customer_id": 7163
+  },
+  {
+    "id": 173,
+    "date": "2024-12-15",
+    "product": "Desk Chair",
+    "amount": 849.47,
+    "customer_id": 9634
+  },
+  {
+    "id": 174,
+    "date": "2024-12-05",
+    "product": "USB-C Hub",
+    "amount": 595.97,
+    "customer_id": 4162
+  },
+  {
+    "id": 175,
+    "date": "2024-12-19",
+    "product": "Headphones",
+    "amount": 729.52,
+    "customer_id": 624
+  },
+  {
+    "id": 176,
+    "date": "2024-12-01",
+    "product": "Desk Chair",
+    "amount": 137.88,
+    "customer_id": 6304
+  },
+  {
+    "id": 177,
+    "date": "2024-12-06",
+    "product": "Mechanical Keyboard",
+    "amount": 92.16,
+    "customer_id": 1449
+  },
+  {
+    "id": 178,
+    "date": "2024-12-23",
+    "product": "Webcam HD",
+    "amount": 836.82,
+    "customer_id": 1492
+  },
+  {
+    "id": 179,
+    "date": "2024-12-05",
+    "product": "Standing Desk",
+    "amount": 819.62,
+    "customer_id": 5937
+  },
+  {
+    "id": 180,
+    "date": "2024-12-02",
+    "product": "Wireless Mouse",
+    "amount": 541.69,
+    "customer_id": 3922
+  },
+  {
+    "id": 181,
+    "date": "2024-12-20",
+    "product": "USB-C Hub",
+    "amount": 137.45,
+    "customer_id": 6434
+  },
+  {
+    "id": 182,
+    "date": "2024-12-18",
+    "product": "Standing Desk",
+    "amount": 584.7,
+    "customer_id": 5200
+  },
+  {
+    "id": 183,
+    "date": "2024-12-13",
+    "product": "Headphones",
+    "amount": 624.54,
+    "customer_id": 8247
+  },
+  {
+    "id": 184,
+    "date": "2024-12-29",
+    "product": "USB-C Hub",
+    "amount": 281.42,
+    "customer_id": 2116
+  },
+  {
+    "id": 185,
+    "date": "2024-12-30",
+    "product": "Wireless Mouse",
+    "amount": 93.12,
+    "customer_id": 759
+  },
+  {
+    "id": 186,
+    "date": "2024-12-30",
+    "product": "Phone Stand",
+    "amount": 10.73,
+    "customer_id": 1090
+  },
+  {
+    "id": 187,
+    "date": "2024-12-10",
+    "product": "Wireless Mouse",
+    "amount": 938.72,
+    "customer_id": 5206
+  },
+  {
+    "id": 188,
+    "date": "2024-12-01",
+    "product": "Phone Stand",
+    "amount": 994.86,
+    "customer_id": 9281
+  },
+  {
+    "id": 189,
+    "date": "2024-12-13",
+    "product": "Wireless Mouse",
+    "amount": 350.26,
+    "customer_id": 9118
+  },
+  {
+    "id": 190,
+    "date": "2024-12-14",
+    "product": "Standing Desk",
+    "amount": 789.36,
+    "customer_id": 2370
+  },
+  {
+    "id": 191,
+    "date": "2024-12-11",
+    "product": "Monitor 27\"",
+    "amount": 979.94,
+    "customer_id": 7433
+  },
+  {
+    "id": 192,
+    "date": "2024-12-11",
+    "product": "Laptop Pro",
+    "amount": 323.11,
+    "customer_id": 8998
+  },
+  {
+    "id": 193,
+    "date": "2024-12-29",
+    "product": "Monitor 27\"",
+    "amount": 493.33,
+    "customer_id": 275
+  },
+  {
+    "id": 194,
+    "date": "2024-12-19",
+    "product": "Desk Chair",
+    "amount": 708.35,
+    "customer_id": 1881
+  },
+  {
+    "id": 195,
+    "date": "2024-12-15",
+    "product": "Monitor 27\"",
+    "amount": 589.3,
+    "customer_id": 7397
+  },
+  {
+    "id": 196,
+    "date": "2024-12-17",
+    "product": "Mechanical Keyboard",
+    "amount": 710.63,
+    "customer_id": 5587
+  },
+  {
+    "id": 197,
+    "date": "2024-12-17",
+    "product": "Headphones",
+    "amount": 840.1,
+    "customer_id": 9292
+  },
+  {
+    "id": 198,
+    "date": "2024-12-15",
+    "product": "Headphones",
+    "amount": 818.83,
+    "customer_id": 981
+  },
+  {
+    "id": 199,
+    "date": "2024-12-27",
+    "product": "Standing Desk",
+    "amount": 121.26,
+    "customer_id": 4974
+  },
+  {
+    "id": 200,
+    "date": "2024-12-23",
+    "product": "Phone Stand",
+    "amount": 55.18,
+    "customer_id": 6333
+  },
+  {
+    "id": 201,
+    "date": "2024-12-30",
+    "product": "Phone Stand",
+    "amount": 681.68,
+    "customer_id": 6416
+  },
+  {
+    "id": 202,
+    "date": "2024-12-20",
+    "product": "USB-C Hub",
+    "amount": 375.23,
+    "customer_id": 5101
+  },
+  {
+    "id": 203,
+    "date": "2024-12-28",
+    "product": "Desk Chair",
+    "amount": 993.59,
+    "customer_id": 9670
+  },
+  {
+    "id": 204,
+    "date": "2024-12-20",
+    "product": "Desk Chair",
+    "amount": 837.87,
+    "customer_id": 371
+  },
+  {
+    "id": 205,
+    "date": "2024-12-14",
+    "product": "Phone Stand",
+    "amount": 152.53,
+    "customer_id": 2635
+  },
+  {
+    "id": 206,
+    "date": "2024-12-23",
+    "product": "USB-C Hub",
+    "amount": 355.33,
+    "customer_id": 5970
+  },
+  {
+    "id": 207,
+    "date": "2024-12-06",
+    "product": "Wireless Mouse",
+    "amount": 957.4,
+    "customer_id": 9510
+  },
+  {
+    "id": 208,
+    "date": "2024-12-01",
+    "product": "Mechanical Keyboard",
+    "amount": 113.16,
+    "customer_id": 4244
+  },
+  {
+    "id": 209,
+    "date": "2024-12-26",
+    "product": "Laptop Pro",
+    "amount": 780.41,
+    "customer_id": 1899
+  },
+  {
+    "id": 210,
+    "date": "2024-12-08",
+    "product": "Monitor 27\"",
+    "amount": 710.25,
+    "customer_id": 501
+  },
+  {
+    "id": 211,
+    "date": "2024-12-30",
+    "product": "Headphones",
+    "amount": 917.13,
+    "customer_id": 6593
+  },
+  {
+    "id": 212,
+    "date": "2024-12-28",
+    "product": "Mechanical Keyboard",
+    "amount": 948.82,
+    "customer_id": 4125
+  },
+  {
+    "id": 213,
+    "date": "2024-12-15",
+    "product": "Mechanical Keyboard",
+    "amount": 756.44,
+    "customer_id": 11
+  },
+  {
+    "id": 214,
+    "date": "2024-12-01",
+    "product": "USB-C Hub",
+    "amount": 254.43,
+    "customer_id": 6350
+  },
+  {
+    "id": 215,
+    "date": "2024-12-18",
+    "product": "Standing Desk",
+    "amount": 530.57,
+    "customer_id": 9314
+  },
+  {
+    "id": 216,
+    "date": "2024-12-17",
+    "product": "Wireless Mouse",
+    "amount": 765.97,
+    "customer_id": 4706
+  },
+  {
+    "id": 217,
+    "date": "2024-12-25",
+    "product": "Desk Chair",
+    "amount": 765.07,
+    "customer_id": 180
+  },
+  {
+    "id": 218,
+    "date": "2024-12-18",
+    "product": "Headphones",
+    "amount": 185.65,
+    "customer_id": 4132
+  },
+  {
+    "id": 219,
+    "date": "2024-12-06",
+    "product": "Standing Desk",
+    "amount": 408.82,
+    "customer_id": 1253
+  },
+  {
+    "id": 220,
+    "date": "2024-12-30",
+    "product": "Phone Stand",
+    "amount": 139.03,
+    "customer_id": 4752
+  },
+  {
+    "id": 221,
+    "date": "2024-12-17",
+    "product": "Standing Desk",
+    "amount": 574.06,
+    "customer_id": 5247
+  },
+  {
+    "id": 222,
+    "date": "2024-12-30",
+    "product": "Standing Desk",
+    "amount": 345.01,
+    "customer_id": 6318
+  },
+  {
+    "id": 223,
+    "date": "2024-12-08",
+    "product": "USB-C Hub",
+    "amount": 26.33,
+    "customer_id": 6731
+  },
+  {
+    "id": 224,
+    "date": "2024-12-04",
+    "product": "Desk Chair",
+    "amount": 375.81,
+    "customer_id": 9325
+  },
+  {
+    "id": 225,
+    "date": "2024-12-19",
+    "product": "Webcam HD",
+    "amount": 244.54,
+    "customer_id": 6569
+  },
+  {
+    "id": 226,
+    "date": "2024-12-08",
+    "product": "Monitor 27\"",
+    "amount": 96.97,
+    "customer_id": 2784
+  },
+  {
+    "id": 227,
+    "date": "2024-12-01",
+    "product": "USB-C Hub",
+    "amount": 250.88,
+    "customer_id": 3032
+  },
+  {
+    "id": 228,
+    "date": "2024-12-24",
+    "product": "Desk Chair",
+    "amount": 767.39,
+    "customer_id": 8671
+  },
+  {
+    "id": 229,
+    "date": "2024-12-20",
+    "product": "Headphones",
+    "amount": 20.94,
+    "customer_id": 9578
+  },
+  {
+    "id": 230,
+    "date": "2024-12-26",
+    "product": "Standing Desk",
+    "amount": 859.3,
+    "customer_id": 3036
+  },
+  {
+    "id": 231,
+    "date": "2024-12-04",
+    "product": "Webcam HD",
+    "amount": 593.58,
+    "customer_id": 9292
+  },
+  {
+    "id": 232,
+    "date": "2024-12-05",
+    "product": "Wireless Mouse",
+    "amount": 458.24,
+    "customer_id": 3779
+  },
+  {
+    "id": 233,
+    "date": "2024-12-10",
+    "product": "Wireless Mouse",
+    "amount": 881.04,
+    "customer_id": 6002
+  },
+  {
+    "id": 234,
+    "date": "2024-12-10",
+    "product": "Laptop Pro",
+    "amount": 383.1,
+    "customer_id": 5098
+  },
+  {
+    "id": 235,
+    "date": "2024-12-12",
+    "product": "Laptop Pro",
+    "amount": 88.87,
+    "customer_id": 2054
+  },
+  {
+    "id": 236,
+    "date": "2024-12-03",
+    "product": "Monitor 27\"",
+    "amount": 976.12,
+    "customer_id": 8598
+  },
+  {
+    "id": 237,
+    "date": "2024-12-02",
+    "product": "Wireless Mouse",
+    "amount": 795.96,
+    "customer_id": 2756
+  },
+  {
+    "id": 238,
+    "date": "2024-12-01",
+    "product": "USB-C Hub",
+    "amount": 562.84,
+    "customer_id": 1070
+  },
+  {
+    "id": 239,
+    "date": "2024-12-25",
+    "product": "USB-C Hub",
+    "amount": 814.53,
+    "customer_id": 7491
+  },
+  {
+    "id": 240,
+    "date": "2024-12-29",
+    "product": "Desk Chair",
+    "amount": 512.15,
+    "customer_id": 8932
+  },
+  {
+    "id": 241,
+    "date": "2024-12-22",
+    "product": "Desk Chair",
+    "amount": 560.14,
+    "customer_id": 7493
+  },
+  {
+    "id": 242,
+    "date": "2024-12-06",
+    "product": "USB-C Hub",
+    "amount": 66.28,
+    "customer_id": 9346
+  },
+  {
+    "id": 243,
+    "date": "2024-12-22",
+    "product": "Laptop Pro",
+    "amount": 191.67,
+    "customer_id": 294
+  },
+  {
+    "id": 244,
+    "date": "2024-12-05",
+    "product": "USB-C Hub",
+    "amount": 740.77,
+    "customer_id": 7991
+  },
+  {
+    "id": 245,
+    "date": "2024-12-26",
+    "product": "Mechanical Keyboard",
+    "amount": 381.36,
+    "customer_id": 831
+  },
+  {
+    "id": 246,
+    "date": "2024-12-30",
+    "product": "USB-C Hub",
+    "amount": 494.53,
+    "customer_id": 3507
+  },
+  {
+    "id": 247,
+    "date": "2024-12-01",
+    "product": "Monitor 27\"",
+    "amount": 774.74,
+    "customer_id": 9229
+  },
+  {
+    "id": 248,
+    "date": "2024-12-14",
+    "product": "Standing Desk",
+    "amount": 439.77,
+    "customer_id": 8613
+  },
+  {
+    "id": 249,
+    "date": "2024-12-14",
+    "product": "Phone Stand",
+    "amount": 100.72,
+    "customer_id": 5239
+  },
+  {
+    "id": 250,
+    "date": "2024-12-29",
+    "product": "Desk Chair",
+    "amount": 332.04,
+    "customer_id": 7874
+  },
+  {
+    "id": 251,
+    "date": "2024-12-22",
+    "product": "Mechanical Keyboard",
+    "amount": 901.51,
+    "customer_id": 9357
+  },
+  {
+    "id": 252,
+    "date": "2024-12-23",
+    "product": "Webcam HD",
+    "amount": 660.24,
+    "customer_id": 2157
+  },
+  {
+    "id": 253,
+    "date": "2024-12-19",
+    "product": "Mechanical Keyboard",
+    "amount": 72.68,
+    "customer_id": 594
+  },
+  {
+    "id": 254,
+    "date": "2024-12-08",
+    "product": "Webcam HD",
+    "amount": 446.59,
+    "customer_id": 9731
+  },
+  {
+    "id": 255,
+    "date": "2024-12-18",
+    "product": "Wireless Mouse",
+    "amount": 853.1,
+    "customer_id": 926
+  },
+  {
+    "id": 256,
+    "date": "2024-12-21",
+    "product": "USB-C Hub",
+    "amount": 656.64,
+    "customer_id": 4054
+  },
+  {
+    "id": 257,
+    "date": "2024-12-24",
+    "product": "Standing Desk",
+    "amount": 725,
+    "customer_id": 6401
+  },
+  {
+    "id": 258,
+    "date": "2024-12-19",
+    "product": "Laptop Pro",
+    "amount": 349.29,
+    "customer_id": 8213
+  },
+  {
+    "id": 259,
+    "date": "2024-12-26",
+    "product": "Mechanical Keyboard",
+    "amount": 763.95,
+    "customer_id": 4922
+  },
+  {
+    "id": 260,
+    "date": "2024-12-28",
+    "product": "Headphones",
+    "amount": 416.75,
+    "customer_id": 6035
+  },
+  {
+    "id": 261,
+    "date": "2024-12-15",
+    "product": "Laptop Pro",
+    "amount": 798.81,
+    "customer_id": 686
+  },
+  {
+    "id": 262,
+    "date": "2024-12-23",
+    "product": "Phone Stand",
+    "amount": 64.58,
+    "customer_id": 9864
+  },
+  {
+    "id": 263,
+    "date": "2024-12-11",
+    "product": "Headphones",
+    "amount": 181.83,
+    "customer_id": 5297
+  },
+  {
+    "id": 264,
+    "date": "2024-12-26",
+    "product": "Webcam HD",
+    "amount": 881.67,
+    "customer_id": 5011
+  },
+  {
+    "id": 265,
+    "date": "2024-12-02",
+    "product": "Headphones",
+    "amount": 208.55,
+    "customer_id": 5547
+  },
+  {
+    "id": 266,
+    "date": "2024-12-23",
+    "product": "USB-C Hub",
+    "amount": 680.24,
+    "customer_id": 857
+  },
+  {
+    "id": 267,
+    "date": "2024-12-13",
+    "product": "Headphones",
+    "amount": 267.86,
+    "customer_id": 7854
+  },
+  {
+    "id": 268,
+    "date": "2024-12-13",
+    "product": "Standing Desk",
+    "amount": 865.85,
+    "customer_id": 8637
+  },
+  {
+    "id": 269,
+    "date": "2024-12-24",
+    "product": "Laptop Pro",
+    "amount": 591.99,
+    "customer_id": 9379
+  },
+  {
+    "id": 270,
+    "date": "2024-12-26",
+    "product": "Laptop Pro",
+    "amount": 607.38,
+    "customer_id": 5882
+  },
+  {
+    "id": 271,
+    "date": "2024-12-16",
+    "product": "Wireless Mouse",
+    "amount": 716.48,
+    "customer_id": 5801
+  },
+  {
+    "id": 272,
+    "date": "2024-12-03",
+    "product": "Standing Desk",
+    "amount": 577.06,
+    "customer_id": 7530
+  },
+  {
+    "id": 273,
+    "date": "2024-12-24",
+    "product": "Phone Stand",
+    "amount": 580.24,
+    "customer_id": 5762
+  },
+  {
+    "id": 274,
+    "date": "2024-12-02",
+    "product": "Phone Stand",
+    "amount": 420.45,
+    "customer_id": 3706
+  },
+  {
+    "id": 275,
+    "date": "2024-12-12",
+    "product": "Webcam HD",
+    "amount": 305.48,
+    "customer_id": 1978
+  },
+  {
+    "id": 276,
+    "date": "2024-12-28",
+    "product": "Mechanical Keyboard",
+    "amount": 846.43,
+    "customer_id": 4161
+  },
+  {
+    "id": 277,
+    "date": "2024-12-20",
+    "product": "Webcam HD",
+    "amount": 637.75,
+    "customer_id": 9018
+  },
+  {
+    "id": 278,
+    "date": "2024-12-09",
+    "product": "Phone Stand",
+    "amount": 437.22,
+    "customer_id": 9389
+  },
+  {
+    "id": 279,
+    "date": "2024-12-27",
+    "product": "Standing Desk",
+    "amount": 85.95,
+    "customer_id": 7745
+  },
+  {
+    "id": 280,
+    "date": "2024-12-30",
+    "product": "Wireless Mouse",
+    "amount": 48.39,
+    "customer_id": 8404
+  },
+  {
+    "id": 281,
+    "date": "2024-12-16",
+    "product": "Wireless Mouse",
+    "amount": 642.3,
+    "customer_id": 6430
+  },
+  {
+    "id": 282,
+    "date": "2024-12-12",
+    "product": "Webcam HD",
+    "amount": 938.81,
+    "customer_id": 3180
+  },
+  {
+    "id": 283,
+    "date": "2024-12-22",
+    "product": "Headphones",
+    "amount": 302.35,
+    "customer_id": 8531
+  },
+  {
+    "id": 284,
+    "date": "2024-12-21",
+    "product": "Webcam HD",
+    "amount": 590.71,
+    "customer_id": 9767
+  },
+  {
+    "id": 285,
+    "date": "2024-12-03",
+    "product": "USB-C Hub",
+    "amount": 105,
+    "customer_id": 7135
+  },
+  {
+    "id": 286,
+    "date": "2024-12-17",
+    "product": "Monitor 27\"",
+    "amount": 79.65,
+    "customer_id": 6066
+  },
+  {
+    "id": 287,
+    "date": "2024-12-15",
+    "product": "Desk Chair",
+    "amount": 942.46,
+    "customer_id": 6067
+  },
+  {
+    "id": 288,
+    "date": "2024-12-19",
+    "product": "Phone Stand",
+    "amount": 224.52,
+    "customer_id": 6274
+  },
+  {
+    "id": 289,
+    "date": "2024-12-04",
+    "product": "Webcam HD",
+    "amount": 40.29,
+    "customer_id": 7674
+  },
+  {
+    "id": 290,
+    "date": "2024-12-18",
+    "product": "Mechanical Keyboard",
+    "amount": 377.54,
+    "customer_id": 1996
+  },
+  {
+    "id": 291,
+    "date": "2024-12-20",
+    "product": "USB-C Hub",
+    "amount": 967.38,
+    "customer_id": 7265
+  },
+  {
+    "id": 292,
+    "date": "2024-12-03",
+    "product": "USB-C Hub",
+    "amount": 844.26,
+    "customer_id": 24
+  },
+  {
+    "id": 293,
+    "date": "2024-12-20",
+    "product": "Monitor 27\"",
+    "amount": 545.95,
+    "customer_id": 4222
+  },
+  {
+    "id": 294,
+    "date": "2024-12-28",
+    "product": "Wireless Mouse",
+    "amount": 23.57,
+    "customer_id": 6775
+  },
+  {
+    "id": 295,
+    "date": "2024-12-04",
+    "product": "Headphones",
+    "amount": 181.56,
+    "customer_id": 9780
+  },
+  {
+    "id": 296,
+    "date": "2024-12-11",
+    "product": "Headphones",
+    "amount": 127.69,
+    "customer_id": 9411
+  },
+  {
+    "id": 297,
+    "date": "2024-12-30",
+    "product": "Phone Stand",
+    "amount": 33.09,
+    "customer_id": 1470
+  },
+  {
+    "id": 298,
+    "date": "2024-12-27",
+    "product": "Laptop Pro",
+    "amount": 692.19,
+    "customer_id": 3611
+  },
+  {
+    "id": 299,
+    "date": "2024-12-11",
+    "product": "Laptop Pro",
+    "amount": 772.77,
+    "customer_id": 4229
+  },
+  {
+    "id": 300,
+    "date": "2024-12-18",
+    "product": "Desk Chair",
+    "amount": 665.95,
+    "customer_id": 8017
+  },
+  {
+    "id": 301,
+    "date": "2024-12-03",
+    "product": "Monitor 27\"",
+    "amount": 66.16,
+    "customer_id": 8183
+  },
+  {
+    "id": 302,
+    "date": "2024-12-10",
+    "product": "Webcam HD",
+    "amount": 171.18,
+    "customer_id": 5344
+  },
+  {
+    "id": 303,
+    "date": "2024-12-12",
+    "product": "Desk Chair",
+    "amount": 602.14,
+    "customer_id": 3082
+  },
+  {
+    "id": 304,
+    "date": "2024-12-11",
+    "product": "Phone Stand",
+    "amount": 943.46,
+    "customer_id": 161
+  },
+  {
+    "id": 305,
+    "date": "2024-12-27",
+    "product": "Webcam HD",
+    "amount": 962.93,
+    "customer_id": 9422
+  },
+  {
+    "id": 306,
+    "date": "2024-12-02",
+    "product": "Standing Desk",
+    "amount": 501.66,
+    "customer_id": 3333
+  },
+  {
+    "id": 307,
+    "date": "2024-12-11",
+    "product": "Phone Stand",
+    "amount": 24.09,
+    "customer_id": 6214
+  },
+  {
+    "id": 308,
+    "date": "2024-12-23",
+    "product": "Monitor 27\"",
+    "amount": 838.01,
+    "customer_id": 3129
+  },
+  {
+    "id": 309,
+    "date": "2024-12-07",
+    "product": "Monitor 27\"",
+    "amount": 34.52,
+    "customer_id": 5435
+  },
+  {
+    "id": 310,
+    "date": "2024-12-23",
+    "product": "USB-C Hub",
+    "amount": 938.06,
+    "customer_id": 3008
+  },
+  {
+    "id": 311,
+    "date": "2024-12-19",
+    "product": "Headphones",
+    "amount": 456.42,
+    "customer_id": 3133
+  },
+  {
+    "id": 312,
+    "date": "2024-12-17",
+    "product": "Standing Desk",
+    "amount": 850.71,
+    "customer_id": 6056
+  },
+  {
+    "id": 313,
+    "date": "2024-12-08",
+    "product": "Standing Desk",
+    "amount": 385.36,
+    "customer_id": 7209
+  },
+  {
+    "id": 314,
+    "date": "2024-12-03",
+    "product": "Mechanical Keyboard",
+    "amount": 478.17,
+    "customer_id": 6099
+  },
+  {
+    "id": 315,
+    "date": "2024-12-23",
+    "product": "Phone Stand",
+    "amount": 640.23,
+    "customer_id": 1862
+  },
+  {
+    "id": 316,
+    "date": "2024-12-15",
+    "product": "Desk Chair",
+    "amount": 16,
+    "customer_id": 5484
+  },
+  {
+    "id": 317,
+    "date": "2024-12-26",
+    "product": "Standing Desk",
+    "amount": 573.24,
+    "customer_id": 8696
+  },
+  {
+    "id": 318,
+    "date": "2024-12-15",
+    "product": "Phone Stand",
+    "amount": 63.09,
+    "customer_id": 9520
+  },
+  {
+    "id": 319,
+    "date": "2024-12-04",
+    "product": "Headphones",
+    "amount": 489.96,
+    "customer_id": 4500
+  },
+  {
+    "id": 320,
+    "date": "2024-12-18",
+    "product": "Monitor 27\"",
+    "amount": 411.66,
+    "customer_id": 7588
+  },
+  {
+    "id": 321,
+    "date": "2024-12-12",
+    "product": "USB-C Hub",
+    "amount": 769.28,
+    "customer_id": 5696
+  },
+  {
+    "id": 322,
+    "date": "2024-12-25",
+    "product": "Laptop Pro",
+    "amount": 487.27,
+    "customer_id": 924
+  },
+  {
+    "id": 323,
+    "date": "2024-12-29",
+    "product": "Desk Chair",
+    "amount": 653.4,
+    "customer_id": 9443
+  },
+  {
+    "id": 324,
+    "date": "2024-12-05",
+    "product": "Headphones",
+    "amount": 448.8,
+    "customer_id": 7058
+  },
+  {
+    "id": 325,
+    "date": "2024-12-08",
+    "product": "Headphones",
+    "amount": 667.9,
+    "customer_id": 1421
+  },
+  {
+    "id": 326,
+    "date": "2024-12-19",
+    "product": "Monitor 27\"",
+    "amount": 968.48,
+    "customer_id": 929
+  },
+  {
+    "id": 327,
+    "date": "2024-12-13",
+    "product": "Wireless Mouse",
+    "amount": 751.66,
+    "customer_id": 271
+  },
+  {
+    "id": 328,
+    "date": "2024-12-04",
+    "product": "Phone Stand",
+    "amount": 701.87,
+    "customer_id": 2659
+  },
+  {
+    "id": 329,
+    "date": "2024-12-07",
+    "product": "Headphones",
+    "amount": 36.89,
+    "customer_id": 8710
+  },
+  {
+    "id": 330,
+    "date": "2024-12-27",
+    "product": "Headphones",
+    "amount": 357.85,
+    "customer_id": 2003
+  },
+  {
+    "id": 331,
+    "date": "2024-12-02",
+    "product": "Laptop Pro",
+    "amount": 259.17,
+    "customer_id": 1305
+  },
+  {
+    "id": 332,
+    "date": "2024-12-15",
+    "product": "Monitor 27\"",
+    "amount": 498.64,
+    "customer_id": 9454
+  },
+  {
+    "id": 333,
+    "date": "2024-12-06",
+    "product": "Desk Chair",
+    "amount": 917.37,
+    "customer_id": 8921
+  },
+  {
+    "id": 334,
+    "date": "2024-12-22",
+    "product": "Headphones",
+    "amount": 989.8,
+    "customer_id": 4025
+  },
+  {
+    "id": 335,
+    "date": "2024-12-01",
+    "product": "Headphones",
+    "amount": 43.72,
+    "customer_id": 9828
+  },
+  {
+    "id": 336,
+    "date": "2024-12-01",
+    "product": "Laptop Pro",
+    "amount": 120.22,
+    "customer_id": 7690
+  },
+  {
+    "id": 337,
+    "date": "2024-12-24",
+    "product": "Headphones",
+    "amount": 583.77,
+    "customer_id": 7485
+  },
+  {
+    "id": 338,
+    "date": "2024-12-16",
+    "product": "Headphones",
+    "amount": 322.13,
+    "customer_id": 6499
+  },
+  {
+    "id": 339,
+    "date": "2024-12-01",
+    "product": "Phone Stand",
+    "amount": 606.41,
+    "customer_id": 4977
+  },
+  {
+    "id": 340,
+    "date": "2024-12-29",
+    "product": "Headphones",
+    "amount": 691.07,
+    "customer_id": 8353
+  },
+  {
+    "id": 341,
+    "date": "2024-12-21",
+    "product": "Laptop Pro",
+    "amount": 13.87,
+    "customer_id": 6132
+  },
+  {
+    "id": 342,
+    "date": "2024-12-27",
+    "product": "Headphones",
+    "amount": 65.94,
+    "customer_id": 7450
+  },
+  {
+    "id": 343,
+    "date": "2024-12-26",
+    "product": "Monitor 27\"",
+    "amount": 981.7,
+    "customer_id": 3295
+  },
+  {
+    "id": 344,
+    "date": "2024-12-04",
+    "product": "Laptop Pro",
+    "amount": 768.95,
+    "customer_id": 5395
+  },
+  {
+    "id": 345,
+    "date": "2024-12-09",
+    "product": "Desk Chair",
+    "amount": 148.79,
+    "customer_id": 1774
+  },
+  {
+    "id": 346,
+    "date": "2024-12-05",
+    "product": "USB-C Hub",
+    "amount": 135.67,
+    "customer_id": 8977
+  },
+  {
+    "id": 347,
+    "date": "2024-12-16",
+    "product": "Desk Chair",
+    "amount": 277.37,
+    "customer_id": 954
+  },
+  {
+    "id": 348,
+    "date": "2024-12-26",
+    "product": "Standing Desk",
+    "amount": 524.98,
+    "customer_id": 4618
+  },
+  {
+    "id": 349,
+    "date": "2024-12-16",
+    "product": "Wireless Mouse",
+    "amount": 792.97,
+    "customer_id": 2067
+  },
+  {
+    "id": 350,
+    "date": "2024-12-16",
+    "product": "Mechanical Keyboard",
+    "amount": 189.11,
+    "customer_id": 9476
+  },
+  {
+    "id": 351,
+    "date": "2024-12-09",
+    "product": "Headphones",
+    "amount": 864.51,
+    "customer_id": 2646
+  },
+  {
+    "id": 352,
+    "date": "2024-12-19",
+    "product": "Standing Desk",
+    "amount": 643.61,
+    "customer_id": 9231
+  },
+  {
+    "id": 353,
+    "date": "2024-12-26",
+    "product": "Headphones",
+    "amount": 174.19,
+    "customer_id": 7628
+  },
+  {
+    "id": 354,
+    "date": "2024-12-07",
+    "product": "Webcam HD",
+    "amount": 837.36,
+    "customer_id": 2526
+  },
+  {
+    "id": 355,
+    "date": "2024-12-05",
+    "product": "Monitor 27\"",
+    "amount": 347.58,
+    "customer_id": 7136
+  },
+  {
+    "id": 356,
+    "date": "2024-12-05",
+    "product": "Headphones",
+    "amount": 892.6,
+    "customer_id": 2076
+  },
+  {
+    "id": 357,
+    "date": "2024-12-11",
+    "product": "Laptop Pro",
+    "amount": 113.55,
+    "customer_id": 925
+  },
+  {
+    "id": 358,
+    "date": "2024-12-23",
+    "product": "Mechanical Keyboard",
+    "amount": 564.88,
+    "customer_id": 2448
+  },
+  {
+    "id": 359,
+    "date": "2024-12-02",
+    "product": "Wireless Mouse",
+    "amount": 34.35,
+    "customer_id": 9487
+  },
+  {
+    "id": 360,
+    "date": "2024-12-10",
+    "product": "Monitor 27\"",
+    "amount": 343.08,
+    "customer_id": 4508
+  },
+  {
+    "id": 361,
+    "date": "2024-12-03",
+    "product": "Standing Desk",
+    "amount": 965.51,
+    "customer_id": 1835
+  },
+  {
+    "id": 362,
+    "date": "2024-12-09",
+    "product": "Mechanical Keyboard",
+    "amount": 239.43,
+    "customer_id": 6527
+  },
+  {
+    "id": 363,
+    "date": "2024-12-25",
+    "product": "Standing Desk",
+    "amount": 205.93,
+    "customer_id": 9944
+  },
+  {
+    "id": 364,
+    "date": "2024-12-25",
+    "product": "USB-C Hub",
+    "amount": 229.48,
+    "customer_id": 1962
+  },
+  {
+    "id": 365,
+    "date": "2024-12-14",
+    "product": "Phone Stand",
+    "amount": 187.84,
+    "customer_id": 9864
+  },
+  {
+    "id": 366,
+    "date": "2024-12-16",
+    "product": "Wireless Mouse",
+    "amount": 362.12,
+    "customer_id": 3898
+  },
+  {
+    "id": 367,
+    "date": "2024-12-20",
+    "product": "Phone Stand",
+    "amount": 996.78,
+    "customer_id": 9496
+  },
+  {
+    "id": 368,
+    "date": "2024-12-08",
+    "product": "Webcam HD",
+    "amount": 539.58,
+    "customer_id": 6164
+  },
+  {
+    "id": 369,
+    "date": "2024-12-02",
+    "product": "Headphones",
+    "amount": 481.65,
+    "customer_id": 3038
+  },
+  {
+    "id": 370,
+    "date": "2024-12-06",
+    "product": "Mechanical Keyboard",
+    "amount": 957.41,
+    "customer_id": 1105
+  },
+  {
+    "id": 371,
+    "date": "2024-12-11",
+    "product": "Monitor 27\"",
+    "amount": 964.66,
+    "customer_id": 2094
+  },
+  {
+    "id": 372,
+    "date": "2024-12-03",
+    "product": "Wireless Mouse",
+    "amount": 234.5,
+    "customer_id": 4029
+  },
+  {
+    "id": 373,
+    "date": "2024-12-05",
+    "product": "Headphones",
+    "amount": 771.38,
+    "customer_id": 3454
+  },
+  {
+    "id": 374,
+    "date": "2024-12-13",
+    "product": "Standing Desk",
+    "amount": 143.07,
+    "customer_id": 4320
+  },
+  {
+    "id": 375,
+    "date": "2024-12-10",
+    "product": "Phone Stand",
+    "amount": 280.69,
+    "customer_id": 3539
+  },
+  {
+    "id": 376,
+    "date": "2024-12-07",
+    "product": "USB-C Hub",
+    "amount": 108.68,
+    "customer_id": 3211
+  },
+  {
+    "id": 377,
+    "date": "2024-12-04",
+    "product": "Phone Stand",
+    "amount": 714.82,
+    "customer_id": 9508
+  },
+  {
+    "id": 378,
+    "date": "2024-12-13",
+    "product": "Webcam HD",
+    "amount": 290.22,
+    "customer_id": 8234
+  },
+  {
+    "id": 379,
+    "date": "2024-12-30",
+    "product": "Desk Chair",
+    "amount": 619.32,
+    "customer_id": 7042
+  },
+  {
+    "id": 380,
+    "date": "2024-12-04",
+    "product": "Mechanical Keyboard",
+    "amount": 369.9,
+    "customer_id": 4327
+  },
+  {
+    "id": 381,
+    "date": "2024-12-01",
+    "product": "USB-C Hub",
+    "amount": 923.07,
+    "customer_id": 4781
+  },
+  {
+    "id": 382,
+    "date": "2024-12-06",
+    "product": "Phone Stand",
+    "amount": 983.28,
+    "customer_id": 1613
+  },
+  {
+    "id": 383,
+    "date": "2024-12-02",
+    "product": "Phone Stand",
+    "amount": 758.31,
+    "customer_id": 5441
+  },
+  {
+    "id": 384,
+    "date": "2024-12-25",
+    "product": "USB-C Hub",
+    "amount": 859.26,
+    "customer_id": 9846
+  },
+  {
+    "id": 385,
+    "date": "2024-12-14",
+    "product": "Monitor 27\"",
+    "amount": 870.58,
+    "customer_id": 3592
+  },
+  {
+    "id": 386,
+    "date": "2024-12-20",
+    "product": "Headphones",
+    "amount": 560.06,
+    "customer_id": 9519
+  },
+  {
+    "id": 387,
+    "date": "2024-12-14",
+    "product": "Monitor 27\"",
+    "amount": 758.79,
+    "customer_id": 96
+  },
+  {
+    "id": 388,
+    "date": "2024-12-14",
+    "product": "Monitor 27\"",
+    "amount": 941.22,
+    "customer_id": 9645
+  },
+  {
+    "id": 389,
+    "date": "2024-12-16",
+    "product": "Standing Desk",
+    "amount": 435.13,
+    "customer_id": 3226
+  },
+  {
+    "id": 390,
+    "date": "2024-12-19",
+    "product": "Mechanical Keyboard",
+    "amount": 291.64,
+    "customer_id": 2199
+  },
+  {
+    "id": 391,
+    "date": "2024-12-26",
+    "product": "Headphones",
+    "amount": 865.19,
+    "customer_id": 6439
+  },
+  {
+    "id": 392,
+    "date": "2024-12-12",
+    "product": "Phone Stand",
+    "amount": 53.55,
+    "customer_id": 3230
+  },
+  {
+    "id": 393,
+    "date": "2024-12-30",
+    "product": "Monitor 27\"",
+    "amount": 117.83,
+    "customer_id": 2820
+  },
+  {
+    "id": 394,
+    "date": "2024-12-11",
+    "product": "Wireless Mouse",
+    "amount": 312.49,
+    "customer_id": 640
+  },
+  {
+    "id": 395,
+    "date": "2024-12-26",
+    "product": "Monitor 27\"",
+    "amount": 75.29,
+    "customer_id": 6197
+  },
+  {
+    "id": 396,
+    "date": "2024-12-06",
+    "product": "Webcam HD",
+    "amount": 897.35,
+    "customer_id": 8626
+  },
+  {
+    "id": 397,
+    "date": "2024-12-17",
+    "product": "Laptop Pro",
+    "amount": 933.12,
+    "customer_id": 8915
+  },
+  {
+    "id": 398,
+    "date": "2024-12-19",
+    "product": "Headphones",
+    "amount": 170.37,
+    "customer_id": 8793
+  },
+  {
+    "id": 399,
+    "date": "2024-12-27",
+    "product": "Webcam HD",
+    "amount": 320.21,
+    "customer_id": 6284
+  },
+  {
+    "id": 400,
+    "date": "2024-12-06",
+    "product": "USB-C Hub",
+    "amount": 417.09,
+    "customer_id": 7931
+  },
+  {
+    "id": 401,
+    "date": "2024-12-11",
+    "product": "Standing Desk",
+    "amount": 998.78,
+    "customer_id": 7685
+  },
+  {
+    "id": 402,
+    "date": "2024-12-25",
+    "product": "Mechanical Keyboard",
+    "amount": 36.4,
+    "customer_id": 2460
+  },
+  {
+    "id": 403,
+    "date": "2024-12-28",
+    "product": "Desk Chair",
+    "amount": 414.39,
+    "customer_id": 4354
+  },
+  {
+    "id": 404,
+    "date": "2024-12-22",
+    "product": "Webcam HD",
+    "amount": 250.53,
+    "customer_id": 9541
+  },
+  {
+    "id": 405,
+    "date": "2024-12-17",
+    "product": "Webcam HD",
+    "amount": 705.92,
+    "customer_id": 3822
+  },
+  {
+    "id": 406,
+    "date": "2024-12-11",
+    "product": "USB-C Hub",
+    "amount": 595.02,
+    "customer_id": 4852
+  },
+  {
+    "id": 407,
+    "date": "2024-12-11",
+    "product": "Standing Desk",
+    "amount": 565.61,
+    "customer_id": 1026
+  },
+  {
+    "id": 408,
+    "date": "2024-12-26",
+    "product": "Phone Stand",
+    "amount": 18.78,
+    "customer_id": 7035
+  },
+  {
+    "id": 409,
+    "date": "2024-12-07",
+    "product": "Monitor 27\"",
+    "amount": 628.99,
+    "customer_id": 6090
+  },
+  {
+    "id": 410,
+    "date": "2024-12-30",
+    "product": "Laptop Pro",
+    "amount": 624.02,
+    "customer_id": 8807
+  },
+  {
+    "id": 411,
+    "date": "2024-12-09",
+    "product": "Standing Desk",
+    "amount": 614.97,
+    "customer_id": 8767
+  },
+  {
+    "id": 412,
+    "date": "2024-12-05",
+    "product": "Desk Chair",
+    "amount": 186.29,
+    "customer_id": 4735
+  },
+  {
+    "id": 413,
+    "date": "2024-12-07",
+    "product": "Standing Desk",
+    "amount": 95.76,
+    "customer_id": 9552
+  },
+  {
+    "id": 414,
+    "date": "2024-12-19",
+    "product": "USB-C Hub",
+    "amount": 184.49,
+    "customer_id": 5684
+  },
+  {
+    "id": 415,
+    "date": "2024-12-25",
+    "product": "USB-C Hub",
+    "amount": 916.93,
+    "customer_id": 7455
+  },
+  {
+    "id": 416,
+    "date": "2024-12-24",
+    "product": "Laptop Pro",
+    "amount": 630.84,
+    "customer_id": 9925
+  },
+  {
+    "id": 417,
+    "date": "2024-12-14",
+    "product": "Headphones",
+    "amount": 377.35,
+    "customer_id": 4453
+  },
+  {
+    "id": 418,
+    "date": "2024-12-27",
+    "product": "USB-C Hub",
+    "amount": 510.89,
+    "customer_id": 916
+  },
+  {
+    "id": 419,
+    "date": "2024-12-09",
+    "product": "Laptop Pro",
+    "amount": 909.25,
+    "customer_id": 6596
+  },
+  {
+    "id": 420,
+    "date": "2024-12-14",
+    "product": "Webcam HD",
+    "amount": 863.54,
+    "customer_id": 1741
+  },
+  {
+    "id": 421,
+    "date": "2024-12-02",
+    "product": "USB-C Hub",
+    "amount": 618.2,
+    "customer_id": 1783
+  },
+  {
+    "id": 422,
+    "date": "2024-12-13",
+    "product": "Wireless Mouse",
+    "amount": 601,
+    "customer_id": 6229
+  },
+  {
+    "id": 423,
+    "date": "2024-12-10",
+    "product": "Webcam HD",
+    "amount": 323.06,
+    "customer_id": 4214
+  },
+  {
+    "id": 424,
+    "date": "2024-12-28",
+    "product": "Phone Stand",
+    "amount": 908.83,
+    "customer_id": 6725
+  },
+  {
+    "id": 425,
+    "date": "2024-12-26",
+    "product": "Wireless Mouse",
+    "amount": 366.08,
+    "customer_id": 5492
+  },
+  {
+    "id": 426,
+    "date": "2024-12-22",
+    "product": "Monitor 27\"",
+    "amount": 405.92,
+    "customer_id": 8538
+  },
+  {
+    "id": 427,
+    "date": "2024-12-07",
+    "product": "Headphones",
+    "amount": 62.8,
+    "customer_id": 2408
+  },
+  {
+    "id": 428,
+    "date": "2024-12-08",
+    "product": "Webcam HD",
+    "amount": 864.49,
+    "customer_id": 1051
+  },
+  {
+    "id": 429,
+    "date": "2024-12-09",
+    "product": "Desk Chair",
+    "amount": 782.11,
+    "customer_id": 1381
+  },
+  {
+    "id": 430,
+    "date": "2024-12-19",
+    "product": "Webcam HD",
+    "amount": 720.1,
+    "customer_id": 5498
+  },
+  {
+    "id": 431,
+    "date": "2024-12-09",
+    "product": "Monitor 27\"",
+    "amount": 776.24,
+    "customer_id": 9573
+  },
+  {
+    "id": 432,
+    "date": "2024-12-22",
+    "product": "Standing Desk",
+    "amount": 131.63,
+    "customer_id": 9410
+  },
+  {
+    "id": 433,
+    "date": "2024-12-22",
+    "product": "Mechanical Keyboard",
+    "amount": 570.73,
+    "customer_id": 2662
+  },
+  {
+    "id": 434,
+    "date": "2024-12-19",
+    "product": "Phone Stand",
+    "amount": 761.31,
+    "customer_id": 7725
+  },
+  {
+    "id": 435,
+    "date": "2024-12-20",
+    "product": "Standing Desk",
+    "amount": 104.49,
+    "customer_id": 9290
+  },
+  {
+    "id": 436,
+    "date": "2024-12-08",
+    "product": "Phone Stand",
+    "amount": 274.7,
+    "customer_id": 567
+  },
+  {
+    "id": 437,
+    "date": "2024-12-28",
+    "product": "Laptop Pro",
+    "amount": 489.73,
+    "customer_id": 2173
+  },
+  {
+    "id": 438,
+    "date": "2024-12-24",
+    "product": "Phone Stand",
+    "amount": 370.68,
+    "customer_id": 7689
+  },
+  {
+    "id": 439,
+    "date": "2024-12-26",
+    "product": "Webcam HD",
+    "amount": 492,
+    "customer_id": 5879
+  },
+  {
+    "id": 440,
+    "date": "2024-12-25",
+    "product": "USB-C Hub",
+    "amount": 621.47,
+    "customer_id": 9584
+  },
+  {
+    "id": 441,
+    "date": "2024-12-23",
+    "product": "USB-C Hub",
+    "amount": 600.2,
+    "customer_id": 1272
+  },
+  {
+    "id": 442,
+    "date": "2024-12-06",
+    "product": "Wireless Mouse",
+    "amount": 892.64,
+    "customer_id": 5265
+  },
+  {
+    "id": 443,
+    "date": "2024-12-01",
+    "product": "Monitor 27\"",
+    "amount": 826.55,
+    "customer_id": 6625
+  },
+  {
+    "id": 444,
+    "date": "2024-12-08",
+    "product": "Monitor 27\"",
+    "amount": 463.06,
+    "customer_id": 6708
+  },
+  {
+    "id": 445,
+    "date": "2024-12-28",
+    "product": "Headphones",
+    "amount": 156.6,
+    "customer_id": 5392
+  },
+  {
+    "id": 446,
+    "date": "2024-12-07",
+    "product": "Laptop Pro",
+    "amount": 774.96,
+    "customer_id": 9961
+  },
+  {
+    "id": 447,
+    "date": "2024-12-28",
+    "product": "Laptop Pro",
+    "amount": 619.25,
+    "customer_id": 662
+  },
+  {
+    "id": 448,
+    "date": "2024-12-22",
+    "product": "Monitor 27\"",
+    "amount": 923.9,
+    "customer_id": 2927
+  },
+  {
+    "id": 449,
+    "date": "2024-12-01",
+    "product": "Phone Stand",
+    "amount": 136.71,
+    "customer_id": 6261
+  },
+  {
+    "id": 450,
+    "date": "2024-12-14",
+    "product": "Standing Desk",
+    "amount": 738.77,
+    "customer_id": 9802
+  },
+  {
+    "id": 451,
+    "date": "2024-12-09",
+    "product": "Webcam HD",
+    "amount": 884.54,
+    "customer_id": 4535
+  },
+  {
+    "id": 452,
+    "date": "2024-12-04",
+    "product": "Desk Chair",
+    "amount": 561.79,
+    "customer_id": 2191
+  },
+  {
+    "id": 453,
+    "date": "2024-12-16",
+    "product": "Laptop Pro",
+    "amount": 491.63,
+    "customer_id": 793
+  },
+  {
+    "id": 454,
+    "date": "2024-12-08",
+    "product": "USB-C Hub",
+    "amount": 698.51,
+    "customer_id": 6885
+  },
+  {
+    "id": 455,
+    "date": "2024-12-06",
+    "product": "Webcam HD",
+    "amount": 730.2,
+    "customer_id": 4417
+  },
+  {
+    "id": 456,
+    "date": "2024-12-23",
+    "product": "Webcam HD",
+    "amount": 537.82,
+    "customer_id": 303
+  },
+  {
+    "id": 457,
+    "date": "2024-12-09",
+    "product": "Headphones",
+    "amount": 35.81,
+    "customer_id": 6641
+  },
+  {
+    "id": 458,
+    "date": "2024-12-27",
+    "product": "Wireless Mouse",
+    "amount": 311.94,
+    "customer_id": 9606
+  },
+  {
+    "id": 459,
+    "date": "2024-12-26",
+    "product": "Standing Desk",
+    "amount": 547.34,
+    "customer_id": 4998
+  },
+  {
+    "id": 460,
+    "date": "2024-12-03",
+    "product": "Laptop Pro",
+    "amount": 546.44,
+    "customer_id": 472
+  },
+  {
+    "id": 461,
+    "date": "2024-12-27",
+    "product": "USB-C Hub",
+    "amount": 957.02,
+    "customer_id": 4424
+  },
+  {
+    "id": 462,
+    "date": "2024-12-14",
+    "product": "Mechanical Keyboard",
+    "amount": 190.2,
+    "customer_id": 1544
+  },
+  {
+    "id": 463,
+    "date": "2024-12-09",
+    "product": "Desk Chair",
+    "amount": 910.41,
+    "customer_id": 5044
+  },
+  {
+    "id": 464,
+    "date": "2024-12-25",
+    "product": "Wireless Mouse",
+    "amount": 355.43,
+    "customer_id": 5539
+  },
+  {
+    "id": 465,
+    "date": "2024-12-08",
+    "product": "Mechanical Keyboard",
+    "amount": 126.39,
+    "customer_id": 6610
+  },
+  {
+    "id": 466,
+    "date": "2024-12-16",
+    "product": "Phone Stand",
+    "amount": 797.71,
+    "customer_id": 7023
+  },
+  {
+    "id": 467,
+    "date": "2024-12-13",
+    "product": "Laptop Pro",
+    "amount": 157.18,
+    "customer_id": 9616
+  },
+  {
+    "id": 468,
+    "date": "2024-12-27",
+    "product": "Mechanical Keyboard",
+    "amount": 25.91,
+    "customer_id": 6860
+  },
+  {
+    "id": 469,
+    "date": "2024-12-17",
+    "product": "Phone Stand",
+    "amount": 868.34,
+    "customer_id": 3076
+  },
+  {
+    "id": 470,
+    "date": "2024-12-09",
+    "product": "Headphones",
+    "amount": 32.26,
+    "customer_id": 3324
+  },
+  {
+    "id": 471,
+    "date": "2024-12-02",
+    "product": "Laptop Pro",
+    "amount": 548.77,
+    "customer_id": 8963
+  },
+  {
+    "id": 472,
+    "date": "2024-12-29",
+    "product": "USB-C Hub",
+    "amount": 792.31,
+    "customer_id": 9869
+  },
+  {
+    "id": 473,
+    "date": "2024-12-04",
+    "product": "Wireless Mouse",
+    "amount": 640.67,
+    "customer_id": 3327
+  },
+  {
+    "id": 474,
+    "date": "2024-12-13",
+    "product": "USB-C Hub",
+    "amount": 374.96,
+    "customer_id": 9584
+  },
+  {
+    "id": 475,
+    "date": "2024-12-13",
+    "product": "Standing Desk",
+    "amount": 239.61,
+    "customer_id": 4070
+  },
+  {
+    "id": 476,
+    "date": "2024-12-19",
+    "product": "Standing Desk",
+    "amount": 662.42,
+    "customer_id": 6294
+  },
+  {
+    "id": 477,
+    "date": "2024-12-19",
+    "product": "Standing Desk",
+    "amount": 164.48,
+    "customer_id": 5390
+  },
+  {
+    "id": 478,
+    "date": "2024-12-20",
+    "product": "Desk Chair",
+    "amount": 860.25,
+    "customer_id": 2346
+  },
+  {
+    "id": 479,
+    "date": "2024-12-12",
+    "product": "Phone Stand",
+    "amount": 757.49,
+    "customer_id": 8890
+  },
+  {
+    "id": 480,
+    "date": "2024-12-10",
+    "product": "Standing Desk",
+    "amount": 577.34,
+    "customer_id": 3048
+  },
+  {
+    "id": 481,
+    "date": "2024-12-09",
+    "product": "Headphones",
+    "amount": 344.21,
+    "customer_id": 1362
+  },
+  {
+    "id": 482,
+    "date": "2024-12-04",
+    "product": "Headphones",
+    "amount": 595.91,
+    "customer_id": 7782
+  },
+  {
+    "id": 483,
+    "date": "2024-12-07",
+    "product": "Laptop Pro",
+    "amount": 293.53,
+    "customer_id": 9224
+  },
+  {
+    "id": 484,
+    "date": "2024-12-30",
+    "product": "Laptop Pro",
+    "amount": 341.52,
+    "customer_id": 7785
+  },
+  {
+    "id": 485,
+    "date": "2024-12-14",
+    "product": "Headphones",
+    "amount": 837.65,
+    "customer_id": 9638
+  },
+  {
+    "id": 486,
+    "date": "2024-12-30",
+    "product": "Desk Chair",
+    "amount": 963.05,
+    "customer_id": 586
+  },
+  {
+    "id": 487,
+    "date": "2024-12-14",
+    "product": "Headphones",
+    "amount": 522.15,
+    "customer_id": 8282
+  },
+  {
+    "id": 488,
+    "date": "2024-12-04",
+    "product": "Webcam HD",
+    "amount": 162.73,
+    "customer_id": 1123
+  },
+  {
+    "id": 489,
+    "date": "2024-12-08",
+    "product": "Headphones",
+    "amount": 275.91,
+    "customer_id": 3799
+  },
+  {
+    "id": 490,
+    "date": "2024-12-09",
+    "product": "Laptop Pro",
+    "amount": 556.12,
+    "customer_id": 9520
+  },
+  {
+    "id": 491,
+    "date": "2024-12-23",
+    "product": "Wireless Mouse",
+    "amount": 221.14,
+    "customer_id": 8904
+  },
+  {
+    "id": 492,
+    "date": "2024-12-22",
+    "product": "Desk Chair",
+    "amount": 872.1,
+    "customer_id": 5531
+  },
+  {
+    "id": 493,
+    "date": "2024-12-07",
+    "product": "Laptop Pro",
+    "amount": 113.42,
+    "customer_id": 8166
+  },
+  {
+    "id": 494,
+    "date": "2024-12-30",
+    "product": "Webcam HD",
+    "amount": 682.89,
+    "customer_id": 9649
+  },
+  {
+    "id": 495,
+    "date": "2024-12-02",
+    "product": "Mechanical Keyboard",
+    "amount": 441.62,
+    "customer_id": 2448
+  },
+  {
+    "id": 496,
+    "date": "2024-12-27",
+    "product": "Headphones",
+    "amount": 844.05,
+    "customer_id": 886
+  },
+  {
+    "id": 497,
+    "date": "2024-12-17",
+    "product": "Mechanical Keyboard",
+    "amount": 227.97,
+    "customer_id": 23
+  },
+  {
+    "id": 498,
+    "date": "2024-12-26",
+    "product": "Webcam HD",
+    "amount": 634.47,
+    "customer_id": 1217
+  },
+  {
+    "id": 499,
+    "date": "2024-12-30",
+    "product": "Headphones",
+    "amount": 438.02,
+    "customer_id": 4346
+  },
+  {
+    "id": 500,
+    "date": "2024-12-02",
+    "product": "Mechanical Keyboard",
+    "amount": 506.38,
+    "customer_id": 6693
+  },
+  {
+    "id": 501,
+    "date": "2024-12-27",
+    "product": "Desk Chair",
+    "amount": 130.66,
+    "customer_id": 8505
+  },
+  {
+    "id": 502,
+    "date": "2024-12-04",
+    "product": "Headphones",
+    "amount": 545.32,
+    "customer_id": 5214
+  },
+  {
+    "id": 503,
+    "date": "2024-12-06",
+    "product": "USB-C Hub",
+    "amount": 198.12,
+    "customer_id": 6326
+  },
+  {
+    "id": 504,
+    "date": "2024-12-23",
+    "product": "Desk Chair",
+    "amount": 580.19,
+    "customer_id": 978
+  },
+  {
+    "id": 505,
+    "date": "2024-12-01",
+    "product": "Monitor 27\"",
+    "amount": 835.95,
+    "customer_id": 156
+  },
+  {
+    "id": 506,
+    "date": "2024-12-19",
+    "product": "USB-C Hub",
+    "amount": 953.2,
+    "customer_id": 5589
+  },
+  {
+    "id": 507,
+    "date": "2024-12-05",
+    "product": "Mechanical Keyboard",
+    "amount": 663.04,
+    "customer_id": 5302
+  },
+  {
+    "id": 508,
+    "date": "2024-12-10",
+    "product": "USB-C Hub",
+    "amount": 979.92,
+    "customer_id": 5838
+  },
+  {
+    "id": 509,
+    "date": "2024-12-01",
+    "product": "Headphones",
+    "amount": 461.62,
+    "customer_id": 1148
+  },
+  {
+    "id": 510,
+    "date": "2024-12-22",
+    "product": "USB-C Hub",
+    "amount": 49.23,
+    "customer_id": 8145
+  },
+  {
+    "id": 511,
+    "date": "2024-12-21",
+    "product": "Mechanical Keyboard",
+    "amount": 647.22,
+    "customer_id": 8928
+  },
+  {
+    "id": 512,
+    "date": "2024-12-02",
+    "product": "Standing Desk",
+    "amount": 373.36,
+    "customer_id": 9670
+  },
+  {
+    "id": 513,
+    "date": "2024-12-04",
+    "product": "Desk Chair",
+    "amount": 388.76,
+    "customer_id": 6174
+  },
+  {
+    "id": 514,
+    "date": "2024-12-25",
+    "product": "Webcam HD",
+    "amount": 497.86,
+    "customer_id": 6092
+  },
+  {
+    "id": 515,
+    "date": "2024-12-12",
+    "product": "Wireless Mouse",
+    "amount": 358.44,
+    "customer_id": 7822
+  },
+  {
+    "id": 516,
+    "date": "2024-12-03",
+    "product": "Monitor 27\"",
+    "amount": 361.61,
+    "customer_id": 6054
+  },
+  {
+    "id": 517,
+    "date": "2024-12-10",
+    "product": "Desk Chair",
+    "amount": 201.83,
+    "customer_id": 3997
+  },
+  {
+    "id": 518,
+    "date": "2024-12-20",
+    "product": "Mechanical Keyboard",
+    "amount": 86.85,
+    "customer_id": 2270
+  },
+  {
+    "id": 519,
+    "date": "2024-12-06",
+    "product": "Webcam HD",
+    "amount": 627.8,
+    "customer_id": 4452
+  },
+  {
+    "id": 520,
+    "date": "2024-12-28",
+    "product": "Mechanical Keyboard",
+    "amount": 419.13,
+    "customer_id": 9310
+  },
+  {
+    "id": 521,
+    "date": "2024-12-18",
+    "product": "Desk Chair",
+    "amount": 218.6,
+    "customer_id": 9681
+  },
+  {
+    "id": 522,
+    "date": "2024-12-06",
+    "product": "Wireless Mouse",
+    "amount": 857.33,
+    "customer_id": 8036
+  },
+  {
+    "id": 523,
+    "date": "2024-12-08",
+    "product": "Standing Desk",
+    "amount": 819.76,
+    "customer_id": 8696
+  },
+  {
+    "id": 524,
+    "date": "2024-12-24",
+    "product": "Standing Desk",
+    "amount": 423.68,
+    "customer_id": 6722
+  },
+  {
+    "id": 525,
+    "date": "2024-12-21",
+    "product": "USB-C Hub",
+    "amount": 720.18,
+    "customer_id": 3472
+  },
+  {
+    "id": 526,
+    "date": "2024-12-01",
+    "product": "USB-C Hub",
+    "amount": 83.73,
+    "customer_id": 8823
+  },
+  {
+    "id": 527,
+    "date": "2024-12-30",
+    "product": "Mechanical Keyboard",
+    "amount": 372.09,
+    "customer_id": 59
+  },
+  {
+    "id": 528,
+    "date": "2024-12-11",
+    "product": "Headphones",
+    "amount": 876.37,
+    "customer_id": 7426
+  },
+  {
+    "id": 529,
+    "date": "2024-12-25",
+    "product": "Phone Stand",
+    "amount": 851.03,
+    "customer_id": 6357
+  },
+  {
+    "id": 530,
+    "date": "2024-12-24",
+    "product": "Laptop Pro",
+    "amount": 723.83,
+    "customer_id": 6359
+  },
+  {
+    "id": 531,
+    "date": "2024-12-27",
+    "product": "Monitor 27\"",
+    "amount": 995.9,
+    "customer_id": 6566
+  },
+  {
+    "id": 532,
+    "date": "2024-12-12",
+    "product": "Mechanical Keyboard",
+    "amount": 811.66,
+    "customer_id": 7966
+  },
+  {
+    "id": 533,
+    "date": "2024-12-27",
+    "product": "Webcam HD",
+    "amount": 158.91,
+    "customer_id": 2288
+  },
+  {
+    "id": 534,
+    "date": "2024-12-29",
+    "product": "Headphones",
+    "amount": 748.75,
+    "customer_id": 7557
+  },
+  {
+    "id": 535,
+    "date": "2024-12-11",
+    "product": "Headphones",
+    "amount": 625.63,
+    "customer_id": 315
+  },
+  {
+    "id": 536,
+    "date": "2024-12-29",
+    "product": "Phone Stand",
+    "amount": 327.32,
+    "customer_id": 4514
+  },
+  {
+    "id": 537,
+    "date": "2024-12-06",
+    "product": "Standing Desk",
+    "amount": 794.94,
+    "customer_id": 7067
+  },
+  {
+    "id": 538,
+    "date": "2024-12-12",
+    "product": "USB-C Hub",
+    "amount": 952.93,
+    "customer_id": 72
+  },
+  {
+    "id": 539,
+    "date": "2024-12-20",
+    "product": "USB-C Hub",
+    "amount": 899.07,
+    "customer_id": 9703
+  },
+  {
+    "id": 540,
+    "date": "2024-12-09",
+    "product": "Monitor 27\"",
+    "amount": 804.47,
+    "customer_id": 1762
+  },
+  {
+    "id": 541,
+    "date": "2024-12-06",
+    "product": "Desk Chair",
+    "amount": 473.57,
+    "customer_id": 3903
+  },
+  {
+    "id": 542,
+    "date": "2024-12-19",
+    "product": "Desk Chair",
+    "amount": 554.15,
+    "customer_id": 4521
+  },
+  {
+    "id": 543,
+    "date": "2024-12-27",
+    "product": "Laptop Pro",
+    "amount": 447.32,
+    "customer_id": 8308
+  },
+  {
+    "id": 544,
+    "date": "2024-12-11",
+    "product": "Laptop Pro",
+    "amount": 837.53,
+    "customer_id": 8474
+  },
+  {
+    "id": 545,
+    "date": "2024-12-18",
+    "product": "USB-C Hub",
+    "amount": 942.56,
+    "customer_id": 5636
+  },
+  {
+    "id": 546,
+    "date": "2024-12-21",
+    "product": "Laptop Pro",
+    "amount": 383.51,
+    "customer_id": 3374
+  },
+  {
+    "id": 547,
+    "date": "2024-12-19",
+    "product": "Monitor 27\"",
+    "amount": 724.83,
+    "customer_id": 453
+  },
+  {
+    "id": 548,
+    "date": "2024-12-05",
+    "product": "Mechanical Keyboard",
+    "amount": 744.31,
+    "customer_id": 9714
+  },
+  {
+    "id": 549,
+    "date": "2024-12-10",
+    "product": "Wireless Mouse",
+    "amount": 283.04,
+    "customer_id": 3624
+  },
+  {
+    "id": 550,
+    "date": "2024-12-19",
+    "product": "Monitor 27\"",
+    "amount": 795.47,
+    "customer_id": 6506
+  },
+  {
+    "id": 551,
+    "date": "2024-12-02",
+    "product": "Laptop Pro",
+    "amount": 619.38,
+    "customer_id": 3421
+  },
+  {
+    "id": 552,
+    "date": "2024-12-15",
+    "product": "Phone Stand",
+    "amount": 805.89,
+    "customer_id": 5727
+  },
+  {
+    "id": 553,
+    "date": "2024-12-02",
+    "product": "Headphones",
+    "amount": 719.44,
+    "customer_id": 3300
+  },
+  {
+    "id": 554,
+    "date": "2024-12-27",
+    "product": "USB-C Hub",
+    "amount": 237.8,
+    "customer_id": 3424
+  },
+  {
+    "id": 555,
+    "date": "2024-12-25",
+    "product": "Wireless Mouse",
+    "amount": 632.08,
+    "customer_id": 6347
+  },
+  {
+    "id": 556,
+    "date": "2024-12-16",
+    "product": "Wireless Mouse",
+    "amount": 166.74,
+    "customer_id": 7501
+  },
+  {
+    "id": 557,
+    "date": "2024-12-11",
+    "product": "Headphones",
+    "amount": 259.54,
+    "customer_id": 6391
+  },
+  {
+    "id": 558,
+    "date": "2024-12-01",
+    "product": "Monitor 27\"",
+    "amount": 421.6,
+    "customer_id": 2154
+  },
+  {
+    "id": 559,
+    "date": "2024-12-23",
+    "product": "Wireless Mouse",
+    "amount": 787.37,
+    "customer_id": 5776
+  },
+  {
+    "id": 560,
+    "date": "2024-12-04",
+    "product": "Wireless Mouse",
+    "amount": 354.62,
+    "customer_id": 8987
+  },
+  {
+    "id": 561,
+    "date": "2024-12-23",
+    "product": "Monitor 27\"",
+    "amount": 834.46,
+    "customer_id": 9811
+  },
+  {
+    "id": 562,
+    "date": "2024-12-12",
+    "product": "USB-C Hub",
+    "amount": 271.34,
+    "customer_id": 4792
+  },
+  {
+    "id": 563,
+    "date": "2024-12-26",
+    "product": "Laptop Pro",
+    "amount": 193.03,
+    "customer_id": 7880
+  },
+  {
+    "id": 564,
+    "date": "2024-12-20",
+    "product": "Phone Stand",
+    "amount": 550.65,
+    "customer_id": 5988
+  },
+  {
+    "id": 565,
+    "date": "2024-12-03",
+    "product": "Desk Chair",
+    "amount": 268.64,
+    "customer_id": 1215
+  },
+  {
+    "id": 566,
+    "date": "2024-12-07",
+    "product": "Laptop Pro",
+    "amount": 434.78,
+    "customer_id": 9735
+  },
+  {
+    "id": 567,
+    "date": "2024-12-13",
+    "product": "Monitor 27\"",
+    "amount": 230.17,
+    "customer_id": 7350
+  },
+  {
+    "id": 568,
+    "date": "2024-12-17",
+    "product": "USB-C Hub",
+    "amount": 449.27,
+    "customer_id": 1713
+  },
+  {
+    "id": 569,
+    "date": "2024-12-27",
+    "product": "Phone Stand",
+    "amount": 749.86,
+    "customer_id": 1220
+  },
+  {
+    "id": 570,
+    "date": "2024-12-21",
+    "product": "Standing Desk",
+    "amount": 533.03,
+    "customer_id": 563
+  },
+  {
+    "id": 571,
+    "date": "2024-12-12",
+    "product": "Desk Chair",
+    "amount": 483.24,
+    "customer_id": 2951
+  },
+  {
+    "id": 572,
+    "date": "2024-12-16",
+    "product": "USB-C Hub",
+    "amount": 808.27,
+    "customer_id": 9002
+  },
+  {
+    "id": 573,
+    "date": "2024-12-05",
+    "product": "USB-C Hub",
+    "amount": 139.22,
+    "customer_id": 2295
+  },
+  {
+    "id": 574,
+    "date": "2024-12-10",
+    "product": "Standing Desk",
+    "amount": 40.54,
+    "customer_id": 1597
+  },
+  {
+    "id": 575,
+    "date": "2024-12-23",
+    "product": "Phone Stand",
+    "amount": 280.01,
+    "customer_id": 9746
+  },
+  {
+    "id": 576,
+    "date": "2024-12-14",
+    "product": "Laptop Pro",
+    "amount": 698.74,
+    "customer_id": 9212
+  },
+  {
+    "id": 577,
+    "date": "2024-12-30",
+    "product": "USB-C Hub",
+    "amount": 771.18,
+    "customer_id": 4316
+  },
+  {
+    "id": 578,
+    "date": "2024-12-09",
+    "product": "Monitor 27\"",
+    "amount": 815.09,
+    "customer_id": 120
+  },
+  {
+    "id": 579,
+    "date": "2024-12-09",
+    "product": "Desk Chair",
+    "amount": 891.6,
+    "customer_id": 7981
+  },
+  {
+    "id": 580,
+    "date": "2024-12-03",
+    "product": "USB-C Hub",
+    "amount": 365.14,
+    "customer_id": 7777
+  },
+  {
+    "id": 581,
+    "date": "2024-12-25",
+    "product": "USB-C Hub",
+    "amount": 103.5,
+    "customer_id": 6790
+  },
+  {
+    "id": 582,
+    "date": "2024-12-10",
+    "product": "Monitor 27\"",
+    "amount": 387.79,
+    "customer_id": 5269
+  },
+  {
+    "id": 583,
+    "date": "2024-12-07",
+    "product": "USB-C Hub",
+    "amount": 472.45,
+    "customer_id": 8644
+  },
+  {
+    "id": 584,
+    "date": "2024-12-29",
+    "product": "Desk Chair",
+    "amount": 785.25,
+    "customer_id": 6423
+  },
+  {
+    "id": 585,
+    "date": "2024-12-06",
+    "product": "USB-C Hub",
+    "amount": 837.31,
+    "customer_id": 7741
+  },
+  {
+    "id": 586,
+    "date": "2024-12-04",
+    "product": "Phone Stand",
+    "amount": 763.08,
+    "customer_id": 3586
+  },
+  {
+    "id": 587,
+    "date": "2024-12-12",
+    "product": "Desk Chair",
+    "amount": 550.33,
+    "customer_id": 5686
+  },
+  {
+    "id": 588,
+    "date": "2024-12-17",
+    "product": "Laptop Pro",
+    "amount": 920.17,
+    "customer_id": 2066
+  },
+  {
+    "id": 589,
+    "date": "2024-12-13",
+    "product": "Headphones",
+    "amount": 907.05,
+    "customer_id": 9269
+  },
+  {
+    "id": 590,
+    "date": "2024-12-24",
+    "product": "Laptop Pro",
+    "amount": 58.74,
+    "customer_id": 1245
+  },
+  {
+    "id": 591,
+    "date": "2024-12-04",
+    "product": "Wireless Mouse",
+    "amount": 306.36,
+    "customer_id": 4909
+  },
+  {
+    "id": 592,
+    "date": "2024-12-24",
+    "product": "Webcam HD",
+    "amount": 574.35,
+    "customer_id": 2359
+  },
+  {
+    "id": 593,
+    "date": "2024-12-25",
+    "product": "Webcam HD",
+    "amount": 960.49,
+    "customer_id": 9768
+  },
+  {
+    "id": 594,
+    "date": "2024-12-17",
+    "product": "USB-C Hub",
+    "amount": 645.88,
+    "customer_id": 2937
+  },
+  {
+    "id": 595,
+    "date": "2024-12-28",
+    "product": "Mechanical Keyboard",
+    "amount": 424.98,
+    "customer_id": 9523
+  },
+  {
+    "id": 596,
+    "date": "2024-12-04",
+    "product": "USB-C Hub",
+    "amount": 945.56,
+    "customer_id": 7919
+  },
+  {
+    "id": 597,
+    "date": "2024-12-15",
+    "product": "Mechanical Keyboard",
+    "amount": 618.74,
+    "customer_id": 2818
+  },
+  {
+    "id": 598,
+    "date": "2024-12-13",
+    "product": "Laptop Pro",
+    "amount": 128.95,
+    "customer_id": 7428
+  },
+  {
+    "id": 599,
+    "date": "2024-12-13",
+    "product": "Monitor 27\"",
+    "amount": 673.98,
+    "customer_id": 2367
+  },
+  {
+    "id": 600,
+    "date": "2024-12-19",
+    "product": "Standing Desk",
+    "amount": 884.93,
+    "customer_id": 1216
+  },
+  {
+    "id": 601,
+    "date": "2024-12-01",
+    "product": "Webcam HD",
+    "amount": 346.25,
+    "customer_id": 2740
+  },
+  {
+    "id": 602,
+    "date": "2024-12-11",
+    "product": "Standing Desk",
+    "amount": 805.72,
+    "customer_id": 9778
+  },
+  {
+    "id": 603,
+    "date": "2024-12-19",
+    "product": "Laptop Pro",
+    "amount": 124.45,
+    "customer_id": 4800
+  },
+  {
+    "id": 604,
+    "date": "2024-12-11",
+    "product": "Wireless Mouse",
+    "amount": 746.89,
+    "customer_id": 2126
+  },
+  {
+    "id": 605,
+    "date": "2024-12-17",
+    "product": "Headphones",
+    "amount": 20.8,
+    "customer_id": 6819
+  },
+  {
+    "id": 606,
+    "date": "2024-12-03",
+    "product": "Wireless Mouse",
+    "amount": 977.31,
+    "customer_id": 236
+  },
+  {
+    "id": 607,
+    "date": "2024-12-04",
+    "product": "Headphones",
+    "amount": 10.85,
+    "customer_id": 2254
+  },
+  {
+    "id": 608,
+    "date": "2024-12-22",
+    "product": "Monitor 27\"",
+    "amount": 959.21,
+    "customer_id": 156
+  },
+  {
+    "id": 609,
+    "date": "2024-12-24",
+    "product": "Webcam HD",
+    "amount": 143.5,
+    "customer_id": 4190
+  },
+  {
+    "id": 610,
+    "date": "2024-12-28",
+    "product": "Desk Chair",
+    "amount": 778.15,
+    "customer_id": 9788
+  },
+  {
+    "id": 611,
+    "date": "2024-12-16",
+    "product": "Mechanical Keyboard",
+    "amount": 320.96,
+    "customer_id": 6456
+  },
+  {
+    "id": 612,
+    "date": "2024-12-10",
+    "product": "USB-C Hub",
+    "amount": 263.02,
+    "customer_id": 3329
+  },
+  {
+    "id": 613,
+    "date": "2024-12-15",
+    "product": "Webcam HD",
+    "amount": 738.79,
+    "customer_id": 1397
+  },
+  {
+    "id": 614,
+    "date": "2024-12-20",
+    "product": "Phone Stand",
+    "amount": 746.04,
+    "customer_id": 2385
+  },
+  {
+    "id": 615,
+    "date": "2024-12-12",
+    "product": "Webcam HD",
+    "amount": 15.88,
+    "customer_id": 4321
+  },
+  {
+    "id": 616,
+    "date": "2024-12-14",
+    "product": "USB-C Hub",
+    "amount": 552.76,
+    "customer_id": 3746
+  },
+  {
+    "id": 617,
+    "date": "2024-12-22",
+    "product": "Wireless Mouse",
+    "amount": 914.45,
+    "customer_id": 4611
+  },
+  {
+    "id": 618,
+    "date": "2024-12-19",
+    "product": "Monitor 27\"",
+    "amount": 62.07,
+    "customer_id": 3830
+  },
+  {
+    "id": 619,
+    "date": "2024-12-15",
+    "product": "Headphones",
+    "amount": 880.06,
+    "customer_id": 3502
+  },
+  {
+    "id": 620,
+    "date": "2024-12-12",
+    "product": "Desk Chair",
+    "amount": 496.19,
+    "customer_id": 9800
+  },
+  {
+    "id": 621,
+    "date": "2024-12-21",
+    "product": "USB-C Hub",
+    "amount": 71.59,
+    "customer_id": 8525
+  },
+  {
+    "id": 622,
+    "date": "2024-12-08",
+    "product": "Laptop Pro",
+    "amount": 400.69,
+    "customer_id": 7333
+  },
+  {
+    "id": 623,
+    "date": "2024-12-12",
+    "product": "Webcam HD",
+    "amount": 151.27,
+    "customer_id": 4618
+  },
+  {
+    "id": 624,
+    "date": "2024-12-10",
+    "product": "Phone Stand",
+    "amount": 704.45,
+    "customer_id": 5072
+  },
+  {
+    "id": 625,
+    "date": "2024-12-14",
+    "product": "Desk Chair",
+    "amount": 764.66,
+    "customer_id": 1905
+  },
+  {
+    "id": 626,
+    "date": "2024-12-11",
+    "product": "Monitor 27\"",
+    "amount": 539.68,
+    "customer_id": 5733
+  },
+  {
+    "id": 627,
+    "date": "2024-12-03",
+    "product": "Phone Stand",
+    "amount": 640.64,
+    "customer_id": 138
+  },
+  {
+    "id": 628,
+    "date": "2024-12-22",
+    "product": "Phone Stand",
+    "amount": 651.96,
+    "customer_id": 3884
+  },
+  {
+    "id": 629,
+    "date": "2024-12-28",
+    "product": "Monitor 27\"",
+    "amount": 341.43,
+    "customer_id": 9811
+  },
+  {
+    "id": 630,
+    "date": "2024-12-23",
+    "product": "Phone Stand",
+    "amount": 540.16,
+    "customer_id": 388
+  },
+  {
+    "id": 631,
+    "date": "2024-12-22",
+    "product": "Laptop Pro",
+    "amount": 722.59,
+    "customer_id": 9937
+  },
+  {
+    "id": 632,
+    "date": "2024-12-25",
+    "product": "Mechanical Keyboard",
+    "amount": 216.51,
+    "customer_id": 3518
+  },
+  {
+    "id": 633,
+    "date": "2024-12-28",
+    "product": "Webcam HD",
+    "amount": 73.02,
+    "customer_id": 2490
+  },
+  {
+    "id": 634,
+    "date": "2024-12-04",
+    "product": "USB-C Hub",
+    "amount": 646.56,
+    "customer_id": 6730
+  },
+  {
+    "id": 635,
+    "date": "2024-12-20",
+    "product": "Desk Chair",
+    "amount": 824.92,
+    "customer_id": 3522
+  },
+  {
+    "id": 636,
+    "date": "2024-12-08",
+    "product": "Phone Stand",
+    "amount": 889.21,
+    "customer_id": 3111
+  },
+  {
+    "id": 637,
+    "date": "2024-12-19",
+    "product": "Standing Desk",
+    "amount": 93.86,
+    "customer_id": 931
+  },
+  {
+    "id": 638,
+    "date": "2024-12-04",
+    "product": "Phone Stand",
+    "amount": 846.67,
+    "customer_id": 6488
+  },
+  {
+    "id": 639,
+    "date": "2024-12-14",
+    "product": "Mechanical Keyboard",
+    "amount": 678.73,
+    "customer_id": 8917
+  },
+  {
+    "id": 640,
+    "date": "2024-12-26",
+    "product": "Standing Desk",
+    "amount": 714.5,
+    "customer_id": 9207
+  },
+  {
+    "id": 641,
+    "date": "2024-12-27",
+    "product": "USB-C Hub",
+    "amount": 941.74,
+    "customer_id": 9084
+  },
+  {
+    "id": 642,
+    "date": "2024-12-06",
+    "product": "USB-C Hub",
+    "amount": 101.59,
+    "customer_id": 6575
+  },
+  {
+    "id": 643,
+    "date": "2024-12-15",
+    "product": "Headphones",
+    "amount": 198.46,
+    "customer_id": 8223
+  },
+  {
+    "id": 644,
+    "date": "2024-12-19",
+    "product": "Wireless Mouse",
+    "amount": 780.16,
+    "customer_id": 7977
+  },
+  {
+    "id": 645,
+    "date": "2024-12-03",
+    "product": "Webcam HD",
+    "amount": 807.78,
+    "customer_id": 2752
+  },
+  {
+    "id": 646,
+    "date": "2024-12-06",
+    "product": "Laptop Pro",
+    "amount": 195.77,
+    "customer_id": 4646
+  },
+  {
+    "id": 647,
+    "date": "2024-12-30",
+    "product": "Mechanical Keyboard",
+    "amount": 31.9,
+    "customer_id": 9832
+  },
+  {
+    "id": 648,
+    "date": "2024-12-26",
+    "product": "Mechanical Keyboard",
+    "amount": 487.3,
+    "customer_id": 4113
+  },
+  {
+    "id": 649,
+    "date": "2024-12-19",
+    "product": "Headphones",
+    "amount": 376.4,
+    "customer_id": 5143
+  },
+  {
+    "id": 650,
+    "date": "2024-12-20",
+    "product": "Wireless Mouse",
+    "amount": 346.98,
+    "customer_id": 1317
+  },
+  {
+    "id": 651,
+    "date": "2024-12-04",
+    "product": "Desk Chair",
+    "amount": 790.16,
+    "customer_id": 7327
+  },
+  {
+    "id": 652,
+    "date": "2024-12-15",
+    "product": "Laptop Pro",
+    "amount": 410.37,
+    "customer_id": 6382
+  },
+  {
+    "id": 653,
+    "date": "2024-12-08",
+    "product": "Desk Chair",
+    "amount": 405.39,
+    "customer_id": 9099
+  },
+  {
+    "id": 654,
+    "date": "2024-12-18",
+    "product": "Wireless Mouse",
+    "amount": 396.35,
+    "customer_id": 9059
+  },
+  {
+    "id": 655,
+    "date": "2024-12-13",
+    "product": "Wireless Mouse",
+    "amount": 957.67,
+    "customer_id": 5027
+  },
+  {
+    "id": 656,
+    "date": "2024-12-16",
+    "product": "Wireless Mouse",
+    "amount": 867.14,
+    "customer_id": 9843
+  },
+  {
+    "id": 657,
+    "date": "2024-12-27",
+    "product": "Phone Stand",
+    "amount": 955.87,
+    "customer_id": 5976
+  },
+  {
+    "id": 658,
+    "date": "2024-12-03",
+    "product": "Headphones",
+    "amount": 698.3,
+    "customer_id": 7747
+  },
+  {
+    "id": 659,
+    "date": "2024-12-02",
+    "product": "Desk Chair",
+    "amount": 412.22,
+    "customer_id": 217
+  },
+  {
+    "id": 660,
+    "date": "2024-12-22",
+    "product": "USB-C Hub",
+    "amount": 158.72,
+    "customer_id": 4745
+  },
+  {
+    "id": 661,
+    "date": "2024-12-05",
+    "product": "Headphones",
+    "amount": 292.27,
+    "customer_id": 1207
+  },
+  {
+    "id": 662,
+    "date": "2024-12-18",
+    "product": "Desk Chair",
+    "amount": 690.63,
+    "customer_id": 6887
+  },
+  {
+    "id": 663,
+    "date": "2024-12-22",
+    "product": "Mechanical Keyboard",
+    "amount": 644.91,
+    "customer_id": 2033
+  },
+  {
+    "id": 664,
+    "date": "2024-12-10",
+    "product": "Headphones",
+    "amount": 399.57,
+    "customer_id": 2075
+  },
+  {
+    "id": 665,
+    "date": "2024-12-22",
+    "product": "Webcam HD",
+    "amount": 382.37,
+    "customer_id": 6521
+  },
+  {
+    "id": 666,
+    "date": "2024-12-19",
+    "product": "Mechanical Keyboard",
+    "amount": 104.44,
+    "customer_id": 4505
+  },
+  {
+    "id": 667,
+    "date": "2024-12-07",
+    "product": "Monitor 27\"",
+    "amount": 690.2,
+    "customer_id": 7017
+  },
+  {
+    "id": 668,
+    "date": "2024-12-05",
+    "product": "Webcam HD",
+    "amount": 147.45,
+    "customer_id": 5784
+  },
+  {
+    "id": 669,
+    "date": "2024-12-30",
+    "product": "Phone Stand",
+    "amount": 187.29,
+    "customer_id": 8830
+  },
+  {
+    "id": 670,
+    "date": "2024-12-16",
+    "product": "USB-C Hub",
+    "amount": 834.17,
+    "customer_id": 2699
+  },
+  {
+    "id": 671,
+    "date": "2024-12-17",
+    "product": "Mechanical Keyboard",
+    "amount": 645.87,
+    "customer_id": 1343
+  },
+  {
+    "id": 672,
+    "date": "2024-12-17",
+    "product": "Laptop Pro",
+    "amount": 563.48,
+    "customer_id": 1673
+  },
+  {
+    "id": 673,
+    "date": "2024-12-27",
+    "product": "Mechanical Keyboard",
+    "amount": 501.47,
+    "customer_id": 5790
+  },
+  {
+    "id": 674,
+    "date": "2024-12-18",
+    "product": "Phone Stand",
+    "amount": 557.61,
+    "customer_id": 9865
+  },
+  {
+    "id": 675,
+    "date": "2024-12-30",
+    "product": "Mechanical Keyboard",
+    "amount": 903.01,
+    "customer_id": 9701
+  },
+  {
+    "id": 676,
+    "date": "2024-12-30",
+    "product": "Webcam HD",
+    "amount": 352.11,
+    "customer_id": 2954
+  },
+  {
+    "id": 677,
+    "date": "2024-12-27",
+    "product": "Desk Chair",
+    "amount": 542.69,
+    "customer_id": 8017
+  },
+  {
+    "id": 678,
+    "date": "2024-12-28",
+    "product": "Wireless Mouse",
+    "amount": 875.86,
+    "customer_id": 9582
+  },
+  {
+    "id": 679,
+    "date": "2024-12-16",
+    "product": "Desk Chair",
+    "amount": 56.08,
+    "customer_id": 858
+  },
+  {
+    "id": 680,
+    "date": "2024-12-06",
+    "product": "Standing Desk",
+    "amount": 271.1,
+    "customer_id": 2465
+  },
+  {
+    "id": 681,
+    "date": "2024-12-02",
+    "product": "Monitor 27\"",
+    "amount": 152.05,
+    "customer_id": 7980
+  },
+  {
+    "id": 682,
+    "date": "2024-12-04",
+    "product": "Mechanical Keyboard",
+    "amount": 273.38,
+    "customer_id": 6171
+  },
+  {
+    "id": 683,
+    "date": "2024-12-03",
+    "product": "Headphones",
+    "amount": 402.85,
+    "customer_id": 9876
+  },
+  {
+    "id": 684,
+    "date": "2024-12-01",
+    "product": "Headphones",
+    "amount": 381.58,
+    "customer_id": 1564
+  },
+  {
+    "id": 685,
+    "date": "2024-12-14",
+    "product": "Standing Desk",
+    "amount": 674.01,
+    "customer_id": 5557
+  },
+  {
+    "id": 686,
+    "date": "2024-12-10",
+    "product": "Phone Stand",
+    "amount": 607.93,
+    "customer_id": 6916
+  },
+  {
+    "id": 687,
+    "date": "2024-12-16",
+    "product": "Laptop Pro",
+    "amount": 244.43,
+    "customer_id": 7000
+  },
+  {
+    "id": 688,
+    "date": "2024-12-06",
+    "product": "USB-C Hub",
+    "amount": 927.98,
+    "customer_id": 5684
+  },
+  {
+    "id": 689,
+    "date": "2024-12-15",
+    "product": "Standing Desk",
+    "amount": 556.34,
+    "customer_id": 253
+  },
+  {
+    "id": 690,
+    "date": "2024-12-07",
+    "product": "Desk Chair",
+    "amount": 400.62,
+    "customer_id": 954
+  },
+  {
+    "id": 691,
+    "date": "2024-12-01",
+    "product": "Laptop Pro",
+    "amount": 705.28,
+    "customer_id": 3219
+  },
+  {
+    "id": 692,
+    "date": "2024-12-09",
+    "product": "Monitor 27\"",
+    "amount": 908.08,
+    "customer_id": 6553
+  },
+  {
+    "id": 693,
+    "date": "2024-12-23",
+    "product": "Wireless Mouse",
+    "amount": 520.15,
+    "customer_id": 93
+  },
+  {
+    "id": 694,
+    "date": "2024-12-18",
+    "product": "Mechanical Keyboard",
+    "amount": 665.91,
+    "customer_id": 4827
+  },
+  {
+    "id": 695,
+    "date": "2024-12-12",
+    "product": "Wireless Mouse",
+    "amount": 343.16,
+    "customer_id": 2483
+  },
+  {
+    "id": 696,
+    "date": "2024-12-24",
+    "product": "Desk Chair",
+    "amount": 273,
+    "customer_id": 1085
+  },
+  {
+    "id": 697,
+    "date": "2024-12-17",
+    "product": "Headphones",
+    "amount": 479.88,
+    "customer_id": 7176
+  },
+  {
+    "id": 698,
+    "date": "2024-12-14",
+    "product": "USB-C Hub",
+    "amount": 511.57,
+    "customer_id": 4708
+  },
+  {
+    "id": 699,
+    "date": "2024-12-02",
+    "product": "USB-C Hub",
+    "amount": 319.19,
+    "customer_id": 594
+  },
+  {
+    "id": 700,
+    "date": "2024-12-18",
+    "product": "Monitor 27\"",
+    "amount": 807.18,
+    "customer_id": 6933
+  },
+  {
+    "id": 701,
+    "date": "2024-12-05",
+    "product": "Standing Desk",
+    "amount": 93.32,
+    "customer_id": 9897
+  },
+  {
+    "id": 702,
+    "date": "2024-12-04",
+    "product": "Wireless Mouse",
+    "amount": 328.72,
+    "customer_id": 5289
+  },
+  {
+    "id": 703,
+    "date": "2024-12-11",
+    "product": "Desk Chair",
+    "amount": 327.82,
+    "customer_id": 764
+  },
+  {
+    "id": 704,
+    "date": "2024-12-05",
+    "product": "Phone Stand",
+    "amount": 738.4,
+    "customer_id": 4716
+  },
+  {
+    "id": 705,
+    "date": "2024-12-22",
+    "product": "Webcam HD",
+    "amount": 961.57,
+    "customer_id": 1836
+  },
+  {
+    "id": 706,
+    "date": "2024-12-17",
+    "product": "Laptop Pro",
+    "amount": 691.78,
+    "customer_id": 5335
+  },
+  {
+    "id": 707,
+    "date": "2024-12-04",
+    "product": "Standing Desk",
+    "amount": 136.81,
+    "customer_id": 5830
+  },
+  {
+    "id": 708,
+    "date": "2024-12-16",
+    "product": "Webcam HD",
+    "amount": 897.76,
+    "customer_id": 6901
+  },
+  {
+    "id": 709,
+    "date": "2024-12-25",
+    "product": "Monitor 27\"",
+    "amount": 579.08,
+    "customer_id": 7314
+  },
+  {
+    "id": 710,
+    "date": "2024-12-21",
+    "product": "Desk Chair",
+    "amount": 928.56,
+    "customer_id": 9908
+  },
+  {
+    "id": 711,
+    "date": "2024-12-06",
+    "product": "Headphones",
+    "amount": 797.29,
+    "customer_id": 7152
+  },
+  {
+    "id": 712,
+    "date": "2024-12-25",
+    "product": "Desk Chair",
+    "amount": 649.72,
+    "customer_id": 3367
+  },
+  {
+    "id": 713,
+    "date": "2024-12-17",
+    "product": "USB-C Hub",
+    "amount": 803.63,
+    "customer_id": 3615
+  },
+  {
+    "id": 714,
+    "date": "2024-12-11",
+    "product": "Standing Desk",
+    "amount": 330.14,
+    "customer_id": 9254
+  },
+  {
+    "id": 715,
+    "date": "2024-12-07",
+    "product": "Headphones",
+    "amount": 573.69,
+    "customer_id": 161
+  },
+  {
+    "id": 716,
+    "date": "2024-12-13",
+    "product": "Standing Desk",
+    "amount": 422.05,
+    "customer_id": 3619
+  },
+  {
+    "id": 717,
+    "date": "2024-12-21",
+    "product": "Headphones",
+    "amount": 156.33,
+    "customer_id": 9875
+  },
+  {
+    "id": 718,
+    "date": "2024-12-22",
+    "product": "Wireless Mouse",
+    "amount": 20.99,
+    "customer_id": 4362
+  },
+  {
+    "id": 719,
+    "date": "2024-12-27",
+    "product": "Wireless Mouse",
+    "amount": 443.79,
+    "customer_id": 6585
+  },
+  {
+    "id": 720,
+    "date": "2024-12-27",
+    "product": "Wireless Mouse",
+    "amount": 935.85,
+    "customer_id": 5681
+  },
+  {
+    "id": 721,
+    "date": "2024-12-29",
+    "product": "Wireless Mouse",
+    "amount": 641.62,
+    "customer_id": 2637
+  },
+  {
+    "id": 722,
+    "date": "2024-12-20",
+    "product": "Desk Chair",
+    "amount": 538.87,
+    "customer_id": 9182
+  },
+  {
+    "id": 723,
+    "date": "2024-12-19",
+    "product": "Wireless Mouse",
+    "amount": 358.71,
+    "customer_id": 3339
+  },
+  {
+    "id": 724,
+    "date": "2024-12-18",
+    "product": "USB-C Hub",
+    "amount": 125.59,
+    "customer_id": 1653
+  },
+  {
+    "id": 725,
+    "date": "2024-12-12",
+    "product": "USB-C Hub",
+    "amount": 377.28,
+    "customer_id": 8074
+  },
+  {
+    "id": 726,
+    "date": "2024-12-16",
+    "product": "Standing Desk",
+    "amount": 74.9,
+    "customer_id": 9516
+  },
+  {
+    "id": 727,
+    "date": "2024-12-09",
+    "product": "Desk Chair",
+    "amount": 122.89,
+    "customer_id": 8077
+  },
+  {
+    "id": 728,
+    "date": "2024-12-23",
+    "product": "Monitor 27\"",
+    "amount": 619.03,
+    "customer_id": 9930
+  },
+  {
+    "id": 729,
+    "date": "2024-12-08",
+    "product": "Wireless Mouse",
+    "amount": 744.42,
+    "customer_id": 877
+  },
+  {
+    "id": 730,
+    "date": "2024-12-22",
+    "product": "Monitor 27\"",
+    "amount": 303.52,
+    "customer_id": 8574
+  },
+  {
+    "id": 731,
+    "date": "2024-12-12",
+    "product": "USB-C Hub",
+    "amount": 934.11,
+    "customer_id": 1415
+  },
+  {
+    "id": 732,
+    "date": "2024-12-17",
+    "product": "USB-C Hub",
+    "amount": 57.28,
+    "customer_id": 4091
+  },
+  {
+    "id": 733,
+    "date": "2024-12-18",
+    "product": "Desk Chair",
+    "amount": 337.49,
+    "customer_id": 9812
+  },
+  {
+    "id": 734,
+    "date": "2024-12-01",
+    "product": "Webcam HD",
+    "amount": 992.52,
+    "customer_id": 9196
+  },
+  {
+    "id": 735,
+    "date": "2024-12-01",
+    "product": "Laptop Pro",
+    "amount": 653.47,
+    "customer_id": 5823
+  },
+  {
+    "id": 736,
+    "date": "2024-12-16",
+    "product": "Standing Desk",
+    "amount": 884.79,
+    "customer_id": 8458
+  },
+  {
+    "id": 737,
+    "date": "2024-12-09",
+    "product": "USB-C Hub",
+    "amount": 464.26,
+    "customer_id": 9940
+  },
+  {
+    "id": 738,
+    "date": "2024-12-10",
+    "product": "Webcam HD",
+    "amount": 222.99,
+    "customer_id": 2740
+  },
+  {
+    "id": 739,
+    "date": "2024-12-06",
+    "product": "USB-C Hub",
+    "amount": 625.43,
+    "customer_id": 1177
+  },
+  {
+    "id": 740,
+    "date": "2024-12-25",
+    "product": "Webcam HD",
+    "amount": 999.34,
+    "customer_id": 314
+  },
+  {
+    "id": 741,
+    "date": "2024-12-05",
+    "product": "Mechanical Keyboard",
+    "amount": 415.85,
+    "customer_id": 1509
+  },
+  {
+    "id": 742,
+    "date": "2024-12-08",
+    "product": "USB-C Hub",
+    "amount": 219.39,
+    "customer_id": 4638
+  },
+  {
+    "id": 743,
+    "date": "2024-12-10",
+    "product": "Webcam HD",
+    "amount": 287.75,
+    "customer_id": 6985
+  },
+  {
+    "id": 744,
+    "date": "2024-12-05",
+    "product": "Wireless Mouse",
+    "amount": 902.04,
+    "customer_id": 8797
+  },
+  {
+    "id": 745,
+    "date": "2024-12-13",
+    "product": "USB-C Hub",
+    "amount": 326.7,
+    "customer_id": 5506
+  },
+  {
+    "id": 746,
+    "date": "2024-12-14",
+    "product": "Headphones",
+    "amount": 969.5,
+    "customer_id": 6618
+  },
+  {
+    "id": 747,
+    "date": "2024-12-01",
+    "product": "Laptop Pro",
+    "amount": 361.56,
+    "customer_id": 1269
+  },
+  {
+    "id": 748,
+    "date": "2024-12-09",
+    "product": "Phone Stand",
+    "amount": 617.33,
+    "customer_id": 447
+  },
+  {
+    "id": 749,
+    "date": "2024-12-28",
+    "product": "Phone Stand",
+    "amount": 734.58,
+    "customer_id": 5881
+  },
+  {
+    "id": 750,
+    "date": "2024-12-13",
+    "product": "Webcam HD",
+    "amount": 444.42,
+    "customer_id": 5594
+  },
+  {
+    "id": 751,
+    "date": "2024-12-18",
+    "product": "Headphones",
+    "amount": 761.3,
+    "customer_id": 6130
+  },
+  {
+    "id": 752,
+    "date": "2024-12-10",
+    "product": "Monitor 27\"",
+    "amount": 242.99,
+    "customer_id": 1440
+  },
+  {
+    "id": 753,
+    "date": "2024-12-30",
+    "product": "Headphones",
+    "amount": 820.61,
+    "customer_id": 8437
+  },
+  {
+    "id": 754,
+    "date": "2024-12-30",
+    "product": "Webcam HD",
+    "amount": 428.6,
+    "customer_id": 9220
+  },
+  {
+    "id": 755,
+    "date": "2024-12-10",
+    "product": "Wireless Mouse",
+    "amount": 154.74,
+    "customer_id": 9962
+  },
+  {
+    "id": 756,
+    "date": "2024-12-13",
+    "product": "Laptop Pro",
+    "amount": 170.13,
+    "customer_id": 6465
+  },
+  {
+    "id": 757,
+    "date": "2024-12-03",
+    "product": "Mechanical Keyboard",
+    "amount": 279.23,
+    "customer_id": 6384
+  },
+  {
+    "id": 758,
+    "date": "2024-12-20",
+    "product": "Webcam HD",
+    "amount": 139.81,
+    "customer_id": 8114
+  },
+  {
+    "id": 759,
+    "date": "2024-12-11",
+    "product": "Phone Stand",
+    "amount": 142.99,
+    "customer_id": 6345
+  },
+  {
+    "id": 760,
+    "date": "2024-12-19",
+    "product": "Laptop Pro",
+    "amount": 973.2,
+    "customer_id": 4289
+  },
+  {
+    "id": 761,
+    "date": "2024-12-29",
+    "product": "Webcam HD",
+    "amount": 858.23,
+    "customer_id": 2562
+  },
+  {
+    "id": 762,
+    "date": "2024-12-15",
+    "product": "USB-C Hub",
+    "amount": 409.18,
+    "customer_id": 4744
+  },
+  {
+    "id": 763,
+    "date": "2024-12-07",
+    "product": "Webcam HD",
+    "amount": 200.5,
+    "customer_id": 9601
+  },
+  {
+    "id": 764,
+    "date": "2024-12-26",
+    "product": "Laptop Pro",
+    "amount": 989.97,
+    "customer_id": 9973
+  },
+  {
+    "id": 765,
+    "date": "2024-12-14",
+    "product": "Webcam HD",
+    "amount": 638.7,
+    "customer_id": 8328
+  },
+  {
+    "id": 766,
+    "date": "2024-12-17",
+    "product": "Wireless Mouse",
+    "amount": 601.14,
+    "customer_id": 8988
+  },
+  {
+    "id": 767,
+    "date": "2024-12-03",
+    "product": "Wireless Mouse",
+    "amount": 205.05,
+    "customer_id": 7013
+  },
+  {
+    "id": 768,
+    "date": "2024-12-29",
+    "product": "Headphones",
+    "amount": 501.56,
+    "customer_id": 3764
+  },
+  {
+    "id": 769,
+    "date": "2024-12-09",
+    "product": "Headphones",
+    "amount": 855.1,
+    "customer_id": 9115
+  },
+  {
+    "id": 770,
+    "date": "2024-12-08",
+    "product": "Headphones",
+    "amount": 153.46,
+    "customer_id": 350
+  },
+  {
+    "id": 771,
+    "date": "2024-12-20",
+    "product": "Monitor 27\"",
+    "amount": 657.75,
+    "customer_id": 7718
+  },
+  {
+    "id": 772,
+    "date": "2024-12-04",
+    "product": "Desk Chair",
+    "amount": 632.4,
+    "customer_id": 6649
+  },
+  {
+    "id": 773,
+    "date": "2024-12-02",
+    "product": "Standing Desk",
+    "amount": 505.21,
+    "customer_id": 6650
+  },
+  {
+    "id": 774,
+    "date": "2024-12-06",
+    "product": "Laptop Pro",
+    "amount": 777.27,
+    "customer_id": 6857
+  },
+  {
+    "id": 775,
+    "date": "2024-12-20",
+    "product": "Webcam HD",
+    "amount": 593.04,
+    "customer_id": 8258
+  },
+  {
+    "id": 776,
+    "date": "2024-12-05",
+    "product": "Mechanical Keyboard",
+    "amount": 930.29,
+    "customer_id": 2580
+  },
+  {
+    "id": 777,
+    "date": "2024-12-07",
+    "product": "USB-C Hub",
+    "amount": 530.13,
+    "customer_id": 7848
+  },
+  {
+    "id": 778,
+    "date": "2024-12-19",
+    "product": "USB-C Hub",
+    "amount": 407.01,
+    "customer_id": 607
+  },
+  {
+    "id": 779,
+    "date": "2024-12-07",
+    "product": "Monitor 27\"",
+    "amount": 108.7,
+    "customer_id": 4806
+  },
+  {
+    "id": 780,
+    "date": "2024-12-14",
+    "product": "Wireless Mouse",
+    "amount": 576.32,
+    "customer_id": 7358
+  },
+  {
+    "id": 781,
+    "date": "2024-12-21",
+    "product": "Phone Stand",
+    "amount": 734.31,
+    "customer_id": 364
+  },
+  {
+    "id": 782,
+    "date": "2024-12-28",
+    "product": "Headphones",
+    "amount": 680.44,
+    "customer_id": 9994
+  },
+  {
+    "id": 783,
+    "date": "2024-12-17",
+    "product": "Laptop Pro",
+    "amount": 585.84,
+    "customer_id": 2053
+  },
+  {
+    "id": 784,
+    "date": "2024-12-14",
+    "product": "Laptop Pro",
+    "amount": 254.94,
+    "customer_id": 4194
+  },
+  {
+    "id": 785,
+    "date": "2024-12-28",
+    "product": "Laptop Pro",
+    "amount": 335.52,
+    "customer_id": 4813
+  },
+  {
+    "id": 786,
+    "date": "2024-12-05",
+    "product": "Desk Chair",
+    "amount": 228.7,
+    "customer_id": 8600
+  },
+  {
+    "id": 787,
+    "date": "2024-12-20",
+    "product": "Desk Chair",
+    "amount": 618.91,
+    "customer_id": 8766
+  },
+  {
+    "id": 788,
+    "date": "2024-12-26",
+    "product": "Headphones",
+    "amount": 723.93,
+    "customer_id": 5928
+  },
+  {
+    "id": 789,
+    "date": "2024-12-29",
+    "product": "Desk Chair",
+    "amount": 164.89,
+    "customer_id": 3665
+  },
+  {
+    "id": 790,
+    "date": "2024-12-28",
+    "product": "Phone Stand",
+    "amount": 506.21,
+    "customer_id": 745
+  },
+  {
+    "id": 791,
+    "date": "2024-12-14",
+    "product": "Webcam HD",
+    "amount": 525.68,
+    "customer_id": 5
+  },
+  {
+    "id": 792,
+    "date": "2024-12-18",
+    "product": "Standing Desk",
+    "amount": 64.41,
+    "customer_id": 3916
+  },
+  {
+    "id": 793,
+    "date": "2024-12-28",
+    "product": "Laptop Pro",
+    "amount": 576.84,
+    "customer_id": 6798
+  },
+  {
+    "id": 794,
+    "date": "2024-12-10",
+    "product": "Desk Chair",
+    "amount": 400.76,
+    "customer_id": 3713
+  },
+  {
+    "id": 795,
+    "date": "2024-12-23",
+    "product": "Monitor 27\"",
+    "amount": 587.27,
+    "customer_id": 6018
+  },
+  {
+    "id": 796,
+    "date": "2024-12-10",
+    "product": "USB-C Hub",
+    "amount": 500.81,
+    "customer_id": 3591
+  },
+  {
+    "id": 797,
+    "date": "2024-12-05",
+    "product": "Headphones",
+    "amount": 19.17,
+    "customer_id": 3716
+  },
+  {
+    "id": 798,
+    "date": "2024-12-04",
+    "product": "Standing Desk",
+    "amount": 413.46,
+    "customer_id": 6639
+  },
+  {
+    "id": 799,
+    "date": "2024-12-25",
+    "product": "Standing Desk",
+    "amount": 938.11,
+    "customer_id": 7793
+  },
+  {
+    "id": 800,
+    "date": "2024-12-20",
+    "product": "USB-C Hub",
+    "amount": 40.92,
+    "customer_id": 6683
+  },
+  {
+    "id": 801,
+    "date": "2024-12-10",
+    "product": "Phone Stand",
+    "amount": 202.98,
+    "customer_id": 2445
+  },
+  {
+    "id": 802,
+    "date": "2024-12-01",
+    "product": "Standing Desk",
+    "amount": 568.75,
+    "customer_id": 6068
+  },
+  {
+    "id": 803,
+    "date": "2024-12-13",
+    "product": "Standing Desk",
+    "amount": 135.99,
+    "customer_id": 9279
+  },
+  {
+    "id": 804,
+    "date": "2024-12-01",
+    "product": "Laptop Pro",
+    "amount": 615.84,
+    "customer_id": 103
+  },
+  {
+    "id": 805,
+    "date": "2024-12-20",
+    "product": "Headphones",
+    "amount": 52.71,
+    "customer_id": 5084
+  },
+  {
+    "id": 806,
+    "date": "2024-12-05",
+    "product": "Desk Chair",
+    "amount": 964.41,
+    "customer_id": 8171
+  },
+  {
+    "id": 807,
+    "date": "2024-12-29",
+    "product": "Monitor 27\"",
+    "amount": 332.03,
+    "customer_id": 6280
+  },
+  {
+    "id": 808,
+    "date": "2024-12-12",
+    "product": "Laptop Pro",
+    "amount": 50.02,
+    "customer_id": 1507
+  },
+  {
+    "id": 809,
+    "date": "2024-12-16",
+    "product": "Desk Chair",
+    "amount": 216.15,
+    "customer_id": 27
+  },
+  {
+    "id": 810,
+    "date": "2024-12-21",
+    "product": "Phone Stand",
+    "amount": 11.55,
+    "customer_id": 7641
+  },
+  {
+    "id": 811,
+    "date": "2024-12-25",
+    "product": "Phone Stand",
+    "amount": 230.65,
+    "customer_id": 2005
+  },
+  {
+    "id": 812,
+    "date": "2024-12-05",
+    "product": "Monitor 27\"",
+    "amount": 531.23,
+    "customer_id": 1512
+  },
+  {
+    "id": 813,
+    "date": "2024-12-30",
+    "product": "Mechanical Keyboard",
+    "amount": 314.41,
+    "customer_id": 855
+  },
+  {
+    "id": 814,
+    "date": "2024-12-21",
+    "product": "Laptop Pro",
+    "amount": 264.62,
+    "customer_id": 3243
+  },
+  {
+    "id": 815,
+    "date": "2024-12-24",
+    "product": "Headphones",
+    "amount": 589.64,
+    "customer_id": 9293
+  },
+  {
+    "id": 816,
+    "date": "2024-12-13",
+    "product": "Headphones",
+    "amount": 910.6,
+    "customer_id": 2587
+  },
+  {
+    "id": 817,
+    "date": "2024-12-19",
+    "product": "Wireless Mouse",
+    "amount": 811.92,
+    "customer_id": 1888
+  },
+  {
+    "id": 818,
+    "date": "2024-12-01",
+    "product": "Monitor 27\"",
+    "amount": 61.39,
+    "customer_id": 38
+  },
+  {
+    "id": 819,
+    "date": "2024-12-23",
+    "product": "Standing Desk",
+    "amount": 480.12,
+    "customer_id": 9504
+  },
+  {
+    "id": 820,
+    "date": "2024-12-09",
+    "product": "Headphones",
+    "amount": 552.55,
+    "customer_id": 4608
+  },
+  {
+    "id": 821,
+    "date": "2024-12-18",
+    "product": "Phone Stand",
+    "amount": 596.47,
+    "customer_id": 412
+  },
+  {
+    "id": 822,
+    "date": "2024-12-18",
+    "product": "Laptop Pro",
+    "amount": 672.97,
+    "customer_id": 8273
+  },
+  {
+    "id": 823,
+    "date": "2024-12-11",
+    "product": "Headphones",
+    "amount": 146.52,
+    "customer_id": 8068
+  },
+  {
+    "id": 824,
+    "date": "2024-12-03",
+    "product": "Phone Stand",
+    "amount": 874.88,
+    "customer_id": 7082
+  },
+  {
+    "id": 825,
+    "date": "2024-12-18",
+    "product": "Phone Stand",
+    "amount": 169.16,
+    "customer_id": 5560
+  },
+  {
+    "id": 826,
+    "date": "2024-12-16",
+    "product": "Headphones",
+    "amount": 253.82,
+    "customer_id": 8936
+  },
+  {
+    "id": 827,
+    "date": "2024-12-07",
+    "product": "Laptop Pro",
+    "amount": 566.62,
+    "customer_id": 6715
+  },
+  {
+    "id": 828,
+    "date": "2024-12-14",
+    "product": "Phone Stand",
+    "amount": 618.69,
+    "customer_id": 8033
+  },
+  {
+    "id": 829,
+    "date": "2024-12-12",
+    "product": "Monitor 27\"",
+    "amount": 544.45,
+    "customer_id": 3878
+  },
+  {
+    "id": 830,
+    "date": "2024-12-20",
+    "product": "Laptop Pro",
+    "amount": 331.7,
+    "customer_id": 5978
+  },
+  {
+    "id": 831,
+    "date": "2024-12-26",
+    "product": "Standing Desk",
+    "amount": 701.54,
+    "customer_id": 2358
+  },
+  {
+    "id": 832,
+    "date": "2024-12-21",
+    "product": "USB-C Hub",
+    "amount": 688.42,
+    "customer_id": 9561
+  },
+  {
+    "id": 833,
+    "date": "2024-12-02",
+    "product": "Standing Desk",
+    "amount": 830.12,
+    "customer_id": 1537
+  },
+  {
+    "id": 834,
+    "date": "2024-12-13",
+    "product": "Webcam HD",
+    "amount": 87.73,
+    "customer_id": 5201
+  },
+  {
+    "id": 835,
+    "date": "2024-12-02",
+    "product": "Mechanical Keyboard",
+    "amount": 355.72,
+    "customer_id": 2651
+  },
+  {
+    "id": 836,
+    "date": "2024-12-03",
+    "product": "USB-C Hub",
+    "amount": 741.86,
+    "customer_id": 59
+  },
+  {
+    "id": 837,
+    "date": "2024-12-26",
+    "product": "Phone Stand",
+    "amount": 427.26,
+    "customer_id": 3229
+  },
+  {
+    "id": 838,
+    "date": "2024-12-06",
+    "product": "Webcam HD",
+    "amount": 206.36,
+    "customer_id": 9815
+  },
+  {
+    "id": 839,
+    "date": "2024-12-13",
+    "product": "Headphones",
+    "amount": 726.94,
+    "customer_id": 8211
+  },
+  {
+    "id": 840,
+    "date": "2024-12-24",
+    "product": "Headphones",
+    "amount": 400.11,
+    "customer_id": 3109
+  },
+  {
+    "id": 841,
+    "date": "2024-12-22",
+    "product": "Desk Chair",
+    "amount": 900.33,
+    "customer_id": 7720
+  },
+  {
+    "id": 842,
+    "date": "2024-12-21",
+    "product": "Phone Stand",
+    "amount": 455.35,
+    "customer_id": 2659
+  },
+  {
+    "id": 843,
+    "date": "2024-12-28",
+    "product": "Wireless Mouse",
+    "amount": 666.3,
+    "customer_id": 1508
+  },
+  {
+    "id": 844,
+    "date": "2024-12-09",
+    "product": "USB-C Hub",
+    "amount": 127.63,
+    "customer_id": 3032
+  },
+  {
+    "id": 845,
+    "date": "2024-12-19",
+    "product": "Mechanical Keyboard",
+    "amount": 587.1,
+    "customer_id": 70
+  },
+  {
+    "id": 846,
+    "date": "2024-12-27",
+    "product": "Desk Chair",
+    "amount": 895.83,
+    "customer_id": 5092
+  },
+  {
+    "id": 847,
+    "date": "2024-12-20",
+    "product": "Standing Desk",
+    "amount": 528.26,
+    "customer_id": 2418
+  },
+  {
+    "id": 848,
+    "date": "2024-12-25",
+    "product": "USB-C Hub",
+    "amount": 792.18,
+    "customer_id": 7111
+  },
+  {
+    "id": 849,
+    "date": "2024-12-12",
+    "product": "Standing Desk",
+    "amount": 758.68,
+    "customer_id": 528
+  },
+  {
+    "id": 850,
+    "date": "2024-12-12",
+    "product": "USB-C Hub",
+    "amount": 782.23,
+    "customer_id": 2545
+  },
+  {
+    "id": 851,
+    "date": "2024-12-01",
+    "product": "Phone Stand",
+    "amount": 740.59,
+    "customer_id": 448
+  },
+  {
+    "id": 852,
+    "date": "2024-12-02",
+    "product": "Mechanical Keyboard",
+    "amount": 914.87,
+    "customer_id": 4482
+  },
+  {
+    "id": 853,
+    "date": "2024-12-06",
+    "product": "Laptop Pro",
+    "amount": 559.53,
+    "customer_id": 80
+  },
+  {
+    "id": 854,
+    "date": "2024-12-25",
+    "product": "Webcam HD",
+    "amount": 102.33,
+    "customer_id": 6747
+  },
+  {
+    "id": 855,
+    "date": "2024-12-18",
+    "product": "Headphones",
+    "amount": 44.4,
+    "customer_id": 3621
+  },
+  {
+    "id": 856,
+    "date": "2024-12-23",
+    "product": "USB-C Hub",
+    "amount": 520.16,
+    "customer_id": 1688
+  },
+  {
+    "id": 857,
+    "date": "2024-12-28",
+    "product": "Monitor 27\"",
+    "amount": 527.41,
+    "customer_id": 2677
+  },
+  {
+    "id": 858,
+    "date": "2024-12-20",
+    "product": "Mechanical Keyboard",
+    "amount": 787.25,
+    "customer_id": 4612
+  },
+  {
+    "id": 859,
+    "date": "2024-12-22",
+    "product": "Headphones",
+    "amount": 334.13,
+    "customer_id": 4037
+  },
+  {
+    "id": 860,
+    "date": "2024-12-30",
+    "product": "Standing Desk",
+    "amount": 695.82,
+    "customer_id": 4903
+  },
+  {
+    "id": 861,
+    "date": "2024-12-27",
+    "product": "Laptop Pro",
+    "amount": 833.44,
+    "customer_id": 4122
+  },
+  {
+    "id": 862,
+    "date": "2024-12-23",
+    "product": "Monitor 27\"",
+    "amount": 661.43,
+    "customer_id": 3794
+  },
+  {
+    "id": 863,
+    "date": "2024-12-21",
+    "product": "Laptop Pro",
+    "amount": 277.57,
+    "customer_id": 92
+  },
+  {
+    "id": 864,
+    "date": "2024-12-30",
+    "product": "Headphones",
+    "amount": 842.97,
+    "customer_id": 8817
+  },
+  {
+    "id": 865,
+    "date": "2024-12-17",
+    "product": "Desk Chair",
+    "amount": 182.07,
+    "customer_id": 7625
+  },
+  {
+    "id": 866,
+    "date": "2024-12-20",
+    "product": "Mechanical Keyboard",
+    "amount": 922.65,
+    "customer_id": 4910
+  },
+  {
+    "id": 867,
+    "date": "2024-12-18",
+    "product": "Monitor 27\"",
+    "amount": 485.82,
+    "customer_id": 5364
+  },
+  {
+    "id": 868,
+    "date": "2024-12-23",
+    "product": "Laptop Pro",
+    "amount": 546.03,
+    "customer_id": 2196
+  },
+  {
+    "id": 869,
+    "date": "2024-12-19",
+    "product": "Laptop Pro",
+    "amount": 321.06,
+    "customer_id": 6025
+  },
+  {
+    "id": 870,
+    "date": "2024-12-12",
+    "product": "Monitor 27\"",
+    "amount": 422.01,
+    "customer_id": 429
+  },
+  {
+    "id": 871,
+    "date": "2024-12-30",
+    "product": "Monitor 27\"",
+    "amount": 433.33,
+    "customer_id": 4175
+  },
+  {
+    "id": 872,
+    "date": "2024-12-07",
+    "product": "Phone Stand",
+    "amount": 122.81,
+    "customer_id": 102
+  },
+  {
+    "id": 873,
+    "date": "2024-12-01",
+    "product": "Desk Chair",
+    "amount": 321.54,
+    "customer_id": 680
+  },
+  {
+    "id": 874,
+    "date": "2024-12-30",
+    "product": "Desk Chair",
+    "amount": 503.97,
+    "customer_id": 228
+  },
+  {
+    "id": 875,
+    "date": "2024-12-03",
+    "product": "Webcam HD",
+    "amount": 987.88,
+    "customer_id": 3810
+  },
+  {
+    "id": 876,
+    "date": "2024-12-06",
+    "product": "USB-C Hub",
+    "amount": 844.39,
+    "customer_id": 2782
+  },
+  {
+    "id": 877,
+    "date": "2024-12-13",
+    "product": "Headphones",
+    "amount": 427.94,
+    "customer_id": 7022
+  },
+  {
+    "id": 878,
+    "date": "2024-12-28",
+    "product": "Laptop Pro",
+    "amount": 606.3,
+    "customer_id": 3813
+  },
+  {
+    "id": 879,
+    "date": "2024-12-17",
+    "product": "Desk Chair",
+    "amount": 670.58,
+    "customer_id": 3403
+  },
+  {
+    "id": 880,
+    "date": "2024-12-27",
+    "product": "Mechanical Keyboard",
+    "amount": 865.24,
+    "customer_id": 1223
+  },
+  {
+    "id": 881,
+    "date": "2024-12-12",
+    "product": "Desk Chair",
+    "amount": 628.04,
+    "customer_id": 6780
+  },
+  {
+    "id": 882,
+    "date": "2024-12-23",
+    "product": "Headphones",
+    "amount": 460.1,
+    "customer_id": 9209
+  },
+  {
+    "id": 883,
+    "date": "2024-12-04",
+    "product": "Wireless Mouse",
+    "amount": 495.87,
+    "customer_id": 9498
+  },
+  {
+    "id": 884,
+    "date": "2024-12-06",
+    "product": "Headphones",
+    "amount": 723.12,
+    "customer_id": 9376
+  },
+  {
+    "id": 885,
+    "date": "2024-12-14",
+    "product": "Headphones",
+    "amount": 872.96,
+    "customer_id": 6867
+  },
+  {
+    "id": 886,
+    "date": "2024-12-23",
+    "product": "USB-C Hub",
+    "amount": 969.84,
+    "customer_id": 8514
+  },
+  {
+    "id": 887,
+    "date": "2024-12-27",
+    "product": "Webcam HD",
+    "amount": 561.53,
+    "customer_id": 8269
+  },
+  {
+    "id": 888,
+    "date": "2024-12-11",
+    "product": "Mechanical Keyboard",
+    "amount": 589.15,
+    "customer_id": 3043
+  },
+  {
+    "id": 889,
+    "date": "2024-12-14",
+    "product": "Desk Chair",
+    "amount": 967.14,
+    "customer_id": 4938
+  },
+  {
+    "id": 890,
+    "date": "2024-12-08",
+    "product": "Webcam HD",
+    "amount": 803.28,
+    "customer_id": 124
+  },
+  {
+    "id": 891,
+    "date": "2024-12-04",
+    "product": "Headphones",
+    "amount": 268.67,
+    "customer_id": 4405
+  },
+  {
+    "id": 892,
+    "date": "2024-12-28",
+    "product": "Monitor 27\"",
+    "amount": 157.77,
+    "customer_id": 5435
+  },
+  {
+    "id": 893,
+    "date": "2024-12-28",
+    "product": "Standing Desk",
+    "amount": 128.36,
+    "customer_id": 1609
+  },
+  {
+    "id": 894,
+    "date": "2024-12-12",
+    "product": "Laptop Pro",
+    "amount": 571.53,
+    "customer_id": 7619
+  },
+  {
+    "id": 895,
+    "date": "2024-12-23",
+    "product": "Desk Chair",
+    "amount": 191.74,
+    "customer_id": 6673
+  },
+  {
+    "id": 896,
+    "date": "2024-12-17",
+    "product": "Laptop Pro",
+    "amount": 186.77,
+    "customer_id": 9391
+  },
+  {
+    "id": 897,
+    "date": "2024-12-26",
+    "product": "Webcam HD",
+    "amount": 177.72,
+    "customer_id": 9351
+  },
+  {
+    "id": 898,
+    "date": "2024-12-21",
+    "product": "Standing Desk",
+    "amount": 739.04,
+    "customer_id": 5319
+  },
+  {
+    "id": 899,
+    "date": "2024-12-24",
+    "product": "Standing Desk",
+    "amount": 648.51,
+    "customer_id": 135
+  },
+  {
+    "id": 900,
+    "date": "2024-12-05",
+    "product": "Monitor 27\"",
+    "amount": 737.24,
+    "customer_id": 6268
+  },
+  {
+    "id": 901,
+    "date": "2024-12-11",
+    "product": "USB-C Hub",
+    "amount": 479.68,
+    "customer_id": 8038
+  },
+  {
+    "id": 902,
+    "date": "2024-12-11",
+    "product": "Wireless Mouse",
+    "amount": 193.59,
+    "customer_id": 509
+  },
+  {
+    "id": 903,
+    "date": "2024-12-30",
+    "product": "Phone Stand",
+    "amount": 930.1,
+    "customer_id": 5037
+  },
+  {
+    "id": 904,
+    "date": "2024-12-14",
+    "product": "USB-C Hub",
+    "amount": 73.64,
+    "customer_id": 1499
+  },
+  {
+    "id": 905,
+    "date": "2024-12-26",
+    "product": "Laptop Pro",
+    "amount": 472,
+    "customer_id": 7179
+  },
+  {
+    "id": 906,
+    "date": "2024-12-01",
+    "product": "Headphones",
+    "amount": 426.29,
+    "customer_id": 2324
+  },
+  {
+    "id": 907,
+    "date": "2024-12-18",
+    "product": "USB-C Hub",
+    "amount": 180.95,
+    "customer_id": 2367
+  },
+  {
+    "id": 908,
+    "date": "2024-12-30",
+    "product": "Mechanical Keyboard",
+    "amount": 163.75,
+    "customer_id": 6812
+  },
+  {
+    "id": 909,
+    "date": "2024-12-27",
+    "product": "Webcam HD",
+    "amount": 875.81,
+    "customer_id": 4797
+  },
+  {
+    "id": 910,
+    "date": "2024-12-15",
+    "product": "Phone Stand",
+    "amount": 471.58,
+    "customer_id": 7309
+  },
+  {
+    "id": 911,
+    "date": "2024-12-13",
+    "product": "Mechanical Keyboard",
+    "amount": 918.83,
+    "customer_id": 6075
+  },
+  {
+    "id": 912,
+    "date": "2024-12-08",
+    "product": "Monitor 27\"",
+    "amount": 958.67,
+    "customer_id": 9122
+  },
+  {
+    "id": 913,
+    "date": "2024-12-24",
+    "product": "Headphones",
+    "amount": 615.55,
+    "customer_id": 2991
+  },
+  {
+    "id": 914,
+    "date": "2024-12-25",
+    "product": "Webcam HD",
+    "amount": 427.24,
+    "customer_id": 1634
+  },
+  {
+    "id": 915,
+    "date": "2024-12-26",
+    "product": "Desk Chair",
+    "amount": 344.86,
+    "customer_id": 1965
+  },
+  {
+    "id": 916,
+    "date": "2024-12-05",
+    "product": "Webcam HD",
+    "amount": 282.85,
+    "customer_id": 6081
+  },
+  {
+    "id": 917,
+    "date": "2024-12-26",
+    "product": "Monitor 27\"",
+    "amount": 338.99,
+    "customer_id": 156
+  },
+  {
+    "id": 918,
+    "date": "2024-12-08",
+    "product": "Webcam HD",
+    "amount": 684.38,
+    "customer_id": 9993
+  },
+  {
+    "id": 919,
+    "date": "2024-12-09",
+    "product": "Mechanical Keyboard",
+    "amount": 133.48,
+    "customer_id": 3245
+  },
+  {
+    "id": 920,
+    "date": "2024-12-06",
+    "product": "Laptop Pro",
+    "amount": 324.06,
+    "customer_id": 8308
+  },
+  {
+    "id": 921,
+    "date": "2024-12-07",
+    "product": "Standing Desk",
+    "amount": 657.24,
+    "customer_id": 9873
+  },
+  {
+    "id": 922,
+    "date": "2024-12-24",
+    "product": "Laptop Pro",
+    "amount": 827.45,
+    "customer_id": 1150
+  },
+  {
+    "id": 923,
+    "date": "2024-12-14",
+    "product": "Wireless Mouse",
+    "amount": 52.48,
+    "customer_id": 2756
+  },
+  {
+    "id": 924,
+    "date": "2024-12-10",
+    "product": "Phone Stand",
+    "amount": 923.43,
+    "customer_id": 8272
+  },
+  {
+    "id": 925,
+    "date": "2024-12-12",
+    "product": "Headphones",
+    "amount": 54.75,
+    "customer_id": 6462
+  },
+  {
+    "id": 926,
+    "date": "2024-12-12",
+    "product": "USB-C Hub",
+    "amount": 184.22,
+    "customer_id": 167
+  },
+  {
+    "id": 927,
+    "date": "2024-12-10",
+    "product": "USB-C Hub",
+    "amount": 162.95,
+    "customer_id": 1856
+  },
+  {
+    "id": 928,
+    "date": "2024-12-22",
+    "product": "Mechanical Keyboard",
+    "amount": 455.39,
+    "customer_id": 5849
+  },
+  {
+    "id": 929,
+    "date": "2024-12-18",
+    "product": "Desk Chair",
+    "amount": 389.3,
+    "customer_id": 7208
+  },
+  {
+    "id": 930,
+    "date": "2024-12-25",
+    "product": "Desk Chair",
+    "amount": 25.81,
+    "customer_id": 7291
+  },
+  {
+    "id": 931,
+    "date": "2024-12-15",
+    "product": "Headphones",
+    "amount": 709.35,
+    "customer_id": 5976
+  },
+  {
+    "id": 932,
+    "date": "2024-12-23",
+    "product": "Wireless Mouse",
+    "amount": 337.71,
+    "customer_id": 545
+  },
+  {
+    "id": 933,
+    "date": "2024-12-15",
+    "product": "Laptop Pro",
+    "amount": 182,
+    "customer_id": 1246
+  },
+  {
+    "id": 934,
+    "date": "2024-12-09",
+    "product": "Desk Chair",
+    "amount": 486.65,
+    "customer_id": 3510
+  },
+  {
+    "id": 935,
+    "date": "2024-12-18",
+    "product": "Phone Stand",
+    "amount": 689.46,
+    "customer_id": 6845
+  },
+  {
+    "id": 936,
+    "date": "2024-12-01",
+    "product": "Webcam HD",
+    "amount": 301.52,
+    "customer_id": 385
+  },
+  {
+    "id": 937,
+    "date": "2024-12-26",
+    "product": "Headphones",
+    "amount": 447.29,
+    "customer_id": 5119
+  },
+  {
+    "id": 938,
+    "date": "2024-12-21",
+    "product": "Standing Desk",
+    "amount": 124.54,
+    "customer_id": 2774
+  },
+  {
+    "id": 939,
+    "date": "2024-12-03",
+    "product": "Laptop Pro",
+    "amount": 54.38,
+    "customer_id": 1376
+  },
+  {
+    "id": 940,
+    "date": "2024-12-25",
+    "product": "USB-C Hub",
+    "amount": 261.26,
+    "customer_id": 7468
+  },
+  {
+    "id": 941,
+    "date": "2024-12-23",
+    "product": "Headphones",
+    "amount": 292.95,
+    "customer_id": 5000
+  },
+  {
+    "id": 942,
+    "date": "2024-12-10",
+    "product": "Headphones",
+    "amount": 100.57,
+    "customer_id": 886
+  },
+  {
+    "id": 943,
+    "date": "2024-12-26",
+    "product": "Phone Stand",
+    "amount": 588.56,
+    "customer_id": 7225
+  },
+  {
+    "id": 944,
+    "date": "2024-12-14",
+    "product": "Mechanical Keyboard",
+    "amount": 864.69,
+    "customer_id": 189
+  },
+  {
+    "id": 945,
+    "date": "2024-12-13",
+    "product": "Standing Desk",
+    "amount": 110.09,
+    "customer_id": 5581
+  },
+  {
+    "id": 946,
+    "date": "2024-12-20",
+    "product": "Laptop Pro",
+    "amount": 109.19,
+    "customer_id": 1055
+  },
+  {
+    "id": 947,
+    "date": "2024-12-13",
+    "product": "Monitor 27\"",
+    "amount": 519.77,
+    "customer_id": 5007
+  },
+  {
+    "id": 948,
+    "date": "2024-12-01",
+    "product": "Mechanical Keyboard",
+    "amount": 742.95,
+    "customer_id": 2128
+  },
+  {
+    "id": 949,
+    "date": "2024-12-25",
+    "product": "Desk Chair",
+    "amount": 473.16,
+    "customer_id": 5627
+  },
+  {
+    "id": 950,
+    "date": "2024-12-12",
+    "product": "Wireless Mouse",
+    "amount": 908.18,
+    "customer_id": 6122
+  },
+  {
+    "id": 951,
+    "date": "2024-12-25",
+    "product": "Mechanical Keyboard",
+    "amount": 679.14,
+    "customer_id": 7193
+  },
+  {
+    "id": 952,
+    "date": "2024-12-03",
+    "product": "Phone Stand",
+    "amount": 360.46,
+    "customer_id": 7606
+  },
+  {
+    "id": 953,
+    "date": "2024-12-29",
+    "product": "Wireless Mouse",
+    "amount": 709.93,
+    "customer_id": 200
+  },
+  {
+    "id": 954,
+    "date": "2024-12-14",
+    "product": "USB-C Hub",
+    "amount": 578.66,
+    "customer_id": 7444
+  },
+  {
+    "id": 955,
+    "date": "2024-12-03",
+    "product": "Laptop Pro",
+    "amount": 431.09,
+    "customer_id": 3659
+  },
+  {
+    "id": 956,
+    "date": "2024-12-26",
+    "product": "Phone Stand",
+    "amount": 585.01,
+    "customer_id": 3907
+  },
+  {
+    "id": 957,
+    "date": "2024-12-19",
+    "product": "Wireless Mouse",
+    "amount": 111.52,
+    "customer_id": 9546
+  },
+  {
+    "id": 958,
+    "date": "2024-12-16",
+    "product": "USB-C Hub",
+    "amount": 355.06,
+    "customer_id": 453
+  },
+  {
+    "id": 959,
+    "date": "2024-12-21",
+    "product": "Mechanical Keyboard",
+    "amount": 203.42,
+    "customer_id": 3911
+  },
+  {
+    "id": 960,
+    "date": "2024-12-29",
+    "product": "USB-C Hub",
+    "amount": 927.71,
+    "customer_id": 167
+  },
+  {
+    "id": 961,
+    "date": "2024-12-30",
+    "product": "Webcam HD",
+    "amount": 792.36,
+    "customer_id": 4654
+  },
+  {
+    "id": 962,
+    "date": "2024-12-05",
+    "product": "Webcam HD",
+    "amount": 225.17,
+    "customer_id": 6877
+  },
+  {
+    "id": 963,
+    "date": "2024-12-05",
+    "product": "Standing Desk",
+    "amount": 717.23,
+    "customer_id": 5973
+  },
+  {
+    "id": 964,
+    "date": "2024-12-07",
+    "product": "Standing Desk",
+    "amount": 423,
+    "customer_id": 2929
+  },
+  {
+    "id": 965,
+    "date": "2024-12-28",
+    "product": "Laptop Pro",
+    "amount": 320.24,
+    "customer_id": 9473
+  },
+  {
+    "id": 966,
+    "date": "2024-12-27",
+    "product": "Standing Desk",
+    "amount": 140.09,
+    "customer_id": 3631
+  },
+  {
+    "id": 967,
+    "date": "2024-12-26",
+    "product": "Headphones",
+    "amount": 896.96,
+    "customer_id": 1945
+  },
+  {
+    "id": 968,
+    "date": "2024-12-20",
+    "product": "Headphones",
+    "amount": 158.66,
+    "customer_id": 8366
+  },
+  {
+    "id": 969,
+    "date": "2024-12-24",
+    "product": "Wireless Mouse",
+    "amount": 846.28,
+    "customer_id": 9807
+  },
+  {
+    "id": 970,
+    "date": "2024-12-17",
+    "product": "Wireless Mouse",
+    "amount": 894.27,
+    "customer_id": 8368
+  },
+  {
+    "id": 971,
+    "date": "2024-12-01",
+    "product": "Phone Stand",
+    "amount": 400.4,
+    "customer_id": 221
+  },
+  {
+    "id": 972,
+    "date": "2024-12-17",
+    "product": "Standing Desk",
+    "amount": 525.8,
+    "customer_id": 1169
+  },
+  {
+    "id": 973,
+    "date": "2024-12-01",
+    "product": "Phone Stand",
+    "amount": 84.9,
+    "customer_id": 8866
+  },
+  {
+    "id": 974,
+    "date": "2024-12-21",
+    "product": "Headphones",
+    "amount": 715.48,
+    "customer_id": 1706
+  },
+  {
+    "id": 975,
+    "date": "2024-12-25",
+    "product": "Headphones",
+    "amount": 828.66,
+    "customer_id": 4382
+  },
+  {
+    "id": 976,
+    "date": "2024-12-26",
+    "product": "Laptop Pro",
+    "amount": 118.87,
+    "customer_id": 104
+  },
+  {
+    "id": 977,
+    "date": "2024-12-09",
+    "product": "Mechanical Keyboard",
+    "amount": 773.89,
+    "customer_id": 9488
+  },
+  {
+    "id": 978,
+    "date": "2024-12-09",
+    "product": "Desk Chair",
+    "amount": 434.85,
+    "customer_id": 6114
+  },
+  {
+    "id": 979,
+    "date": "2024-12-24",
+    "product": "Wireless Mouse",
+    "amount": 666.17,
+    "customer_id": 8749
+  },
+  {
+    "id": 980,
+    "date": "2024-12-17",
+    "product": "Headphones",
+    "amount": 245.64,
+    "customer_id": 232
+  },
+  {
+    "id": 981,
+    "date": "2024-12-18",
+    "product": "Mechanical Keyboard",
+    "amount": 994.37,
+    "customer_id": 3032
+  },
+  {
+    "id": 982,
+    "date": "2024-12-14",
+    "product": "Headphones",
+    "amount": 406.8,
+    "customer_id": 1469
+  },
+  {
+    "id": 983,
+    "date": "2024-12-03",
+    "product": "USB-C Hub",
+    "amount": 780.72,
+    "customer_id": 606
+  },
+  {
+    "id": 984,
+    "date": "2024-12-13",
+    "product": "Webcam HD",
+    "amount": 197.22,
+    "customer_id": 1801
+  },
+  {
+    "id": 985,
+    "date": "2024-12-17",
+    "product": "Headphones",
+    "amount": 990.77,
+    "customer_id": 4929
+  },
+  {
+    "id": 986,
+    "date": "2024-12-19",
+    "product": "Mechanical Keyboard",
+    "amount": 69.13,
+    "customer_id": 7276
+  },
+  {
+    "id": 987,
+    "date": "2024-12-14",
+    "product": "Standing Desk",
+    "amount": 683.41,
+    "customer_id": 9088
+  },
+  {
+    "id": 988,
+    "date": "2024-12-21",
+    "product": "Headphones",
+    "amount": 108.07,
+    "customer_id": 5797
+  },
+  {
+    "id": 989,
+    "date": "2024-12-23",
+    "product": "Monitor 27\"",
+    "amount": 750.87,
+    "customer_id": 6910
+  },
+  {
+    "id": 990,
+    "date": "2024-12-10",
+    "product": "Standing Desk",
+    "amount": 142.94,
+    "customer_id": 1561
+  },
+  {
+    "id": 991,
+    "date": "2024-12-18",
+    "product": "Monitor 27\"",
+    "amount": 398.7,
+    "customer_id": 739
+  },
+  {
+    "id": 992,
+    "date": "2024-12-06",
+    "product": "Monitor 27\"",
+    "amount": 515.95,
+    "customer_id": 6172
+  },
+  {
+    "id": 993,
+    "date": "2024-12-21",
+    "product": "USB-C Hub",
+    "amount": 225.79,
+    "customer_id": 5886
+  },
+  {
+    "id": 994,
+    "date": "2024-12-27",
+    "product": "USB-C Hub",
+    "amount": 542.67,
+    "customer_id": 6422
+  },
+  {
+    "id": 995,
+    "date": "2024-12-18",
+    "product": "Phone Stand",
+    "amount": 24.37,
+    "customer_id": 1732
+  },
+  {
+    "id": 996,
+    "date": "2024-12-08",
+    "product": "Monitor 27\"",
+    "amount": 601.98,
+    "customer_id": 8729
+  },
+  {
+    "id": 997,
+    "date": "2024-12-08",
+    "product": "Mechanical Keyboard",
+    "amount": 209.97,
+    "customer_id": 9512
+  },
+  {
+    "id": 998,
+    "date": "2024-12-19",
+    "product": "Standing Desk",
+    "amount": 926.11,
+    "customer_id": 254
+  },
+  {
+    "id": 999,
+    "date": "2024-12-21",
+    "product": "Desk Chair",
+    "amount": 941.51,
+    "customer_id": 6757
+  },
+  {
+    "id": 1000,
+    "date": "2024-12-12",
+    "product": "Webcam HD",
+    "amount": 60.61,
+    "customer_id": 6676
+  }
+]

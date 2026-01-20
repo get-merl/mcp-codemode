@@ -1,0 +1,146 @@
+{
+  "useCases": [
+    {
+      "id": "database-insight-report",
+      "name": "Database Insight Report",
+      "category": "database",
+      "fixtureId": "db_sales_30d_large",
+      "groundTruthId": "sales_aggregates",
+      "validator": {
+        "type": "exact_match",
+        "fields": ["totalSales", "avgOrderValue", "topProducts"]
+      },
+      "steps": [
+        {
+          "prompt": "List tables and identify sales-related ones",
+          "expectedTool": "list_tables"
+        },
+        {
+          "prompt": "Fetch schemas for sales tables",
+          "expectedTool": "get_table_schema"
+        },
+        {
+          "prompt": "Compute aggregates for last 30 days",
+          "expectedTool": "execute_sql"
+        },
+        {
+          "prompt": "Validate aggregates match expected values",
+          "expectedTool": null
+        },
+        {
+          "prompt": "Produce summary report",
+          "expectedTool": null
+        }
+      ],
+      "passCriteria": {
+        "exactMatch": true,
+        "schemaValid": true
+      },
+      "expectedOutcome": "Accurate analytics summaries from large DBs with 90%+ token reduction"
+    },
+    {
+      "id": "incident-triage-summary",
+      "name": "Incident Triage Summary",
+      "category": "devops",
+      "fixtureId": "incident_logs_weekly",
+      "groundTruthId": "labeled_causes",
+      "validator": {
+        "type": "ranking",
+        "topK": 3,
+        "minOverlap": 0.8
+      },
+      "steps": [
+        {
+          "prompt": "List services and select target",
+          "expectedTool": "list_workers"
+        },
+        {
+          "prompt": "Retrieve error logs for last 24h",
+          "expectedTool": "get_logs"
+        },
+        {
+          "prompt": "Pull latency metrics",
+          "expectedTool": "query_observability"
+        },
+        {
+          "prompt": "Cluster errors and rank by severity",
+          "expectedTool": null
+        },
+        {
+          "prompt": "Output root cause summary",
+          "expectedTool": null
+        }
+      ],
+      "passCriteria": {
+        "rankingOverlap": 0.8
+      },
+      "expectedOutcome": "Faster incident triage with fewer context tokens"
+    },
+    {
+      "id": "document-action-extraction",
+      "name": "Document Action Extraction",
+      "category": "document",
+      "fixtureId": "meeting_transcript_2h",
+      "groundTruthId": "labeled_actions",
+      "validator": {
+        "type": "f1_recall",
+        "minF1": 0.9
+      },
+      "steps": [
+        {
+          "prompt": "Fetch full transcript",
+          "expectedTool": "get_document"
+        },
+        {
+          "prompt": "Extract action items with owners",
+          "expectedTool": null
+        },
+        {
+          "prompt": "Validate against labeled list",
+          "expectedTool": null
+        },
+        {
+          "prompt": "Output as structured JSON",
+          "expectedTool": null
+        }
+      ],
+      "passCriteria": {
+        "f1": 0.9
+      },
+      "expectedOutcome": "Reliable extraction from 50K+ token documents"
+    },
+    {
+      "id": "pr-risk-summary",
+      "name": "PR Risk Summary",
+      "category": "code",
+      "fixtureId": "pr_diff_risky",
+      "groundTruthId": "labeled_risks",
+      "validator": {
+        "type": "f1_recall",
+        "minRecall": 0.9
+      },
+      "steps": [
+        {
+          "prompt": "Fetch PR diff and comments",
+          "expectedTool": "get_pr_diff"
+        },
+        {
+          "prompt": "Identify risky changes",
+          "expectedTool": null
+        },
+        {
+          "prompt": "Check test coverage",
+          "expectedTool": null
+        },
+        {
+          "prompt": "Produce review summary",
+          "expectedTool": null
+        }
+      ],
+      "passCriteria": {
+        "recall": 0.9
+      },
+      "expectedOutcome": "Consistent PR review summaries with reduced context usage"
+    }
+  ]
+}

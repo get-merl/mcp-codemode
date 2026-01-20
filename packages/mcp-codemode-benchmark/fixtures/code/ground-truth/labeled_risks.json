@@ -1,0 +1,11 @@
+{
+  "risks": [
+    "database configuration",
+    "authentication",
+    "data migration"
+  ],
+  "testGaps": [
+    "No tests for auth middleware changes",
+    "Missing database migration tests"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "topCauses": [
+    "rate_limit",
+    "timeout",
+    "auth_fail"
+  ],
+  "totalErrors": 13165,
+  "errorCounts": {
+    "auth_fail": 4264,
+    "rate_limit": 4561,
+    "timeout": 4340
+  }
+}
