@@ -1,0 +1,16 @@
+{
+  "taskId": "supabase-execute-sql-query",
+  "mode": "baseline-200",
+  "runNumber": 2,
+  "timestamp": "2026-01-21T06:14:50.730Z",
+  "tokens": {
+    "input": 76,
+    "output": 38,
+    "total": 114
+  },
+  "cost": 0.000798,
+  "response": {
+    "content": "{\"tool_name\":\"query\",\"arguments\":{\"sql\":\"SELECT *\\nFROM your_table_name;\",\"notes\":\"Replace `your_table_name` with the actual table name.\"}}"
+  },
+  "toolCount": 200
+}

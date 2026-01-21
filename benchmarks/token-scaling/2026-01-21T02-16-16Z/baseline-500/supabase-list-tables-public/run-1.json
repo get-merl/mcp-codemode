@@ -1,0 +1,16 @@
+{
+  "taskId": "supabase-list-tables-public",
+  "mode": "baseline-500",
+  "runNumber": 1,
+  "timestamp": "2026-01-21T02:16:39.098Z",
+  "tokens": {
+    "input": 72,
+    "output": 47,
+    "total": 119
+  },
+  "cost": 0.0009209999999999999,
+  "response": {
+    "content": "{\"tool_name\":\"sql_query\",\"arguments\":{\"query\":\"SELECT table_name\\nFROM information_schema.tables\\nWHERE table_schema = 'public'\\n  AND table_type = 'BASE TABLE'\\nORDER BY table_name;\"}}"
+  },
+  "toolCount": 500
+}

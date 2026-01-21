@@ -1,0 +1,5 @@
+testType,taskId,mode,runNumber,tokensInput,tokensOutput,tokensTotal,cost,correct
+multi-turn-growth,cloudflare-workers-analysis,baseline,1,465,90,555,0.002745,
+multi-turn-growth,supabase-check-health,baseline,1,442,69,511,0.002361,
+multi-turn-growth,supabase-explore-database,baseline,1,875,283,1158,0.006870,
+multi-turn-growth,supabase-migration-workflow,baseline,1,1126,869,1995,0.016413,

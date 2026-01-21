@@ -1,0 +1,16 @@
+{
+  "taskId": "supabase-list-tables-large",
+  "mode": "baseline-500",
+  "runNumber": 2,
+  "timestamp": "2026-01-21T06:14:57.761Z",
+  "tokens": {
+    "input": 77,
+    "output": 172,
+    "total": 249
+  },
+  "cost": 0.002811,
+  "response": {
+    "content": "{\"tool_name\":\"sql\",\"arguments\":{\"query\":\"SELECT c.relname AS table_name,\\n       obj_description(c.oid, 'pg_class') AS table_comment,\\n       pg_size_pretty(pg_total_relation_size(c.oid)) AS total_size,\\n       pg_size_pretty(pg_relation_size(c.oid)) AS table_size,\\n       pg_size_pretty(pg_total_relation_size(c.oid) - pg_relation_size(c.oid)) AS indexes_size,\\n       c.reltuples::bigint AS estimated_rows,\\n       pg_get_userbyid(c.relowner) AS owner\\nFROM pg_class c\\nJOIN pg_namespace n ON n.oid = c.relnamespace\\nWHERE n.nspname = 'public'\\n  AND c.relkind = 'r'\\nORDER BY c.relname;\"} }"
+  },
+  "toolCount": 500
+}

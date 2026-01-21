@@ -1,0 +1,13 @@
+{
+  "workflowId": "supabase-check-health",
+  "mode": "baseline",
+  "runNumber": 1,
+  "timestamp": "2026-01-21T06:13:40.488Z",
+  "tokens": {
+    "input": 442,
+    "output": 69,
+    "total": 511
+  },
+  "cost": 0.002361,
+  "turns": 4
+}

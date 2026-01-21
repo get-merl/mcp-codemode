@@ -1,0 +1,16 @@
+{
+  "taskId": "supabase-list-tables-public",
+  "mode": "baseline-30",
+  "runNumber": 2,
+  "timestamp": "2026-01-21T02:16:19.541Z",
+  "tokens": {
+    "input": 72,
+    "output": 38,
+    "total": 110
+  },
+  "cost": 0.000786,
+  "response": {
+    "content": "{\"tool_name\":\"query\",\"arguments\":{\"sql\":\"SELECT tablename FROM pg_catalog.pg_tables WHERE schemaname = 'public' ORDER BY tablename;\",\"params\":[]}}"
+  },
+  "toolCount": 30
+}

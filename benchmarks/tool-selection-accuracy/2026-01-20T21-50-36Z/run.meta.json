@@ -1,0 +1,10 @@
+{
+  "testType": "tool-selection-accuracy",
+  "timestamp": "2026-01-20T21-50-36Z",
+  "runsPerTask": 3,
+  "tasksCount": 3,
+  "modes": [
+    "baseline",
+    "toolbox"
+  ]
+}

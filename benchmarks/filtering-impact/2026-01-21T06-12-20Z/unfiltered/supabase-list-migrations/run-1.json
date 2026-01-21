@@ -1,0 +1,17 @@
+{
+  "taskId": "supabase-list-migrations",
+  "mode": "baseline",
+  "runNumber": 1,
+  "timestamp": "2026-01-21T06:12:51.822Z",
+  "tokens": {
+    "input": 67,
+    "output": 18,
+    "total": 85
+  },
+  "cost": 0.000471,
+  "response": {
+    "tool_name": "db_list_applied_migrations",
+    "arguments": {}
+  },
+  "correct": false
+}

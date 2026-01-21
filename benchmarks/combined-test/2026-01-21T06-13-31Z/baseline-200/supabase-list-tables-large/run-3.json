@@ -1,0 +1,16 @@
+{
+  "taskId": "supabase-list-tables-large",
+  "mode": "baseline-200",
+  "runNumber": 3,
+  "timestamp": "2026-01-21T06:14:48.831Z",
+  "tokens": {
+    "input": 77,
+    "output": 262,
+    "total": 339
+  },
+  "cost": 0.004161000000000001,
+  "response": {
+    "content": "{\"tool_name\":\"query\",\"arguments\":{\"sql\":\"SELECT c.relname AS table_name,\\n       obj_description(c.oid, 'pg_class') AS table_comment,\\n       pg_get_userbyid(c.relowner) AS table_owner,\\n       pg_size_pretty(pg_total_relation_size(c.oid)) AS total_size,\\n       a.attnum AS ordinal_position,\\n       a.attname AS column_name,\\n       pg_catalog.format_type(a.atttypid, a.atttypmod) AS data_type,\\n       NOT a.attnotnull AS is_nullable,\\n       pg_get_expr(ad.adbin, ad.adrelid) AS column_default,\\n       col_description(a.attrelid, a.attnum) AS column_comment\\nFROM pg_class c\\nJOIN pg_namespace n ON n.oid = c.relnamespace\\nJOIN pg_attribute a ON a.attrelid = c.oid\\nLEFT JOIN pg_attrdef ad ON ad.adrelid = c.oid AND ad.adnum = a.attnum\\nWHERE n.nspname = 'public'\\n  AND c.relkind = 'r'\\n  AND a.attnum > 0\\n  AND NOT a.attisdropped\\nORDER BY c.relname, a.attnum;\"} }"
+  },
+  "toolCount": 200
+}

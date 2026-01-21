@@ -1,0 +1,16 @@
+{
+  "taskId": "supabase-list-tables-large",
+  "mode": "baseline-30",
+  "runNumber": 1,
+  "timestamp": "2026-01-21T06:13:44.154Z",
+  "tokens": {
+    "input": 77,
+    "output": 690,
+    "total": 767
+  },
+  "cost": 0.010581,
+  "response": {
+    "content": "{\"tool_name\":\"query\",\"arguments\":{\"sql\":\"SELECT\\n  c.relname AS table_name,\\n  obj_description(c.oid, 'pg_class') AS table_comment,\\n  pg_size_pretty(pg_total_relation_size(c.oid)) AS total_size,\\n  pg_size_pretty(pg_relation_size(c.oid)) AS table_size,\\n  pg_size_pretty(pg_total_relation_size(c.oid) - pg_relation_size(c.oid)) AS external_size,\\n  COALESCE(s.n_live_tup, 0) AS est_live_rows,\\n  c.reltuples::bigint AS planner_row_estimate,\\n  pg_get_userbyid(c.relowner) AS owner\\nFROM pg_class c\\nJOIN pg_namespace n ON n.oid = c.relnamespace\\nLEFT JOIN pg_stat_user_tables s ON s.relid = c.oid\\nWHERE n.nspname = 'public'\\n  AND c.relkind = 'r'\\nORDER BY c.relname;\\n\\nSELECT\\n  c.relname AS table_name,\\n  a.attnum AS ordinal_position,\\n  a.attname AS column_name,\\n  pg_catalog.format_type(a.atttypid, a.atttypmod) AS data_type,\\n  a.attnotnull AS not_null,\\n  pg_get_expr(ad.adbin, ad.adrelid) AS column_default,\\n  col_description(a.attrelid, a.attnum) AS column_comment\\nFROM pg_attribute a\\nJOIN pg_class c ON c.oid = a.attrelid\\nJOIN pg_namespace n ON n.oid = c.relnamespace\\nLEFT JOIN pg_attrdef ad ON ad.adrelid = a.attrelid AND ad.adnum = a.attnum\\nWHERE n.nspname = 'public'\\n  AND c.relkind = 'r'\\n  AND a.attnum > 0\\n  AND NOT a.attisdropped\\nORDER BY c.relname, a.attnum;\\n\\nSELECT\\n  t.relname AS table_name,\\n  i.relname AS index_name,\\n  ix.indisprimary AS is_primary,\\n  ix.indisunique AS is_unique,\\n  pg_get_indexdef(i.oid) AS index_def\\nFROM pg_index ix\\nJOIN pg_class i ON i.oid = ix.indexrelid\\nJOIN pg_class t ON t.oid = ix.indrelid\\nJOIN pg_namespace n ON n.oid = t.relnamespace\\nWHERE n.nspname = 'public'\\n  AND t.relkind = 'r'\\nORDER BY t.relname, i.relname;\\n\\nSELECT\\n  tc.table_name,\\n  tc.constraint_name,\\n  tc.constraint_type,\\n  kcu.column_name,\\n  ccu.table_name AS foreign_table_name,\\n  ccu.column_name AS foreign_column_name\\nFROM information_schema.table_constraints tc\\nLEFT JOIN information_schema.key_column_usage kcu\\n  ON tc.constraint_name = kcu.constraint_name\\n  AND tc.table_schema = kcu.table_schema\\nLEFT JOIN information_schema.constraint_column_usage ccu\\n  ON tc.constraint_name = ccu.constraint_name\\n  AND tc.table_schema = ccu.table_schema\\nWHERE tc.table_schema = 'public'\\nORDER BY tc.table_name, tc.constraint_name, kcu.ordinal_position;\"} }"
+  },
+  "toolCount": 30
+}

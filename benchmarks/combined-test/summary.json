@@ -1,0 +1,1122 @@
+{
+  "testType": "combined-test",
+  "timestamp": "2026-01-21T06:15:26.274Z",
+  "totalRuns": 54,
+  "results": [
+    {
+      "taskId": "cloudflare-workers-list-large",
+      "mode": "baseline-100",
+      "runs": [
+        {
+          "taskId": "cloudflare-workers-list-large",
+          "mode": "baseline-100",
+          "runNumber": 1,
+          "timestamp": "2026-01-21T06:14:28.306Z",
+          "tokens": {
+            "input": 74,
+            "output": 27,
+            "total": 101
+          },
+          "cost": 0.000627,
+          "response": {
+            "content": "{\"tool_name\":\"cloudflare.list_workers\",\"arguments\":{\"account_id\":\"<ACCOUNT_ID>\",\"per_page\":100}}"
+          },
+          "toolCount": 100
+        },
+        {
+          "taskId": "cloudflare-workers-list-large",
+          "mode": "baseline-100",
+          "runNumber": 2,
+          "timestamp": "2026-01-21T06:14:29.153Z",
+          "tokens": {
+            "input": 74,
+            "output": 22,
+            "total": 96
+          },
+          "cost": 0.000552,
+          "response": {
+            "content": "{\"tool_name\":\"cloudflare.list_workers\",\"arguments\":{\"account_id\":\"<ACCOUNT_ID>\"}}"
+          },
+          "toolCount": 100
+        },
+        {
+          "taskId": "cloudflare-workers-list-large",
+          "mode": "baseline-100",
+          "runNumber": 3,
+          "timestamp": "2026-01-21T06:14:30.240Z",
+          "tokens": {
+            "input": 74,
+            "output": 27,
+            "total": 101
+          },
+          "cost": 0.000627,
+          "response": {
+            "content": "{\"tool_name\":\"cloudflare_list_workers\",\"arguments\":{\"account_id\":\"<ACCOUNT_ID>\",\"per_page\":100}}"
+          },
+          "toolCount": 100
+        }
+      ],
+      "averageTokens": {
+        "input": 74,
+        "output": 25.333333333333332,
+        "total": 99.33333333333333
+      },
+      "averageCost": 0.000602
+    },
+    {
+      "taskId": "supabase-execute-sql-query",
+      "mode": "baseline-100",
+      "runs": [
+        {
+          "taskId": "supabase-execute-sql-query",
+          "mode": "baseline-100",
+          "runNumber": 1,
+          "timestamp": "2026-01-21T06:14:25.737Z",
+          "tokens": {
+            "input": 76,
+            "output": 24,
+            "total": 100
+          },
+          "cost": 0.000588,
+          "response": {
+            "content": "{\"tool_name\":\"sql_query\",\"arguments\":{\"query\":\"SELECT *\\nFROM your_table_name;\"}}"
+          },
+          "toolCount": 100
+        },
+        {
+          "taskId": "supabase-execute-sql-query",
+          "mode": "baseline-100",
+          "runNumber": 2,
+          "timestamp": "2026-01-21T06:14:26.586Z",
+          "tokens": {
+            "input": 76,
+            "output": 22,
+            "total": 98
+          },
+          "cost": 0.000558,
+          "response": {
+            "content": "{\"tool_name\":\"sql.query\",\"arguments\":{\"query\":\"SELECT * FROM your_table_name;\"}}"
+          },
+          "toolCount": 100
+        },
+        {
+          "taskId": "supabase-execute-sql-query",
+          "mode": "baseline-100",
+          "runNumber": 3,
+          "timestamp": "2026-01-21T06:14:27.415Z",
+          "tokens": {
+            "input": 76,
+            "output": 22,
+            "total": 98
+          },
+          "cost": 0.000558,
+          "response": {
+            "content": "{\"tool_name\":\"sql_query\",\"arguments\":{\"query\":\"SELECT * FROM table_name;\"}}\n"
+          },
+          "toolCount": 100
+        }
+      ],
+      "averageTokens": {
+        "input": 76,
+        "output": 22.666666666666668,
+        "total": 98.66666666666667
+      },
+      "averageCost": 0.0005679999999999999
+    },
+    {
+      "taskId": "supabase-list-tables-large",
+      "mode": "baseline-100",
+      "runs": [
+        {
+          "taskId": "supabase-list-tables-large",
+          "mode": "baseline-100",
+          "runNumber": 1,
+          "timestamp": "2026-01-21T06:14:18.717Z",
+          "tokens": {
+            "input": 77,
+            "output": 55,
+            "total": 132
+          },
+          "cost": 0.001056,
+          "response": {
+            "content": "{\"tool_name\":\"sql_query\",\"arguments\":{\"query\":\"SELECT table_name, column_name, data_type, is_nullable, column_default, ordinal_position\\nFROM information_schema.columns\\nWHERE table_schema = 'public'\\nORDER BY table_name, ordinal_position;\"}}"
+          },
+          "toolCount": 100
+        },
+        {
+          "taskId": "supabase-list-tables-large",
+          "mode": "baseline-100",
+          "runNumber": 2,
+          "timestamp": "2026-01-21T06:14:23.676Z",
+          "tokens": {
+            "input": 77,
+            "output": 229,
+            "total": 306
+          },
+          "cost": 0.003666,
+          "response": {
+            "content": "{\"tool_name\":\"run_sql\",\"arguments\":{\"query\":\"SELECT\\n  n.nspname AS schema_name,\\n  c.relname AS table_name,\\n  obj_description(c.oid, 'pg_class') AS table_comment,\\n  pg_get_userbyid(c.relowner) AS table_owner,\\n  c.relpersistence AS persistence,\\n  c.reltuples::bigint AS estimated_rows,\\n  pg_total_relation_size(c.oid) AS total_bytes,\\n  pg_size_pretty(pg_total_relation_size(c.oid)) AS total_size,\\n  pg_relation_size(c.oid) AS table_bytes,\\n  pg_size_pretty(pg_relation_size(c.oid)) AS table_size,\\n  pg_indexes_size(c.oid) AS indexes_bytes,\\n  pg_size_pretty(pg_indexes_size(c.oid)) AS indexes_size\\nFROM pg_class c\\nJOIN pg_namespace n ON n.oid = c.relnamespace\\nWHERE n.nspname = 'public'\\n  AND c.relkind IN ('r','p')\\nORDER BY c.relname;\"} }"
+          },
+          "toolCount": 100
+        },
+        {
+          "taskId": "supabase-list-tables-large",
+          "mode": "baseline-100",
+          "runNumber": 3,
+          "timestamp": "2026-01-21T06:14:24.971Z",
+          "tokens": {
+            "input": 77,
+            "output": 70,
+            "total": 147
+          },
+          "cost": 0.001281,
+          "response": {
+            "content": "{\"tool_name\":\"sql_query\",\"arguments\":{\"query\":\"SELECT c.table_name,\\n       c.column_name,\\n       c.data_type,\\n       c.is_nullable,\\n       c.column_default\\nFROM information_schema.columns c\\nWHERE c.table_schema = 'public'\\nORDER BY c.table_name, c.ordinal_position;\"} }"
+          },
+          "toolCount": 100
+        }
+      ],
+      "averageTokens": {
+        "input": 77,
+        "output": 118,
+        "total": 195
+      },
+      "averageCost": 0.002001
+    },
+    {
+      "taskId": "cloudflare-workers-list-large",
+      "mode": "baseline-200",
+      "runs": [
+        {
+          "taskId": "cloudflare-workers-list-large",
+          "mode": "baseline-200",
+          "runNumber": 1,
+          "timestamp": "2026-01-21T06:14:52.272Z",
+          "tokens": {
+            "input": 74,
+            "output": 28,
+            "total": 102
+          },
+          "cost": 0.000642,
+          "response": {
+            "content": "{\"tool_name\":\"cloudflare.workers.list\",\"arguments\":{\"account_id\":\"<ACCOUNT_ID>\",\"per_page\":100}}"
+          },
+          "toolCount": 200
+        },
+        {
+          "taskId": "cloudflare-workers-list-large",
+          "mode": "baseline-200",
+          "runNumber": 2,
+          "timestamp": "2026-01-21T06:14:53.195Z",
+          "tokens": {
+            "input": 74,
+            "output": 23,
+            "total": 97
+          },
+          "cost": 0.000567,
+          "response": {
+            "content": "{\"tool_name\":\"cloudflare.workers.list\",\"arguments\":{\"account_id\":\"<ACCOUNT_ID>\"}}"
+          },
+          "toolCount": 200
+        },
+        {
+          "taskId": "cloudflare-workers-list-large",
+          "mode": "baseline-200",
+          "runNumber": 3,
+          "timestamp": "2026-01-21T06:14:54.098Z",
+          "tokens": {
+            "input": 74,
+            "output": 16,
+            "total": 90
+          },
+          "cost": 0.00046199999999999995,
+          "response": {
+            "content": "{\"tool_name\":\"cloudflare.list_workers\",\"arguments\":{}}"
+          },
+          "toolCount": 200
+        }
+      ],
+      "averageTokens": {
+        "input": 74,
+        "output": 22.333333333333332,
+        "total": 96.33333333333333
+      },
+      "averageCost": 0.000557
+    },
+    {
+      "taskId": "supabase-execute-sql-query",
+      "mode": "baseline-200",
+      "runs": [
+        {
+          "taskId": "supabase-execute-sql-query",
+          "mode": "baseline-200",
+          "runNumber": 1,
+          "timestamp": "2026-01-21T06:14:49.672Z",
+          "tokens": {
+            "input": 76,
+            "output": 23,
+            "total": 99
+          },
+          "cost": 0.0005729999999999999,
+          "response": {
+            "content": "{\"tool_name\":\"sql_query\",\"arguments\":{\"query\":\"SELECT * FROM <table_name>;\"}}"
+          },
+          "toolCount": 200
+        },
+        {
+          "taskId": "supabase-execute-sql-query",
+          "mode": "baseline-200",
+          "runNumber": 2,
+          "timestamp": "2026-01-21T06:14:50.730Z",
+          "tokens": {
+            "input": 76,
+            "output": 38,
+            "total": 114
+          },
+          "cost": 0.000798,
+          "response": {
+            "content": "{\"tool_name\":\"query\",\"arguments\":{\"sql\":\"SELECT *\\nFROM your_table_name;\",\"notes\":\"Replace `your_table_name` with the actual table name.\"}}"
+          },
+          "toolCount": 200
+        },
+        {
+          "taskId": "supabase-execute-sql-query",
+          "mode": "baseline-200",
+          "runNumber": 3,
+          "timestamp": "2026-01-21T06:14:51.454Z",
+          "tokens": {
+            "input": 76,
+            "output": 23,
+            "total": 99
+          },
+          "cost": 0.0005729999999999999,
+          "response": {
+            "content": "{\"tool_name\":\"db_query\",\"arguments\":{\"query\":\"SELECT * FROM <table_name>;\"}}"
+          },
+          "toolCount": 200
+        }
+      ],
+      "averageTokens": {
+        "input": 76,
+        "output": 28,
+        "total": 104
+      },
+      "averageCost": 0.0006479999999999999
+    },
+    {
+      "taskId": "supabase-list-tables-large",
+      "mode": "baseline-200",
+      "runs": [
+        {
+          "taskId": "supabase-list-tables-large",
+          "mode": "baseline-200",
+          "runNumber": 1,
+          "timestamp": "2026-01-21T06:14:40.818Z",
+          "tokens": {
+            "input": 77,
+            "output": 739,
+            "total": 816
+          },
+          "cost": 0.011316,
+          "response": {
+            "content": "{\"tool_name\":\"query_postgres\",\"arguments\":{\"sql\":\"SELECT n.nspname AS schema_name,\\n       c.relname AS table_name,\\n       c.relkind AS relation_type,\\n       pg_total_relation_size(c.oid) AS total_bytes,\\n       pg_relation_size(c.oid) AS table_bytes,\\n       pg_total_relation_size(c.oid) - pg_relation_size(c.oid) AS aux_bytes,\\n       pg_size_pretty(pg_total_relation_size(c.oid)) AS total_size,\\n       pg_size_pretty(pg_relation_size(c.oid)) AS table_size,\\n       pg_size_pretty(pg_total_relation_size(c.oid) - pg_relation_size(c.oid)) AS aux_size,\\n       c.reltuples::bigint AS est_rows,\\n       obj_description(c.oid, 'pg_class') AS table_comment,\\n       (SELECT jsonb_agg(jsonb_build_object(\\n                   'column_name', a.attname,\\n                   'data_type', pg_catalog.format_type(a.atttypid, a.atttypmod),\\n                   'is_nullable', NOT a.attnotnull,\\n                   'default', pg_get_expr(ad.adbin, ad.adrelid),\\n                   'comment', col_description(a.attrelid, a.attnum)\\n               ) ORDER BY a.attnum)\\n          FROM pg_attribute a\\n          LEFT JOIN pg_attrdef ad\\n                 ON ad.adrelid = a.attrelid\\n                AND ad.adnum = a.attnum\\n         WHERE a.attrelid = c.oid\\n           AND a.attnum > 0\\n           AND NOT a.attisdropped) AS columns,\\n       (SELECT jsonb_agg(jsonb_build_object(\\n                   'index_name', ic.relname,\\n                   'is_primary', i.indisprimary,\\n                   'is_unique', i.indisunique,\\n                   'is_valid', i.indisvalid,\\n                   'definition', pg_get_indexdef(i.indexrelid)\\n               ) ORDER BY ic.relname)\\n          FROM pg_index i\\n          JOIN pg_class ic ON ic.oid = i.indexrelid\\n         WHERE i.indrelid = c.oid) AS indexes,\\n       (SELECT jsonb_agg(jsonb_build_object(\\n                   'constraint_name', con.conname,\\n                   'constraint_type', con.contype,\\n                   'definition', pg_get_constraintdef(con.oid)\\n               ) ORDER BY con.conname)\\n          FROM pg_constraint con\\n         WHERE con.conrelid = c.oid) AS constraints,\\n       (SELECT jsonb_agg(jsonb_build_object(\\n                   'referenced_by_table', rn.nspname || '.' || rc.relname,\\n                   'fk_name', con.conname,\\n                   'definition', pg_get_constraintdef(con.oid)\\n               ) ORDER BY rn.nspname, rc.relname, con.conname)\\n          FROM pg_constraint con\\n          JOIN pg_class rc ON rc.oid = con.conrelid\\n          JOIN pg_namespace rn ON rn.oid = rc.relnamespace\\n         WHERE con.contype = 'f'\\n           AND con.confrelid = c.oid) AS referenced_by\\n  FROM pg_class c\\n  JOIN pg_namespace n ON n.oid = c.relnamespace\\n WHERE n.nspname = 'public'\\n   AND c.relkind IN ('r','p','v','m','f')\\n ORDER BY n.nspname, c.relname;\"} }"
+          },
+          "toolCount": 200
+        },
+        {
+          "taskId": "supabase-list-tables-large",
+          "mode": "baseline-200",
+          "runNumber": 2,
+          "timestamp": "2026-01-21T06:14:44.945Z",
+          "tokens": {
+            "input": 77,
+            "output": 248,
+            "total": 325
+          },
+          "cost": 0.0039510000000000005,
+          "response": {
+            "content": "{\"tool_name\":\"sql.query\",\"arguments\":{\"query\":\"SELECT\\n  n.nspname AS schema_name,\\n  c.relname AS table_name,\\n  c.relkind AS relkind,\\n  pg_total_relation_size(c.oid) AS total_bytes,\\n  pg_relation_size(c.oid) AS table_bytes,\\n  pg_indexes_size(c.oid) AS indexes_bytes,\\n  pg_size_pretty(pg_total_relation_size(c.oid)) AS total_size,\\n  pg_size_pretty(pg_relation_size(c.oid)) AS table_size,\\n  pg_size_pretty(pg_indexes_size(c.oid)) AS indexes_size,\\n  s.n_live_tup,\\n  s.n_dead_tup,\\n  s.last_vacuum,\\n  s.last_autovacuum,\\n  s.last_analyze,\\n  s.last_autoanalyze\\nFROM pg_class c\\nJOIN pg_namespace n ON n.oid = c.relnamespace\\nLEFT JOIN pg_stat_user_tables s ON s.relid = c.oid\\nWHERE n.nspname = 'public'\\n  AND c.relkind IN ('r','p')\\nORDER BY c.relname;\"} }"
+          },
+          "toolCount": 200
+        },
+        {
+          "taskId": "supabase-list-tables-large",
+          "mode": "baseline-200",
+          "runNumber": 3,
+          "timestamp": "2026-01-21T06:14:48.831Z",
+          "tokens": {
+            "input": 77,
+            "output": 262,
+            "total": 339
+          },
+          "cost": 0.004161000000000001,
+          "response": {
+            "content": "{\"tool_name\":\"query\",\"arguments\":{\"sql\":\"SELECT c.relname AS table_name,\\n       obj_description(c.oid, 'pg_class') AS table_comment,\\n       pg_get_userbyid(c.relowner) AS table_owner,\\n       pg_size_pretty(pg_total_relation_size(c.oid)) AS total_size,\\n       a.attnum AS ordinal_position,\\n       a.attname AS column_name,\\n       pg_catalog.format_type(a.atttypid, a.atttypmod) AS data_type,\\n       NOT a.attnotnull AS is_nullable,\\n       pg_get_expr(ad.adbin, ad.adrelid) AS column_default,\\n       col_description(a.attrelid, a.attnum) AS column_comment\\nFROM pg_class c\\nJOIN pg_namespace n ON n.oid = c.relnamespace\\nJOIN pg_attribute a ON a.attrelid = c.oid\\nLEFT JOIN pg_attrdef ad ON ad.adrelid = c.oid AND ad.adnum = a.attnum\\nWHERE n.nspname = 'public'\\n  AND c.relkind = 'r'\\n  AND a.attnum > 0\\n  AND NOT a.attisdropped\\nORDER BY c.relname, a.attnum;\"} }"
+          },
+          "toolCount": 200
+        }
+      ],
+      "averageTokens": {
+        "input": 77,
+        "output": 416.3333333333333,
+        "total": 493.3333333333333
+      },
+      "averageCost": 0.006476
+    },
+    {
+      "taskId": "cloudflare-workers-list-large",
+      "mode": "baseline-30",
+      "runs": [
+        {
+          "taskId": "cloudflare-workers-list-large",
+          "mode": "baseline-30",
+          "runNumber": 1,
+          "timestamp": "2026-01-21T06:13:55.942Z",
+          "tokens": {
+            "input": 74,
+            "output": 22,
+            "total": 96
+          },
+          "cost": 0.000552,
+          "response": {
+            "content": "{\"tool_name\":\"cloudflare.list_workers\",\"arguments\":{\"account_id\":\"<ACCOUNT_ID>\"}}"
+          },
+          "toolCount": 30
+        },
+        {
+          "taskId": "cloudflare-workers-list-large",
+          "mode": "baseline-30",
+          "runNumber": 2,
+          "timestamp": "2026-01-21T06:13:56.736Z",
+          "tokens": {
+            "input": 74,
+            "output": 22,
+            "total": 96
+          },
+          "cost": 0.000552,
+          "response": {
+            "content": "{\"tool_name\":\"cloudflare.list_workers\",\"arguments\":{\"account_id\":\"<ACCOUNT_ID>\"}}"
+          },
+          "toolCount": 30
+        },
+        {
+          "taskId": "cloudflare-workers-list-large",
+          "mode": "baseline-30",
+          "runNumber": 3,
+          "timestamp": "2026-01-21T06:13:57.520Z",
+          "tokens": {
+            "input": 74,
+            "output": 22,
+            "total": 96
+          },
+          "cost": 0.000552,
+          "response": {
+            "content": "{\"tool_name\":\"cloudflare.list_workers\",\"arguments\":{\"account_id\":\"<ACCOUNT_ID>\"}}"
+          },
+          "toolCount": 30
+        }
+      ],
+      "averageTokens": {
+        "input": 74,
+        "output": 22,
+        "total": 96
+      },
+      "averageCost": 0.000552
+    },
+    {
+      "taskId": "supabase-execute-sql-query",
+      "mode": "baseline-30",
+      "runs": [
+        {
+          "taskId": "supabase-execute-sql-query",
+          "mode": "baseline-30",
+          "runNumber": 1,
+          "timestamp": "2026-01-21T06:13:53.114Z",
+          "tokens": {
+            "input": 76,
+            "output": 22,
+            "total": 98
+          },
+          "cost": 0.000558,
+          "response": {
+            "content": "{\"tool_name\":\"sql_query\",\"arguments\":{\"query\":\"SELECT * FROM your_table_name;\"}}"
+          },
+          "toolCount": 30
+        },
+        {
+          "taskId": "supabase-execute-sql-query",
+          "mode": "baseline-30",
+          "runNumber": 2,
+          "timestamp": "2026-01-21T06:13:54.145Z",
+          "tokens": {
+            "input": 76,
+            "output": 23,
+            "total": 99
+          },
+          "cost": 0.0005729999999999999,
+          "response": {
+            "content": "{\"tool_name\":\"sql_query\",\"arguments\":{\"query\":\"SELECT * FROM your_table_name;\"}}\n"
+          },
+          "toolCount": 30
+        },
+        {
+          "taskId": "supabase-execute-sql-query",
+          "mode": "baseline-30",
+          "runNumber": 3,
+          "timestamp": "2026-01-21T06:13:55.133Z",
+          "tokens": {
+            "input": 76,
+            "output": 25,
+            "total": 101
+          },
+          "cost": 0.000603,
+          "response": {
+            "content": "{\"tool_name\":\"query_table\",\"arguments\":{\"query\":\"SELECT * FROM table_name;\",\"limit\":100}}"
+          },
+          "toolCount": 30
+        }
+      ],
+      "averageTokens": {
+        "input": 76,
+        "output": 23.333333333333332,
+        "total": 99.33333333333333
+      },
+      "averageCost": 0.0005780000000000001
+    },
+    {
+      "taskId": "supabase-list-tables-large",
+      "mode": "baseline-30",
+      "runs": [
+        {
+          "taskId": "supabase-list-tables-large",
+          "mode": "baseline-30",
+          "runNumber": 1,
+          "timestamp": "2026-01-21T06:13:44.154Z",
+          "tokens": {
+            "input": 77,
+            "output": 690,
+            "total": 767
+          },
+          "cost": 0.010581,
+          "response": {
+            "content": "{\"tool_name\":\"query\",\"arguments\":{\"sql\":\"SELECT\\n  c.relname AS table_name,\\n  obj_description(c.oid, 'pg_class') AS table_comment,\\n  pg_size_pretty(pg_total_relation_size(c.oid)) AS total_size,\\n  pg_size_pretty(pg_relation_size(c.oid)) AS table_size,\\n  pg_size_pretty(pg_total_relation_size(c.oid) - pg_relation_size(c.oid)) AS external_size,\\n  COALESCE(s.n_live_tup, 0) AS est_live_rows,\\n  c.reltuples::bigint AS planner_row_estimate,\\n  pg_get_userbyid(c.relowner) AS owner\\nFROM pg_class c\\nJOIN pg_namespace n ON n.oid = c.relnamespace\\nLEFT JOIN pg_stat_user_tables s ON s.relid = c.oid\\nWHERE n.nspname = 'public'\\n  AND c.relkind = 'r'\\nORDER BY c.relname;\\n\\nSELECT\\n  c.relname AS table_name,\\n  a.attnum AS ordinal_position,\\n  a.attname AS column_name,\\n  pg_catalog.format_type(a.atttypid, a.atttypmod) AS data_type,\\n  a.attnotnull AS not_null,\\n  pg_get_expr(ad.adbin, ad.adrelid) AS column_default,\\n  col_description(a.attrelid, a.attnum) AS column_comment\\nFROM pg_attribute a\\nJOIN pg_class c ON c.oid = a.attrelid\\nJOIN pg_namespace n ON n.oid = c.relnamespace\\nLEFT JOIN pg_attrdef ad ON ad.adrelid = a.attrelid AND ad.adnum = a.attnum\\nWHERE n.nspname = 'public'\\n  AND c.relkind = 'r'\\n  AND a.attnum > 0\\n  AND NOT a.attisdropped\\nORDER BY c.relname, a.attnum;\\n\\nSELECT\\n  t.relname AS table_name,\\n  i.relname AS index_name,\\n  ix.indisprimary AS is_primary,\\n  ix.indisunique AS is_unique,\\n  pg_get_indexdef(i.oid) AS index_def\\nFROM pg_index ix\\nJOIN pg_class i ON i.oid = ix.indexrelid\\nJOIN pg_class t ON t.oid = ix.indrelid\\nJOIN pg_namespace n ON n.oid = t.relnamespace\\nWHERE n.nspname = 'public'\\n  AND t.relkind = 'r'\\nORDER BY t.relname, i.relname;\\n\\nSELECT\\n  tc.table_name,\\n  tc.constraint_name,\\n  tc.constraint_type,\\n  kcu.column_name,\\n  ccu.table_name AS foreign_table_name,\\n  ccu.column_name AS foreign_column_name\\nFROM information_schema.table_constraints tc\\nLEFT JOIN information_schema.key_column_usage kcu\\n  ON tc.constraint_name = kcu.constraint_name\\n  AND tc.table_schema = kcu.table_schema\\nLEFT JOIN information_schema.constraint_column_usage ccu\\n  ON tc.constraint_name = ccu.constraint_name\\n  AND tc.table_schema = ccu.table_schema\\nWHERE tc.table_schema = 'public'\\nORDER BY tc.table_name, tc.constraint_name, kcu.ordinal_position;\"} }"
+          },
+          "toolCount": 30
+        },
+        {
+          "taskId": "supabase-list-tables-large",
+          "mode": "baseline-30",
+          "runNumber": 2,
+          "timestamp": "2026-01-21T06:13:45.566Z",
+          "tokens": {
+            "input": 77,
+            "output": 42,
+            "total": 119
+          },
+          "cost": 0.0008609999999999999,
+          "response": {
+            "content": "{\"tool_name\":\"sql_query\",\"arguments\":{\"query\":\"SELECT table_name FROM information_schema.tables WHERE table_schema = 'public' AND table_type = 'BASE TABLE' ORDER BY table_name;\"}"
+          },
+          "toolCount": 30
+        },
+        {
+          "taskId": "supabase-list-tables-large",
+          "mode": "baseline-30",
+          "runNumber": 3,
+          "timestamp": "2026-01-21T06:13:52.150Z",
+          "tokens": {
+            "input": 77,
+            "output": 453,
+            "total": 530
+          },
+          "cost": 0.007026,
+          "response": {
+            "content": "{\"tool_name\":\"query_postgres\",\"arguments\":{\"sql\":\"SELECT n.nspname AS schema_name,\\n       c.relname AS table_name,\\n       obj_description(c.oid,'pg_class') AS table_comment,\\n       pg_size_pretty(pg_total_relation_size(c.oid)) AS total_size,\\n       pg_size_pretty(pg_relation_size(c.oid)) AS table_size,\\n       pg_size_pretty(pg_total_relation_size(c.oid) - pg_relation_size(c.oid)) AS index_toast_size,\\n       c.reltuples::bigint AS estimated_rows\\nFROM pg_class c\\nJOIN pg_namespace n ON n.oid = c.relnamespace\\nWHERE n.nspname = 'public'\\n  AND c.relkind = 'r'\\nORDER BY c.relname;\\n\\nSELECT table_schema,\\n       table_name,\\n       ordinal_position,\\n       column_name,\\n       data_type,\\n       udt_name,\\n       is_nullable,\\n       column_default,\\n       character_maximum_length,\\n       numeric_precision,\\n       numeric_scale\\nFROM information_schema.columns\\nWHERE table_schema = 'public'\\nORDER BY table_name, ordinal_position;\\n\\nSELECT tc.table_schema,\\n       tc.table_name,\\n       tc.constraint_name,\\n       tc.constraint_type,\\n       kcu.column_name,\\n       ccu.table_name AS foreign_table_name,\\n       ccu.column_name AS foreign_column_name\\nFROM information_schema.table_constraints tc\\nLEFT JOIN information_schema.key_column_usage kcu\\n       ON tc.constraint_name = kcu.constraint_name\\n      AND tc.table_schema = kcu.table_schema\\nLEFT JOIN information_schema.constraint_column_usage ccu\\n       ON tc.constraint_name = ccu.constraint_name\\n      AND tc.table_schema = ccu.table_schema\\nWHERE tc.table_schema = 'public'\\nORDER BY tc.table_name, tc.constraint_type, tc.constraint_name, kcu.ordinal_position;\\n\\nSELECT schemaname AS table_schema,\\n       tablename AS table_name,\\n       indexname,\\n       indexdef\\nFROM pg_indexes\\nWHERE schemaname = 'public'\\nORDER BY tablename, indexname;\"} }"
+          },
+          "toolCount": 30
+        }
+      ],
+      "averageTokens": {
+        "input": 77,
+        "output": 395,
+        "total": 472
+      },
+      "averageCost": 0.006156000000000001
+    },
+    {
+      "taskId": "cloudflare-workers-list-large",
+      "mode": "baseline-50",
+      "runs": [
+        {
+          "taskId": "cloudflare-workers-list-large",
+          "mode": "baseline-50",
+          "runNumber": 1,
+          "timestamp": "2026-01-21T06:14:15.803Z",
+          "tokens": {
+            "input": 74,
+            "output": 27,
+            "total": 101
+          },
+          "cost": 0.000627,
+          "response": {
+            "content": "{\"tool_name\":\"cloudflare.listWorkers\",\"arguments\":{\"account_id\":\"<ACCOUNT_ID>\",\"per_page\":100}}"
+          },
+          "toolCount": 50
+        },
+        {
+          "taskId": "cloudflare-workers-list-large",
+          "mode": "baseline-50",
+          "runNumber": 2,
+          "timestamp": "2026-01-21T06:14:16.838Z",
+          "tokens": {
+            "input": 74,
+            "output": 33,
+            "total": 107
+          },
+          "cost": 0.000717,
+          "response": {
+            "content": "{\"tool_name\":\"cloudflare_list_workers\",\"arguments\":{\"account_id\":\"<ACCOUNT_ID>\",\"include_routes\":false,\"include_triggers\":false}}"
+          },
+          "toolCount": 50
+        },
+        {
+          "taskId": "cloudflare-workers-list-large",
+          "mode": "baseline-50",
+          "runNumber": 3,
+          "timestamp": "2026-01-21T06:14:17.623Z",
+          "tokens": {
+            "input": 74,
+            "output": 27,
+            "total": 101
+          },
+          "cost": 0.000627,
+          "response": {
+            "content": "{\"tool_name\":\"cloudflare.list_workers\",\"arguments\":{\"account_id\":\"$CLOUDFLARE_ACCOUNT_ID\"}}"
+          },
+          "toolCount": 50
+        }
+      ],
+      "averageTokens": {
+        "input": 74,
+        "output": 29,
+        "total": 103
+      },
+      "averageCost": 0.0006569999999999999
+    },
+    {
+      "taskId": "supabase-execute-sql-query",
+      "mode": "baseline-50",
+      "runs": [
+        {
+          "taskId": "supabase-execute-sql-query",
+          "mode": "baseline-50",
+          "runNumber": 1,
+          "timestamp": "2026-01-21T06:14:09.492Z",
+          "tokens": {
+            "input": 76,
+            "output": 22,
+            "total": 98
+          },
+          "cost": 0.000558,
+          "response": {
+            "content": "{\"tool_name\":\"query_database\",\"arguments\":{\"query\":\"SELECT * FROM your_table_name;\"}}"
+          },
+          "toolCount": 50
+        },
+        {
+          "taskId": "supabase-execute-sql-query",
+          "mode": "baseline-50",
+          "runNumber": 2,
+          "timestamp": "2026-01-21T06:14:10.347Z",
+          "tokens": {
+            "input": 76,
+            "output": 24,
+            "total": 100
+          },
+          "cost": 0.000588,
+          "response": {
+            "content": "{\"tool_name\":\"sql_query\",\"arguments\":{\"query\":\"SELECT *\\nFROM your_table_name;\"}}"
+          },
+          "toolCount": 50
+        },
+        {
+          "taskId": "supabase-execute-sql-query",
+          "mode": "baseline-50",
+          "runNumber": 3,
+          "timestamp": "2026-01-21T06:14:11.211Z",
+          "tokens": {
+            "input": 76,
+            "output": 22,
+            "total": 98
+          },
+          "cost": 0.000558,
+          "response": {
+            "content": "{\"tool_name\":\"sql.query\",\"arguments\":{\"query\":\"SELECT * FROM your_table_name;\"}}"
+          },
+          "toolCount": 50
+        }
+      ],
+      "averageTokens": {
+        "input": 76,
+        "output": 22.666666666666668,
+        "total": 98.66666666666667
+      },
+      "averageCost": 0.0005679999999999999
+    },
+    {
+      "taskId": "supabase-list-tables-large",
+      "mode": "baseline-50",
+      "runs": [
+        {
+          "taskId": "supabase-list-tables-large",
+          "mode": "baseline-50",
+          "runNumber": 1,
+          "timestamp": "2026-01-21T06:13:58.920Z",
+          "tokens": {
+            "input": 77,
+            "output": 39,
+            "total": 116
+          },
+          "cost": 0.000816,
+          "response": {
+            "content": "{\"tool_name\":\"query\",\"arguments\":{\"sql\":\"SELECT table_name, table_type\\nFROM information_schema.tables\\nWHERE table_schema = 'public'\\nORDER BY table_name;\"}"
+          },
+          "toolCount": 50
+        },
+        {
+          "taskId": "supabase-list-tables-large",
+          "mode": "baseline-50",
+          "runNumber": 2,
+          "timestamp": "2026-01-21T06:14:04.403Z",
+          "tokens": {
+            "input": 77,
+            "output": 244,
+            "total": 321
+          },
+          "cost": 0.003891,
+          "response": {
+            "content": "{\"tool_name\":\"sql_query\",\"arguments\":{\"query\":\"SELECT table_name\\nFROM information_schema.tables\\nWHERE table_schema = 'public' AND table_type = 'BASE TABLE'\\nORDER BY table_name;\\n\\nSELECT table_name, column_name, data_type, is_nullable, column_default, character_maximum_length, numeric_precision, numeric_scale, datetime_precision, udt_name\\nFROM information_schema.columns\\nWHERE table_schema = 'public'\\nORDER BY table_name, ordinal_position;\\n\\nSELECT tc.table_name, kcu.column_name, tc.constraint_type, tc.constraint_name\\nFROM information_schema.table_constraints tc\\nJOIN information_schema.key_column_usage kcu\\n  ON tc.constraint_name = kcu.constraint_name\\n AND tc.table_schema = kcu.table_schema\\nWHERE tc.table_schema = 'public'\\n  AND tc.constraint_type IN ('PRIMARY KEY','FOREIGN KEY','UNIQUE')\\nORDER BY tc.table_name, tc.constraint_type, tc.constraint_name, kcu.ordinal_position;\\n\\nSELECT schemaname, tablename, indexname, indexdef\\nFROM pg_indexes\\nWHERE schemaname = 'public'\\nORDER BY tablename, indexname;\"} }"
+          },
+          "toolCount": 50
+        },
+        {
+          "taskId": "supabase-list-tables-large",
+          "mode": "baseline-50",
+          "runNumber": 3,
+          "timestamp": "2026-01-21T06:14:08.512Z",
+          "tokens": {
+            "input": 77,
+            "output": 277,
+            "total": 354
+          },
+          "cost": 0.004386,
+          "response": {
+            "content": "{\"tool_name\":\"postgres_query\",\"arguments\":{\"query\":\"SELECT c.relname AS table_name,\\n       obj_description(c.oid,'pg_class') AS table_comment,\\n       pg_get_userbyid(c.relowner) AS table_owner,\\n       pg_total_relation_size(c.oid) AS total_bytes,\\n       pg_size_pretty(pg_total_relation_size(c.oid)) AS total_size,\\n       pg_relation_size(c.oid) AS table_bytes,\\n       pg_size_pretty(pg_relation_size(c.oid)) AS table_size,\\n       pg_indexes_size(c.oid) AS indexes_bytes,\\n       pg_size_pretty(pg_indexes_size(c.oid)) AS indexes_size,\\n       COALESCE(s.n_live_tup,0) AS est_live_rows,\\n       COALESCE(s.n_dead_tup,0) AS est_dead_rows,\\n       s.last_vacuum,\\n       s.last_autovacuum,\\n       s.last_analyze,\\n       s.last_autoanalyze\\nFROM pg_class c\\nJOIN pg_namespace n ON n.oid = c.relnamespace\\nLEFT JOIN pg_stat_user_tables s ON s.relid = c.oid\\nWHERE n.nspname = 'public'\\n  AND c.relkind IN ('r','p')\\nORDER BY c.relname;\"} }"
+          },
+          "toolCount": 50
+        }
+      ],
+      "averageTokens": {
+        "input": 77,
+        "output": 186.66666666666666,
+        "total": 263.6666666666667
+      },
+      "averageCost": 0.0030310000000000003
+    },
+    {
+      "taskId": "cloudflare-workers-list-large",
+      "mode": "baseline-500",
+      "runs": [
+        {
+          "taskId": "cloudflare-workers-list-large",
+          "mode": "baseline-500",
+          "runNumber": 1,
+          "timestamp": "2026-01-21T06:15:06.486Z",
+          "tokens": {
+            "input": 74,
+            "output": 16,
+            "total": 90
+          },
+          "cost": 0.00046199999999999995,
+          "response": {
+            "content": "{\"tool_name\":\"cloudflare.list_workers\",\"arguments\":{}}"
+          },
+          "toolCount": 500
+        },
+        {
+          "taskId": "cloudflare-workers-list-large",
+          "mode": "baseline-500",
+          "runNumber": 2,
+          "timestamp": "2026-01-21T06:15:07.454Z",
+          "tokens": {
+            "input": 74,
+            "output": 22,
+            "total": 96
+          },
+          "cost": 0.000552,
+          "response": {
+            "content": "{\"tool_name\":\"cloudflare_list_workers\",\"arguments\":{\"account_id\":\"<ACCOUNT_ID>\"}}"
+          },
+          "toolCount": 500
+        },
+        {
+          "taskId": "cloudflare-workers-list-large",
+          "mode": "baseline-500",
+          "runNumber": 3,
+          "timestamp": "2026-01-21T06:15:08.254Z",
+          "tokens": {
+            "input": 74,
+            "output": 28,
+            "total": 102
+          },
+          "cost": 0.000642,
+          "response": {
+            "content": "{\"tool_name\":\"cloudflare.workers.list\",\"arguments\":{\"account_id\":\"<ACCOUNT_ID>\",\"per_page\":100}}"
+          },
+          "toolCount": 500
+        }
+      ],
+      "averageTokens": {
+        "input": 74,
+        "output": 22,
+        "total": 96
+      },
+      "averageCost": 0.000552
+    },
+    {
+      "taskId": "supabase-execute-sql-query",
+      "mode": "baseline-500",
+      "runs": [
+        {
+          "taskId": "supabase-execute-sql-query",
+          "mode": "baseline-500",
+          "runNumber": 1,
+          "timestamp": "2026-01-21T06:15:02.673Z",
+          "tokens": {
+            "input": 76,
+            "output": 28,
+            "total": 104
+          },
+          "cost": 0.000648,
+          "response": {
+            "content": "{\"tool_name\":\"sql_query\",\"arguments\":{\"query\":\"SELECT *\\nFROM your_table_name\\nLIMIT 100;\"}}"
+          },
+          "toolCount": 500
+        },
+        {
+          "taskId": "supabase-execute-sql-query",
+          "mode": "baseline-500",
+          "runNumber": 2,
+          "timestamp": "2026-01-21T06:15:03.571Z",
+          "tokens": {
+            "input": 76,
+            "output": 27,
+            "total": 103
+          },
+          "cost": 0.000633,
+          "response": {
+            "content": "{\"tool_name\":\"sql_query\",\"arguments\":{\"query\":\"SELECT * FROM your_table_name;\",\"limit\":1000}}"
+          },
+          "toolCount": 500
+        },
+        {
+          "taskId": "supabase-execute-sql-query",
+          "mode": "baseline-500",
+          "runNumber": 3,
+          "timestamp": "2026-01-21T06:15:05.905Z",
+          "tokens": {
+            "input": 76,
+            "output": 24,
+            "total": 100
+          },
+          "cost": 0.000588,
+          "response": {
+            "content": "{\"tool_name\":\"query_database\",\"arguments\":{\"query\":\"SELECT *\\nFROM your_table_name;\"}}"
+          },
+          "toolCount": 500
+        }
+      ],
+      "averageTokens": {
+        "input": 76,
+        "output": 26.333333333333332,
+        "total": 102.33333333333333
+      },
+      "averageCost": 0.000623
+    },
+    {
+      "taskId": "supabase-list-tables-large",
+      "mode": "baseline-500",
+      "runs": [
+        {
+          "taskId": "supabase-list-tables-large",
+          "mode": "baseline-500",
+          "runNumber": 1,
+          "timestamp": "2026-01-21T06:14:55.342Z",
+          "tokens": {
+            "input": 77,
+            "output": 66,
+            "total": 143
+          },
+          "cost": 0.001221,
+          "response": {
+            "content": "{\"tool_name\":\"sql_query\",\"arguments\":{\"query\":\"SELECT schemaname, tablename, tableowner, tablespace, hasindexes, hasrules, hastriggers, rowsecurity\\nFROM pg_catalog.pg_tables\\nWHERE schemaname = 'public'\\nORDER BY tablename;\",\"database\":\"postgres\"}}"
+          },
+          "toolCount": 500
+        },
+        {
+          "taskId": "supabase-list-tables-large",
+          "mode": "baseline-500",
+          "runNumber": 2,
+          "timestamp": "2026-01-21T06:14:57.761Z",
+          "tokens": {
+            "input": 77,
+            "output": 172,
+            "total": 249
+          },
+          "cost": 0.002811,
+          "response": {
+            "content": "{\"tool_name\":\"sql\",\"arguments\":{\"query\":\"SELECT c.relname AS table_name,\\n       obj_description(c.oid, 'pg_class') AS table_comment,\\n       pg_size_pretty(pg_total_relation_size(c.oid)) AS total_size,\\n       pg_size_pretty(pg_relation_size(c.oid)) AS table_size,\\n       pg_size_pretty(pg_total_relation_size(c.oid) - pg_relation_size(c.oid)) AS indexes_size,\\n       c.reltuples::bigint AS estimated_rows,\\n       pg_get_userbyid(c.relowner) AS owner\\nFROM pg_class c\\nJOIN pg_namespace n ON n.oid = c.relnamespace\\nWHERE n.nspname = 'public'\\n  AND c.relkind = 'r'\\nORDER BY c.relname;\"} }"
+          },
+          "toolCount": 500
+        },
+        {
+          "taskId": "supabase-list-tables-large",
+          "mode": "baseline-500",
+          "runNumber": 3,
+          "timestamp": "2026-01-21T06:15:01.851Z",
+          "tokens": {
+            "input": 77,
+            "output": 181,
+            "total": 258
+          },
+          "cost": 0.002946,
+          "response": {
+            "content": "{\"tool_name\":\"query_postgres\",\"arguments\":{\"query\":\"SELECT n.nspname AS schema_name,\\n       c.relname AS table_name,\\n       pg_catalog.pg_size_pretty(pg_total_relation_size(c.oid)) AS total_size,\\n       pg_catalog.pg_size_pretty(pg_relation_size(c.oid)) AS table_size,\\n       pg_catalog.pg_size_pretty(pg_total_relation_size(c.oid) - pg_relation_size(c.oid)) AS indexes_size,\\n       c.reltuples::bigint AS approx_row_count,\\n       obj_description(c.oid, 'pg_class') AS table_comment\\nFROM pg_catalog.pg_class c\\nJOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace\\nWHERE c.relkind = 'r'\\n  AND n.nspname = 'public'\\nORDER BY c.relname;\"} }"
+          },
+          "toolCount": 500
+        }
+      ],
+      "averageTokens": {
+        "input": 77,
+        "output": 139.66666666666666,
+        "total": 216.66666666666666
+      },
+      "averageCost": 0.002326
+    },
+    {
+      "taskId": "cloudflare-workers-list-large",
+      "mode": "toolbox",
+      "runs": [
+        {
+          "taskId": "cloudflare-workers-list-large",
+          "mode": "toolbox",
+          "runNumber": 1,
+          "timestamp": "2026-01-21T06:15:24.334Z",
+          "tokens": {
+            "input": 74,
+            "output": 23,
+            "total": 97
+          },
+          "cost": 0.000567,
+          "response": {
+            "tool_name": "cloudflare.workers.list",
+            "arguments": {
+              "account_id": "<ACCOUNT_ID>"
+            }
+          },
+          "correct": false
+        },
+        {
+          "taskId": "cloudflare-workers-list-large",
+          "mode": "toolbox",
+          "runNumber": 2,
+          "timestamp": "2026-01-21T06:15:25.261Z",
+          "tokens": {
+            "input": 74,
+            "output": 22,
+            "total": 96
+          },
+          "cost": 0.000552,
+          "response": {
+            "tool_name": "cloudflare.list_workers",
+            "arguments": {
+              "account_id": "<ACCOUNT_ID>"
+            }
+          },
+          "correct": false
+        },
+        {
+          "taskId": "cloudflare-workers-list-large",
+          "mode": "toolbox",
+          "runNumber": 3,
+          "timestamp": "2026-01-21T06:15:26.271Z",
+          "tokens": {
+            "input": 74,
+            "output": 27,
+            "total": 101
+          },
+          "cost": 0.000627,
+          "response": {
+            "tool_name": "cloudflare.list_workers",
+            "arguments": {
+              "account_id": "<ACCOUNT_ID>",
+              "include_routes": false
+            }
+          },
+          "correct": false
+        }
+      ],
+      "averageTokens": {
+        "input": 74,
+        "output": 24,
+        "total": 98
+      },
+      "averageCost": 0.0005819999999999999,
+      "accuracy": 0
+    },
+    {
+      "taskId": "supabase-execute-sql-query",
+      "mode": "toolbox",
+      "runs": [
+        {
+          "taskId": "supabase-execute-sql-query",
+          "mode": "toolbox",
+          "runNumber": 1,
+          "timestamp": "2026-01-21T06:15:21.324Z",
+          "tokens": {
+            "input": 76,
+            "output": 26,
+            "total": 102
+          },
+          "cost": 0.0006180000000000001,
+          "response": {
+            "tool_name": "sql.query",
+            "arguments": {
+              "query": "SELECT * FROM <table_name>;",
+              "limit": 100
+            }
+          },
+          "correct": false
+        },
+        {
+          "taskId": "supabase-execute-sql-query",
+          "mode": "toolbox",
+          "runNumber": 2,
+          "timestamp": "2026-01-21T06:15:22.685Z",
+          "tokens": {
+            "input": 76,
+            "output": 51,
+            "total": 127
+          },
+          "cost": 0.000993,
+          "response": {
+            "tool_name": "query_database",
+            "arguments": {
+              "query": "SELECT * FROM <table_name> LIMIT 100;",
+              "notes": "Replace <table_name> with the actual table name. LIMIT added to avoid large result sets while inspecting structure."
+            }
+          },
+          "correct": false
+        },
+        {
+          "taskId": "supabase-execute-sql-query",
+          "mode": "toolbox",
+          "runNumber": 3,
+          "timestamp": "2026-01-21T06:15:23.547Z",
+          "tokens": {
+            "input": 76,
+            "output": 27,
+            "total": 103
+          },
+          "cost": 0.000633,
+          "response": {
+            "tool_name": "sql_query",
+            "arguments": {
+              "query": "SELECT * FROM your_table_name;",
+              "limit": 1000
+            }
+          },
+          "correct": false
+        }
+      ],
+      "averageTokens": {
+        "input": 76,
+        "output": 34.666666666666664,
+        "total": 110.66666666666667
+      },
+      "averageCost": 0.000748,
+      "accuracy": 0
+    },
+    {
+      "taskId": "supabase-list-tables-large",
+      "mode": "toolbox",
+      "runs": [
+        {
+          "taskId": "supabase-list-tables-large",
+          "mode": "toolbox",
+          "runNumber": 1,
+          "timestamp": "2026-01-21T06:15:11.644Z",
+          "tokens": {
+            "input": 77,
+            "output": 233,
+            "total": 310
+          },
+          "cost": 0.0037259999999999997,
+          "response": {
+            "tool_name": "sql_query",
+            "arguments": {
+              "query": "SELECT \n  n.nspname AS schema_name,\n  c.relname AS table_name,\n  c.relkind AS relation_type,\n  pg_total_relation_size(c.oid) AS total_bytes,\n  pg_relation_size(c.oid) AS table_bytes,\n  pg_indexes_size(c.oid) AS indexes_bytes,\n  c.reltuples::bigint AS estimated_rows,\n  c.relpages AS pages,\n  pg_size_pretty(pg_total_relation_size(c.oid)) AS total_size,\n  pg_size_pretty(pg_relation_size(c.oid)) AS table_size,\n  pg_size_pretty(pg_indexes_size(c.oid)) AS indexes_size,\n  obj_description(c.oid, 'pg_class') AS table_comment\nFROM pg_class c\nJOIN pg_namespace n ON n.oid = c.relnamespace\nWHERE n.nspname = 'public'\n  AND c.relkind IN ('r','p','v','m','f')\nORDER BY c.relkind, c.relname;"
+            }
+          },
+          "correct": false
+        },
+        {
+          "taskId": "supabase-list-tables-large",
+          "mode": "toolbox",
+          "runNumber": 2,
+          "timestamp": "2026-01-21T06:15:12.409Z",
+          "tokens": {
+            "input": 77,
+            "output": 22,
+            "total": 99
+          },
+          "cost": 0.000561,
+          "response": {
+            "tool_name": "postgres.list_tables",
+            "arguments": {
+              "schema": "public",
+              "include_details": true
+            }
+          },
+          "correct": false
+        },
+        {
+          "taskId": "supabase-list-tables-large",
+          "mode": "toolbox",
+          "runNumber": 3,
+          "timestamp": "2026-01-21T06:15:20.438Z",
+          "tokens": {
+            "input": 77,
+            "output": 586,
+            "total": 663
+          },
+          "cost": 0.009021000000000001,
+          "response": {
+            "tool_name": "sql_query",
+            "arguments": {
+              "query": "SELECT n.nspname AS schema_name,\n       c.relname AS table_name,\n       obj_description(c.oid,'pg_class') AS table_comment,\n       pg_size_pretty(pg_total_relation_size(c.oid)) AS total_size,\n       pg_size_pretty(pg_relation_size(c.oid)) AS heap_size,\n       pg_size_pretty(pg_total_relation_size(c.oid) - pg_relation_size(c.oid)) AS index_toast_size,\n       COALESCE(s.n_live_tup, 0) AS est_live_rows,\n       COALESCE(s.n_dead_tup, 0) AS est_dead_rows,\n       COALESCE(s.last_vacuum, s.last_autovacuum) AS last_vacuum,\n       COALESCE(s.last_analyze, s.last_autoanalyze) AS last_analyze\nFROM pg_class c\nJOIN pg_namespace n ON n.oid = c.relnamespace\nLEFT JOIN pg_stat_user_tables s ON s.relid = c.oid\nWHERE n.nspname = 'public'\n  AND c.relkind = 'r'\nORDER BY c.relname;\n\n-- Column details for each table\nSELECT table_schema,\n       table_name,\n       ordinal_position,\n       column_name,\n       data_type,\n       udt_name,\n       is_nullable,\n       column_default,\n       character_maximum_length,\n       numeric_precision,\n       numeric_scale,\n       datetime_precision\nFROM information_schema.columns\nWHERE table_schema = 'public'\nORDER BY table_name, ordinal_position;\n\n-- Constraints (PK/UNIQUE/FK/CHECK)\nSELECT tc.table_schema,\n       tc.table_name,\n       tc.constraint_name,\n       tc.constraint_type,\n       kcu.column_name,\n       ccu.table_schema AS foreign_table_schema,\n       ccu.table_name   AS foreign_table_name,\n       ccu.column_name  AS foreign_column_name\nFROM information_schema.table_constraints tc\nLEFT JOIN information_schema.key_column_usage kcu\n  ON tc.constraint_name = kcu.constraint_name\n AND tc.table_schema = kcu.table_schema\nLEFT JOIN information_schema.constraint_column_usage ccu\n  ON tc.constraint_name = ccu.constraint_name\n AND tc.table_schema = ccu.table_schema\nWHERE tc.table_schema = 'public'\nORDER BY tc.table_name, tc.constraint_type, tc.constraint_name, kcu.ordinal_position;\n\n-- Indexes\nSELECT schemaname AS schema_name,\n       tablename  AS table_name,\n       indexname  AS index_name,\n       indexdef   AS index_definition\nFROM pg_indexes\nWHERE schemaname = 'public'\nORDER BY tablename, indexname;"
+            }
+          },
+          "correct": false
+        }
+      ],
+      "averageTokens": {
+        "input": 77,
+        "output": 280.3333333333333,
+        "total": 357.3333333333333
+      },
+      "averageCost": 0.004436,
+      "accuracy": 0
+    }
+  ]
+}

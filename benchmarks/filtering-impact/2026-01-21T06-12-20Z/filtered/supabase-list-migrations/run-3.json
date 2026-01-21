@@ -1,0 +1,20 @@
+{
+  "taskId": "supabase-list-migrations",
+  "mode": "baseline",
+  "runNumber": 3,
+  "timestamp": "2026-01-21T06:12:54.274Z",
+  "tokens": {
+    "input": 67,
+    "output": 39,
+    "total": 106
+  },
+  "cost": 0.000786,
+  "response": {
+    "tool_name": "run_sql",
+    "arguments": {
+      "query": "SELECT version, name, applied_at FROM schema_migrations ORDER BY applied_at ASC, version ASC;",
+      "database": "default"
+    }
+  },
+  "correct": false
+}

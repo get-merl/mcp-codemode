@@ -1,0 +1,19 @@
+{
+  "taskId": "supabase-list-tables-large",
+  "mode": "baseline",
+  "runNumber": 1,
+  "timestamp": "2026-01-21T06:12:25.287Z",
+  "tokens": {
+    "input": 70,
+    "output": 237,
+    "total": 307
+  },
+  "cost": 0.003765,
+  "response": {
+    "tool_name": "query",
+    "arguments": {
+      "sql": "SELECT n.nspname AS schema_name,\n       c.relname AS table_name,\n       c.relkind AS table_type,\n       obj_description(c.oid,'pg_class') AS table_comment,\n       pg_size_pretty(pg_total_relation_size(c.oid)) AS total_size,\n       pg_size_pretty(pg_relation_size(c.oid)) AS table_size,\n       pg_size_pretty(pg_total_relation_size(c.oid) - pg_relation_size(c.oid)) AS aux_size,\n       COALESCE(s.n_live_tup,0) AS est_live_rows,\n       s.last_vacuum,\n       s.last_autovacuum,\n       s.last_analyze,\n       s.last_autoanalyze\nFROM pg_class c\nJOIN pg_namespace n ON n.oid = c.relnamespace\nLEFT JOIN pg_stat_all_tables s ON s.relid = c.oid\nWHERE n.nspname = 'public'\n  AND c.relkind IN ('r','p','v','m','f')\nORDER BY c.relname;"
+    }
+  },
+  "correct": false
+}

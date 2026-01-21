@@ -1,0 +1,107 @@
+{
+  "testType": "multi-turn-growth",
+  "timestamp": "2026-01-21T06:14:06.295Z",
+  "totalRuns": 4,
+  "results": [
+    {
+      "taskId": "cloudflare-workers-analysis",
+      "mode": "baseline",
+      "runs": [
+        {
+          "workflowId": "cloudflare-workers-analysis",
+          "mode": "baseline",
+          "runNumber": 1,
+          "timestamp": "2026-01-21T06:13:44.210Z",
+          "tokens": {
+            "input": 465,
+            "output": 90,
+            "total": 555
+          },
+          "cost": 0.002745,
+          "turns": 4
+        }
+      ],
+      "averageTokens": {
+        "input": 465,
+        "output": 90,
+        "total": 555
+      },
+      "averageCost": 0.002745
+    },
+    {
+      "taskId": "supabase-check-health",
+      "mode": "baseline",
+      "runs": [
+        {
+          "workflowId": "supabase-check-health",
+          "mode": "baseline",
+          "runNumber": 1,
+          "timestamp": "2026-01-21T06:13:40.488Z",
+          "tokens": {
+            "input": 442,
+            "output": 69,
+            "total": 511
+          },
+          "cost": 0.002361,
+          "turns": 4
+        }
+      ],
+      "averageTokens": {
+        "input": 442,
+        "output": 69,
+        "total": 511
+      },
+      "averageCost": 0.002361
+    },
+    {
+      "taskId": "supabase-explore-database",
+      "mode": "baseline",
+      "runs": [
+        {
+          "workflowId": "supabase-explore-database",
+          "mode": "baseline",
+          "runNumber": 1,
+          "timestamp": "2026-01-21T06:13:36.925Z",
+          "tokens": {
+            "input": 875,
+            "output": 283,
+            "total": 1158
+          },
+          "cost": 0.00687,
+          "turns": 4
+        }
+      ],
+      "averageTokens": {
+        "input": 875,
+        "output": 283,
+        "total": 1158
+      },
+      "averageCost": 0.00687
+    },
+    {
+      "taskId": "supabase-migration-workflow",
+      "mode": "baseline",
+      "runs": [
+        {
+          "workflowId": "supabase-migration-workflow",
+          "mode": "baseline",
+          "runNumber": 1,
+          "timestamp": "2026-01-21T06:14:06.294Z",
+          "tokens": {
+            "input": 1126,
+            "output": 869,
+            "total": 1995
+          },
+          "cost": 0.016413,
+          "turns": 4
+        }
+      ],
+      "averageTokens": {
+        "input": 1126,
+        "output": 869,
+        "total": 1995
+      },
+      "averageCost": 0.016413
+    }
+  ]
+}

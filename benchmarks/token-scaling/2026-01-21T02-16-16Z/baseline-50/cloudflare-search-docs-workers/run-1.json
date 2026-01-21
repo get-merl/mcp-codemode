@@ -1,0 +1,16 @@
+{
+  "taskId": "cloudflare-search-docs-workers",
+  "mode": "baseline-50",
+  "runNumber": 1,
+  "timestamp": "2026-01-21T02:16:25.991Z",
+  "tokens": {
+    "input": 76,
+    "output": 35,
+    "total": 111
+  },
+  "cost": 0.000753,
+  "response": {
+    "content": "{\"tool_name\":\"web_search\",\"arguments\":{\"query\":\"site:developers.cloudflare.com Workers Durable Objects alarms\",\"top_k\":5,\"include_snippets\":true}}"
+  },
+  "toolCount": 50
+}

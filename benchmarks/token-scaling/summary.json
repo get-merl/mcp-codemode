@@ -1,0 +1,799 @@
+{
+  "testType": "token-scaling",
+  "timestamp": "2026-01-21T02:16:46.703Z",
+  "totalRuns": 36,
+  "results": [
+    {
+      "taskId": "cloudflare-search-docs-workers",
+      "mode": "baseline-100",
+      "runs": [
+        {
+          "taskId": "cloudflare-search-docs-workers",
+          "mode": "baseline-100",
+          "runNumber": 1,
+          "timestamp": "2026-01-21T02:16:30.488Z",
+          "tokens": {
+            "input": 76,
+            "output": 29,
+            "total": 105
+          },
+          "cost": 0.000663,
+          "response": {
+            "content": "{\"tool_name\":\"browser.search\",\"arguments\":{\"query\":\"site:developers.cloudflare.com Workers Durable Objects alarms\",\"top_k\":5}}"
+          },
+          "toolCount": 100
+        },
+        {
+          "taskId": "cloudflare-search-docs-workers",
+          "mode": "baseline-100",
+          "runNumber": 2,
+          "timestamp": "2026-01-21T02:16:31.516Z",
+          "tokens": {
+            "input": 76,
+            "output": 33,
+            "total": 109
+          },
+          "cost": 0.000723,
+          "response": {
+            "content": "{\"tool_name\":\"browser.search\",\"arguments\":{\"query\":\"site:developers.cloudflare.com Workers Durable Objects alarms\",\"top_k\":5,\"language\":\"en\"}}"
+          },
+          "toolCount": 100
+        }
+      ],
+      "averageTokens": {
+        "input": 76,
+        "output": 31,
+        "total": 107
+      },
+      "averageCost": 0.000693
+    },
+    {
+      "taskId": "supabase-get-project-url",
+      "mode": "baseline-100",
+      "runs": [
+        {
+          "taskId": "supabase-get-project-url",
+          "mode": "baseline-100",
+          "runNumber": 1,
+          "timestamp": "2026-01-21T02:16:27.569Z",
+          "tokens": {
+            "input": 73,
+            "output": 18,
+            "total": 91
+          },
+          "cost": 0.0004890000000000001,
+          "response": {
+            "content": "{\"tool_name\":\"supabase_get_project_api_url\",\"arguments\":{}}"
+          },
+          "toolCount": 100
+        },
+        {
+          "taskId": "supabase-get-project-url",
+          "mode": "baseline-100",
+          "runNumber": 2,
+          "timestamp": "2026-01-21T02:16:28.168Z",
+          "tokens": {
+            "input": 73,
+            "output": 18,
+            "total": 91
+          },
+          "cost": 0.0004890000000000001,
+          "response": {
+            "content": "{\"tool_name\":\"supabase.get_project_api_url\",\"arguments\":{}}"
+          },
+          "toolCount": 100
+        }
+      ],
+      "averageTokens": {
+        "input": 73,
+        "output": 18,
+        "total": 91
+      },
+      "averageCost": 0.0004890000000000001
+    },
+    {
+      "taskId": "supabase-list-tables-public",
+      "mode": "baseline-100",
+      "runs": [
+        {
+          "taskId": "supabase-list-tables-public",
+          "mode": "baseline-100",
+          "runNumber": 1,
+          "timestamp": "2026-01-21T02:16:29.002Z",
+          "tokens": {
+            "input": 72,
+            "output": 38,
+            "total": 110
+          },
+          "cost": 0.000786,
+          "response": {
+            "content": "{\"tool_name\":\"sql\",\"arguments\":{\"query\":\"SELECT tablename\\nFROM pg_catalog.pg_tables\\nWHERE schemaname = 'public'\\nORDER BY tablename;\"}}"
+          },
+          "toolCount": 100
+        },
+        {
+          "taskId": "supabase-list-tables-public",
+          "mode": "baseline-100",
+          "runNumber": 2,
+          "timestamp": "2026-01-21T02:16:29.545Z",
+          "tokens": {
+            "input": 72,
+            "output": 16,
+            "total": 88
+          },
+          "cost": 0.00045599999999999997,
+          "response": {
+            "content": "{\"tool_name\":\"list_tables\",\"arguments\":{\"schema\":\"public\"}}"
+          },
+          "toolCount": 100
+        }
+      ],
+      "averageTokens": {
+        "input": 72,
+        "output": 27,
+        "total": 99
+      },
+      "averageCost": 0.000621
+    },
+    {
+      "taskId": "cloudflare-search-docs-workers",
+      "mode": "baseline-1000",
+      "runs": [
+        {
+          "taskId": "cloudflare-search-docs-workers",
+          "mode": "baseline-1000",
+          "runNumber": 1,
+          "timestamp": "2026-01-21T02:16:45.913Z",
+          "tokens": {
+            "input": 76,
+            "output": 35,
+            "total": 111
+          },
+          "cost": 0.000753,
+          "response": {
+            "content": "{\"tool_name\":\"web_search\",\"arguments\":{\"query\":\"site:developers.cloudflare.com Workers Durable Objects alarms\",\"top_k\":5,\"include_snippets\":true}}"
+          },
+          "toolCount": 1000
+        },
+        {
+          "taskId": "cloudflare-search-docs-workers",
+          "mode": "baseline-1000",
+          "runNumber": 2,
+          "timestamp": "2026-01-21T02:16:46.697Z",
+          "tokens": {
+            "input": 76,
+            "output": 31,
+            "total": 107
+          },
+          "cost": 0.000693,
+          "response": {
+            "content": "{\"tool_name\":\"web_search\",\"arguments\":{\"query\":\"Cloudflare Workers Durable Objects alarms site:developers.cloudflare.com\",\"top_k\":5}}"
+          },
+          "toolCount": 1000
+        }
+      ],
+      "averageTokens": {
+        "input": 76,
+        "output": 33,
+        "total": 109
+      },
+      "averageCost": 0.000723
+    },
+    {
+      "taskId": "supabase-get-project-url",
+      "mode": "baseline-1000",
+      "runs": [
+        {
+          "taskId": "supabase-get-project-url",
+          "mode": "baseline-1000",
+          "runNumber": 1,
+          "timestamp": "2026-01-21T02:16:42.435Z",
+          "tokens": {
+            "input": 73,
+            "output": 18,
+            "total": 91
+          },
+          "cost": 0.0004890000000000001,
+          "response": {
+            "content": "{\"tool_name\":\"supabase.get_project_api_url\",\"arguments\":{}}"
+          },
+          "toolCount": 1000
+        },
+        {
+          "taskId": "supabase-get-project-url",
+          "mode": "baseline-1000",
+          "runNumber": 2,
+          "timestamp": "2026-01-21T02:16:43.351Z",
+          "tokens": {
+            "input": 73,
+            "output": 18,
+            "total": 91
+          },
+          "cost": 0.0004890000000000001,
+          "response": {
+            "content": "{\"tool_name\":\"supabase.get_project_api_url\",\"arguments\":{}}"
+          },
+          "toolCount": 1000
+        }
+      ],
+      "averageTokens": {
+        "input": 73,
+        "output": 18,
+        "total": 91
+      },
+      "averageCost": 0.0004890000000000001
+    },
+    {
+      "taskId": "supabase-list-tables-public",
+      "mode": "baseline-1000",
+      "runs": [
+        {
+          "taskId": "supabase-list-tables-public",
+          "mode": "baseline-1000",
+          "runNumber": 1,
+          "timestamp": "2026-01-21T02:16:44.340Z",
+          "tokens": {
+            "input": 72,
+            "output": 42,
+            "total": 114
+          },
+          "cost": 0.000846,
+          "response": {
+            "content": "{\"tool_name\":\"sql_query\",\"arguments\":{\"query\":\"SELECT tablename\\nFROM pg_catalog.pg_tables\\nWHERE schemaname = 'public'\\nORDER BY tablename;\",\"params\":[]}}"
+          },
+          "toolCount": 1000
+        },
+        {
+          "taskId": "supabase-list-tables-public",
+          "mode": "baseline-1000",
+          "runNumber": 2,
+          "timestamp": "2026-01-21T02:16:44.962Z",
+          "tokens": {
+            "input": 72,
+            "output": 17,
+            "total": 89
+          },
+          "cost": 0.000471,
+          "response": {
+            "content": "{\"tool_name\":\"postgres.list_tables\",\"arguments\":{\"schema\":\"public\"}}"
+          },
+          "toolCount": 1000
+        }
+      ],
+      "averageTokens": {
+        "input": 72,
+        "output": 29.5,
+        "total": 101.5
+      },
+      "averageCost": 0.0006585
+    },
+    {
+      "taskId": "cloudflare-search-docs-workers",
+      "mode": "baseline-200",
+      "runs": [
+        {
+          "taskId": "cloudflare-search-docs-workers",
+          "mode": "baseline-200",
+          "runNumber": 1,
+          "timestamp": "2026-01-21T02:16:35.691Z",
+          "tokens": {
+            "input": 76,
+            "output": 28,
+            "total": 104
+          },
+          "cost": 0.000648,
+          "response": {
+            "content": "{\"tool_name\":\"web_search\",\"arguments\":{\"query\":\"Cloudflare docs Workers Durable Objects alarms\",\"site\":\"developers.cloudflare.com\"}}"
+          },
+          "toolCount": 200
+        },
+        {
+          "taskId": "cloudflare-search-docs-workers",
+          "mode": "baseline-200",
+          "runNumber": 2,
+          "timestamp": "2026-01-21T02:16:36.477Z",
+          "tokens": {
+            "input": 76,
+            "output": 33,
+            "total": 109
+          },
+          "cost": 0.000723,
+          "response": {
+            "content": "{\"tool_name\":\"web_search\",\"arguments\":{\"query\":\"Cloudflare Workers Durable Objects alarms documentation\",\"site\":\"developers.cloudflare.com\",\"top_k\":5}}"
+          },
+          "toolCount": 200
+        }
+      ],
+      "averageTokens": {
+        "input": 76,
+        "output": 30.5,
+        "total": 106.5
+      },
+      "averageCost": 0.0006855
+    },
+    {
+      "taskId": "supabase-get-project-url",
+      "mode": "baseline-200",
+      "runs": [
+        {
+          "taskId": "supabase-get-project-url",
+          "mode": "baseline-200",
+          "runNumber": 1,
+          "timestamp": "2026-01-21T02:16:32.323Z",
+          "tokens": {
+            "input": 73,
+            "output": 18,
+            "total": 91
+          },
+          "cost": 0.0004890000000000001,
+          "response": {
+            "content": "{\"tool_name\":\"supabase.get_project_api_url\",\"arguments\":{}}"
+          },
+          "toolCount": 200
+        },
+        {
+          "taskId": "supabase-get-project-url",
+          "mode": "baseline-200",
+          "runNumber": 2,
+          "timestamp": "2026-01-21T02:16:33.161Z",
+          "tokens": {
+            "input": 73,
+            "output": 18,
+            "total": 91
+          },
+          "cost": 0.0004890000000000001,
+          "response": {
+            "content": "{\"tool_name\":\"supabase_get_project_api_url\",\"arguments\":{}}"
+          },
+          "toolCount": 200
+        }
+      ],
+      "averageTokens": {
+        "input": 73,
+        "output": 18,
+        "total": 91
+      },
+      "averageCost": 0.0004890000000000001
+    },
+    {
+      "taskId": "supabase-list-tables-public",
+      "mode": "baseline-200",
+      "runs": [
+        {
+          "taskId": "supabase-list-tables-public",
+          "mode": "baseline-200",
+          "runNumber": 1,
+          "timestamp": "2026-01-21T02:16:33.857Z",
+          "tokens": {
+            "input": 72,
+            "output": 39,
+            "total": 111
+          },
+          "cost": 0.0008010000000000001,
+          "response": {
+            "content": "{\"tool_name\":\"sql_query\",\"arguments\":{\"query\":\"SELECT tablename\\nFROM pg_catalog.pg_tables\\nWHERE schemaname = 'public'\\nORDER BY tablename;\"}}"
+          },
+          "toolCount": 200
+        },
+        {
+          "taskId": "supabase-list-tables-public",
+          "mode": "baseline-200",
+          "runNumber": 2,
+          "timestamp": "2026-01-21T02:16:34.952Z",
+          "tokens": {
+            "input": 72,
+            "output": 39,
+            "total": 111
+          },
+          "cost": 0.0008010000000000001,
+          "response": {
+            "content": "{\"tool_name\":\"sql_query\",\"arguments\":{\"query\":\"SELECT tablename\\nFROM pg_catalog.pg_tables\\nWHERE schemaname = 'public'\\nORDER BY tablename;\"}}"
+          },
+          "toolCount": 200
+        }
+      ],
+      "averageTokens": {
+        "input": 72,
+        "output": 39,
+        "total": 111
+      },
+      "averageCost": 0.0008010000000000001
+    },
+    {
+      "taskId": "cloudflare-search-docs-workers",
+      "mode": "baseline-30",
+      "runs": [
+        {
+          "taskId": "cloudflare-search-docs-workers",
+          "mode": "baseline-30",
+          "runNumber": 1,
+          "timestamp": "2026-01-21T02:16:20.798Z",
+          "tokens": {
+            "input": 76,
+            "output": 33,
+            "total": 109
+          },
+          "cost": 0.000723,
+          "response": {
+            "content": "{\"tool_name\":\"web_search\",\"arguments\":{\"query\":\"site:developers.cloudflare.com Workers Durable Objects alarms\",\"top_k\":5,\"language\":\"en\"}}"
+          },
+          "toolCount": 30
+        },
+        {
+          "taskId": "cloudflare-search-docs-workers",
+          "mode": "baseline-30",
+          "runNumber": 2,
+          "timestamp": "2026-01-21T02:16:21.593Z",
+          "tokens": {
+            "input": 76,
+            "output": 29,
+            "total": 105
+          },
+          "cost": 0.000663,
+          "response": {
+            "content": "{\"tool_name\":\"web_search\",\"arguments\":{\"query\":\"site:developers.cloudflare.com Workers Durable Objects alarms\",\"top_k\":5}}"
+          },
+          "toolCount": 30
+        }
+      ],
+      "averageTokens": {
+        "input": 76,
+        "output": 31,
+        "total": 107
+      },
+      "averageCost": 0.000693
+    },
+    {
+      "taskId": "supabase-get-project-url",
+      "mode": "baseline-30",
+      "runs": [
+        {
+          "taskId": "supabase-get-project-url",
+          "mode": "baseline-30",
+          "runNumber": 1,
+          "timestamp": "2026-01-21T02:16:16.745Z",
+          "tokens": {
+            "input": 73,
+            "output": 18,
+            "total": 91
+          },
+          "cost": 0.0004890000000000001,
+          "response": {
+            "content": "{\"tool_name\":\"supabase.get_project_api_url\",\"arguments\":{}}"
+          },
+          "toolCount": 30
+        },
+        {
+          "taskId": "supabase-get-project-url",
+          "mode": "baseline-30",
+          "runNumber": 2,
+          "timestamp": "2026-01-21T02:16:17.340Z",
+          "tokens": {
+            "input": 73,
+            "output": 18,
+            "total": 91
+          },
+          "cost": 0.0004890000000000001,
+          "response": {
+            "content": "{\"tool_name\":\"supabase_get_project_api_url\",\"arguments\":{}}"
+          },
+          "toolCount": 30
+        }
+      ],
+      "averageTokens": {
+        "input": 73,
+        "output": 18,
+        "total": 91
+      },
+      "averageCost": 0.0004890000000000001
+    },
+    {
+      "taskId": "supabase-list-tables-public",
+      "mode": "baseline-30",
+      "runs": [
+        {
+          "taskId": "supabase-list-tables-public",
+          "mode": "baseline-30",
+          "runNumber": 1,
+          "timestamp": "2026-01-21T02:16:18.355Z",
+          "tokens": {
+            "input": 72,
+            "output": 16,
+            "total": 88
+          },
+          "cost": 0.00045599999999999997,
+          "response": {
+            "content": "{\"tool_name\":\"list_tables\",\"arguments\":{\"schema\":\"public\"}}"
+          },
+          "toolCount": 30
+        },
+        {
+          "taskId": "supabase-list-tables-public",
+          "mode": "baseline-30",
+          "runNumber": 2,
+          "timestamp": "2026-01-21T02:16:19.541Z",
+          "tokens": {
+            "input": 72,
+            "output": 38,
+            "total": 110
+          },
+          "cost": 0.000786,
+          "response": {
+            "content": "{\"tool_name\":\"query\",\"arguments\":{\"sql\":\"SELECT tablename FROM pg_catalog.pg_tables WHERE schemaname = 'public' ORDER BY tablename;\",\"params\":[]}}"
+          },
+          "toolCount": 30
+        }
+      ],
+      "averageTokens": {
+        "input": 72,
+        "output": 27,
+        "total": 99
+      },
+      "averageCost": 0.000621
+    },
+    {
+      "taskId": "cloudflare-search-docs-workers",
+      "mode": "baseline-50",
+      "runs": [
+        {
+          "taskId": "cloudflare-search-docs-workers",
+          "mode": "baseline-50",
+          "runNumber": 1,
+          "timestamp": "2026-01-21T02:16:25.991Z",
+          "tokens": {
+            "input": 76,
+            "output": 35,
+            "total": 111
+          },
+          "cost": 0.000753,
+          "response": {
+            "content": "{\"tool_name\":\"web_search\",\"arguments\":{\"query\":\"site:developers.cloudflare.com Workers Durable Objects alarms\",\"top_k\":5,\"include_snippets\":true}}"
+          },
+          "toolCount": 50
+        },
+        {
+          "taskId": "cloudflare-search-docs-workers",
+          "mode": "baseline-50",
+          "runNumber": 2,
+          "timestamp": "2026-01-21T02:16:26.895Z",
+          "tokens": {
+            "input": 76,
+            "output": 35,
+            "total": 111
+          },
+          "cost": 0.000753,
+          "response": {
+            "content": "{\"tool_name\":\"web_search\",\"arguments\":{\"query\":\"site:developers.cloudflare.com Workers Durable Objects alarms\",\"top_k\":5,\"include_snippets\":true}}"
+          },
+          "toolCount": 50
+        }
+      ],
+      "averageTokens": {
+        "input": 76,
+        "output": 35,
+        "total": 111
+      },
+      "averageCost": 0.000753
+    },
+    {
+      "taskId": "supabase-get-project-url",
+      "mode": "baseline-50",
+      "runs": [
+        {
+          "taskId": "supabase-get-project-url",
+          "mode": "baseline-50",
+          "runNumber": 1,
+          "timestamp": "2026-01-21T02:16:22.622Z",
+          "tokens": {
+            "input": 73,
+            "output": 18,
+            "total": 91
+          },
+          "cost": 0.0004890000000000001,
+          "response": {
+            "content": "{\"tool_name\":\"supabase_get_project_api_url\",\"arguments\":{}}"
+          },
+          "toolCount": 50
+        },
+        {
+          "taskId": "supabase-get-project-url",
+          "mode": "baseline-50",
+          "runNumber": 2,
+          "timestamp": "2026-01-21T02:16:23.190Z",
+          "tokens": {
+            "input": 73,
+            "output": 18,
+            "total": 91
+          },
+          "cost": 0.0004890000000000001,
+          "response": {
+            "content": "{\"tool_name\":\"supabase_get_project_api_url\",\"arguments\":{}}"
+          },
+          "toolCount": 50
+        }
+      ],
+      "averageTokens": {
+        "input": 73,
+        "output": 18,
+        "total": 91
+      },
+      "averageCost": 0.0004890000000000001
+    },
+    {
+      "taskId": "supabase-list-tables-public",
+      "mode": "baseline-50",
+      "runs": [
+        {
+          "taskId": "supabase-list-tables-public",
+          "mode": "baseline-50",
+          "runNumber": 1,
+          "timestamp": "2026-01-21T02:16:24.150Z",
+          "tokens": {
+            "input": 72,
+            "output": 39,
+            "total": 111
+          },
+          "cost": 0.0008010000000000001,
+          "response": {
+            "content": "{\"tool_name\":\"sql_query\",\"arguments\":{\"query\":\"SELECT tablename\\nFROM pg_catalog.pg_tables\\nWHERE schemaname = 'public'\\nORDER BY tablename;\"}}"
+          },
+          "toolCount": 50
+        },
+        {
+          "taskId": "supabase-list-tables-public",
+          "mode": "baseline-50",
+          "runNumber": 2,
+          "timestamp": "2026-01-21T02:16:24.942Z",
+          "tokens": {
+            "input": 72,
+            "output": 39,
+            "total": 111
+          },
+          "cost": 0.0008010000000000001,
+          "response": {
+            "content": "{\"tool_name\":\"query\",\"arguments\":{\"sql\":\"SELECT tablename\\nFROM pg_catalog.pg_tables\\nWHERE schemaname = 'public'\\nORDER BY tablename;\"}}\n"
+          },
+          "toolCount": 50
+        }
+      ],
+      "averageTokens": {
+        "input": 72,
+        "output": 39,
+        "total": 111
+      },
+      "averageCost": 0.0008010000000000001
+    },
+    {
+      "taskId": "cloudflare-search-docs-workers",
+      "mode": "baseline-500",
+      "runs": [
+        {
+          "taskId": "cloudflare-search-docs-workers",
+          "mode": "baseline-500",
+          "runNumber": 1,
+          "timestamp": "2026-01-21T02:16:40.526Z",
+          "tokens": {
+            "input": 76,
+            "output": 31,
+            "total": 107
+          },
+          "cost": 0.000693,
+          "response": {
+            "content": "{\"tool_name\":\"web_search\",\"arguments\":{\"query\":\"Cloudflare Workers Durable Objects alarms site:developers.cloudflare.com\",\"top_k\":5}}"
+          },
+          "toolCount": 500
+        },
+        {
+          "taskId": "cloudflare-search-docs-workers",
+          "mode": "baseline-500",
+          "runNumber": 2,
+          "timestamp": "2026-01-21T02:16:41.556Z",
+          "tokens": {
+            "input": 76,
+            "output": 29,
+            "total": 105
+          },
+          "cost": 0.000663,
+          "response": {
+            "content": "{\"tool_name\":\"browser.search\",\"arguments\":{\"query\":\"site:developers.cloudflare.com Workers Durable Objects alarms\",\"top_k\":5}}"
+          },
+          "toolCount": 500
+        }
+      ],
+      "averageTokens": {
+        "input": 76,
+        "output": 30,
+        "total": 106
+      },
+      "averageCost": 0.000678
+    },
+    {
+      "taskId": "supabase-get-project-url",
+      "mode": "baseline-500",
+      "runs": [
+        {
+          "taskId": "supabase-get-project-url",
+          "mode": "baseline-500",
+          "runNumber": 1,
+          "timestamp": "2026-01-21T02:16:37.192Z",
+          "tokens": {
+            "input": 73,
+            "output": 18,
+            "total": 91
+          },
+          "cost": 0.0004890000000000001,
+          "response": {
+            "content": "{\"tool_name\":\"supabase.get_project_api_url\",\"arguments\":{}}"
+          },
+          "toolCount": 500
+        },
+        {
+          "taskId": "supabase-get-project-url",
+          "mode": "baseline-500",
+          "runNumber": 2,
+          "timestamp": "2026-01-21T02:16:38.052Z",
+          "tokens": {
+            "input": 73,
+            "output": 18,
+            "total": 91
+          },
+          "cost": 0.0004890000000000001,
+          "response": {
+            "content": "{\"tool_name\":\"supabase_get_project_api_url\",\"arguments\":{}}"
+          },
+          "toolCount": 500
+        }
+      ],
+      "averageTokens": {
+        "input": 73,
+        "output": 18,
+        "total": 91
+      },
+      "averageCost": 0.0004890000000000001
+    },
+    {
+      "taskId": "supabase-list-tables-public",
+      "mode": "baseline-500",
+      "runs": [
+        {
+          "taskId": "supabase-list-tables-public",
+          "mode": "baseline-500",
+          "runNumber": 1,
+          "timestamp": "2026-01-21T02:16:39.098Z",
+          "tokens": {
+            "input": 72,
+            "output": 47,
+            "total": 119
+          },
+          "cost": 0.0009209999999999999,
+          "response": {
+            "content": "{\"tool_name\":\"sql_query\",\"arguments\":{\"query\":\"SELECT table_name\\nFROM information_schema.tables\\nWHERE table_schema = 'public'\\n  AND table_type = 'BASE TABLE'\\nORDER BY table_name;\"}}"
+          },
+          "toolCount": 500
+        },
+        {
+          "taskId": "supabase-list-tables-public",
+          "mode": "baseline-500",
+          "runNumber": 2,
+          "timestamp": "2026-01-21T02:16:39.626Z",
+          "tokens": {
+            "input": 72,
+            "output": 16,
+            "total": 88
+          },
+          "cost": 0.00045599999999999997,
+          "response": {
+            "content": "{\"tool_name\":\"list_tables\",\"arguments\":{\"schema\":\"public\"}}"
+          },
+          "toolCount": 500
+        }
+      ],
+      "averageTokens": {
+        "input": 72,
+        "output": 31.5,
+        "total": 103.5
+      },
+      "averageCost": 0.0006885
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "taskId": "supabase-list-tables-large",
+  "mode": "baseline-50",
+  "runNumber": 2,
+  "timestamp": "2026-01-21T06:14:04.403Z",
+  "tokens": {
+    "input": 77,
+    "output": 244,
+    "total": 321
+  },
+  "cost": 0.003891,
+  "response": {
+    "content": "{\"tool_name\":\"sql_query\",\"arguments\":{\"query\":\"SELECT table_name\\nFROM information_schema.tables\\nWHERE table_schema = 'public' AND table_type = 'BASE TABLE'\\nORDER BY table_name;\\n\\nSELECT table_name, column_name, data_type, is_nullable, column_default, character_maximum_length, numeric_precision, numeric_scale, datetime_precision, udt_name\\nFROM information_schema.columns\\nWHERE table_schema = 'public'\\nORDER BY table_name, ordinal_position;\\n\\nSELECT tc.table_name, kcu.column_name, tc.constraint_type, tc.constraint_name\\nFROM information_schema.table_constraints tc\\nJOIN information_schema.key_column_usage kcu\\n  ON tc.constraint_name = kcu.constraint_name\\n AND tc.table_schema = kcu.table_schema\\nWHERE tc.table_schema = 'public'\\n  AND tc.constraint_type IN ('PRIMARY KEY','FOREIGN KEY','UNIQUE')\\nORDER BY tc.table_name, tc.constraint_type, tc.constraint_name, kcu.ordinal_position;\\n\\nSELECT schemaname, tablename, indexname, indexdef\\nFROM pg_indexes\\nWHERE schemaname = 'public'\\nORDER BY tablename, indexname;\"} }"
+  },
+  "toolCount": 50
+}

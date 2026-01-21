@@ -1,0 +1,16 @@
+{
+  "taskId": "supabase-list-tables-large",
+  "mode": "baseline-30",
+  "runNumber": 2,
+  "timestamp": "2026-01-21T06:13:45.566Z",
+  "tokens": {
+    "input": 77,
+    "output": 42,
+    "total": 119
+  },
+  "cost": 0.0008609999999999999,
+  "response": {
+    "content": "{\"tool_name\":\"sql_query\",\"arguments\":{\"query\":\"SELECT table_name FROM information_schema.tables WHERE table_schema = 'public' AND table_type = 'BASE TABLE' ORDER BY table_name;\"}"
+  },
+  "toolCount": 30
+}

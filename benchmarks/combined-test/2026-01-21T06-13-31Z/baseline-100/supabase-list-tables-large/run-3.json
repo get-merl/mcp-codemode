@@ -1,0 +1,16 @@
+{
+  "taskId": "supabase-list-tables-large",
+  "mode": "baseline-100",
+  "runNumber": 3,
+  "timestamp": "2026-01-21T06:14:24.971Z",
+  "tokens": {
+    "input": 77,
+    "output": 70,
+    "total": 147
+  },
+  "cost": 0.001281,
+  "response": {
+    "content": "{\"tool_name\":\"sql_query\",\"arguments\":{\"query\":\"SELECT c.table_name,\\n       c.column_name,\\n       c.data_type,\\n       c.is_nullable,\\n       c.column_default\\nFROM information_schema.columns c\\nWHERE c.table_schema = 'public'\\nORDER BY c.table_name, c.ordinal_position;\"} }"
+  },
+  "toolCount": 100
+}

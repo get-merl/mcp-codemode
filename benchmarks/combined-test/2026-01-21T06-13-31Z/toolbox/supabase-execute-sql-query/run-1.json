@@ -1,0 +1,20 @@
+{
+  "taskId": "supabase-execute-sql-query",
+  "mode": "toolbox",
+  "runNumber": 1,
+  "timestamp": "2026-01-21T06:15:21.324Z",
+  "tokens": {
+    "input": 76,
+    "output": 26,
+    "total": 102
+  },
+  "cost": 0.0006180000000000001,
+  "response": {
+    "tool_name": "sql.query",
+    "arguments": {
+      "query": "SELECT * FROM <table_name>;",
+      "limit": 100
+    }
+  },
+  "correct": false
+}

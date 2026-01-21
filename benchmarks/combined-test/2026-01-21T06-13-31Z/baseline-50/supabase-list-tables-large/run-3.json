@@ -1,0 +1,16 @@
+{
+  "taskId": "supabase-list-tables-large",
+  "mode": "baseline-50",
+  "runNumber": 3,
+  "timestamp": "2026-01-21T06:14:08.512Z",
+  "tokens": {
+    "input": 77,
+    "output": 277,
+    "total": 354
+  },
+  "cost": 0.004386,
+  "response": {
+    "content": "{\"tool_name\":\"postgres_query\",\"arguments\":{\"query\":\"SELECT c.relname AS table_name,\\n       obj_description(c.oid,'pg_class') AS table_comment,\\n       pg_get_userbyid(c.relowner) AS table_owner,\\n       pg_total_relation_size(c.oid) AS total_bytes,\\n       pg_size_pretty(pg_total_relation_size(c.oid)) AS total_size,\\n       pg_relation_size(c.oid) AS table_bytes,\\n       pg_size_pretty(pg_relation_size(c.oid)) AS table_size,\\n       pg_indexes_size(c.oid) AS indexes_bytes,\\n       pg_size_pretty(pg_indexes_size(c.oid)) AS indexes_size,\\n       COALESCE(s.n_live_tup,0) AS est_live_rows,\\n       COALESCE(s.n_dead_tup,0) AS est_dead_rows,\\n       s.last_vacuum,\\n       s.last_autovacuum,\\n       s.last_analyze,\\n       s.last_autoanalyze\\nFROM pg_class c\\nJOIN pg_namespace n ON n.oid = c.relnamespace\\nLEFT JOIN pg_stat_user_tables s ON s.relid = c.oid\\nWHERE n.nspname = 'public'\\n  AND c.relkind IN ('r','p')\\nORDER BY c.relname;\"} }"
+  },
+  "toolCount": 50
+}

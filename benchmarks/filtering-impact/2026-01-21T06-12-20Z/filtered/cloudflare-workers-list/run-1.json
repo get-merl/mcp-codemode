@@ -1,0 +1,24 @@
+{
+  "taskId": "cloudflare-workers-list",
+  "mode": "baseline",
+  "runNumber": 1,
+  "timestamp": "2026-01-21T06:12:55.796Z",
+  "tokens": {
+    "input": 67,
+    "output": 46,
+    "total": 113
+  },
+  "cost": 0.000891,
+  "response": {
+    "tool_name": "cloudflare_api",
+    "arguments": {
+      "endpoint": "/accounts/{account_id}/workers/scripts",
+      "method": "GET",
+      "path_params": {
+        "account_id": "<ACCOUNT_ID>"
+      },
+      "query_params": {}
+    }
+  },
+  "correct": false
+}

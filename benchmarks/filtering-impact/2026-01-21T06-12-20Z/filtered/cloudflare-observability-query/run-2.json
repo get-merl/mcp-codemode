@@ -1,0 +1,50 @@
+{
+  "taskId": "cloudflare-observability-query",
+  "mode": "baseline",
+  "runNumber": 2,
+  "timestamp": "2026-01-21T06:13:01.865Z",
+  "tokens": {
+    "input": 72,
+    "output": 97,
+    "total": 169
+  },
+  "cost": 0.001671,
+  "response": {
+    "tool_name": "worker_observability.query",
+    "arguments": {
+      "time_range": "last_1h",
+      "filters": {
+        "level": [
+          "error",
+          "fatal"
+        ]
+      },
+      "limit": 1000,
+      "order_by": [
+        {
+          "field": "timestamp",
+          "direction": "desc"
+        }
+      ],
+      "include_fields": [
+        "timestamp",
+        "worker_name",
+        "service",
+        "environment",
+        "region",
+        "request_id",
+        "trace_id",
+        "span_id",
+        "level",
+        "message",
+        "error.type",
+        "error.message",
+        "error.stack",
+        "http.method",
+        "http.url",
+        "http.status_code"
+      ]
+    }
+  },
+  "correct": false
+}

@@ -1,0 +1,21 @@
+{
+  "taskId": "supabase-get-logs",
+  "mode": "baseline",
+  "runNumber": 1,
+  "timestamp": "2026-01-21T06:12:48.419Z",
+  "tokens": {
+    "input": 72,
+    "output": 31,
+    "total": 103
+  },
+  "cost": 0.000681,
+  "response": {
+    "tool_name": "supabase.get_project_logs",
+    "arguments": {
+      "time_range": "last_1h",
+      "level": "error",
+      "limit": 200
+    }
+  },
+  "correct": false
+}

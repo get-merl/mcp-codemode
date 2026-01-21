@@ -1,0 +1,20 @@
+{
+  "taskId": "cloudflare-workers-list-large",
+  "mode": "toolbox",
+  "runNumber": 3,
+  "timestamp": "2026-01-21T06:15:26.271Z",
+  "tokens": {
+    "input": 74,
+    "output": 27,
+    "total": 101
+  },
+  "cost": 0.000627,
+  "response": {
+    "tool_name": "cloudflare.list_workers",
+    "arguments": {
+      "account_id": "<ACCOUNT_ID>",
+      "include_routes": false
+    }
+  },
+  "correct": false
+}

@@ -1,0 +1,19 @@
+{
+  "taskId": "supabase-execute-sql-query",
+  "mode": "baseline",
+  "runNumber": 3,
+  "timestamp": "2026-01-21T06:12:46.894Z",
+  "tokens": {
+    "input": 73,
+    "output": 89,
+    "total": 162
+  },
+  "cost": 0.0015539999999999998,
+  "response": {
+    "tool_name": "query_database",
+    "arguments": {
+      "query": "SELECT table_schema, table_name FROM information_schema.tables WHERE table_type='BASE TABLE' AND table_schema NOT IN ('information_schema','pg_catalog') ORDER BY (SELECT COALESCE(pg_total_relation_size(quote_ident(table_schema)||'.'||quote_ident(table_name)),0)) DESC LIMIT 1; -- then run: SELECT * FROM <schema>.<table>;"
+    }
+  },
+  "correct": false
+}

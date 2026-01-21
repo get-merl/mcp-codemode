@@ -1,0 +1,19 @@
+{
+  "taskId": "supabase-list-tables-large",
+  "mode": "baseline",
+  "runNumber": 3,
+  "timestamp": "2026-01-21T06:12:39.490Z",
+  "tokens": {
+    "input": 70,
+    "output": 257,
+    "total": 327
+  },
+  "cost": 0.004065,
+  "response": {
+    "tool_name": "query_postgres",
+    "arguments": {
+      "query": "SELECT t.table_name,\n       t.table_type,\n       obj_description(format('%I.%I', t.table_schema, t.table_name)::regclass) AS table_comment,\n       COALESCE(c.column_count,0) AS column_count,\n       COALESCE(c.columns, '[]'::json) AS columns\nFROM information_schema.tables t\nLEFT JOIN LATERAL (\n  SELECT COUNT(*) AS column_count,\n         json_agg(\n           json_build_object(\n             'ordinal_position', ordinal_position,\n             'column_name', column_name,\n             'data_type', data_type,\n             'udt_name', udt_name,\n             'is_nullable', is_nullable,\n             'column_default', column_default\n           ) ORDER BY ordinal_position\n         ) AS columns\n  FROM information_schema.columns\n  WHERE table_schema = t.table_schema\n    AND table_name = t.table_name\n) c ON TRUE\nWHERE t.table_schema = 'public'\n  AND t.table_type IN ('BASE TABLE','VIEW','FOREIGN TABLE','MATERIALIZED VIEW')\nORDER BY t.table_type, t.table_name;"
+    }
+  },
+  "correct": false
+}

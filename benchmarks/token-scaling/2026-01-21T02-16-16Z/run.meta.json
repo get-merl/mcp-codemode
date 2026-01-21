@@ -1,0 +1,14 @@
+{
+  "testType": "token-scaling",
+  "timestamp": "2026-01-21T02-16-16Z",
+  "runsPerTask": 2,
+  "tasksCount": 3,
+  "toolCounts": [
+    30,
+    50,
+    100,
+    200,
+    500,
+    1000
+  ]
+}

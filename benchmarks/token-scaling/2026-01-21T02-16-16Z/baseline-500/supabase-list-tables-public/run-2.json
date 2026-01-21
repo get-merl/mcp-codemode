@@ -1,0 +1,16 @@
+{
+  "taskId": "supabase-list-tables-public",
+  "mode": "baseline-500",
+  "runNumber": 2,
+  "timestamp": "2026-01-21T02:16:39.626Z",
+  "tokens": {
+    "input": 72,
+    "output": 16,
+    "total": 88
+  },
+  "cost": 0.00045599999999999997,
+  "response": {
+    "content": "{\"tool_name\":\"list_tables\",\"arguments\":{\"schema\":\"public\"}}"
+  },
+  "toolCount": 500
+}

@@ -1,0 +1,19 @@
+{
+  "taskId": "supabase-list-tables-large",
+  "mode": "baseline",
+  "runNumber": 2,
+  "timestamp": "2026-01-21T06:12:35.054Z",
+  "tokens": {
+    "input": 70,
+    "output": 566,
+    "total": 636
+  },
+  "cost": 0.0087,
+  "response": {
+    "tool_name": "database.query",
+    "arguments": {
+      "sql": "SELECT n.nspname AS schema_name,\n       c.relname AS table_name,\n       pg_catalog.pg_size_pretty(pg_total_relation_size(c.oid)) AS total_size,\n       pg_catalog.pg_size_pretty(pg_relation_size(c.oid)) AS table_size,\n       pg_catalog.pg_size_pretty(pg_total_relation_size(c.oid) - pg_relation_size(c.oid)) AS indexes_size,\n       obj_description(c.oid, 'pg_class') AS table_comment\nFROM pg_class c\nJOIN pg_namespace n ON n.oid = c.relnamespace\nWHERE n.nspname = 'public'\n  AND c.relkind = 'r'\nORDER BY c.relname;\n\n-- Column details\nSELECT cols.table_schema,\n       cols.table_name,\n       cols.ordinal_position,\n       cols.column_name,\n       cols.data_type,\n       cols.udt_name,\n       cols.is_nullable,\n       cols.column_default,\n       cols.character_maximum_length,\n       cols.numeric_precision,\n       cols.numeric_scale\nFROM information_schema.columns cols\nWHERE cols.table_schema = 'public'\nORDER BY cols.table_name, cols.ordinal_position;\n\n-- Constraints (PK/UK/FK/CK)\nSELECT tc.table_schema,\n       tc.table_name,\n       tc.constraint_name,\n       tc.constraint_type,\n       kcu.column_name,\n       ccu.table_name AS foreign_table_name,\n       ccu.column_name AS foreign_column_name,\n       rc.update_rule,\n       rc.delete_rule,\n       cc.check_clause\nFROM information_schema.table_constraints tc\nLEFT JOIN information_schema.key_column_usage kcu\n       ON tc.constraint_name = kcu.constraint_name\n      AND tc.table_schema = kcu.table_schema\nLEFT JOIN information_schema.referential_constraints rc\n       ON tc.constraint_name = rc.constraint_name\n      AND tc.table_schema = rc.constraint_schema\nLEFT JOIN information_schema.constraint_column_usage ccu\n       ON rc.unique_constraint_name = ccu.constraint_name\n      AND rc.unique_constraint_schema = ccu.constraint_schema\nLEFT JOIN information_schema.check_constraints cc\n       ON tc.constraint_name = cc.constraint_name\n      AND tc.table_schema = cc.constraint_schema\nWHERE tc.table_schema = 'public'\nORDER BY tc.table_name, tc.constraint_type, tc.constraint_name, kcu.ordinal_position;\n\n-- Index details\nSELECT schemaname AS table_schema,\n       tablename  AS table_name,\n       indexname  AS index_name,\n       indexdef   AS index_definition\nFROM pg_indexes\nWHERE schemaname = 'public'\nORDER BY tablename, indexname;"
+    }
+  },
+  "correct": false
+}

@@ -1,0 +1,16 @@
+{
+  "taskId": "supabase-list-tables-public",
+  "mode": "baseline-1000",
+  "runNumber": 2,
+  "timestamp": "2026-01-21T02:16:44.962Z",
+  "tokens": {
+    "input": 72,
+    "output": 17,
+    "total": 89
+  },
+  "cost": 0.000471,
+  "response": {
+    "content": "{\"tool_name\":\"postgres.list_tables\",\"arguments\":{\"schema\":\"public\"}}"
+  },
+  "toolCount": 1000
+}

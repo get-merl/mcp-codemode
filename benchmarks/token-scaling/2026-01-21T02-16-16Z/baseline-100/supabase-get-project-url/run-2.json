@@ -1,0 +1,16 @@
+{
+  "taskId": "supabase-get-project-url",
+  "mode": "baseline-100",
+  "runNumber": 2,
+  "timestamp": "2026-01-21T02:16:28.168Z",
+  "tokens": {
+    "input": 73,
+    "output": 18,
+    "total": 91
+  },
+  "cost": 0.0004890000000000001,
+  "response": {
+    "content": "{\"tool_name\":\"supabase.get_project_api_url\",\"arguments\":{}}"
+  },
+  "toolCount": 100
+}

@@ -1,0 +1,19 @@
+{
+  "taskId": "supabase-execute-sql-query",
+  "mode": "baseline",
+  "runNumber": 1,
+  "timestamp": "2026-01-21T06:12:41.812Z",
+  "tokens": {
+    "input": 73,
+    "output": 143,
+    "total": 216
+  },
+  "cost": 0.002364,
+  "response": {
+    "tool_name": "sql_query",
+    "arguments": {
+      "query": "WITH table_sizes AS (\n  SELECT\n    n.nspname AS schema_name,\n    c.relname AS table_name,\n    pg_total_relation_size(c.oid) AS total_bytes\n  FROM pg_class c\n  JOIN pg_namespace n ON n.oid = c.relnamespace\n  WHERE c.relkind = 'r'\n    AND n.nspname NOT IN ('pg_catalog','information_schema')\n)\nSELECT format('SELECT * FROM %I.%I;', schema_name, table_name) AS query_to_run\nFROM table_sizes\nORDER BY total_bytes DESC\nLIMIT 1;"
+    }
+  },
+  "correct": false
+}

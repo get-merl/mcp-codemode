@@ -1,0 +1,425 @@
+{
+  "testType": "tool-selection-accuracy",
+  "timestamp": "2026-01-21T06:31:42.963Z",
+  "totalRuns": 18,
+  "results": [
+    {
+      "taskId": "cloudflare-search-docs-workers",
+      "mode": "baseline",
+      "runs": [
+        {
+          "taskId": "cloudflare-search-docs-workers",
+          "mode": "baseline",
+          "runNumber": 1,
+          "timestamp": "2026-01-21T06:31:38.333Z",
+          "tokens": {
+            "input": 76,
+            "output": 29,
+            "total": 105
+          },
+          "cost": 0.000663,
+          "response": {
+            "tool_name": "browser.search",
+            "arguments": {
+              "query": "site:developers.cloudflare.com Workers Durable Objects alarms",
+              "top_k": 5
+            }
+          },
+          "correct": false
+        },
+        {
+          "taskId": "cloudflare-search-docs-workers",
+          "mode": "baseline",
+          "runNumber": 2,
+          "timestamp": "2026-01-21T06:31:39.406Z",
+          "tokens": {
+            "input": 76,
+            "output": 37,
+            "total": 113
+          },
+          "cost": 0.000783,
+          "response": {
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "Cloudflare Workers Durable Objects alarms site:developers.cloudflare.com",
+              "top_k": 5,
+              "include_snippets": true
+            }
+          },
+          "correct": false
+        },
+        {
+          "taskId": "cloudflare-search-docs-workers",
+          "mode": "baseline",
+          "runNumber": 3,
+          "timestamp": "2026-01-21T06:31:40.231Z",
+          "tokens": {
+            "input": 76,
+            "output": 29,
+            "total": 105
+          },
+          "cost": 0.000663,
+          "response": {
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "site:developers.cloudflare.com Workers Durable Objects alarms",
+              "top_k": 5
+            }
+          },
+          "correct": false
+        }
+      ],
+      "averageTokens": {
+        "input": 76,
+        "output": 31.666666666666668,
+        "total": 107.66666666666667
+      },
+      "averageCost": 0.000703,
+      "accuracy": 0
+    },
+    {
+      "taskId": "supabase-get-project-url",
+      "mode": "baseline",
+      "runs": [
+        {
+          "taskId": "supabase-get-project-url",
+          "mode": "baseline",
+          "runNumber": 1,
+          "timestamp": "2026-01-21T06:31:27.617Z",
+          "tokens": {
+            "input": 73,
+            "output": 18,
+            "total": 91
+          },
+          "cost": 0.0004890000000000001,
+          "response": {
+            "tool_name": "supabase.get_project_api_url",
+            "arguments": {}
+          },
+          "correct": true
+        },
+        {
+          "taskId": "supabase-get-project-url",
+          "mode": "baseline",
+          "runNumber": 2,
+          "timestamp": "2026-01-21T06:31:28.387Z",
+          "tokens": {
+            "input": 73,
+            "output": 18,
+            "total": 91
+          },
+          "cost": 0.0004890000000000001,
+          "response": {
+            "tool_name": "supabase_get_project_api_url",
+            "arguments": {}
+          },
+          "correct": false
+        },
+        {
+          "taskId": "supabase-get-project-url",
+          "mode": "baseline",
+          "runNumber": 3,
+          "timestamp": "2026-01-21T06:31:29.144Z",
+          "tokens": {
+            "input": 73,
+            "output": 18,
+            "total": 91
+          },
+          "cost": 0.0004890000000000001,
+          "response": {
+            "tool_name": "supabase_get_project_api_url",
+            "arguments": {}
+          },
+          "correct": false
+        }
+      ],
+      "averageTokens": {
+        "input": 73,
+        "output": 18,
+        "total": 91
+      },
+      "averageCost": 0.0004890000000000001,
+      "accuracy": 0.3333333333333333
+    },
+    {
+      "taskId": "supabase-list-tables-public",
+      "mode": "baseline",
+      "runs": [
+        {
+          "taskId": "supabase-list-tables-public",
+          "mode": "baseline",
+          "runNumber": 1,
+          "timestamp": "2026-01-21T06:31:32.969Z",
+          "tokens": {
+            "input": 72,
+            "output": 16,
+            "total": 88
+          },
+          "cost": 0.00045599999999999997,
+          "response": {
+            "tool_name": "list_tables",
+            "arguments": {
+              "schema": "public"
+            }
+          },
+          "correct": false
+        },
+        {
+          "taskId": "supabase-list-tables-public",
+          "mode": "baseline",
+          "runNumber": 2,
+          "timestamp": "2026-01-21T06:31:33.786Z",
+          "tokens": {
+            "input": 72,
+            "output": 17,
+            "total": 89
+          },
+          "cost": 0.000471,
+          "response": {
+            "tool_name": "postgres_list_tables",
+            "arguments": {
+              "schema": "public"
+            }
+          },
+          "correct": false
+        },
+        {
+          "taskId": "supabase-list-tables-public",
+          "mode": "baseline",
+          "runNumber": 3,
+          "timestamp": "2026-01-21T06:31:34.515Z",
+          "tokens": {
+            "input": 72,
+            "output": 16,
+            "total": 88
+          },
+          "cost": 0.00045599999999999997,
+          "response": {
+            "tool_name": "list_tables",
+            "arguments": {
+              "schema": "public"
+            }
+          },
+          "correct": false
+        }
+      ],
+      "averageTokens": {
+        "input": 72,
+        "output": 16.333333333333332,
+        "total": 88.33333333333333
+      },
+      "averageCost": 0.000461,
+      "accuracy": 0
+    },
+    {
+      "taskId": "cloudflare-search-docs-workers",
+      "mode": "toolbox",
+      "runs": [
+        {
+          "taskId": "cloudflare-search-docs-workers",
+          "mode": "toolbox",
+          "runNumber": 1,
+          "timestamp": "2026-01-21T06:31:41.201Z",
+          "tokens": {
+            "input": 76,
+            "output": 34,
+            "total": 110
+          },
+          "cost": 0.000738,
+          "response": {
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "site:developers.cloudflare.com Workers Durable Objects alarms",
+              "top_k": 5,
+              "safe_search": true
+            }
+          },
+          "correct": false
+        },
+        {
+          "taskId": "cloudflare-search-docs-workers",
+          "mode": "toolbox",
+          "runNumber": 2,
+          "timestamp": "2026-01-21T06:31:41.941Z",
+          "tokens": {
+            "input": 76,
+            "output": 28,
+            "total": 104
+          },
+          "cost": 0.000648,
+          "response": {
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "Cloudflare docs Workers Durable Objects alarms",
+              "site": "developers.cloudflare.com"
+            }
+          },
+          "correct": false
+        },
+        {
+          "taskId": "cloudflare-search-docs-workers",
+          "mode": "toolbox",
+          "runNumber": 3,
+          "timestamp": "2026-01-21T06:31:42.962Z",
+          "tokens": {
+            "input": 76,
+            "output": 35,
+            "total": 111
+          },
+          "cost": 0.000753,
+          "response": {
+            "tool_name": "web_search",
+            "arguments": {
+              "query": "Cloudflare Workers Durable Objects alarms site:developers.cloudflare.com",
+              "top_k": 5,
+              "language": "en"
+            }
+          },
+          "correct": false
+        }
+      ],
+      "averageTokens": {
+        "input": 76,
+        "output": 32.333333333333336,
+        "total": 108.33333333333333
+      },
+      "averageCost": 0.0007130000000000001,
+      "accuracy": 0
+    },
+    {
+      "taskId": "supabase-get-project-url",
+      "mode": "toolbox",
+      "runs": [
+        {
+          "taskId": "supabase-get-project-url",
+          "mode": "toolbox",
+          "runNumber": 1,
+          "timestamp": "2026-01-21T06:31:29.788Z",
+          "tokens": {
+            "input": 73,
+            "output": 18,
+            "total": 91
+          },
+          "cost": 0.0004890000000000001,
+          "response": {
+            "tool_name": "supabase_get_project_api_url",
+            "arguments": {}
+          },
+          "correct": false
+        },
+        {
+          "taskId": "supabase-get-project-url",
+          "mode": "toolbox",
+          "runNumber": 2,
+          "timestamp": "2026-01-21T06:31:30.330Z",
+          "tokens": {
+            "input": 73,
+            "output": 18,
+            "total": 91
+          },
+          "cost": 0.0004890000000000001,
+          "response": {
+            "tool_name": "supabase_get_project_api_url",
+            "arguments": {}
+          },
+          "correct": false
+        },
+        {
+          "taskId": "supabase-get-project-url",
+          "mode": "toolbox",
+          "runNumber": 3,
+          "timestamp": "2026-01-21T06:31:32.176Z",
+          "tokens": {
+            "input": 73,
+            "output": 18,
+            "total": 91
+          },
+          "cost": 0.0004890000000000001,
+          "response": {
+            "tool_name": "supabase.get_project_api_url",
+            "arguments": {}
+          },
+          "correct": true
+        }
+      ],
+      "averageTokens": {
+        "input": 73,
+        "output": 18,
+        "total": 91
+      },
+      "averageCost": 0.0004890000000000001,
+      "accuracy": 0.3333333333333333
+    },
+    {
+      "taskId": "supabase-list-tables-public",
+      "mode": "toolbox",
+      "runs": [
+        {
+          "taskId": "supabase-list-tables-public",
+          "mode": "toolbox",
+          "runNumber": 1,
+          "timestamp": "2026-01-21T06:31:35.497Z",
+          "tokens": {
+            "input": 72,
+            "output": 41,
+            "total": 113
+          },
+          "cost": 0.0008309999999999999,
+          "response": {
+            "tool_name": "query",
+            "arguments": {
+              "sql": "SELECT tablename\nFROM pg_catalog.pg_tables\nWHERE schemaname = 'public'\nORDER BY tablename;",
+              "params": []
+            }
+          },
+          "correct": false
+        },
+        {
+          "taskId": "supabase-list-tables-public",
+          "mode": "toolbox",
+          "runNumber": 2,
+          "timestamp": "2026-01-21T06:31:36.573Z",
+          "tokens": {
+            "input": 72,
+            "output": 38,
+            "total": 110
+          },
+          "cost": 0.000786,
+          "response": {
+            "tool_name": "query",
+            "arguments": {
+              "sql": "SELECT tablename\nFROM pg_catalog.pg_tables\nWHERE schemaname = 'public'\nORDER BY tablename;"
+            }
+          },
+          "correct": false
+        },
+        {
+          "taskId": "supabase-list-tables-public",
+          "mode": "toolbox",
+          "runNumber": 3,
+          "timestamp": "2026-01-21T06:31:37.264Z",
+          "tokens": {
+            "input": 72,
+            "output": 39,
+            "total": 111
+          },
+          "cost": 0.0008010000000000001,
+          "response": {
+            "tool_name": "sql_query",
+            "arguments": {
+              "query": "SELECT tablename\nFROM pg_catalog.pg_tables\nWHERE schemaname = 'public'\nORDER BY tablename;"
+            }
+          },
+          "correct": false
+        }
+      ],
+      "averageTokens": {
+        "input": 72,
+        "output": 39.333333333333336,
+        "total": 111.33333333333333
+      },
+      "averageCost": 0.000806,
+      "accuracy": 0
+    }
+  ]
+}

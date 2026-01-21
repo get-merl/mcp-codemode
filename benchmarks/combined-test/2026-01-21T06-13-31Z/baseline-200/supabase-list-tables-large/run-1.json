@@ -1,0 +1,16 @@
+{
+  "taskId": "supabase-list-tables-large",
+  "mode": "baseline-200",
+  "runNumber": 1,
+  "timestamp": "2026-01-21T06:14:40.818Z",
+  "tokens": {
+    "input": 77,
+    "output": 739,
+    "total": 816
+  },
+  "cost": 0.011316,
+  "response": {
+    "content": "{\"tool_name\":\"query_postgres\",\"arguments\":{\"sql\":\"SELECT n.nspname AS schema_name,\\n       c.relname AS table_name,\\n       c.relkind AS relation_type,\\n       pg_total_relation_size(c.oid) AS total_bytes,\\n       pg_relation_size(c.oid) AS table_bytes,\\n       pg_total_relation_size(c.oid) - pg_relation_size(c.oid) AS aux_bytes,\\n       pg_size_pretty(pg_total_relation_size(c.oid)) AS total_size,\\n       pg_size_pretty(pg_relation_size(c.oid)) AS table_size,\\n       pg_size_pretty(pg_total_relation_size(c.oid) - pg_relation_size(c.oid)) AS aux_size,\\n       c.reltuples::bigint AS est_rows,\\n       obj_description(c.oid, 'pg_class') AS table_comment,\\n       (SELECT jsonb_agg(jsonb_build_object(\\n                   'column_name', a.attname,\\n                   'data_type', pg_catalog.format_type(a.atttypid, a.atttypmod),\\n                   'is_nullable', NOT a.attnotnull,\\n                   'default', pg_get_expr(ad.adbin, ad.adrelid),\\n                   'comment', col_description(a.attrelid, a.attnum)\\n               ) ORDER BY a.attnum)\\n          FROM pg_attribute a\\n          LEFT JOIN pg_attrdef ad\\n                 ON ad.adrelid = a.attrelid\\n                AND ad.adnum = a.attnum\\n         WHERE a.attrelid = c.oid\\n           AND a.attnum > 0\\n           AND NOT a.attisdropped) AS columns,\\n       (SELECT jsonb_agg(jsonb_build_object(\\n                   'index_name', ic.relname,\\n                   'is_primary', i.indisprimary,\\n                   'is_unique', i.indisunique,\\n                   'is_valid', i.indisvalid,\\n                   'definition', pg_get_indexdef(i.indexrelid)\\n               ) ORDER BY ic.relname)\\n          FROM pg_index i\\n          JOIN pg_class ic ON ic.oid = i.indexrelid\\n         WHERE i.indrelid = c.oid) AS indexes,\\n       (SELECT jsonb_agg(jsonb_build_object(\\n                   'constraint_name', con.conname,\\n                   'constraint_type', con.contype,\\n                   'definition', pg_get_constraintdef(con.oid)\\n               ) ORDER BY con.conname)\\n          FROM pg_constraint con\\n         WHERE con.conrelid = c.oid) AS constraints,\\n       (SELECT jsonb_agg(jsonb_build_object(\\n                   'referenced_by_table', rn.nspname || '.' || rc.relname,\\n                   'fk_name', con.conname,\\n                   'definition', pg_get_constraintdef(con.oid)\\n               ) ORDER BY rn.nspname, rc.relname, con.conname)\\n          FROM pg_constraint con\\n          JOIN pg_class rc ON rc.oid = con.conrelid\\n          JOIN pg_namespace rn ON rn.oid = rc.relnamespace\\n         WHERE con.contype = 'f'\\n           AND con.confrelid = c.oid) AS referenced_by\\n  FROM pg_class c\\n  JOIN pg_namespace n ON n.oid = c.relnamespace\\n WHERE n.nspname = 'public'\\n   AND c.relkind IN ('r','p','v','m','f')\\n ORDER BY n.nspname, c.relname;\"} }"
+  },
+  "toolCount": 200
+}

@@ -1,0 +1,16 @@
+{
+  "taskId": "supabase-list-tables-large",
+  "mode": "baseline-500",
+  "runNumber": 1,
+  "timestamp": "2026-01-21T06:14:55.342Z",
+  "tokens": {
+    "input": 77,
+    "output": 66,
+    "total": 143
+  },
+  "cost": 0.001221,
+  "response": {
+    "content": "{\"tool_name\":\"sql_query\",\"arguments\":{\"query\":\"SELECT schemaname, tablename, tableowner, tablespace, hasindexes, hasrules, hastriggers, rowsecurity\\nFROM pg_catalog.pg_tables\\nWHERE schemaname = 'public'\\nORDER BY tablename;\",\"database\":\"postgres\"}}"
+  },
+  "toolCount": 500
+}
